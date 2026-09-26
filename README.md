@@ -18,8 +18,9 @@ Les PDF du projet sont la seule source de vérité. Tout écart est tracé dans 
 | L1 | Référentiel maître, données sénégalaises, correspondances | Livré |
 | L2-a | Source 1 : PostgreSQL | Validé (G1 : 39/39) ([détails](sources/s1_postgresql/README.md)) |
 | L2-b | Source 2 : MySQL | Validé (G1 : 45/45) ([détails](sources/s2_mysql/README.md)) |
-| L2-c | Source 3 : CSV RH | Livré, en attente de G1 ([détails](sources/s3_csv/README.md)) |
-| L2-d et L2-e | Sources 4 et 5 | À venir |
+| L2-c | Source 3 : CSV RH | Validé (G1 : 50/50) ([détails](sources/s3_csv/README.md)) |
+| L2-d | Source 4 : MongoDB | Livré, en attente de G1 ([détails](sources/s4_mongodb/README.md)) |
+| L2-e | Source 5 : Redis | À venir |
 | L3 à L10 | Plateforme BI (phases 1 à 18) | À venir |
 
 ## 2. Arborescence actuelle
@@ -43,7 +44,8 @@ edusmart-decision-platform/
 ├── sources/
 │   ├── s1_postgresql/            Source 1 : SQL, génération, insertion, vérification G1
 │   ├── s2_mysql/                 Source 2 : idem pour MySQL
-│   └── s3_csv/                   Source 3 : schéma, génération, vérification G1 + output/*.csv (livrés)
+│   ├── s3_csv/                   Source 3 : schéma, génération, vérification G1 + output/*.csv (livrés)
+│   └── s4_mongodb/               Source 4 : validateur, génération, insertion, vérification G1
 ├── mappings/
 │   ├── mapping_etudiants.csv     9 000 paires matricule <-> student_code
 │   └── mapping_courses.csv       codes MODULE / COURSE-n / QUIZ-n <-> UUID MySQL (rempli en L2-b)
@@ -52,7 +54,7 @@ edusmart-decision-platform/
 │   ├── generated/<source>/       CSV intermédiaires + summary.json
 │   ├── anomalies/                journaux d'anomalies (vérité terrain)
 │   └── reports/                  rapports des portes G1
-├── tests/                        149 tests unitaires + 8 tests d'intégration
+├── tests/                        163 tests unitaires + 16 tests d'intégration
 ├── requirements.txt
 └── pytest.ini
 ```
@@ -185,6 +187,7 @@ alimente le constat « nombre réel d'étudiants » des phases 1 et 11.
 | C20 | Date de référence | 15/09/2026 : aucune activité simulée après (`GenerationConfig.date_reference`) | Données identiques quel que soit le jour d'exécution ; cohérente avec les exemples MongoDB et Redis |
 | C21 | Catalogue pédagogique | `common/learning_catalog.py` : 8 catégories (une par département), codes `MOD-XXX-NN`, `COURSE-n`, `QUIZ-n` | Codes partagés par MySQL, MongoDB et Redis |
 | C22 | Codes de contenus | `mapping_courses.csv` livré (95 % des cours et quiz) ; `data/referential/referentiel_contenus.csv` caché (100 %) | Même logique que mapping_etudiants : les absents se découvrent par anti-jointure |
+| C23 | Sessions mobiles | `data/referential/sessions_mobile.csv` (caché) : 51 711 sessions MongoDB, dont 700 ouvertes le 15/09/2026 au soir | Base des sessions Redis (L2-e) |
 
 Les écarts propres à chaque source sont documentés dans son README
 (ex. [Source 1, § 6](sources/s1_postgresql/README.md#6-conventions-et-écarts-assumés)).
