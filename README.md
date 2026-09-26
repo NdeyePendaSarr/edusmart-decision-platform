@@ -16,8 +16,9 @@ Les PDF du projet sont la seule source de vérité. Tout écart est tracé dans 
 |---|---|---|
 | L0 | Infrastructure Docker, configuration, journalisation | Validé (G0 : 5/5) |
 | L1 | Référentiel maître, données sénégalaises, correspondances | Livré |
-| L2-a | Source 1 : PostgreSQL | Livré, en attente de G1 ([détails](sources/s1_postgresql/README.md)) |
-| L2-b à L2-e | Sources 2 à 5 | À venir |
+| L2-a | Source 1 : PostgreSQL | Validé (G1 : 39/39) ([détails](sources/s1_postgresql/README.md)) |
+| L2-b | Source 2 : MySQL | Livré, en attente de G1 ([détails](sources/s2_mysql/README.md)) |
+| L2-c à L2-e | Sources 3 à 5 | À venir |
 | L3 à L10 | Plateforme BI (phases 1 à 18) | À venir |
 
 ## 2. Arborescence actuelle
@@ -32,22 +33,24 @@ edusmart-decision-platform/
 │   ├── academic_catalog.py       départements, 25 filières, vivier de 120 enseignants
 │   ├── anomaly_journal.py        journal des anomalies injectées (toutes sources)
 │   ├── config.py                 configuration centralisée
+│   ├── learning_catalog.py       catégories, thèmes et codes des contenus pédagogiques
 │   ├── logger.py                 journalisation console + fichier
 │   ├── seed.py                   graine et générateurs reproductibles
 │   ├── senegalese_data.py        noms, 14 régions, villes, téléphone +221
 │   └── referential.py            référentiel maître + correspondances
 ├── scripts/check_infrastructure.py   point de contrôle G0
 ├── sources/
-│   └── s1_postgresql/            Source 1 : SQL, génération, insertion, vérification G1
+│   ├── s1_postgresql/            Source 1 : SQL, génération, insertion, vérification G1
+│   └── s2_mysql/                 Source 2 : idem pour MySQL
 ├── mappings/
 │   ├── mapping_etudiants.csv     9 000 paires matricule <-> student_code
-│   └── mapping_courses.csv       squelette (rempli en L2)
+│   └── mapping_courses.csv       codes MODULE / COURSE-n / QUIZ-n <-> UUID MySQL (rempli en L2-b)
 ├── data/                         GÉNÉRÉ, non versionné :
 │   ├── referential/              référentiel maître caché
 │   ├── generated/<source>/       CSV intermédiaires + summary.json
 │   ├── anomalies/                journaux d'anomalies (vérité terrain)
 │   └── reports/                  rapports des portes G1
-├── tests/                        83 tests unitaires + 3 tests d'intégration
+├── tests/                        117 tests unitaires + 8 tests d'intégration
 ├── requirements.txt
 └── pytest.ini
 ```
@@ -140,7 +143,7 @@ incompatibles, comme dans une vraie entreprise.
 |---|---|---|
 | `data/referential/referentiel_maitre.csv` | 10 500 personnes (10 000 PG + 500 LMS orphelines) | Générateurs L2 et tests uniquement. **Jamais le pipeline ETL** |
 | `mappings/mapping_etudiants.csv` | 9 000 paires connues | Pipeline ETL (artefact d'intégration) |
-| `mappings/mapping_courses.csv` | En-tête seul | Rempli en L2-b |
+| `mappings/mapping_courses.csv` | 1 994 codes de contenus (voir C22) | Pipeline ETL |
 
 **Répartition** (graine 2026) :
 
@@ -177,6 +180,9 @@ alimente le constat « nombre réel d'étudiants » des phases 1 et 11.
 | C17 | Catalogue académique partagé | `common/academic_catalog.py` : 8 départements, 25 filières (LIC-/MAS-/CERT-) | Mêmes départements pour PostgreSQL et le CSV RH |
 | C18 | Vivier d'enseignants | 120 enseignants `ENS-NNNN`, noms uniques, créés en L2-a et enrichis en L2-c | Seul pont (par le nom) entre `classes.responsable` et `enseignants.csv` |
 | C19 | Journal d'anomalies | `data/anomalies/<source>_anomalies.csv`, jamais lu par l'ETL | Vérité terrain pour G1 et la Phase 15 |
+| C20 | Date de référence | 15/09/2026 : aucune activité simulée après (`GenerationConfig.date_reference`) | Données identiques quel que soit le jour d'exécution ; cohérente avec les exemples MongoDB et Redis |
+| C21 | Catalogue pédagogique | `common/learning_catalog.py` : 8 catégories (une par département), codes `MOD-XXX-NN`, `COURSE-n`, `QUIZ-n` | Codes partagés par MySQL, MongoDB et Redis |
+| C22 | Codes de contenus | `mapping_courses.csv` livré (95 % des cours et quiz) ; `data/referential/referentiel_contenus.csv` caché (100 %) | Même logique que mapping_etudiants : les absents se découvrent par anti-jointure |
 
 Les écarts propres à chaque source sont documentés dans son README
 (ex. [Source 1, § 6](sources/s1_postgresql/README.md#6-conventions-et-écarts-assumés)).

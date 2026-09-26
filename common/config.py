@@ -246,6 +246,12 @@ class GenerationConfig:
     pays_defaut: str = "Sénégal"
     devise: str = "XOF"
 
+    # « Aujourd'hui » de la simulation (ajout L2-b) : aucune activité n'est
+    # générée après cette date. Date FIXE pour que les données restent
+    # identiques quel que soit le jour d'exécution. Le 15/09/2026 correspond
+    # aux exemples des PDF MongoDB (12/09/2026) et Redis (15/09/2026).
+    date_reference: date = date(2026, 9, 15)
+
     # --- Valeurs dérivées ---------------------------------------------------
     @property
     def nb_pg_sans_lms(self) -> int:
@@ -288,6 +294,8 @@ class GenerationConfig:
             errors.append(str(exc))
         if self.periode_debut >= self.periode_fin:
             errors.append("periode_debut doit précéder periode_fin")
+        if not self.periode_debut <= self.date_reference <= self.periode_fin:
+            errors.append("date_reference doit être comprise dans la période")
         if errors:
             raise ConfigError("Configuration de génération invalide : " + " ; ".join(errors))
 
