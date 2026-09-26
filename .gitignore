@@ -1,0 +1,13 @@
+# Secrets
+docker/.env
+.env
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+# Données générées (reproductibles par graine) et logs
+data/
+logs/
+# Power BI : fichiers temporaires
+~$*
