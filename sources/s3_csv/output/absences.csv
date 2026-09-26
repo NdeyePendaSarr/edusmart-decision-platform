@@ -1,0 +1,2499 @@
+id_absence;teacher_code;date_absence;motif;justifiee;duree_heures;remplace
+1;ENS-0017;2023-10-02;Formation;Oui;6;Oui
+2;ENS-0064;2023-10-02;Formation;Oui;3;Non
+3;ENS-0089;2023-10-02;Mission;Non;8;Non
+4;ENS-0099;2023-10-02;Formation;Oui;6;Non
+5;ENS-0108;2023-10-02;Raison familiale;Non;3;Non
+6;ENS-0111;02/10/2023;Participation à un jury;Oui;3;Non
+7;ENS-0012;2023-10-03;Maladie;Non;4;Oui
+8;ENS-0050;2023-10-03;Maladie;Oui;2;Oui
+9;ENS-0094;2023-10-03;;Non;8;Non
+10;ENS-0098;2023-10-03;Maladie;Oui;3;Oui
+11;ENS-0103;2023-10-03;Grève des transports;Non;4;Non
+12;ENS-0120;2020-09-10;Participation à un jury;Non;3;Non
+13;ENS-0026;2023-10-04;Mission;Non;655;Non
+14;ENS-0051;04/10/2023;Formation;Oui;8;Non
+15;ENS-0082;2023-10-04;Raison familiale;Oui;4;Non
+16;ENS-0088;2023-10-04;Examen médical;Non;3;Non
+17;ENS-0090;04/10/2023;Décès d'un proche;Oui;8;Non
+18;ENS-0093;2023-10-04;Maladie;Non;3;Non
+19;ENS-0015;2023-10-05;Participation à un jury;Oui;706;Non
+20;ENS-0097;2023-10-05;Congé de maternité;Oui;3;Non
+21;ENS-0056;2023-10-06;Maladie;Non;4;Oui
+22;ENS-0059;2023-10-06;Formation;Oui;4;Oui
+23;ENS-0065;2023-10-06;Examen médical;Oui;8;Oui
+24;ENS-0112;2023-10-06;Maladie;Non;2;Non
+25;ENS-0030;2023-10-09;Participation à un jury;Oui;4;Non
+26;ENS-0033;2023-10-09;Participation à un jury;Oui;2;Oui
+27;ENS-0069;2023-10-09;;Non;8;Oui
+28;ENS-0109;2023-10-09;Formation;Non;6;Non
+29;ENS-0010;2023-10-10;Participation à un jury;Oui;3;Oui
+30;ENS-0114;2023-10-10;Formation;Oui;6;Non
+31;ENS-0061;10-11-2023;Examen médical;Oui;8;Non
+32;ENS-0116;2023-10-11;Examen médical;Oui;3;Non
+33;ENS-0045;2023-10-12;Congé de maternité;Oui;4;Non
+34;ENS-0085;2023-10-12;Grève des transports;Non;3;Oui
+35;ENS-0087;2023-10-12;Examen médical;Oui;3;Non
+35;ENS-0087;2023-10-12;Examen médical;Oui;3;Non
+36;ENS-0025;2027-06-19;Raison familiale;Non;2;Non
+37;ENS-0096;2023-10-13;Congé de maternité;Oui;6;Non
+38;ENS-0012;2023-10-16;Événement religieux;Oui;3;Non
+39;ENS-0030;2023-10-16;Grève des transports;Non;6;Non
+40;ENS-0079;2023-10-16;Grève des transports;Oui;4;Oui
+41;ENS-0080;2023-10-16;Mission;Oui;8;Non
+42;ENS-0118;2020-09-30;Formation;Oui;8;Oui
+43;ENS-0001;2023-10-17;Maladie;Non;2;Oui
+44;ENS-0005;2023-10-17;Maladie;Oui;3;Non
+45;ENS-0022;2023-10-17;Raison familiale;Non;2;Oui
+46;ENS-0086;2023-10-17;Examen médical;Oui;4;Non
+47;ENS-0107;2023-10-17;Examen médical;Oui;6;Non
+48;ENS-0025;2023-10-18;Événement religieux;Oui;8;Oui
+49;ENS-0032;2023-10-18;Participation à un jury;Non;6;Non
+50;ENS-0078;2023-10-18;Formation;Oui;2;Non
+51;ENS-0084;2023-10-18;Maladie;Oui;3;Non
+52;ENS-0111;2023-10-18;Examen médical;Oui;2;Non
+53;ENS-0102;2023-10-19;Participation à un jury;Oui;8;Non
+54;ENS-0048;2023-10-20;Formation;Non;3;Non
+55;ENS-0097;2023-10-20;Mission;Non;2;Oui
+56;ENS-0100;2023-10-20;Congé de maternité;Oui;403;Non
+57;ENS-0113;2023-10-20;Examen médical;Oui;2;Oui
+58;ENS-0003;2023-10-23;Formation;Non;4;Non
+59;ENS-0053;2023-10-23;Grève des transports;Non;4;Oui
+60;ENS-0074;2023-10-23;Congé de maternité;Oui;6;Oui
+61;ENS-0023;2023-10-24;Raison familiale;Non;4;Non
+62;ENS-0029;2023-10-24;Examen médical;Non;6;Non
+63;ENS-0042;2023-10-24;Formation;Non;4;Non
+64;ENS-0079;2023-10-24;Participation à un jury;Oui;4;Oui
+65;ENS-0096;2023-10-24;Participation à un jury;Oui;4;Oui
+66;ENS-0014;10-25-2023;Maladie;Non;6;Non
+67;ENS-0049;2023-10-25;Grève des transports;Oui;4;Oui
+68;ENS-0007;2023-10-26;Grève des transports;Non;209;Oui
+69;ENS-0020;2023-10-26;Formation;Oui;175;Oui
+70;ENS-0043;2023-10-26;Événement religieux;Non;4;Oui
+71;ENS-0052;2023-10-26;Examen médical;Oui;4;Oui
+72;ENS-0066;2023-10-26;Mission;Oui;2;Non
+73;ENS-0024;2023-10-27;Congé de maternité;Oui;6;Oui
+74;ENS-0039;2023-10-27;Grève des transports;Oui;2;Non
+75;ENS-0048;2023-10-27;Maladie;Oui;3;Non
+76;ENS-0071;2023-10-27;Examen médical;Oui;2;Non
+77;ENS-0104;2023-10-27;Examen médical;Oui;6;Oui
+78;ENS-0106;2023-10-27;Raison familiale;Non;4;Non
+79;ENS-0023;2023-11-01;Examen médical;Oui;3;Non
+80;ENS-0096;2023-11-01;Décès d'un proche;Non;3;Non
+81;ENS-0010;2023-11-02;Mission;Oui;6;Oui
+82;ENS-0050;2023-11-02;Mission;Oui;8;Oui
+83;ENS-0056;2023-11-02;Congé de maternité;Non;4;Non
+84;ENS-0074;2023-11-02;Congé de maternité;Oui;2;Oui
+85;ENS-0114;2023-11-02;Événement religieux;Non;8;Non
+86;ENS-0012;2023-11-03;Formation;Non;4;Non
+87;ENS-0017;2023-11-03;Grève des transports;Oui;8;Oui
+88;ENS-0010;2023-11-06;Formation;Oui;2;Non
+89;ENS-0065;2023-11-06;Décès d'un proche;Non;4;Oui
+89;ENS-0065;2023-11-06;Décès d'un proche;Non;4;Oui
+90;ENS-0082;2023-11-06;Formation;Oui;4;Oui
+91;ENS-0084;2023-11-06;Mission;Non;6;Oui
+92;ENS-0019;2023-11-07;Participation à un jury;Oui;4;Non
+93;ENS-0064;2023-11-07;Raison familiale;Non;4;Oui
+94;ENS-0110;2023-11-07;Mission;Oui;3;Non
+95;ENS-0112;2023-11-07;Raison familiale;Oui;3;Non
+96;ENS-0049;2023-11-08;Examen médical;Non;3;Oui
+97;ENS-0087;2023-11-08;Maladie;Non;8;Oui
+98;ENS-0094;2023-11-08;Participation à un jury;Oui;6;Oui
+99;ENS-0109;2023-11-08;Maladie;Oui;8;Non
+100;ENS-0113;2023-11-08;Examen médical;Oui;4;Oui
+101;ENS-0009;2023-11-09;Examen médical;Non;518;Non
+102;ENS-0033;2023-11-09;Événement religieux;Oui;2;Non
+103;ENS-0061;2023-11-09;Examen médical;Oui;6;Oui
+104;ENS-0111;2023-11-09;Maladie;Oui;3;Non
+105;ENS-0012;2023-11-10;Décès d'un proche;Oui;8;Non
+106;ENS-0013;2023-11-10;Raison familiale;Oui;3;Oui
+107;ENS-0045;2023-11-10;Grève des transports;Oui;8;Non
+108;ENS-0065;2023-11-10;Raison familiale;Oui;8;Oui
+109;ENS-0107;2023-11-10;Décès d'un proche;Non;2;Non
+110;ENS-0114;2023-11-10;Décès d'un proche;Oui;8;Oui
+111;ENS-0095;2023-11-13;Maladie;Non;2;Non
+112;ENS-0113;2023-11-13;Examen médical;Oui;8;Oui
+112;ENS-0113;2023-11-13;Examen médical;Oui;8;Oui
+113;ENS-0051;2023-11-14;Participation à un jury;Oui;6;Non
+114;ENS-0025;2023-11-15;Formation;Non;3;Oui
+115;ENS-0062;2023-11-15;Mission;Oui;8;Non
+116;ENS-0099;2023-11-17;Formation;Non;8;Non
+117;ENS-0039;2023-11-20;Raison familiale;Oui;8;Non
+118;ENS-0117;2023-11-20;Participation à un jury;Non;6;Non
+119;ENS-0063;2023-11-21;Raison familiale;Oui;2;Non
+120;ENS-0076;2023-11-21;Raison familiale;Oui;8;Non
+121;ENS-0003;2023-11-22;Événement religieux;Non;3;Oui
+122;ENS-0043;2023-11-22;Formation;Oui;4;Oui
+123;ENS-0048;2023-11-22;Décès d'un proche;Oui;4;Non
+124;ENS-0031;2023-11-24;Formation;Oui;2;Oui
+125;ENS-0070;2023-11-24;Maladie;Oui;2;Non
+126;ENS-0116;2023-11-24;Participation à un jury;Oui;6;Non
+127;ENS-0027;2016-04-18;Grève des transports;Oui;4;Oui
+128;ENS-0031;2023-11-27;Mission;Non;3;Oui
+129;ENS-0053;2023-11-27;Maladie;Oui;2;Oui
+130;ENS-0058;2023-11-27;Grève des transports;Non;4;Non
+131;ENS-0020;2023-11-28;Participation à un jury;Non;2;Non
+132;ENS-0049;2023-11-28;Participation à un jury;Oui;2;Non
+133;ENS-0034;2023-12-01;Examen médical;Non;4;Non
+134;ENS-0036;2023-12-01;Maladie;Oui;2;Non
+135;ENS-0051;2023-12-01;Mission;Non;2;Non
+136;ENS-0064;2023-12-01;Congé de maternité;Oui;3;Oui
+137;ENS-0114;2023-12-01;Examen médical;Oui;8;Non
+138;ENS-0049;2023-12-04;Formation;Oui;8;Non
+139;ENS-0087;2023-12-04;Mission;Non;4;Non
+140;ENS-0104;2023-12-04;Décès d'un proche;Non;2;Oui
+141;ENS-0011;2023-12-06;Grève des transports;Oui;735;Oui
+142;ENS-0020;2023-12-06;Grève des transports;Oui;3;Non
+143;ENS-0050;2023-12-06;Congé de maternité;Oui;8;Non
+144;ENS-0061;2023-12-07;Événement religieux;Non;274;Non
+145;ENS-0062;2023-12-08;Mission;Non;8;Non
+146;ENS-0082;2023-12-08;Raison familiale;Oui;6;Non
+147;ENS-0068;2023-12-11;Grève des transports;Oui;3;Non
+148;ENS-0074;2023-12-11;Maladie;Oui;6;Oui
+149;ENS-0098;2023-12-11;Congé de maternité;Non;4;Non
+150;ENS-0106;2023-12-11;Participation à un jury;Oui;2;Oui
+151;ENS-0116;2023-12-11;;Oui;8;Non
+152;ENS-0015;2023-12-12;Congé de maternité;Oui;3;Non
+153;ENS-0076;2023-12-12;Participation à un jury;Oui;6;Non
+154;ENS-0078;2023-12-12;Événement religieux;Oui;6;Non
+155;ENS-0090;2023-12-12;Formation;Oui;8;Non
+156;ENS-0100;2023-12-12;Formation;Non;4;Non
+157;ENS-0017;2023-12-13;Congé de maternité;Non;6;Non
+158;ENS-0052;2023-12-13;Décès d'un proche;Oui;2;Non
+159;ENS-0083;2023-12-13;Maladie;Non;8;Oui
+160;ENS-0089;2023-12-13;Décès d'un proche;Oui;2;Oui
+161;ENS-0024;2023-12-14;Décès d'un proche;Oui;6;Non
+162;ENS-0059;2023-12-14;Participation à un jury;Oui;8;Non
+163;ENS-0031;2023-12-15;Grève des transports;Oui;2;Non
+164;ENS-0054;2023-12-15;Mission;Oui;8;Non
+165;ENS-0058;2023-12-18;Mission;Non;6;Oui
+166;ENS-0067;2023-12-18;Décès d'un proche;Oui;2;Oui
+167;ENS-0014;2023-12-19;Grève des transports;Oui;2;Oui
+168;ENS-0061;2023-12-19;Grève des transports;Oui;3;Non
+169;ENS-0071;2023-12-19;Raison familiale;Oui;6;Oui
+170;ENS-0094;2023-12-19;Événement religieux;Oui;6;Non
+171;ENS-0118;2023-12-19;Grève des transports;Oui;6;Oui
+172;ENS-0101;2023-12-20;Grève des transports;Oui;8;Non
+173;ENS-0008;2023-12-21;Décès d'un proche;Oui;4;Non
+174;ENS-0096;2023-12-21;Décès d'un proche;Oui;4;Oui
+175;ENS-0007;2023-12-22;Maladie;Oui;6;Non
+175;ENS-0007;2023-12-22;Maladie;Oui;6;Non
+176;ENS-0045;2023-12-22;Congé de maternité;Oui;4;Oui
+177;ENS-0105;2023-12-22;Raison familiale;Oui;4;Non
+178;ENS-0108;2026-12-23;Examen médical;Oui;8;Oui
+179;ENS-0016;2023-12-25;Formation;Oui;4;Oui
+180;ENS-0025;2023-12-25;Formation;Oui;8;Non
+181;ENS-0099;2023-12-25;Congé de maternité;Oui;4;Oui
+182;ENS-0073;2023-12-26;Grève des transports;Non;8;Non
+183;ENS-0112;2023-12-26;Raison familiale;Oui;6;Non
+184;ENS-0004;2023-12-27;Maladie;Oui;3;Non
+185;ENS-0066;2023-12-27;Décès d'un proche;Oui;8;Non
+186;ENS-0100;2023-12-27;Maladie;Oui;8;Non
+187;ENS-0023;2023-12-28;Formation;Oui;3;Non
+188;ENS-0024;2023-12-28;Grève des transports;Oui;3;Non
+189;ENS-0029;2023-12-28;Mission;Oui;2;Non
+190;ENS-0044;2023-12-28;Grève des transports;Non;2;Non
+191;ENS-0065;2023-12-28;Formation;Oui;3;Non
+191;ENS-0065;2023-12-28;Formation;Oui;3;Non
+192;ENS-0067;2023-12-28;Formation;Oui;2;Non
+192;ENS-0067;2023-12-28;Formation;Oui;2;Non
+193;ENS-0071;2024-01-01;Événement religieux;Non;4;Non
+194;ENS-0100;2024-01-01;Décès d'un proche;Oui;3;Non
+195;ENS-0113;2024-01-01;Maladie;Oui;4;Oui
+196;ENS-0007;2024-01-02;Mission;Oui;4;Oui
+197;ENS-0104;2024-01-02;Formation;Oui;4;Non
+198;ENS-0031;2024-01-03;Formation;Oui;4;Non
+199;ENS-0032;2024-01-03;Événement religieux;Oui;3;Oui
+200;ENS-0027;2024-01-04;;Oui;6;Non
+201;ENS-0030;2024-01-04;Formation;Oui;4;Oui
+202;ENS-0054;2024-01-04;Mission;Oui;8;Oui
+203;ENS-0066;2024-01-04;Participation à un jury;Oui;4;Oui
+204;ENS-0070;2024-01-04;Mission;Oui;3;Non
+205;ENS-0024;2024-01-05;Maladie;Oui;6;Non
+206;ENS-0101;2024-01-05;Raison familiale;Oui;2;Non
+207;ENS-0107;2024-01-05;;Oui;4;Non
+208;ENS-0026;2024-01-08;Formation;Oui;2;Non
+209;ENS-0043;2024-01-08;Congé de maternité;Oui;8;Non
+210;ENS-0061;2024-01-08;Examen médical;Oui;2;Oui
+211;ENS-0086;2024-01-08;Décès d'un proche;Non;2;Non
+212;ENS-0017;2024-01-09;Examen médical;Oui;3;Oui
+213;ENS-0095;2024-01-09;Participation à un jury;Oui;2;Non
+214;ENS-0043;2024-01-10;Raison familiale;Oui;3;Non
+215;ENS-0051;2024-01-10;Formation;Non;3;Non
+216;ENS-0082;2024-01-10;Mission;Oui;6;Non
+217;ENS-0091;2024-01-10;Maladie;Oui;4;Non
+218;ENS-0096;2024-01-10;Décès d'un proche;Non;8;Non
+219;ENS-0008;2024-01-11;Participation à un jury;Non;2;Non
+220;ENS-0013;2024-01-11;Décès d'un proche;Oui;2;Non
+221;ENS-0114;12/01/2024;Maladie;Oui;2;Oui
+222;ENS-0117;2024-01-12;Raison familiale;Non;2;Non
+223;ENS-0034;2024-01-15;Formation;Oui;4;Non
+224;ENS-0076;2024-01-15;Participation à un jury;Oui;3;Oui
+225;ENS-0090;2024-01-15;Grève des transports;Oui;4;Non
+226;ENS-0110;2024-01-15;Maladie;Oui;3;Non
+227;ENS-0018;01-16-2024;Congé de maternité;Oui;8;Non
+228;ENS-0029;2024-01-16;Participation à un jury;Oui;3;Non
+229;ENS-0073;2019-08-20;Événement religieux;Oui;4;Non
+230;ENS-0003;2024-01-17;Participation à un jury;Oui;3;Oui
+230;ENS-0003;2024-01-17;Participation à un jury;Oui;3;Oui
+231;ENS-0065;2024-01-17;Mission;Oui;4;Non
+232;ENS-0075;2024-01-17;Raison familiale;Oui;2;Non
+233;ENS-0095;2024-01-17;Formation;Non;4;Oui
+234;ENS-0116;2024-01-17;Maladie;Oui;3;Non
+235;ENS-0094;2024-01-18;Participation à un jury;Oui;4;Non
+236;ENS-0019;2024-01-19;Grève des transports;Non;2;Non
+237;ENS-0034;2024-01-19;Raison familiale;Non;4;Oui
+238;ENS-0023;2024-01-22;Maladie;Oui;3;Non
+239;ENS-0042;2024-01-22;Mission;Oui;4;Non
+240;ENS-0054;2024-01-22;Raison familiale;Oui;6;Oui
+241;ENS-0002;2024-01-23;Décès d'un proche;Oui;4;Oui
+242;ENS-0020;2024-01-23;Décès d'un proche;Oui;8;Non
+243;ENS-0048;2024-01-23;Congé de maternité;Oui;2;Non
+244;ENS-0083;2024-01-23;Grève des transports;Oui;4;Non
+245;ENS-0119;2024-01-23;Événement religieux;Oui;3;Non
+245;ENS-0119;2024-01-23;Événement religieux;Oui;3;Non
+246;ENS-0011;2024-01-24;Maladie;Non;6;Oui
+247;ENS-0029;2024-01-24;Grève des transports;Oui;4;Non
+248;ENS-0067;2024-01-24;Examen médical;Oui;8;Non
+249;ENS-0108;2024-01-24;Mission;Oui;2;Oui
+250;ENS-0044;2024-01-25;Décès d'un proche;Oui;6;Non
+251;ENS-0045;2024-01-25;Décès d'un proche;Oui;2;Oui
+252;ENS-0053;2024-01-25;Formation;Oui;4;Non
+252;ENS-0053;2024-01-25;Formation;Oui;4;Non
+253;ENS-0073;2024-01-25;Raison familiale;Non;8;Non
+254;ENS-0112;2024-01-25;Mission;Oui;581;Non
+255;ENS-0120;2024-01-25;Grève des transports;Non;8;Non
+256;ENS-0003;2024-01-26;Examen médical;Oui;8;Oui
+257;ENS-0011;2024-01-26;Décès d'un proche;Non;3;Oui
+258;ENS-0055;2024-01-26;Maladie;Oui;2;Oui
+259;ENS-0089;2024-01-26;Participation à un jury;Oui;6;Oui
+260;ENS-0098;2024-01-26;Mission;Oui;4;Oui
+261;ENS-0098;2024-01-26;Événement religieux;Oui;3;Oui
+262;ENS-0001;2024-02-01;Formation;Oui;8;Non
+263;ENS-0001;2024-02-01;Mission;Oui;3;Non
+264;ENS-0026;2024-02-01;;Oui;2;Oui
+265;ENS-0075;2024-02-01;Participation à un jury;Oui;2;Non
+266;ENS-0056;2024-02-02;Participation à un jury;Oui;8;Oui
+267;ENS-0069;2024-02-02;Formation;Oui;2;Non
+268;ENS-0034;2027-01-16;Raison familiale;Non;6;Oui
+269;ENS-0078;2024-02-05;Participation à un jury;Oui;8;Non
+270;ENS-0083;2024-02-05;;Oui;4;Non
+271;ENS-0074;2024-02-06;Événement religieux;Oui;4;Oui
+272;ENS-0115;2024-02-07;Congé de maternité;Oui;6;Non
+272;ENS-0115;2024-02-07;Congé de maternité;Oui;6;Non
+273;ENS-0119;2024-02-07;Maladie;Oui;6;Non
+274;ENS-0074;2024-02-08;Décès d'un proche;Oui;3;Oui
+275;ENS-0098;2024-02-08;Raison familiale;Oui;6;Oui
+276;ENS-0114;2024-02-08;Grève des transports;Oui;3;Non
+277;ENS-0071;2024-02-09;Décès d'un proche;Oui;6;Non
+278;ENS-0111;2024-02-09;Formation;Non;4;Non
+279;ENS-0012;2024-02-12;Congé de maternité;Oui;2;Non
+279;ENS-0012;2024-02-12;Congé de maternité;Oui;2;Non
+280;ENS-0047;2024-02-12;Décès d'un proche;Oui;3;Non
+281;ENS-0076;2024-02-12;Examen médical;Oui;2;Oui
+282;ENS-0090;2024-02-12;Maladie;Non;603;Non
+283;ENS-0112;2024-02-12;Examen médical;Non;6;Non
+284;ENS-0117;2024-02-12;Maladie;Non;8;Non
+284;ENS-0117;2024-02-12;Maladie;Non;8;Non
+285;ENS-0030;2024-02-13;Mission;Non;2;Non
+286;ENS-0027;2024-02-14;Grève des transports;Oui;6;Oui
+287;ENS-0032;2024-02-14;Grève des transports;Oui;4;Oui
+288;ENS-0041;2024-02-14;Grève des transports;Non;2;Non
+289;ENS-0095;2024-02-14;Examen médical;Oui;2;Non
+290;ENS-0113;2024-02-14;Examen médical;Oui;8;Oui
+290;ENS-0113;2024-02-14;Examen médical;Oui;8;Oui
+291;ENS-0011;2024-02-15;Décès d'un proche;Oui;8;Oui
+292;ENS-0013;2024-02-15;Congé de maternité;Oui;6;Oui
+293;ENS-0100;2024-02-15;Événement religieux;Oui;3;Non
+294;ENS-0005;2024-02-16;Congé de maternité;Oui;2;Non
+295;ENS-0108;2024-02-16;Congé de maternité;Non;2;Non
+296;ENS-0014;2024-02-19;Participation à un jury;Oui;6;Non
+297;ENS-0086;2024-02-19;Formation;Oui;4;Non
+298;ENS-0020;2024-02-21;Congé de maternité;Oui;2;Oui
+299;ENS-0071;2024-02-21;;Oui;3;Non
+300;ENS-0102;2024-02-21;Participation à un jury;Oui;581;Non
+301;ENS-0036;2024-02-22;Participation à un jury;Oui;2;Oui
+302;ENS-0039;2024-02-22;Congé de maternité;Oui;6;Oui
+303;ENS-0040;2024-02-22;Décès d'un proche;Oui;8;Oui
+304;ENS-0045;2027-09-11;Décès d'un proche;Non;3;Oui
+305;ENS-0045;2024-02-22;Grève des transports;Oui;2;Oui
+306;ENS-0017;2024-02-23;Événement religieux;Non;3;Non
+307;ENS-0018;2024-02-23;Participation à un jury;Non;8;Oui
+308;ENS-0039;2024-02-23;Décès d'un proche;Oui;4;Oui
+309;ENS-0050;2024-02-23;Grève des transports;Oui;4;Non
+310;ENS-0082;2024-02-23;Événement religieux;Oui;2;Non
+311;ENS-0009;2024-02-26;Formation;Oui;4;Non
+312;ENS-0048;2024-02-26;Grève des transports;Non;4;Non
+313;ENS-0055;2024-02-26;Grève des transports;Oui;8;Non
+314;ENS-0080;2024-02-26;Examen médical;Oui;2;Non
+315;ENS-0007;2024-02-27;Maladie;Oui;6;Oui
+316;ENS-0008;2024-02-27;Événement religieux;Oui;4;Oui
+316;ENS-0008;2024-02-27;Événement religieux;Oui;4;Oui
+317;ENS-0093;2024-02-27;Grève des transports;Oui;3;Non
+318;ENS-0102;2024-02-27;Examen médical;Non;2;Oui
+319;ENS-0110;2024-02-27;Raison familiale;Non;3;Non
+320;ENS-0113;2024-02-27;Grève des transports;Oui;8;Non
+321;ENS-0004;2024-02-28;Décès d'un proche;Oui;2;Non
+321;ENS-0004;2024-02-28;Décès d'un proche;Oui;2;Non
+322;ENS-0105;2024-02-28;Congé de maternité;Non;2;Oui
+323;ENS-0017;2024-03-01;Maladie;Oui;3;Non
+324;ENS-0034;2024-03-01;Participation à un jury;Oui;8;Non
+325;ENS-0054;2024-03-01;Maladie;Oui;8;Oui
+326;ENS-0058;2024-03-01;Maladie;Oui;2;Oui
+327;ENS-0108;2024-03-04;Événement religieux;Non;4;Non
+328;ENS-0073;2018-09-12;Formation;Non;8;Oui
+329;ENS-0079;2024-03-06;Raison familiale;Oui;2;Non
+330;ENS-0083;2024-03-06;Congé de maternité;Non;4;Non
+331;ENS-0026;2024-03-07;Grève des transports;Oui;6;Oui
+331;ENS-0026;2024-03-07;Grève des transports;Oui;6;Oui
+332;ENS-0098;2024-03-07;Décès d'un proche;Oui;4;Non
+333;ENS-0119;2024-03-07;Congé de maternité;Non;4;Non
+334;ENS-0010;2024-03-08;Mission;Oui;164;Non
+335;ENS-0043;2024-03-08;Raison familiale;Non;3;Non
+336;ENS-0118;2024-03-08;Formation;Oui;4;Non
+337;ENS-0027;2024-03-11;Grève des transports;Oui;2;Non
+338;ENS-0039;2024-03-11;Maladie;Oui;4;Non
+339;ENS-0001;2024-03-12;Événement religieux;Non;4;Oui
+340;ENS-0061;2024-03-12;Raison familiale;Oui;2;Oui
+341;ENS-0088;2024-03-12;Événement religieux;Oui;2;Non
+342;ENS-0094;2024-03-12;Raison familiale;Oui;6;Oui
+343;ENS-0095;2024-03-12;Examen médical;Oui;3;Non
+344;ENS-0005;2024-03-13;Raison familiale;Oui;8;Non
+345;ENS-0032;2024-03-13;Décès d'un proche;Oui;6;Non
+346;ENS-0052;2024-03-13;Décès d'un proche;Oui;3;Non
+347;ENS-0100;03-13-2024;Décès d'un proche;Non;6;Oui
+348;ENS-0012;2024-03-14;Participation à un jury;Oui;3;Oui
+349;ENS-0049;2024-03-14;Grève des transports;Non;8;Oui
+350;ENS-0091;2024-03-14;Congé de maternité;Non;2;Non
+351;ENS-0009;2024-03-15;Décès d'un proche;Oui;2;Non
+352;ENS-0040;2024-03-15;Participation à un jury;Oui;3;Non
+353;ENS-0023;2024-03-18;Événement religieux;Oui;8;Oui
+354;ENS-0066;2024-03-18;;Non;8;Non
+355;ENS-0096;2024-03-18;Décès d'un proche;Oui;3;Non
+356;ENS-0099;2024-03-18;Participation à un jury;Non;2;Oui
+357;ENS-0115;2024-03-18;Participation à un jury;Oui;8;Non
+358;ENS-0076;2024-03-19;Événement religieux;Non;6;Oui
+359;ENS-0090;2024-03-19;Raison familiale;Non;8;Oui
+360;ENS-0103;2024-03-19;Mission;Oui;4;Oui
+361;ENS-0017;2024-03-20;Participation à un jury;Non;384;Non
+362;ENS-0042;2024-03-20;Congé de maternité;Oui;6;Oui
+363;ENS-0002;2024-03-21;Mission;Oui;4;Oui
+364;ENS-0024;2018-09-22;Participation à un jury;Oui;4;Non
+365;ENS-0025;2024-03-21;Mission;Oui;4;Oui
+366;ENS-0033;2024-03-21;Décès d'un proche;Oui;8;Non
+367;ENS-0043;2024-03-21;Décès d'un proche;Oui;3;Non
+368;ENS-0006;2024-03-22;Événement religieux;Oui;751;Non
+369;ENS-0008;2024-03-22;Mission;Non;2;Oui
+370;ENS-0110;2024-03-22;Maladie;Oui;6;Non
+371;ENS-0116;2024-03-22;Grève des transports;Oui;6;Non
+372;ENS-0028;25/03/2024;;Non;4;Oui
+373;ENS-0101;2024-03-25;Congé de maternité;Oui;6;Non
+374;ENS-0049;2024-03-26;Grève des transports;Oui;6;Non
+375;ENS-0033;2024-03-27;Grève des transports;Oui;6;Oui
+376;ENS-0045;2024-03-27;Mission;Oui;2;Non
+377;ENS-0047;2024-03-27;Formation;Non;4;Non
+378;ENS-0051;2024-03-27;Mission;Oui;2;Oui
+379;ENS-0087;2024-03-27;Formation;Oui;8;Oui
+380;ENS-0112;2024-03-27;Mission;Non;8;Oui
+381;ENS-0001;2024-03-28;Participation à un jury;Oui;6;Oui
+382;ENS-0038;2024-03-28;Participation à un jury;Oui;2;Non
+383;ENS-0008;2027-08-16;Grève des transports;Oui;4;Oui
+384;ENS-0012;2024-04-01;Congé de maternité;Non;4;Oui
+385;ENS-0084;2024-04-02;Raison familiale;Oui;4;Oui
+386;ENS-0087;2024-04-02;;Oui;4;Oui
+387;ENS-0114;2024-04-02;Grève des transports;Oui;2;Oui
+388;ENS-0023;2024-04-03;Congé de maternité;Oui;8;Oui
+389;ENS-0033;2022-06-19;Décès d'un proche;Oui;6;Non
+390;ENS-0041;2024-04-03;Congé de maternité;Oui;3;Oui
+391;ENS-0104;2024-04-03;Participation à un jury;Oui;604;Non
+392;ENS-0061;2024-04-04;Maladie;Oui;2;Non
+393;ENS-0117;2024-04-04;Mission;Oui;2;Oui
+394;ENS-0020;2024-04-05;Décès d'un proche;Oui;2;Non
+395;ENS-0059;2024-04-05;Décès d'un proche;Non;3;Oui
+396;ENS-0103;2024-04-05;Mission;Non;50;Oui
+397;ENS-0022;2024-04-08;Événement religieux;Oui;4;Non
+398;ENS-0120;2024-04-08;Congé de maternité;Oui;4;Oui
+399;ENS-0031;2024-04-09;Congé de maternité;Oui;6;Non
+400;ENS-0080;2024-04-09;Décès d'un proche;Oui;4;Non
+401;ENS-0096;2024-04-09;Grève des transports;Non;2;Oui
+402;ENS-0109;2024-04-09;Participation à un jury;Oui;8;Non
+403;ENS-0001;2024-04-10;Maladie;Oui;8;Oui
+404;ENS-0105;2024-04-10;Participation à un jury;Oui;8;Non
+405;ENS-0061;2024-04-11;Mission;Oui;8;Oui
+406;ENS-0004;2024-04-12;Raison familiale;Oui;8;Non
+407;ENS-0036;04-12-2024;Congé de maternité;Non;6;Non
+408;ENS-0051;2024-04-12;Grève des transports;Oui;6;Non
+409;ENS-0083;2024-04-12;;Oui;3;Non
+410;ENS-0027;2026-11-14;Formation;Oui;4;Non
+411;ENS-0062;2024-04-15;Participation à un jury;Non;3;Oui
+412;ENS-0074;2024-04-15;Maladie;Oui;6;Non
+413;ENS-0118;2024-04-15;Raison familiale;Non;4;Non
+414;ENS-0016;2024-04-16;Maladie;Oui;3;Oui
+415;ENS-0080;2024-04-16;Décès d'un proche;Oui;2;Oui
+416;ENS-0090;16/04/2024;Raison familiale;Oui;6;Non
+417;ENS-0009;2024-04-17;Maladie;Non;2;Non
+418;ENS-0049;2024-04-17;Participation à un jury;Oui;6;Non
+419;ENS-0071;2024-04-17;Décès d'un proche;Non;6;Non
+420;ENS-0097;2024-04-19;Raison familiale;Non;4;Non
+421;ENS-0100;2024-04-19;Décès d'un proche;Oui;4;Non
+422;ENS-0119;2024-04-19;Maladie;Non;6;Oui
+423;ENS-0020;2024-04-22;Examen médical;Oui;4;Non
+424;ENS-0050;2024-04-22;Raison familiale;Oui;3;Non
+425;ENS-0088;2024-04-22;;Non;4;Non
+426;ENS-0007;2024-04-23;Grève des transports;Non;2;Non
+427;ENS-0055;2024-04-23;Examen médical;Oui;2;Non
+428;ENS-0066;2024-04-23;Maladie;Non;8;Non
+429;ENS-0102;2024-04-23;Mission;Oui;3;Non
+430;ENS-0094;2024-04-24;Maladie;Oui;4;Oui
+431;ENS-0008;2024-04-25;Grève des transports;Oui;3;Oui
+432;ENS-0032;2024-04-25;Décès d'un proche;Non;6;Non
+433;ENS-0040;04-25-2024;Mission;Non;4;Non
+434;ENS-0045;2024-04-25;Raison familiale;Oui;6;Oui
+435;ENS-0074;2024-04-25;Événement religieux;Oui;8;Non
+436;ENS-0082;2024-04-25;Décès d'un proche;Oui;395;Non
+437;ENS-0069;2024-04-26;;Non;4;Non
+438;ENS-0114;2024-04-26;Congé de maternité;Non;3;Non
+439;ENS-0116;2024-04-26;Formation;Oui;6;Oui
+440;ENS-0014;2024-05-01;Examen médical;Oui;8;Oui
+441;ENS-0080;2024-05-01;;Oui;3;Oui
+442;ENS-0101;2024-05-01;Examen médical;Oui;3;Non
+443;ENS-0118;2024-05-01;Maladie;Oui;6;Oui
+444;ENS-0032;2024-05-02;Événement religieux;Oui;8;Non
+445;ENS-0045;2024-05-02;Formation;Non;2;Oui
+446;ENS-0069;2027-05-15;Examen médical;Oui;6;Oui
+447;ENS-0114;2024-05-02;Décès d'un proche;Oui;4;Non
+448;ENS-0028;2024-05-03;Maladie;Oui;6;Oui
+449;ENS-0059;2024-05-03;Raison familiale;Oui;6;Oui
+450;ENS-0087;2024-05-03;Raison familiale;Oui;4;Oui
+451;ENS-0110;2027-10-11;Événement religieux;Non;4;Oui
+452;ENS-0116;2024-05-03;Formation;Oui;6;Oui
+453;ENS-0002;2024-05-07;Décès d'un proche;Non;6;Non
+454;ENS-0006;2027-06-08;Participation à un jury;Oui;6;Oui
+455;ENS-0015;2024-05-07;Grève des transports;Oui;718;Oui
+456;ENS-0004;2024-05-08;Événement religieux;Oui;2;Non
+457;ENS-0025;2024-05-08;Raison familiale;Oui;2;Oui
+458;ENS-0029;2024-05-08;Mission;Oui;2;Non
+459;ENS-0070;2024-05-08;Participation à un jury;Oui;8;Oui
+460;ENS-0094;2024-05-08;Mission;Oui;8;Oui
+461;ENS-0019;2024-05-09;Raison familiale;Oui;3;Non
+462;ENS-0042;2024-05-09;Mission;Oui;8;Non
+463;ENS-0085;2024-05-09;Décès d'un proche;Non;6;Non
+464;ENS-0108;2024-05-09;Événement religieux;Non;6;Non
+465;ENS-0108;2024-05-09;Raison familiale;Oui;2;Oui
+466;ENS-0008;2024-05-10;Congé de maternité;Non;4;Non
+467;ENS-0039;2024-05-10;Formation;Oui;8;Oui
+468;ENS-0061;2024-05-10;Décès d'un proche;Oui;8;Oui
+468;ENS-0061;2024-05-10;Décès d'un proche;Oui;8;Oui
+469;ENS-0095;2024-05-10;Congé de maternité;Oui;597;Oui
+470;ENS-0010;2024-05-13;Congé de maternité;Oui;6;Non
+471;ENS-0024;2024-05-13;Formation;Oui;3;Oui
+472;ENS-0031;2024-05-13;Décès d'un proche;Oui;8;Oui
+473;ENS-0040;2024-05-13;Examen médical;Oui;2;Non
+474;ENS-0076;2024-05-13;Participation à un jury;Oui;8;Oui
+475;ENS-0015;2024-05-14;Maladie;Non;4;Oui
+476;ENS-0104;2024-05-14;Événement religieux;Oui;8;Non
+477;ENS-0112;2024-05-14;Raison familiale;Oui;8;Non
+478;ENS-0036;2024-05-15;Maladie;Oui;8;Non
+479;ENS-0040;2024-05-15;Formation;Oui;6;Oui
+480;ENS-0047;2024-05-15;Participation à un jury;Oui;8;Non
+481;ENS-0048;2024-05-15;Examen médical;Oui;4;Oui
+482;ENS-0044;2024-05-16;Décès d'un proche;Non;8;Non
+483;ENS-0062;2024-05-16;Décès d'un proche;Oui;4;Oui
+484;ENS-0020;2024-05-17;Mission;Non;6;Oui
+485;ENS-0058;2024-05-17;Grève des transports;Oui;6;Non
+486;ENS-0079;2024-05-17;Examen médical;Oui;8;Non
+487;ENS-0102;2024-05-17;Événement religieux;Oui;4;Non
+488;ENS-0013;2024-05-20;Formation;Oui;3;Non
+488;ENS-0013;2024-05-20;Formation;Oui;3;Non
+489;ENS-0048;2024-05-20;Événement religieux;Non;3;Non
+490;ENS-0063;2024-05-20;Participation à un jury;Non;8;Non
+491;ENS-0105;2024-05-20;Formation;Non;3;Non
+492;ENS-0001;2024-05-21;Maladie;Oui;4;Oui
+493;ENS-0027;2016-04-03;Raison familiale;Non;4;Oui
+494;ENS-0054;2024-05-21;Événement religieux;Non;3;Non
+495;ENS-0064;2024-05-21;Décès d'un proche;Oui;8;Oui
+496;ENS-0022;2024-05-22;Participation à un jury;Non;8;Non
+497;ENS-0033;2024-05-22;Mission;Oui;2;Oui
+498;ENS-0086;22/05/2024;Congé de maternité;Non;2;Oui
+499;ENS-0082;2024-05-23;Maladie;Oui;6;Non
+500;ENS-0056;2019-12-10;Événement religieux;Oui;4;Oui
+501;ENS-0065;2024-05-24;Mission;Oui;6;Non
+502;ENS-0067;2024-05-24;Grève des transports;Non;6;Oui
+503;ENS-0119;2024-05-24;Mission;Oui;2;Oui
+504;ENS-0005;2024-05-27;Examen médical;Non;2;Oui
+505;ENS-0049;2024-05-27;Grève des transports;Non;8;Non
+506;ENS-0054;2024-05-27;Raison familiale;Oui;8;Oui
+507;ENS-0064;05-27-2024;Formation;Oui;4;Non
+508;ENS-0100;2024-05-28;Formation;Oui;2;Non
+509;ENS-0103;2024-05-28;Décès d'un proche;Non;4;Non
+510;ENS-0022;2024-06-03;Raison familiale;Oui;521;Non
+511;ENS-0085;2024-06-03;Grève des transports;Non;200;Non
+512;ENS-0112;2024-06-03;Événement religieux;Non;2;Oui
+513;ENS-0001;2024-06-04;Grève des transports;Oui;3;Oui
+514;ENS-0020;2024-06-04;Maladie;Oui;8;Non
+515;ENS-0049;2024-06-04;Examen médical;Oui;3;Non
+516;ENS-0090;2024-06-04;Raison familiale;Oui;2;Oui
+517;ENS-0098;2024-06-04;Maladie;Oui;6;Oui
+518;ENS-0059;2024-06-05;Décès d'un proche;Oui;6;Non
+519;ENS-0079;2024-06-05;Mission;Oui;4;Non
+520;ENS-0020;2024-06-06;Formation;Oui;8;Oui
+521;ENS-0043;2024-06-06;Décès d'un proche;Non;2;Non
+522;ENS-0066;2024-06-06;Mission;Oui;2;Non
+523;ENS-0075;2024-06-06;Congé de maternité;Non;2;Oui
+524;ENS-0066;2024-06-07;Raison familiale;Oui;3;Non
+525;ENS-0071;2024-06-07;Participation à un jury;Oui;8;Non
+526;ENS-0078;2024-06-07;Mission;Non;3;Oui
+527;ENS-0029;2024-06-10;Maladie;Oui;2;Non
+528;ENS-0039;2024-06-10;Raison familiale;Oui;98;Non
+529;ENS-0048;2024-06-10;Maladie;Oui;8;Non
+530;ENS-0114;2024-06-10;Décès d'un proche;Non;3;Oui
+531;ENS-0018;2024-06-11;Décès d'un proche;Non;8;Oui
+532;ENS-0041;2024-06-11;Formation;Oui;6;Oui
+533;ENS-0097;2024-06-11;Événement religieux;Oui;8;Non
+534;ENS-0032;2024-06-12;Décès d'un proche;Oui;3;Non
+535;ENS-0054;2024-06-12;Congé de maternité;Oui;8;Oui
+536;ENS-0070;2024-06-12;;Oui;4;Non
+537;ENS-0002;2024-06-13;Formation;Non;8;Oui
+538;ENS-0005;2024-06-13;Grève des transports;Oui;2;Non
+539;ENS-0006;2024-06-13;Examen médical;Oui;4;Non
+540;ENS-0014;2024-06-13;Formation;Oui;8;Oui
+541;ENS-0051;2024-06-13;Maladie;Oui;3;Non
+542;ENS-0006;2024-06-14;Décès d'un proche;Non;2;Non
+543;ENS-0040;2019-10-22;Maladie;Non;4;Oui
+544;ENS-0055;2024-06-14;Événement religieux;Oui;8;Oui
+545;ENS-0076;2024-06-14;Examen médical;Oui;2;Non
+545;ENS-0076;2024-06-14;Examen médical;Oui;2;Non
+546;ENS-0107;2024-06-14;Maladie;Oui;3;Non
+546;ENS-0107;2024-06-14;Maladie;Oui;3;Non
+547;ENS-0120;2024-06-14;Mission;Oui;390;Non
+548;ENS-0003;2024-06-17;Mission;Oui;6;Non
+549;ENS-0050;2024-06-17;Formation;Oui;8;Oui
+550;ENS-0062;2024-06-17;Décès d'un proche;Non;4;Oui
+551;ENS-0089;2024-06-17;Participation à un jury;Non;4;Non
+552;ENS-0099;2016-07-07;Grève des transports;Oui;4;Non
+553;ENS-0113;2024-06-17;Maladie;Oui;3;Non
+554;ENS-0103;2009-06-30;Formation;Oui;4;Non
+555;ENS-0028;2024-06-19;Décès d'un proche;Oui;6;Non
+556;ENS-0058;2024-06-19;Participation à un jury;Oui;2;Oui
+557;ENS-0082;2024-06-19;Raison familiale;Non;2;Non
+558;ENS-0087;2024-06-20;Formation;Oui;8;Non
+559;ENS-0016;2024-06-21;Mission;Non;6;Oui
+560;ENS-0031;2024-06-21;Raison familiale;Oui;3;Non
+560;ENS-0031;2024-06-21;Raison familiale;Oui;3;Non
+561;ENS-0095;2024-06-21;Congé de maternité;Oui;6;Non
+562;ENS-0023;2024-06-24;Congé de maternité;Non;8;Oui
+563;ENS-0065;2024-06-24;Participation à un jury;Non;6;Non
+564;ENS-0109;2009-08-28;Examen médical;Oui;4;Oui
+565;ENS-0015;2024-06-25;Congé de maternité;Oui;3;Non
+566;ENS-0025;2024-06-25;Congé de maternité;Oui;3;Oui
+567;ENS-0104;2024-06-25;Raison familiale;Non;2;Oui
+568;ENS-0045;2024-06-26;Mission;Oui;597;Non
+569;ENS-0075;2024-06-26;Décès d'un proche;Oui;6;Oui
+570;ENS-0062;2024-06-27;Examen médical;Oui;6;Oui
+571;ENS-0079;2024-06-27;Mission;Oui;6;Oui
+572;ENS-0091;2024-06-27;Mission;Oui;4;Non
+573;ENS-0014;2024-06-28;Participation à un jury;Oui;8;Oui
+574;ENS-0042;2024-06-28;Maladie;Oui;8;Oui
+575;ENS-0069;2024-06-28;Congé de maternité;Oui;3;Non
+576;ENS-0015;2024-07-01;Décès d'un proche;Non;6;Non
+577;ENS-0018;2024-07-01;Mission;Oui;115;Non
+578;ENS-0024;07-01-2024;Examen médical;Non;3;Oui
+579;ENS-0056;2024-07-01;Congé de maternité;Oui;2;Oui
+580;ENS-0065;2024-07-01;Congé de maternité;Oui;2;Non
+581;ENS-0087;2024-07-01;Formation;Oui;2;Oui
+582;ENS-0106;2024-07-01;Mission;Non;2;Oui
+583;ENS-0014;2024-07-02;Décès d'un proche;Oui;4;Oui
+584;ENS-0025;2024-07-04;Formation;Oui;3;Non
+585;ENS-0111;2024-07-04;Événement religieux;Oui;6;Oui
+586;ENS-0117;2024-07-04;Maladie;Oui;6;Non
+587;ENS-0066;2024-07-05;Congé de maternité;Oui;3;Oui
+588;ENS-0079;2024-07-05;Raison familiale;Oui;2;Non
+589;ENS-0071;2024-07-08;Raison familiale;Oui;6;Non
+590;ENS-0097;2024-07-08;Participation à un jury;Oui;3;Non
+591;ENS-0058;2024-07-09;Formation;Oui;3;Oui
+592;ENS-0017;2024-07-10;Événement religieux;Non;2;Non
+593;ENS-0047;2024-07-10;Formation;Oui;4;Oui
+593;ENS-0047;2024-07-10;Formation;Oui;4;Oui
+594;ENS-0085;2024-07-10;Événement religieux;Oui;3;Oui
+595;ENS-0113;2024-07-10;Raison familiale;Oui;6;Non
+596;ENS-0022;11/07/2024;Décès d'un proche;Oui;6;Oui
+597;ENS-0066;2024-07-11;Mission;Oui;4;Non
+598;ENS-0069;2024-07-11;Grève des transports;Non;8;Non
+599;ENS-0026;2024-07-12;Mission;Non;8;Non
+600;ENS-0039;2024-07-12;Congé de maternité;Oui;6;Non
+601;ENS-0107;2024-07-12;Congé de maternité;Oui;2;Non
+602;ENS-0002;2024-07-15;Décès d'un proche;Oui;380;Oui
+603;ENS-0023;2024-07-15;Examen médical;Oui;8;Non
+604;ENS-0030;2024-07-15;Événement religieux;Non;8;Oui
+605;ENS-0083;2024-07-15;Formation;Oui;3;Non
+606;ENS-0096;2024-07-15;Décès d'un proche;Non;4;Non
+607;ENS-0103;2024-07-15;Formation;Oui;4;Non
+608;ENS-0004;2024-07-16;Raison familiale;Oui;8;Non
+609;ENS-0013;2026-12-18;Événement religieux;Oui;2;Non
+610;ENS-0041;2024-07-17;Examen médical;Oui;537;Oui
+611;ENS-0045;2024-07-17;Examen médical;Oui;3;Non
+612;ENS-0045;2024-07-17;Participation à un jury;Oui;6;Non
+613;ENS-0088;2024-07-17;Événement religieux;Oui;8;Non
+614;ENS-0117;2024-07-17;Grève des transports;Oui;2;Non
+615;ENS-0014;2024-07-18;Grève des transports;Non;2;Oui
+616;ENS-0116;2024-07-18;Décès d'un proche;Oui;4;Non
+617;ENS-0119;2024-07-18;Raison familiale;Non;2;Non
+617;ENS-0119;2024-07-18;Raison familiale;Non;2;Non
+618;ENS-0029;2024-07-22;Raison familiale;Oui;6;Non
+619;ENS-0043;2024-07-22;Décès d'un proche;Oui;3;Oui
+620;ENS-0044;2024-07-22;Participation à un jury;Oui;4;Oui
+621;ENS-0095;2024-07-22;Raison familiale;Oui;6;Non
+622;ENS-0099;2024-07-22;Décès d'un proche;Oui;3;Non
+622;ENS-0099;2024-07-22;Décès d'un proche;Oui;3;Non
+623;ENS-0003;23/07/2024;Participation à un jury;Oui;8;Non
+624;ENS-0059;2024-07-23;Participation à un jury;Oui;8;Oui
+625;ENS-0089;2024-07-23;Participation à un jury;Oui;3;Oui
+626;ENS-0020;2024-07-24;Maladie;Oui;2;Non
+627;ENS-0036;2024-07-24;Congé de maternité;Oui;6;Non
+628;ENS-0112;2027-01-21;Congé de maternité;Oui;4;Oui
+629;ENS-0005;2024-07-25;Formation;Oui;6;Non
+630;ENS-0092;2024-07-26;Participation à un jury;Oui;2;Non
+631;ENS-0059;2024-08-01;Raison familiale;Oui;4;Non
+631;ENS-0059;2024-08-01;Raison familiale;Oui;4;Non
+632;ENS-0098;2024-08-01;Décès d'un proche;Oui;8;Oui
+633;ENS-0019;02/08/2024;Mission;Oui;6;Oui
+634;ENS-0062;2024-08-02;Congé de maternité;Oui;2;Non
+635;ENS-0075;2024-08-02;Maladie;Oui;6;Oui
+636;ENS-0012;2024-08-05;Maladie;Oui;4;Non
+637;ENS-0023;2024-08-05;;Non;6;Oui
+638;ENS-0045;2024-08-05;Grève des transports;Oui;2;Non
+639;ENS-0056;2024-08-05;Décès d'un proche;Oui;8;Non
+640;ENS-0084;2024-08-05;Examen médical;Oui;4;Non
+641;ENS-0092;2024-08-05;Décès d'un proche;Oui;4;Oui
+642;ENS-0049;2024-08-06;Formation;Oui;6;Non
+643;ENS-0052;2024-08-06;Mission;Oui;4;Oui
+644;ENS-0076;2024-08-06;Événement religieux;Oui;4;Oui
+645;ENS-0103;2024-08-06;Congé de maternité;Non;2;Oui
+646;ENS-0070;2024-08-07;Raison familiale;Non;4;Oui
+647;ENS-0116;2024-08-07;Examen médical;Non;2;Oui
+648;ENS-0004;2024-08-08;Décès d'un proche;Oui;2;Non
+649;ENS-0031;2024-08-08;Raison familiale;Oui;4;Oui
+650;ENS-0087;2024-08-08;Formation;Oui;3;Oui
+651;ENS-0002;2024-08-09;Formation;Oui;3;Oui
+652;ENS-0006;2024-08-09;Mission;Non;4;Non
+653;ENS-0007;2024-08-09;Formation;Oui;2;Non
+654;ENS-0008;2024-08-09;Raison familiale;Oui;464;Oui
+655;ENS-0028;2024-08-09;Examen médical;Oui;8;Non
+656;ENS-0045;2024-08-09;Participation à un jury;Oui;94;Non
+657;ENS-0115;2024-08-09;Événement religieux;Non;3;Non
+658;ENS-0014;2024-08-12;Raison familiale;Oui;8;Non
+659;ENS-0018;2024-08-12;Examen médical;Oui;4;Oui
+660;ENS-0025;2024-08-12;Événement religieux;Non;2;Oui
+661;ENS-0038;2024-08-12;Maladie;Oui;3;Non
+662;ENS-0111;2024-08-12;Raison familiale;Oui;8;Non
+662;ENS-0111;2024-08-12;Raison familiale;Oui;8;Non
+663;ENS-0120;2024-08-12;Événement religieux;Oui;663;Non
+664;ENS-0118;2024-08-13;Mission;Oui;6;Non
+665;ENS-0054;2024-08-14;Mission;Oui;3;Non
+666;ENS-0114;2024-08-14;Formation;Oui;8;Non
+667;ENS-0087;2024-08-15;Grève des transports;Oui;8;Non
+668;ENS-0089;2024-08-16;Congé de maternité;Oui;2;Oui
+669;ENS-0040;2024-08-19;Événement religieux;Non;8;Non
+670;ENS-0050;2024-08-19;Décès d'un proche;Oui;8;Non
+671;ENS-0069;2024-08-20;Décès d'un proche;Oui;6;Non
+672;ENS-0020;2024-08-21;Raison familiale;Oui;2;Oui
+673;ENS-0022;2024-08-21;Congé de maternité;Oui;8;Non
+674;ENS-0024;2024-08-21;Mission;Oui;8;Non
+675;ENS-0036;2024-08-21;Formation;Oui;6;Non
+676;ENS-0088;2024-08-21;Décès d'un proche;Oui;6;Oui
+677;ENS-0015;2024-08-22;Formation;Oui;8;Oui
+678;ENS-0066;2027-07-29;Examen médical;Oui;2;Non
+679;ENS-0102;2024-08-22;Décès d'un proche;Oui;8;Non
+680;ENS-0105;2024-08-22;Événement religieux;Oui;8;Non
+681;ENS-0005;2024-08-23;Raison familiale;Oui;4;Oui
+682;ENS-0017;2024-08-23;Raison familiale;Oui;4;Oui
+683;ENS-0071;2024-08-23;Maladie;Non;3;Non
+684;ENS-0008;2024-08-26;Événement religieux;Oui;8;Oui
+685;ENS-0063;2024-08-26;Décès d'un proche;Non;6;Oui
+686;ENS-0032;2024-08-28;Formation;Oui;8;Non
+687;ENS-0064;08-28-2024;Formation;Non;8;Non
+688;ENS-0073;2024-08-28;Décès d'un proche;Oui;2;Non
+689;ENS-0106;2024-08-28;Examen médical;Oui;3;Non
+690;ENS-0107;2024-08-28;Maladie;Oui;8;Non
+691;ENS-0009;2024-09-02;Participation à un jury;Non;6;Non
+692;ENS-0013;2024-09-02;Événement religieux;Oui;4;Oui
+693;ENS-0015;2019-02-23;Examen médical;Non;4;Non
+694;ENS-0028;2024-09-02;Examen médical;Oui;6;Oui
+695;ENS-0050;2024-09-02;Grève des transports;Non;6;Non
+696;ENS-0107;2024-09-02;Décès d'un proche;Non;3;Non
+697;ENS-0110;2017-05-25;;Oui;4;Non
+698;ENS-0120;2024-09-02;Décès d'un proche;Oui;623;Oui
+699;ENS-0066;2024-09-03;Mission;Oui;3;Non
+700;ENS-0074;2024-09-03;Examen médical;Oui;4;Oui
+701;ENS-0097;2024-09-03;Examen médical;Oui;8;Non
+702;ENS-0112;2024-09-03;Congé de maternité;Oui;8;Oui
+703;ENS-0040;2024-09-04;Événement religieux;Oui;6;Non
+704;ENS-0053;2027-01-23;Grève des transports;Oui;2;Non
+705;ENS-0073;2024-09-04;Grève des transports;Oui;4;Non
+706;ENS-0087;2024-09-04;Formation;Oui;2;Oui
+707;ENS-0007;2024-09-05;Grève des transports;Oui;4;Oui
+708;ENS-0032;2024-09-05;Mission;Oui;4;Non
+709;ENS-0085;2024-09-05;Maladie;Oui;3;Oui
+710;ENS-0103;2024-09-05;Formation;Oui;8;Oui
+710;ENS-0103;2024-09-05;Formation;Oui;8;Oui
+711;ENS-0113;2024-09-05;Raison familiale;Oui;2;Oui
+712;ENS-0026;2024-09-06;Formation;Oui;2;Oui
+713;ENS-0050;2024-09-06;Examen médical;Oui;3;Oui
+714;ENS-0069;2024-09-06;Examen médical;Oui;3;Oui
+715;ENS-0084;2024-09-06;Formation;Oui;6;Non
+716;ENS-0100;2024-09-06;Examen médical;Oui;8;Non
+717;ENS-0106;2024-09-06;Formation;Oui;4;Oui
+718;ENS-0109;2024-09-06;Événement religieux;Oui;8;Oui
+719;ENS-0025;2024-09-09;Raison familiale;Oui;8;Non
+720;ENS-0064;2024-09-09;Décès d'un proche;Non;8;Non
+721;ENS-0065;2024-09-09;Raison familiale;Oui;6;Non
+722;ENS-0110;2024-09-09;Congé de maternité;Oui;8;Non
+723;ENS-0058;2024-09-10;Examen médical;Oui;4;Oui
+724;ENS-0089;2024-09-10;Formation;Non;2;Non
+725;ENS-0106;2024-09-10;Événement religieux;Oui;2;Non
+726;ENS-0108;2024-09-10;Maladie;Oui;3;Oui
+727;ENS-0113;2024-09-10;Grève des transports;Oui;8;Non
+728;ENS-0029;2024-09-11;Grève des transports;Oui;2;Non
+729;ENS-0088;2024-09-11;Événement religieux;Oui;8;Oui
+730;ENS-0089;09-11-2024;Participation à un jury;Oui;8;Non
+731;ENS-0107;2024-09-11;Raison familiale;Oui;2;Oui
+732;ENS-0056;2024-09-12;Congé de maternité;Non;2;Oui
+733;ENS-0093;2024-09-12;Grève des transports;Non;6;Non
+734;ENS-0004;2024-09-16;Congé de maternité;Oui;3;Oui
+735;ENS-0019;2024-09-16;Congé de maternité;Oui;2;Non
+736;ENS-0030;2024-09-16;Raison familiale;Oui;3;Oui
+737;ENS-0116;2024-09-16;Événement religieux;Non;4;Oui
+738;ENS-0043;2024-09-17;Congé de maternité;Oui;6;Oui
+739;ENS-0076;2024-09-17;Examen médical;Oui;3;Oui
+740;ENS-0095;2024-09-17;Décès d'un proche;Oui;4;Non
+741;ENS-0102;2024-09-17;Grève des transports;Oui;6;Oui
+742;ENS-0002;2024-09-18;Examen médical;Oui;3;Non
+743;ENS-0020;2024-09-18;Congé de maternité;Oui;657;Oui
+744;ENS-0034;2024-09-18;Raison familiale;Oui;6;Oui
+745;ENS-0069;2024-09-18;Congé de maternité;Oui;2;Non
+746;ENS-0076;2024-09-18;Événement religieux;Non;2;Non
+747;ENS-0119;2024-09-18;Participation à un jury;Oui;2;Non
+748;ENS-0119;2024-09-18;Participation à un jury;Oui;2;Non
+749;ENS-0082;2024-09-19;Participation à un jury;Oui;354;Non
+750;ENS-0023;2024-09-20;Mission;Oui;3;Non
+750;ENS-0023;2024-09-20;Mission;Oui;3;Non
+751;ENS-0032;2024-09-20;Événement religieux;Oui;2;Non
+752;ENS-0082;09-20-2024;Formation;Oui;2;Non
+753;ENS-0093;2024-09-20;;Oui;3;Non
+754;ENS-0038;2024-09-23;Examen médical;Oui;8;Non
+755;ENS-0038;2024-09-23;Formation;Oui;8;Oui
+756;ENS-0049;2024-09-23;Raison familiale;Non;4;Non
+757;ENS-0074;2024-09-23;Événement religieux;Oui;3;Non
+758;ENS-0079;2024-09-23;Examen médical;Oui;4;Oui
+759;ENS-0001;2024-09-24;Maladie;Oui;6;Non
+760;ENS-0006;2024-09-24;Participation à un jury;Non;3;Non
+761;ENS-0017;2024-09-24;Maladie;Oui;503;Non
+762;ENS-0075;2024-09-24;Raison familiale;Non;2;Non
+763;ENS-0099;2024-09-24;Raison familiale;Oui;288;Non
+764;ENS-0092;2024-09-25;Congé de maternité;Oui;2;Non
+765;ENS-0105;2024-09-25;Formation;Non;3;Non
+766;ENS-0019;2024-09-26;;Oui;2;Non
+767;ENS-0062;2024-09-26;Maladie;Non;2;Non
+768;ENS-0096;2024-09-26;Participation à un jury;Oui;6;Non
+768;ENS-0096;2024-09-26;Participation à un jury;Oui;6;Non
+769;ENS-0098;2024-09-26;Grève des transports;Oui;3;Oui
+770;ENS-0011;2024-09-27;Événement religieux;Non;3;Non
+771;ENS-0014;2024-09-27;Examen médical;Oui;4;Oui
+772;ENS-0048;2024-09-27;Raison familiale;Oui;3;Non
+773;ENS-0070;2024-09-27;Décès d'un proche;Oui;2;Oui
+774;ENS-0117;2024-09-27;Raison familiale;Oui;8;Oui
+775;ENS-0042;2024-10-01;Décès d'un proche;Oui;6;Non
+776;ENS-0078;2003-12-11;Raison familiale;Oui;6;Non
+777;ENS-0065;2024-10-02;Examen médical;Oui;4;Non
+778;ENS-0076;2024-10-02;Raison familiale;Oui;6;Oui
+779;ENS-0007;2024-10-03;Participation à un jury;Non;8;Oui
+780;ENS-0013;2024-10-03;Congé de maternité;Oui;6;Oui
+781;ENS-0019;2024-10-03;Décès d'un proche;Non;6;Non
+782;ENS-0063;2024-10-03;Maladie;Oui;4;Non
+783;ENS-0097;2024-10-03;;Oui;4;Non
+784;ENS-0098;2024-10-04;Décès d'un proche;Non;8;Non
+785;ENS-0111;04/10/2024;Grève des transports;Oui;8;Non
+786;ENS-0113;2024-10-04;Examen médical;Non;2;Non
+787;ENS-0020;2024-10-07;Congé de maternité;Non;2;Oui
+788;ENS-0026;2024-10-07;Décès d'un proche;Oui;3;Non
+789;ENS-0031;2024-10-08;Décès d'un proche;Oui;8;Non
+790;ENS-0050;2024-10-08;Grève des transports;Oui;4;Non
+791;ENS-0005;2024-10-09;Maladie;Non;2;Non
+792;ENS-0065;2024-10-09;Formation;Oui;3;Oui
+793;ENS-0099;2024-10-09;Maladie;Oui;2;Non
+794;ENS-0050;2024-10-10;;Non;2;Non
+795;ENS-0101;2024-10-10;Décès d'un proche;Oui;3;Non
+796;ENS-0003;2027-09-12;Mission;Oui;4;Non
+797;ENS-0032;2024-10-11;Décès d'un proche;Non;2;Oui
+798;ENS-0073;11/10/2024;Participation à un jury;Oui;2;Non
+799;ENS-0080;2024-10-11;Grève des transports;Non;8;Non
+800;ENS-0103;2024-10-11;Événement religieux;Oui;4;Non
+801;ENS-0004;2027-07-23;Examen médical;Oui;4;Oui
+802;ENS-0015;2024-10-14;Maladie;Oui;4;Non
+803;ENS-0077;2024-10-14;Raison familiale;Oui;6;Non
+804;ENS-0090;2024-10-14;Participation à un jury;Non;174;Non
+805;ENS-0025;2024-10-15;Raison familiale;Oui;2;Oui
+806;ENS-0041;2024-10-15;Congé de maternité;Oui;6;Non
+807;ENS-0108;2024-10-15;Maladie;Non;3;Oui
+808;ENS-0045;2020-12-15;Participation à un jury;Oui;6;Oui
+809;ENS-0091;2024-10-16;Formation;Non;6;Non
+810;ENS-0084;2024-10-17;Formation;Oui;8;Non
+811;ENS-0114;2024-10-17;Formation;Oui;2;Oui
+812;ENS-0002;2024-10-18;Maladie;Oui;8;Non
+813;ENS-0018;2024-10-18;Événement religieux;Non;3;Non
+814;ENS-0005;2024-10-21;Examen médical;Oui;8;Non
+815;ENS-0015;2024-10-21;Formation;Oui;6;Non
+816;ENS-0027;2024-10-21;Décès d'un proche;Non;3;Oui
+817;ENS-0034;2012-12-11;Grève des transports;Oui;8;Non
+818;ENS-0036;2024-10-21;Congé de maternité;Oui;2;Non
+818;ENS-0036;2024-10-21;Congé de maternité;Oui;2;Non
+819;ENS-0055;2024-10-21;Grève des transports;Non;2;Non
+820;ENS-0059;2024-10-21;Formation;Non;3;Non
+821;ENS-0112;2024-10-21;Participation à un jury;Oui;3;Oui
+822;ENS-0075;2024-10-22;Formation;Oui;4;Non
+823;ENS-0017;2024-10-23;Maladie;Oui;3;Non
+824;ENS-0051;2024-10-23;Participation à un jury;Oui;6;Non
+825;ENS-0058;2024-10-23;Décès d'un proche;Non;722;Oui
+826;ENS-0060;2024-10-23;Formation;Oui;2;Non
+827;ENS-0074;2024-10-23;Maladie;Non;6;Non
+828;ENS-0120;2027-01-21;Congé de maternité;Oui;8;Non
+829;ENS-0078;2024-10-24;Maladie;Oui;576;Oui
+830;ENS-0088;2024-10-24;Examen médical;Oui;8;Oui
+831;ENS-0010;2009-06-18;Mission;Non;714;Oui
+832;ENS-0039;2024-10-28;Décès d'un proche;Non;8;Non
+833;ENS-0079;2024-10-28;Événement religieux;Oui;8;Oui
+834;ENS-0106;2024-10-28;Grève des transports;Oui;4;Non
+835;ENS-0014;2024-11-01;Formation;Oui;54;Non
+836;ENS-0050;2024-11-01;Mission;Oui;8;Oui
+837;ENS-0084;2027-01-11;Raison familiale;Oui;4;Non
+838;ENS-0101;2024-11-01;Décès d'un proche;Oui;8;Non
+839;ENS-0102;2024-11-01;Raison familiale;Oui;2;Non
+840;ENS-0007;2024-11-04;Formation;Non;6;Oui
+841;ENS-0010;2024-11-04;;Oui;3;Oui
+842;ENS-0073;2024-11-04;Maladie;Oui;2;Oui
+843;ENS-0083;2024-11-04;Mission;Oui;4;Non
+844;ENS-0027;2024-11-05;Raison familiale;Non;6;Oui
+845;ENS-0036;2024-11-05;Événement religieux;Oui;8;Non
+846;ENS-0038;2024-11-05;Congé de maternité;Oui;2;Non
+846;ENS-0038;2024-11-05;Congé de maternité;Oui;2;Non
+847;ENS-0098;2024-11-05;Participation à un jury;Oui;6;Non
+848;ENS-0110;2024-11-05;Congé de maternité;Oui;4;Non
+849;ENS-0045;2024-11-06;Maladie;Oui;3;Oui
+850;ENS-0079;2024-11-06;Mission;Non;8;Non
+851;ENS-0089;2024-11-06;Examen médical;Oui;4;Oui
+852;ENS-0090;2014-06-01;Participation à un jury;Oui;8;Oui
+853;ENS-0100;2024-11-06;Formation;Oui;4;Oui
+854;ENS-0017;2024-11-07;Grève des transports;Non;2;Oui
+855;ENS-0012;2024-11-08;Congé de maternité;Oui;2;Oui
+856;ENS-0027;2024-11-08;Raison familiale;Oui;4;Oui
+857;ENS-0085;2024-11-08;Grève des transports;Oui;2;Non
+858;ENS-0094;2024-11-08;Événement religieux;Non;4;Non
+859;ENS-0024;11-11-2024;Maladie;Non;2;Oui
+860;ENS-0084;2024-11-11;Maladie;Non;8;Non
+861;ENS-0120;2024-11-11;Décès d'un proche;Oui;6;Non
+862;ENS-0003;2024-11-12;Participation à un jury;Oui;60;Non
+863;ENS-0006;2024-11-12;Raison familiale;Oui;4;Non
+864;ENS-0019;2024-11-12;Participation à un jury;Non;6;Non
+865;ENS-0103;2024-11-12;Maladie;Oui;6;Non
+866;ENS-0110;2024-11-12;Mission;Oui;8;Non
+867;ENS-0020;2024-11-13;Raison familiale;Oui;8;Non
+868;ENS-0048;13/11/2024;Examen médical;Oui;3;Non
+869;ENS-0062;2024-11-13;Grève des transports;Oui;3;Non
+870;ENS-0001;2024-11-14;Grève des transports;Non;6;Oui
+871;ENS-0096;2024-11-14;Formation;Oui;4;Oui
+872;ENS-0015;2024-11-18;Maladie;Oui;6;Non
+873;ENS-0031;2024-11-18;Décès d'un proche;Oui;8;Oui
+874;ENS-0107;2024-11-18;Examen médical;Oui;4;Oui
+875;ENS-0083;2024-11-19;Participation à un jury;Non;8;Non
+876;ENS-0094;2027-05-15;Maladie;Oui;2;Oui
+877;ENS-0053;2027-05-10;Formation;Non;4;Oui
+878;ENS-0075;2024-11-20;Grève des transports;Non;8;Non
+879;ENS-0117;2024-11-20;Participation à un jury;Oui;6;Non
+880;ENS-0009;2024-11-22;Décès d'un proche;Oui;8;Oui
+881;ENS-0017;2024-11-22;Maladie;Oui;4;Non
+881;ENS-0017;2024-11-22;Maladie;Oui;4;Non
+882;ENS-0031;2024-11-22;Événement religieux;Oui;4;Non
+882;ENS-0031;2024-11-22;Événement religieux;Oui;4;Non
+883;ENS-0040;2024-11-22;Maladie;Non;8;Non
+884;ENS-0063;2024-11-22;Grève des transports;Oui;4;Oui
+885;ENS-0067;2024-11-22;Grève des transports;Oui;3;Non
+885;ENS-0067;2024-11-22;Grève des transports;Oui;3;Non
+886;ENS-0090;2024-11-22;Examen médical;Oui;2;Non
+887;ENS-0108;2024-11-22;Maladie;Non;6;Non
+888;ENS-0055;2024-11-25;Raison familiale;Oui;4;Non
+889;ENS-0082;2024-11-25;Événement religieux;Non;6;Oui
+890;ENS-0005;2024-11-26;Congé de maternité;Oui;4;Non
+891;ENS-0030;2024-11-26;Maladie;Oui;3;Oui
+892;ENS-0099;2024-11-26;Mission;Non;698;Non
+893;ENS-0015;2024-11-27;Congé de maternité;Oui;8;Non
+894;ENS-0054;2024-11-27;Grève des transports;Oui;2;Non
+895;ENS-0063;2024-11-27;Grève des transports;Oui;8;Non
+896;ENS-0070;2024-11-27;Événement religieux;Non;4;Non
+897;ENS-0016;2024-11-28;;Oui;2;Non
+898;ENS-0053;2024-11-28;Congé de maternité;Oui;3;Non
+899;ENS-0060;2024-11-28;Congé de maternité;Oui;6;Oui
+900;ENS-0103;2024-11-28;Décès d'un proche;Non;4;Oui
+901;ENS-0025;2024-12-02;;Oui;8;Oui
+902;ENS-0064;2024-12-02;Raison familiale;Oui;4;Non
+903;ENS-0055;2024-12-03;Maladie;Oui;6;Non
+904;ENS-0065;2024-12-03;Mission;Non;8;Non
+904;ENS-0065;2024-12-03;Mission;Non;8;Non
+905;ENS-0074;2024-12-03;Maladie;Oui;6;Non
+906;ENS-0088;2024-12-03;Participation à un jury;Oui;8;Non
+907;ENS-0107;2024-12-03;Formation;Oui;2;Non
+908;ENS-0062;2024-12-04;Congé de maternité;Oui;3;Non
+909;ENS-0108;2024-12-04;Raison familiale;Oui;2;Non
+910;ENS-0010;2024-12-05;Décès d'un proche;Oui;6;Non
+911;ENS-0013;2024-12-05;Mission;Non;4;Oui
+912;ENS-0025;2024-12-05;Formation;Oui;8;Oui
+912;ENS-0025;2024-12-05;Formation;Oui;8;Oui
+913;ENS-0044;2024-12-05;Raison familiale;Non;3;Non
+914;ENS-0055;2024-12-05;Mission;Non;8;Oui
+915;ENS-0091;2024-12-05;Décès d'un proche;Oui;8;Oui
+916;ENS-0100;2024-12-05;Raison familiale;Non;2;Oui
+917;ENS-0119;2024-12-05;Raison familiale;Oui;6;Non
+918;ENS-0014;2024-12-06;Maladie;Non;4;Non
+919;ENS-0030;2024-12-06;Maladie;Non;8;Oui
+920;ENS-0041;2024-12-06;Décès d'un proche;Non;4;Non
+921;ENS-0056;2024-12-06;Événement religieux;Oui;4;Non
+922;ENS-0059;12-06-2024;Congé de maternité;Oui;673;Non
+923;ENS-0003;2024-12-09;Formation;Oui;8;Non
+924;ENS-0075;2024-12-09;Participation à un jury;Non;3;Non
+924;ENS-0075;2024-12-09;Participation à un jury;Non;3;Non
+925;ENS-0090;2024-12-10;Décès d'un proche;Oui;297;Non
+926;ENS-0092;2024-12-10;Participation à un jury;Non;2;Oui
+927;ENS-0118;2024-12-10;Événement religieux;Oui;8;Non
+928;ENS-0016;2024-12-11;Raison familiale;Oui;6;Oui
+929;ENS-0112;2024-12-11;Formation;Non;8;Oui
+930;ENS-0067;2024-12-12;Formation;Oui;8;Non
+931;ENS-0068;2024-12-12;Examen médical;Non;4;Non
+932;ENS-0095;2024-12-12;Congé de maternité;Non;4;Oui
+933;ENS-0084;2024-12-16;Formation;Oui;8;Oui
+934;ENS-0054;2024-12-17;Raison familiale;Oui;2;Oui
+935;ENS-0079;2024-12-17;Grève des transports;Non;2;Non
+936;ENS-0119;2024-12-17;Congé de maternité;Oui;2;Non
+937;ENS-0099;2024-12-18;Examen médical;Oui;6;Non
+938;ENS-0009;2024-12-19;Congé de maternité;Non;4;Non
+939;ENS-0044;2027-09-22;Décès d'un proche;Oui;2;Non
+940;ENS-0063;2024-12-19;Événement religieux;Oui;8;Non
+941;ENS-0093;2024-12-20;Congé de maternité;Oui;3;Oui
+942;ENS-0104;2024-12-20;Événement religieux;Oui;4;Oui
+943;ENS-0109;2024-12-20;Grève des transports;Oui;2;Non
+944;ENS-0028;2024-12-23;Événement religieux;Oui;6;Non
+945;ENS-0082;2024-12-23;Grève des transports;Non;3;Non
+946;ENS-0089;2024-12-23;Raison familiale;Oui;2;Non
+947;ENS-0058;2024-12-24;;Non;2;Oui
+948;ENS-0032;2024-12-25;Participation à un jury;Oui;4;Non
+949;ENS-0087;2024-12-25;Grève des transports;Non;8;Oui
+950;ENS-0098;2024-12-25;Participation à un jury;Non;3;Oui
+951;ENS-0007;2024-12-26;Événement religieux;Non;8;Non
+952;ENS-0030;2024-12-26;Maladie;Oui;3;Non
+953;ENS-0051;2024-12-26;Décès d'un proche;Oui;3;Non
+954;ENS-0114;2027-08-03;Formation;Oui;4;Oui
+955;ENS-0046;2025-01-01;Décès d'un proche;Non;8;Oui
+956;ENS-0071;01/01/2025;Événement religieux;Non;6;Oui
+957;ENS-0088;2025-01-01;Congé de maternité;Oui;8;Non
+958;ENS-0091;01/01/2025;Participation à un jury;Oui;6;Oui
+959;ENS-0046;2025-01-02;Mission;Non;4;Oui
+960;ENS-0061;02/01/2025;Maladie;Non;6;Non
+961;ENS-0080;2025-01-02;Participation à un jury;Oui;3;Oui
+962;ENS-0031;2025-01-03;Congé de maternité;Oui;576;Non
+963;ENS-0098;2025-01-03;Raison familiale;Oui;6;Non
+964;ENS-0106;2025-01-03;Participation à un jury;Oui;8;Oui
+965;ENS-0111;2025-01-03;Participation à un jury;Non;6;Non
+966;ENS-0116;2025-01-03;;Oui;3;Non
+967;ENS-0006;2025-01-06;Décès d'un proche;Non;3;Non
+968;ENS-0067;2025-01-06;Mission;Oui;4;Non
+969;ENS-0120;06/01/2025;Examen médical;Oui;663;Non
+970;ENS-0007;2025-01-07;Participation à un jury;Non;8;Non
+971;ENS-0039;2025-01-07;Examen médical;Oui;8;Non
+972;ENS-0041;2025-01-07;Décès d'un proche;Oui;2;Oui
+973;ENS-0114;2025-01-07;Décès d'un proche;Oui;8;Oui
+974;ENS-0115;2025-01-07;Maladie;Non;90;Non
+975;ENS-0005;2025-01-08;Raison familiale;Oui;3;Non
+976;ENS-0008;2025-01-08;Examen médical;Oui;3;Oui
+976;ENS-0008;2025-01-08;Examen médical;Oui;3;Oui
+977;ENS-0025;2025-01-08;Congé de maternité;Oui;2;Oui
+978;ENS-0029;2025-01-08;Congé de maternité;Oui;8;Oui
+979;ENS-0045;01-08-2025;Mission;Oui;2;Non
+980;ENS-0108;2025-01-09;Maladie;Oui;4;Non
+981;ENS-0023;2025-01-10;Formation;Non;8;Non
+982;ENS-0061;2025-01-10;Examen médical;Oui;4;Non
+983;ENS-0064;2025-01-10;Raison familiale;Non;8;Non
+984;ENS-0111;2025-01-10;Raison familiale;Oui;3;Oui
+985;ENS-0112;2025-01-10;Grève des transports;Oui;6;Non
+986;ENS-0040;2025-01-13;Congé de maternité;Oui;6;Oui
+987;ENS-0049;2027-01-28;Raison familiale;Oui;8;Oui
+988;ENS-0095;2025-01-13;Examen médical;Oui;2;Oui
+989;ENS-0097;13/01/2025;Grève des transports;Oui;4;Oui
+990;ENS-0004;2025-01-14;Événement religieux;Oui;344;Non
+991;ENS-0038;2025-01-14;Raison familiale;Non;8;Oui
+992;ENS-0100;2025-01-14;Raison familiale;Non;2;Non
+993;ENS-0102;2025-01-14;Décès d'un proche;Oui;2;Non
+994;ENS-0119;2025-01-14;Maladie;Oui;225;Non
+995;ENS-0016;2025-01-15;Congé de maternité;Non;3;Oui
+996;ENS-0051;2025-01-15;Congé de maternité;Non;6;Oui
+997;ENS-0096;2025-01-15;Raison familiale;Oui;3;Non
+998;ENS-0104;2025-01-15;Congé de maternité;Non;2;Non
+999;ENS-0018;2025-01-16;Participation à un jury;Oui;3;Non
+999;ENS-0018;2025-01-16;Participation à un jury;Oui;3;Non
+1000;ENS-0066;2025-01-16;Congé de maternité;Non;2;Non
+1001;ENS-0087;2025-01-16;Grève des transports;Oui;3;Non
+1002;ENS-0090;01-16-2025;Participation à un jury;Oui;2;Oui
+1003;ENS-0100;2025-01-16;Formation;Oui;6;Non
+1004;ENS-0022;2027-10-17;Congé de maternité;Oui;6;Non
+1005;ENS-0033;2027-08-19;Examen médical;Oui;3;Non
+1006;ENS-0047;2025-01-17;Congé de maternité;Oui;3;Non
+1007;ENS-0010;2025-01-20;Participation à un jury;Oui;6;Non
+1008;ENS-0009;2025-01-21;Formation;Non;8;Non
+1009;ENS-0012;2025-01-21;Maladie;Oui;4;Non
+1009;ENS-0012;2025-01-21;Maladie;Oui;4;Non
+1010;ENS-0118;2025-01-21;Congé de maternité;Oui;6;Oui
+1011;ENS-0004;2025-01-22;Mission;Oui;6;Non
+1012;ENS-0015;01-22-2025;Formation;Oui;2;Oui
+1013;ENS-0051;2013-01-11;Grève des transports;Non;3;Non
+1014;ENS-0075;2025-01-22;Congé de maternité;Oui;8;Non
+1015;ENS-0109;2009-11-06;Congé de maternité;Oui;6;Non
+1016;ENS-0117;22/01/2025;Mission;Oui;8;Non
+1017;ENS-0009;2027-05-07;Raison familiale;Oui;3;Non
+1018;ENS-0043;2025-01-23;Examen médical;Oui;6;Oui
+1019;ENS-0055;2025-01-23;Examen médical;Oui;4;Oui
+1020;ENS-0084;2025-01-23;Raison familiale;Oui;3;Non
+1021;ENS-0032;2027-02-10;Participation à un jury;Oui;4;Non
+1022;ENS-0052;2025-01-24;Événement religieux;Oui;3;Oui
+1023;ENS-0068;2025-01-24;Raison familiale;Oui;2;Oui
+1024;ENS-0069;2025-01-24;Grève des transports;Non;8;Oui
+1024;ENS-0069;2025-01-24;Grève des transports;Non;8;Oui
+1025;ENS-0115;2022-07-30;Événement religieux;Oui;2;Non
+1026;ENS-0034;2025-01-27;Maladie;Oui;2;Oui
+1027;ENS-0042;2025-01-27;Raison familiale;Non;8;Non
+1028;ENS-0089;2025-01-27;Mission;Oui;8;Non
+1029;ENS-0102;2025-01-27;Examen médical;Oui;3;Oui
+1030;ENS-0011;2026-12-28;Congé de maternité;Oui;4;Oui
+1031;ENS-0010;2025-02-03;Raison familiale;Oui;8;Non
+1032;ENS-0068;2025-02-03;Maladie;Non;3;Non
+1033;ENS-0002;2025-02-04;Événement religieux;Oui;4;Non
+1034;ENS-0032;2007-03-26;Décès d'un proche;Non;3;Non
+1035;ENS-0086;2025-02-04;Formation;Non;4;Oui
+1036;ENS-0092;2025-02-04;Mission;Oui;3;Oui
+1037;ENS-0070;2025-02-05;Événement religieux;Oui;6;Non
+1038;ENS-0112;2025-02-05;Décès d'un proche;Oui;2;Oui
+1039;ENS-0118;2025-02-05;Participation à un jury;Oui;8;Oui
+1040;ENS-0025;2025-02-06;Congé de maternité;Non;4;Oui
+1041;ENS-0058;06/02/2025;Mission;Non;3;Oui
+1042;ENS-0099;2025-02-06;Décès d'un proche;Non;2;Oui
+1043;ENS-0119;2025-02-06;Maladie;Oui;2;Oui
+1044;ENS-0003;2025-02-07;Décès d'un proche;Oui;8;Non
+1045;ENS-0014;2025-02-07;Examen médical;Oui;4;Non
+1046;ENS-0094;2009-04-14;Raison familiale;Oui;6;Non
+1047;ENS-0095;2025-02-07;Mission;Oui;3;Non
+1048;ENS-0001;2025-02-10;Participation à un jury;Oui;2;Non
+1049;ENS-0048;2025-02-10;Formation;Non;2;Oui
+1050;ENS-0063;2025-02-10;Grève des transports;Oui;6;Oui
+1051;ENS-0004;2025-02-11;Événement religieux;Non;2;Non
+1052;ENS-0024;2025-02-11;Grève des transports;Non;6;Oui
+1053;ENS-0044;2025-02-11;Mission;Oui;2;Non
+1054;ENS-0089;2025-02-11;Examen médical;Oui;2;Oui
+1055;ENS-0110;2025-02-11;Mission;Oui;8;Non
+1056;ENS-0065;2025-02-12;Congé de maternité;Oui;6;Non
+1057;ENS-0089;2025-02-12;Grève des transports;Non;2;Oui
+1058;ENS-0045;2025-02-13;Événement religieux;Non;4;Non
+1059;ENS-0053;2025-02-14;Congé de maternité;Oui;4;Oui
+1060;ENS-0068;2025-02-14;Événement religieux;Oui;8;Non
+1061;ENS-0054;2025-02-17;Mission;Oui;8;Non
+1062;ENS-0061;2025-02-17;Formation;Non;2;Non
+1063;ENS-0074;2025-02-17;Congé de maternité;Non;3;Non
+1064;ENS-0090;2025-02-17;Maladie;Oui;2;Non
+1065;ENS-0101;2025-02-17;Congé de maternité;Non;8;Oui
+1066;ENS-0038;2025-02-18;Raison familiale;Oui;2;Non
+1067;ENS-0096;2025-02-18;Participation à un jury;Oui;6;Non
+1068;ENS-0115;2025-02-18;Participation à un jury;Oui;6;Oui
+1069;ENS-0005;2025-02-19;Participation à un jury;Non;4;Non
+1070;ENS-0049;02-19-2025;Congé de maternité;Oui;6;Oui
+1071;ENS-0053;2025-02-19;Décès d'un proche;Oui;8;Non
+1072;ENS-0084;2025-02-19;Événement religieux;Oui;6;Oui
+1073;ENS-0027;2025-02-20;Raison familiale;Oui;8;Non
+1074;ENS-0070;2025-02-20;Événement religieux;Oui;6;Non
+1075;ENS-0041;2025-02-21;Décès d'un proche;Non;6;Oui
+1076;ENS-0091;2025-02-21;Maladie;Non;4;Oui
+1077;ENS-0110;2025-02-21;Examen médical;Oui;8;Non
+1078;ENS-0008;2025-02-24;Participation à un jury;Non;4;Non
+1079;ENS-0061;2025-02-24;Mission;Oui;4;Non
+1080;ENS-0027;2025-02-25;Participation à un jury;Oui;3;Oui
+1081;ENS-0047;2025-02-25;Participation à un jury;Oui;6;Non
+1082;ENS-0077;2025-02-25;Événement religieux;Oui;2;Non
+1083;ENS-0104;2025-02-25;Raison familiale;Oui;4;Oui
+1084;ENS-0009;2025-02-26;Décès d'un proche;Oui;6;Non
+1085;ENS-0018;02-26-2025;Congé de maternité;Oui;4;Non
+1086;ENS-0034;26/02/2025;Formation;Oui;4;Non
+1087;ENS-0036;2025-02-26;Participation à un jury;Oui;2;Non
+1088;ENS-0024;2025-02-27;Grève des transports;Oui;8;Non
+1089;ENS-0033;2025-02-27;Maladie;Non;3;Non
+1090;ENS-0087;2025-02-27;Formation;Non;8;Oui
+1091;ENS-0105;2025-02-27;Mission;Oui;2;Oui
+1092;ENS-0111;2025-02-27;Mission;Oui;4;Non
+1093;ENS-0033;2025-02-28;Mission;Non;2;Non
+1094;ENS-0055;2026-11-14;Décès d'un proche;Non;4;Oui
+1095;ENS-0085;2025-02-28;Maladie;Oui;8;Oui
+1096;ENS-0109;2025-02-28;Participation à un jury;Non;2;Non
+1097;ENS-0017;2025-03-03;Participation à un jury;Oui;6;Oui
+1097;ENS-0017;2025-03-03;Participation à un jury;Oui;6;Oui
+1098;ENS-0086;2025-03-03;Examen médical;Oui;4;Oui
+1099;ENS-0110;2025-03-03;Congé de maternité;Oui;6;Non
+1100;ENS-0118;2027-05-11;Raison familiale;Oui;6;Non
+1101;ENS-0007;2025-03-05;Examen médical;Oui;294;Oui
+1102;ENS-0015;2025-03-05;Participation à un jury;Oui;2;Oui
+1103;ENS-0027;2025-03-05;Raison familiale;Non;2;Non
+1104;ENS-0065;2025-03-05;Raison familiale;Oui;2;Oui
+1105;ENS-0080;05/03/2025;Maladie;Oui;552;Non
+1106;ENS-0050;2025-03-06;Congé de maternité;Oui;8;Non
+1107;ENS-0105;2025-03-06;Formation;Oui;3;Non
+1108;ENS-0024;2025-03-07;Décès d'un proche;Oui;2;Non
+1109;ENS-0044;2025-03-07;Raison familiale;Oui;730;Non
+1110;ENS-0068;2025-03-07;Formation;Non;6;Oui
+1111;ENS-0001;2025-03-10;Mission;Oui;8;Non
+1112;ENS-0019;2025-03-10;Participation à un jury;Oui;8;Non
+1113;ENS-0020;2025-03-10;Mission;Oui;3;Non
+1114;ENS-0030;2025-03-10;Événement religieux;Non;6;Oui
+1115;ENS-0059;2025-03-10;Grève des transports;Oui;483;Non
+1116;ENS-0044;2025-03-11;Mission;Oui;2;Oui
+1117;ENS-0049;2025-03-11;Décès d'un proche;Non;3;Non
+1117;ENS-0049;2025-03-11;Décès d'un proche;Non;3;Non
+1118;ENS-0097;2027-04-25;Congé de maternité;Oui;420;Oui
+1119;ENS-0075;2025-03-12;Événement religieux;Non;2;Oui
+1120;ENS-0009;2025-03-13;Congé de maternité;Oui;3;Oui
+1121;ENS-0049;2025-03-13;Participation à un jury;Oui;3;Non
+1122;ENS-0058;2025-03-13;Examen médical;Oui;6;Non
+1123;ENS-0060;2025-03-13;Formation;Non;348;Oui
+1124;ENS-0083;2017-08-16;Mission;Non;8;Oui
+1125;ENS-0102;2025-03-13;Mission;Non;4;Non
+1126;ENS-0004;2025-03-14;Formation;Oui;4;Non
+1127;ENS-0008;2025-03-14;Décès d'un proche;Oui;6;Non
+1128;ENS-0045;2025-03-14;Formation;Non;8;Non
+1129;ENS-0075;2025-03-14;Participation à un jury;Non;8;Oui
+1130;ENS-0091;2025-03-14;Décès d'un proche;Oui;4;Non
+1131;ENS-0036;2025-03-17;Maladie;Oui;2;Non
+1132;ENS-0103;2025-03-17;Raison familiale;Oui;3;Non
+1133;ENS-0107;2025-03-17;Décès d'un proche;Oui;8;Non
+1134;ENS-0093;2025-03-18;Raison familiale;Oui;2;Non
+1135;ENS-0095;2025-03-18;Raison familiale;Non;8;Oui
+1136;ENS-0002;2025-03-19;;Oui;3;Non
+1137;ENS-0008;2025-03-19;Formation;Oui;8;Oui
+1138;ENS-0052;2025-03-20;Congé de maternité;Non;2;Oui
+1139;ENS-0089;2025-03-20;Raison familiale;Oui;8;Non
+1140;ENS-0090;2025-03-20;Congé de maternité;Non;239;Non
+1141;ENS-0042;2025-03-21;Maladie;Oui;8;Oui
+1142;ENS-0055;2025-03-21;Examen médical;Oui;3;Oui
+1143;ENS-0070;2025-03-21;;Non;3;Non
+1144;ENS-0116;2025-03-21;Raison familiale;Oui;8;Non
+1145;ENS-0015;2025-03-24;Examen médical;Oui;2;Non
+1146;ENS-0073;2025-03-24;Congé de maternité;Oui;6;Oui
+1147;ENS-0088;2025-03-24;Raison familiale;Oui;3;Oui
+1148;ENS-0100;2025-03-24;Décès d'un proche;Oui;2;Non
+1149;ENS-0112;2025-03-24;Maladie;Oui;4;Non
+1150;ENS-0120;2025-03-24;Événement religieux;Oui;4;Non
+1151;ENS-0011;2025-03-25;Congé de maternité;Oui;2;Non
+1152;ENS-0025;2025-03-25;Décès d'un proche;Oui;3;Oui
+1153;ENS-0051;2025-03-25;Examen médical;Oui;2;Non
+1154;ENS-0078;2025-03-25;Examen médical;Oui;3;Non
+1154;ENS-0078;2025-03-25;Examen médical;Oui;3;Non
+1155;ENS-0099;2025-03-25;Formation;Oui;3;Non
+1156;ENS-0101;2025-03-25;Formation;Non;4;Oui
+1157;ENS-0012;2025-03-26;Maladie;Oui;2;Non
+1158;ENS-0036;2025-03-26;Maladie;Oui;2;Non
+1159;ENS-0054;2025-03-27;Examen médical;Oui;4;Non
+1160;ENS-0054;2025-03-27;Mission;Oui;4;Oui
+1161;ENS-0064;2025-03-27;Mission;Oui;3;Oui
+1162;ENS-0017;2025-03-28;Décès d'un proche;Oui;2;Non
+1163;ENS-0032;2025-03-28;Congé de maternité;Oui;4;Non
+1164;ENS-0034;2025-03-28;Décès d'un proche;Oui;3;Non
+1165;ENS-0067;2025-03-28;Mission;Oui;6;Oui
+1166;ENS-0082;2025-03-28;Raison familiale;Oui;4;Oui
+1167;ENS-0094;2027-04-09;Événement religieux;Oui;3;Non
+1168;ENS-0009;2025-04-01;Examen médical;Oui;4;Non
+1169;ENS-0047;2025-04-01;Examen médical;Oui;2;Non
+1170;ENS-0055;2025-04-01;Décès d'un proche;Non;2;Non
+1171;ENS-0074;2025-04-01;Maladie;Oui;6;Non
+1172;ENS-0055;2025-04-02;Mission;Non;4;Oui
+1173;ENS-0102;2025-04-03;Participation à un jury;Non;2;Non
+1174;ENS-0014;2025-04-04;Mission;Oui;3;Oui
+1175;ENS-0030;2025-04-04;Maladie;Oui;6;Non
+1176;ENS-0020;2025-04-07;Grève des transports;Oui;4;Non
+1177;ENS-0051;2025-04-07;Grève des transports;Non;2;Non
+1178;ENS-0078;2025-04-07;Grève des transports;Non;2;Non
+1179;ENS-0106;2025-04-07;Maladie;Non;3;Non
+1180;ENS-0004;2025-04-08;Examen médical;Non;2;Non
+1181;ENS-0004;2025-04-08;Maladie;Oui;2;Non
+1182;ENS-0054;2025-04-08;Maladie;Non;3;Oui
+1183;ENS-0022;2025-04-09;Congé de maternité;Oui;623;Non
+1184;ENS-0034;2025-04-09;;Oui;2;Oui
+1185;ENS-0045;09/04/2025;Examen médical;Oui;2;Non
+1186;ENS-0062;2025-04-09;Maladie;Non;3;Non
+1187;ENS-0026;2025-04-10;Raison familiale;Non;8;Non
+1188;ENS-0027;2025-04-10;Raison familiale;Non;2;Non
+1188;ENS-0027;2025-04-10;Raison familiale;Non;2;Non
+1189;ENS-0058;2025-04-10;Raison familiale;Non;8;Oui
+1190;ENS-0103;2025-04-10;Décès d'un proche;Oui;8;Oui
+1191;ENS-0025;04-11-2025;Participation à un jury;Oui;6;Non
+1192;ENS-0053;2025-04-11;Mission;Oui;318;Oui
+1193;ENS-0063;2025-04-11;Grève des transports;Oui;6;Non
+1193;ENS-0063;2025-04-11;Grève des transports;Oui;6;Non
+1194;ENS-0064;2025-04-11;Raison familiale;Oui;8;Oui
+1195;ENS-0069;2025-04-11;Participation à un jury;Oui;4;Non
+1196;ENS-0070;2025-04-11;;Oui;4;Non
+1197;ENS-0099;2025-04-11;Examen médical;Non;2;Oui
+1198;ENS-0001;2025-04-14;Grève des transports;Oui;6;Non
+1199;ENS-0032;2025-04-14;Participation à un jury;Oui;6;Non
+1200;ENS-0050;2025-04-14;Raison familiale;Non;6;Non
+1201;ENS-0091;2025-04-14;;Oui;6;Non
+1202;ENS-0063;2025-04-15;Mission;Oui;3;Non
+1203;ENS-0002;2025-04-16;Participation à un jury;Oui;3;Oui
+1204;ENS-0066;2025-04-16;;Oui;3;Non
+1205;ENS-0079;2025-04-16;Congé de maternité;Non;2;Non
+1206;ENS-0085;2025-04-16;Raison familiale;Non;4;Oui
+1206;ENS-0085;2025-04-16;Raison familiale;Non;4;Oui
+1207;ENS-0092;2025-04-16;Raison familiale;Oui;4;Non
+1207;ENS-0092;2025-04-16;Raison familiale;Oui;4;Non
+1208;ENS-0033;2025-04-17;Congé de maternité;Oui;4;Non
+1209;ENS-0071;2025-04-17;Raison familiale;Non;2;Oui
+1210;ENS-0007;2025-04-18;Participation à un jury;Non;3;Oui
+1211;ENS-0012;2025-04-18;Décès d'un proche;Oui;8;Oui
+1212;ENS-0048;2025-04-18;Raison familiale;Oui;4;Oui
+1213;ENS-0052;2025-04-18;Maladie;Oui;8;Non
+1214;ENS-0068;2025-04-18;Maladie;Non;4;Non
+1215;ENS-0090;04-18-2025;Décès d'un proche;Oui;4;Oui
+1216;ENS-0091;2025-04-18;Examen médical;Oui;3;Non
+1217;ENS-0092;2025-04-18;;Oui;3;Oui
+1218;ENS-0038;2025-04-21;Participation à un jury;Oui;2;Non
+1219;ENS-0077;2025-04-21;Formation;Oui;6;Non
+1220;ENS-0097;2025-04-21;Mission;Non;6;Non
+1221;ENS-0098;2025-04-21;Congé de maternité;Non;4;Oui
+1222;ENS-0118;2025-04-21;Congé de maternité;Oui;3;Oui
+1223;ENS-0043;2025-04-22;Raison familiale;Oui;6;Oui
+1224;ENS-0044;22/04/2025;Maladie;Non;8;Non
+1225;ENS-0120;2025-04-22;Événement religieux;Oui;6;Non
+1226;ENS-0024;2025-04-24;Congé de maternité;Oui;6;Non
+1227;ENS-0068;04-24-2025;Maladie;Oui;2;Non
+1228;ENS-0005;2025-04-25;Congé de maternité;Non;6;Non
+1229;ENS-0043;2025-04-25;Congé de maternité;Oui;2;Non
+1230;ENS-0067;2025-04-25;Congé de maternité;Oui;8;Non
+1231;ENS-0080;2025-04-25;Examen médical;Non;3;Non
+1232;ENS-0012;2025-04-28;Grève des transports;Oui;6;Oui
+1233;ENS-0101;2025-04-28;Congé de maternité;Oui;2;Non
+1234;ENS-0109;2025-04-28;Raison familiale;Oui;2;Oui
+1235;ENS-0114;2025-04-28;Examen médical;Oui;4;Non
+1236;ENS-0119;2025-04-28;Mission;Oui;8;Non
+1237;ENS-0011;2025-05-01;Maladie;Oui;3;Oui
+1238;ENS-0017;2025-05-01;Mission;Oui;6;Oui
+1239;ENS-0047;2025-05-01;Examen médical;Oui;3;Non
+1240;ENS-0049;2025-05-01;Grève des transports;Oui;2;Non
+1241;ENS-0113;2025-05-01;Mission;Oui;2;Oui
+1242;ENS-0062;2025-05-02;Congé de maternité;Non;6;Non
+1243;ENS-0079;2025-05-02;Mission;Non;6;Non
+1244;ENS-0100;2025-05-02;Événement religieux;Oui;8;Oui
+1245;ENS-0022;2025-05-05;Examen médical;Non;2;Non
+1246;ENS-0025;2025-05-05;Maladie;Oui;8;Oui
+1247;ENS-0043;2025-05-05;Examen médical;Non;4;Non
+1248;ENS-0101;2025-05-05;Raison familiale;Oui;8;Non
+1249;ENS-0118;2025-05-05;Grève des transports;Non;4;Non
+1250;ENS-0006;2025-05-06;Raison familiale;Oui;8;Oui
+1251;ENS-0039;2025-05-06;Participation à un jury;Oui;2;Non
+1252;ENS-0054;2025-05-06;Mission;Oui;4;Non
+1253;ENS-0092;2025-05-06;Examen médical;Oui;4;Oui
+1254;ENS-0028;2025-05-07;Participation à un jury;Non;2;Non
+1255;ENS-0120;2025-05-07;Examen médical;Non;4;Non
+1256;ENS-0008;2025-05-08;Formation;Oui;6;Non
+1257;ENS-0025;2025-05-08;Examen médical;Oui;3;Non
+1258;ENS-0060;2025-05-08;Examen médical;Non;6;Oui
+1259;ENS-0066;2025-05-08;Raison familiale;Oui;4;Non
+1260;ENS-0069;2025-05-08;Raison familiale;Oui;3;Non
+1261;ENS-0083;2025-05-08;Maladie;Oui;4;Non
+1262;ENS-0085;2025-05-08;Examen médical;Oui;8;Oui
+1263;ENS-0096;2025-05-08;Participation à un jury;Non;2;Non
+1264;ENS-0041;2025-05-09;Grève des transports;Non;6;Non
+1265;ENS-0117;2025-05-09;Décès d'un proche;Oui;6;Non
+1266;ENS-0001;2025-05-12;Maladie;Oui;3;Oui
+1267;ENS-0050;2025-05-12;Événement religieux;Oui;3;Oui
+1268;ENS-0058;2025-05-12;Maladie;Oui;2;Oui
+1269;ENS-0071;2025-05-12;Raison familiale;Oui;4;Non
+1270;ENS-0077;2025-05-12;Congé de maternité;Oui;8;Non
+1271;ENS-0084;2025-05-12;Mission;Oui;8;Non
+1272;ENS-0024;2025-05-13;Maladie;Non;2;Non
+1273;ENS-0033;2025-05-13;Maladie;Oui;6;Oui
+1274;ENS-0036;2026-10-28;Événement religieux;Non;4;Non
+1275;ENS-0094;2025-05-13;Maladie;Non;4;Oui
+1276;ENS-0114;2025-05-13;Examen médical;Oui;4;Non
+1276;ENS-0114;2025-05-13;Examen médical;Oui;4;Non
+1277;ENS-0028;2025-05-14;Participation à un jury;Oui;2;Oui
+1278;ENS-0034;14/05/2025;Mission;Oui;6;Oui
+1279;ENS-0004;2025-05-15;;Non;4;Oui
+1280;ENS-0048;2025-05-15;Formation;Non;4;Non
+1281;ENS-0059;15/05/2025;Examen médical;Oui;6;Oui
+1282;ENS-0061;2025-05-15;Mission;Oui;3;Non
+1283;ENS-0104;2025-05-15;Grève des transports;Oui;4;Oui
+1284;ENS-0064;2025-05-16;Formation;Oui;6;Non
+1285;ENS-0089;2025-05-16;;Oui;2;Oui
+1286;ENS-0101;2025-05-16;Décès d'un proche;Oui;6;Non
+1287;ENS-0115;2025-05-19;Grève des transports;Oui;2;Oui
+1288;ENS-0020;2025-05-20;Congé de maternité;Oui;4;Non
+1289;ENS-0009;2025-05-21;Formation;Oui;8;Non
+1290;ENS-0027;2025-05-21;Participation à un jury;Oui;3;Non
+1291;ENS-0091;2025-05-21;Maladie;Oui;3;Oui
+1292;ENS-0007;2025-05-22;Événement religieux;Oui;2;Oui
+1293;ENS-0119;2025-05-22;Examen médical;Non;4;Non
+1294;ENS-0002;2025-05-23;Grève des transports;Oui;6;Non
+1294;ENS-0002;2025-05-23;Grève des transports;Oui;6;Non
+1295;ENS-0023;2025-05-26;Formation;Oui;4;Non
+1296;ENS-0082;2025-05-26;Participation à un jury;Oui;6;Non
+1297;ENS-0071;2025-05-27;Formation;Oui;6;Oui
+1298;ENS-0086;2025-05-27;Décès d'un proche;Oui;6;Oui
+1299;ENS-0110;2025-05-27;Formation;Oui;6;Non
+1300;ENS-0112;2025-05-27;Raison familiale;Oui;4;Oui
+1301;ENS-0005;2025-05-28;Examen médical;Oui;278;Oui
+1302;ENS-0013;2025-05-28;Événement religieux;Oui;8;Non
+1303;ENS-0039;2025-05-28;Grève des transports;Oui;8;Non
+1304;ENS-0056;2025-05-28;Mission;Non;8;Oui
+1305;ENS-0073;2025-05-28;Événement religieux;Non;4;Non
+1306;ENS-0088;05-28-2025;Maladie;Oui;2;Non
+1307;ENS-0098;2025-05-28;Participation à un jury;Oui;6;Non
+1308;ENS-0092;2025-06-02;Raison familiale;Oui;6;Non
+1309;ENS-0009;2025-06-03;Maladie;Oui;4;Non
+1310;ENS-0028;2025-06-03;;Oui;3;Non
+1311;ENS-0070;2025-06-03;Raison familiale;Oui;6;Non
+1312;ENS-0006;2025-06-04;Participation à un jury;Oui;2;Non
+1312;ENS-0006;2025-06-04;Participation à un jury;Oui;2;Non
+1313;ENS-0098;2025-06-04;Mission;Oui;4;Non
+1314;ENS-0071;2025-06-05;Participation à un jury;Oui;6;Non
+1315;ENS-0108;2025-06-05;Décès d'un proche;Oui;2;Non
+1316;ENS-0020;2025-06-06;Participation à un jury;Oui;2;Non
+1317;ENS-0048;2025-06-06;Examen médical;Non;6;Non
+1317;ENS-0048;2025-06-06;Examen médical;Non;6;Non
+1318;ENS-0051;2027-04-29;Participation à un jury;Non;4;Non
+1319;ENS-0085;2025-06-06;Maladie;Oui;8;Oui
+1320;ENS-0118;2025-06-06;Examen médical;Oui;3;Oui
+1321;ENS-0120;2025-06-06;Participation à un jury;Oui;8;Non
+1322;ENS-0087;2013-12-06;Grève des transports;Oui;155;Non
+1323;ENS-0102;2025-06-09;Événement religieux;Oui;4;Oui
+1324;ENS-0107;2025-06-09;Événement religieux;Oui;6;Non
+1325;ENS-0019;2025-06-10;Maladie;Oui;3;Non
+1326;ENS-0027;2025-06-10;Événement religieux;Non;6;Oui
+1327;ENS-0064;2025-06-10;Maladie;Oui;6;Non
+1328;ENS-0067;2025-06-10;Participation à un jury;Non;6;Non
+1329;ENS-0097;2025-06-10;Formation;Non;3;Non
+1330;ENS-0110;2025-06-10;Participation à un jury;Non;6;Oui
+1331;ENS-0001;2025-06-11;Événement religieux;Oui;2;Oui
+1332;ENS-0030;2025-06-11;Participation à un jury;Oui;2;Non
+1333;ENS-0030;2025-06-11;Formation;Non;3;Non
+1334;ENS-0042;2022-09-07;Examen médical;Oui;6;Non
+1335;ENS-0062;2025-06-11;Décès d'un proche;Oui;6;Non
+1336;ENS-0076;2025-06-11;Raison familiale;Oui;3;Non
+1336;ENS-0076;2025-06-11;Raison familiale;Oui;3;Non
+1337;ENS-0086;2025-06-11;Événement religieux;Non;8;Non
+1338;ENS-0094;2025-06-11;Examen médical;Non;3;Non
+1339;ENS-0093;2025-06-12;Maladie;Oui;2;Non
+1340;ENS-0116;2025-06-12;Participation à un jury;Oui;4;Oui
+1340;ENS-0116;2025-06-12;Participation à un jury;Oui;4;Oui
+1341;ENS-0024;2025-06-13;;Oui;3;Oui
+1342;ENS-0036;2025-06-13;Mission;Non;3;Oui
+1343;ENS-0038;2025-06-13;Congé de maternité;Oui;6;Non
+1344;ENS-0044;2025-06-13;Raison familiale;Oui;4;Oui
+1345;ENS-0046;2025-06-13;Mission;Oui;6;Non
+1345;ENS-0046;2025-06-13;Mission;Oui;6;Non
+1346;ENS-0054;2025-06-13;Examen médical;Oui;3;Non
+1347;ENS-0095;2025-06-13;Décès d'un proche;Oui;3;Oui
+1348;ENS-0024;2025-06-16;Examen médical;Oui;2;Non
+1349;ENS-0040;2025-06-16;Congé de maternité;Oui;2;Non
+1350;ENS-0077;2025-06-16;Mission;Oui;3;Non
+1351;ENS-0014;2025-06-17;Événement religieux;Oui;2;Oui
+1352;ENS-0025;2025-06-17;Formation;Non;3;Non
+1353;ENS-0049;2025-06-17;Congé de maternité;Oui;3;Non
+1354;ENS-0053;2025-06-17;Formation;Oui;3;Non
+1355;ENS-0107;2025-06-17;Maladie;Oui;6;Oui
+1356;ENS-0039;2025-06-18;Mission;Oui;6;Oui
+1357;ENS-0040;2025-06-18;Formation;Oui;4;Oui
+1358;ENS-0051;18/06/2025;Formation;Oui;8;Oui
+1359;ENS-0084;2025-06-18;Participation à un jury;Oui;2;Oui
+1360;ENS-0102;2025-06-18;Examen médical;Non;4;Non
+1361;ENS-0112;2025-06-18;Formation;Oui;3;Non
+1362;ENS-0054;2025-06-19;Événement religieux;Oui;4;Non
+1363;ENS-0072;2025-06-19;Congé de maternité;Non;4;Oui
+1364;ENS-0113;2025-06-19;Participation à un jury;Oui;4;Oui
+1365;ENS-0035;2025-06-20;Congé de maternité;Oui;6;Oui
+1366;ENS-0063;2025-06-20;Participation à un jury;Oui;3;Oui
+1367;ENS-0071;2025-06-20;Maladie;Oui;2;Non
+1368;ENS-0091;2025-06-20;Grève des transports;Non;8;Non
+1369;ENS-0110;2025-06-20;Raison familiale;Non;8;Non
+1370;ENS-0079;2025-06-23;Événement religieux;Oui;6;Oui
+1371;ENS-0114;2025-06-23;Examen médical;Non;4;Oui
+1371;ENS-0114;2025-06-23;Examen médical;Non;4;Oui
+1372;ENS-0023;2025-06-24;Maladie;Oui;4;Non
+1373;ENS-0090;2025-06-24;Congé de maternité;Non;3;Non
+1374;ENS-0115;2025-06-24;Décès d'un proche;Oui;3;Non
+1375;ENS-0004;2025-06-25;;Oui;4;Non
+1376;ENS-0034;2025-06-25;Formation;Oui;8;Oui
+1377;ENS-0036;2025-06-25;Événement religieux;Oui;8;Non
+1378;ENS-0068;2025-06-25;Congé de maternité;Oui;2;Non
+1378;ENS-0068;2025-06-25;Congé de maternité;Oui;2;Non
+1379;ENS-0012;2027-05-14;Formation;Oui;4;Oui
+1380;ENS-0013;2025-06-26;Événement religieux;Oui;3;Oui
+1381;ENS-0073;2025-06-26;Mission;Oui;6;Non
+1382;ENS-0025;2025-06-27;Maladie;Oui;4;Non
+1383;ENS-0031;2015-08-14;Raison familiale;Oui;3;Non
+1384;ENS-0064;2025-06-27;Grève des transports;Oui;3;Non
+1385;ENS-0075;2025-06-27;Examen médical;Oui;2;Non
+1386;ENS-0093;2025-06-27;Événement religieux;Oui;6;Oui
+1387;ENS-0045;07-01-2025;Examen médical;Non;3;Oui
+1388;ENS-0050;2025-07-01;Participation à un jury;Oui;3;Non
+1389;ENS-0092;2025-07-01;Raison familiale;Oui;3;Non
+1390;ENS-0097;2025-07-01;Congé de maternité;Oui;2;Non
+1391;ENS-0103;2025-07-01;Événement religieux;Non;6;Non
+1392;ENS-0071;2025-07-02;;Non;2;Non
+1393;ENS-0112;02/07/2025;Congé de maternité;Non;4;Non
+1394;ENS-0117;2025-07-02;Raison familiale;Oui;8;Oui
+1395;ENS-0008;07-03-2025;Participation à un jury;Oui;4;Non
+1396;ENS-0049;2025-07-03;Mission;Non;6;Non
+1397;ENS-0080;2025-07-03;Mission;Oui;3;Non
+1398;ENS-0016;2025-07-04;Grève des transports;Non;4;Non
+1399;ENS-0084;2025-07-04;Raison familiale;Oui;6;Oui
+1400;ENS-0039;2025-07-07;Congé de maternité;Non;3;Oui
+1401;ENS-0079;2025-07-07;Décès d'un proche;Oui;6;Non
+1402;ENS-0105;2025-07-07;;Non;8;Oui
+1403;ENS-0116;2025-07-07;Maladie;Oui;3;Oui
+1403;ENS-0116;2025-07-07;Maladie;Oui;3;Oui
+1404;ENS-0011;2025-07-08;Maladie;Oui;3;Non
+1405;ENS-0020;2025-07-08;Participation à un jury;Oui;4;Non
+1406;ENS-0042;2025-07-08;Participation à un jury;Oui;6;Non
+1407;ENS-0082;2025-07-08;Participation à un jury;Oui;2;Non
+1408;ENS-0085;2025-07-08;Grève des transports;Oui;2;Non
+1409;ENS-0115;2022-10-04;Événement religieux;Oui;6;Non
+1410;ENS-0032;2025-07-09;Grève des transports;Oui;752;Non
+1411;ENS-0040;2025-07-09;Examen médical;Oui;2;Oui
+1412;ENS-0105;2025-07-09;Grève des transports;Oui;4;Non
+1412;ENS-0105;2025-07-09;Grève des transports;Oui;4;Non
+1413;ENS-0004;07-10-2025;Examen médical;Oui;4;Non
+1414;ENS-0031;2025-07-10;Examen médical;Oui;6;Oui
+1415;ENS-0053;10/07/2025;;Non;4;Non
+1416;ENS-0064;2025-07-10;Mission;Oui;2;Non
+1417;ENS-0082;2025-07-10;Maladie;Oui;3;Non
+1418;ENS-0114;2025-07-10;Décès d'un proche;Oui;4;Non
+1419;ENS-0030;2025-07-11;Congé de maternité;Oui;3;Non
+1420;ENS-0035;2025-07-11;Formation;Non;8;Oui
+1421;ENS-0041;2025-07-11;Participation à un jury;Oui;3;Non
+1422;ENS-0007;2025-07-14;Participation à un jury;Non;2;Oui
+1423;ENS-0035;2025-07-14;Raison familiale;Oui;3;Non
+1424;ENS-0038;2021-07-07;Décès d'un proche;Oui;3;Non
+1425;ENS-0055;2025-07-14;Grève des transports;Oui;4;Oui
+1426;ENS-0069;2025-07-14;Congé de maternité;Oui;4;Non
+1427;ENS-0006;2025-07-15;Formation;Oui;3;Non
+1428;ENS-0013;2025-07-15;Examen médical;Oui;4;Non
+1429;ENS-0020;2025-07-15;Grève des transports;Non;4;Oui
+1430;ENS-0076;2025-07-15;Maladie;Oui;3;Non
+1431;ENS-0080;2025-07-15;;Non;2;Non
+1432;ENS-0117;2025-07-15;Congé de maternité;Oui;3;Non
+1433;ENS-0003;2025-07-16;Décès d'un proche;Non;4;Non
+1434;ENS-0017;2025-07-16;Raison familiale;Oui;719;Oui
+1435;ENS-0025;2025-07-16;Événement religieux;Oui;8;Non
+1436;ENS-0027;2025-07-16;Formation;Oui;2;Oui
+1437;ENS-0059;2025-07-16;Mission;Oui;8;Oui
+1438;ENS-0070;2025-07-16;Participation à un jury;Oui;2;Non
+1439;ENS-0102;2021-04-17;Participation à un jury;Non;3;Non
+1440;ENS-0113;2025-07-16;Décès d'un proche;Oui;2;Oui
+1441;ENS-0094;2025-07-17;Événement religieux;Non;4;Oui
+1442;ENS-0005;2025-07-18;Grève des transports;Oui;689;Non
+1443;ENS-0060;2025-07-18;Participation à un jury;Non;4;Non
+1444;ENS-0067;2025-07-18;Raison familiale;Oui;4;Oui
+1445;ENS-0018;2025-07-21;Grève des transports;Oui;3;Non
+1446;ENS-0064;2025-07-21;Formation;Non;3;Non
+1447;ENS-0036;2025-07-22;Examen médical;Oui;8;Non
+1448;ENS-0053;2025-07-22;Décès d'un proche;Oui;8;Oui
+1449;ENS-0077;2025-07-22;Examen médical;Oui;101;Non
+1450;ENS-0096;2025-07-22;Grève des transports;Non;8;Non
+1451;ENS-0089;2025-07-23;Raison familiale;Oui;8;Non
+1452;ENS-0108;2025-07-23;Formation;Oui;4;Oui
+1453;ENS-0002;2025-07-24;Examen médical;Oui;6;Non
+1454;ENS-0009;24/07/2025;Formation;Oui;3;Non
+1455;ENS-0012;2025-07-24;Maladie;Oui;3;Oui
+1456;ENS-0014;2025-07-24;Participation à un jury;Non;4;Oui
+1457;ENS-0034;2025-07-24;Examen médical;Non;6;Oui
+1458;ENS-0044;2025-07-24;Décès d'un proche;Oui;2;Non
+1459;ENS-0087;2025-07-24;Événement religieux;Oui;6;Oui
+1460;ENS-0073;2025-07-25;Raison familiale;Oui;8;Non
+1461;ENS-0069;2025-07-28;Maladie;Oui;4;Non
+1462;ENS-0118;2025-07-28;Décès d'un proche;Oui;8;Oui
+1463;ENS-0080;2025-08-01;Événement religieux;Non;6;Non
+1464;ENS-0077;2025-08-04;Congé de maternité;Oui;3;Oui
+1465;ENS-0054;2025-08-05;Participation à un jury;Oui;3;Oui
+1466;ENS-0061;2025-08-05;Participation à un jury;Oui;6;Non
+1467;ENS-0068;2025-08-05;Décès d'un proche;Oui;8;Non
+1468;ENS-0101;2025-08-05;Grève des transports;Oui;6;Non
+1469;ENS-0118;2025-08-05;Événement religieux;Oui;8;Oui
+1470;ENS-0013;2025-08-06;Examen médical;Oui;8;Non
+1471;ENS-0018;2025-08-06;Raison familiale;Non;2;Non
+1472;ENS-0046;2025-08-06;Événement religieux;Oui;6;Non
+1473;ENS-0054;2025-08-06;Décès d'un proche;Oui;4;Non
+1474;ENS-0063;08-06-2025;Participation à un jury;Oui;3;Non
+1475;ENS-0069;2025-08-07;Grève des transports;Oui;3;Non
+1476;ENS-0014;2025-08-08;Décès d'un proche;Oui;8;Oui
+1477;ENS-0019;2025-08-08;Maladie;Oui;8;Oui
+1478;ENS-0023;2012-05-29;;Oui;4;Non
+1479;ENS-0051;2025-08-08;Décès d'un proche;Oui;2;Oui
+1480;ENS-0013;2025-08-11;Examen médical;Oui;2;Oui
+1481;ENS-0029;2025-08-11;Formation;Oui;6;Non
+1482;ENS-0053;2025-08-11;Formation;Non;3;Oui
+1483;ENS-0060;2025-08-11;Décès d'un proche;Oui;8;Oui
+1484;ENS-0003;2025-08-12;Mission;Non;4;Oui
+1485;ENS-0086;2025-08-12;Décès d'un proche;Oui;3;Non
+1486;ENS-0094;2025-08-12;Grève des transports;Oui;3;Oui
+1487;ENS-0101;2025-08-12;Participation à un jury;Non;3;Non
+1488;ENS-0006;14/08/2025;Examen médical;Oui;2;Non
+1489;ENS-0009;2025-08-14;Décès d'un proche;Oui;4;Oui
+1490;ENS-0038;2025-08-14;Grève des transports;Oui;2;Oui
+1491;ENS-0048;2025-08-14;Raison familiale;Non;2;Oui
+1492;ENS-0066;2025-08-14;Formation;Non;3;Non
+1493;ENS-0092;2025-08-14;Participation à un jury;Oui;4;Oui
+1494;ENS-0114;2025-08-14;Examen médical;Oui;3;Non
+1495;ENS-0119;2025-08-14;Congé de maternité;Non;4;Oui
+1496;ENS-0017;2025-08-15;Événement religieux;Non;6;Non
+1497;ENS-0025;2025-08-15;Événement religieux;Oui;8;Oui
+1498;ENS-0070;2025-08-15;Grève des transports;Oui;2;Oui
+1499;ENS-0109;2025-08-15;Décès d'un proche;Oui;6;Oui
+1500;ENS-0047;2025-08-18;Congé de maternité;Oui;6;Non
+1501;ENS-0062;2025-08-18;Mission;Non;2;Non
+1502;ENS-0065;2025-08-18;Participation à un jury;Oui;4;Oui
+1503;ENS-0096;2025-08-18;Formation;Non;3;Oui
+1503;ENS-0096;2025-08-18;Formation;Non;3;Oui
+1504;ENS-0033;2025-08-19;Mission;Non;4;Non
+1505;ENS-0012;2025-08-20;Grève des transports;Oui;2;Oui
+1506;ENS-0028;2025-08-20;Raison familiale;Non;6;Oui
+1507;ENS-0064;2025-08-20;Examen médical;Non;8;Non
+1508;ENS-0071;2025-08-20;Raison familiale;Oui;6;Non
+1509;ENS-0072;2025-08-20;Événement religieux;Oui;6;Non
+1510;ENS-0108;2025-08-20;Congé de maternité;Oui;4;Non
+1511;ENS-0095;2025-08-21;Congé de maternité;Oui;4;Oui
+1512;ENS-0005;2025-08-22;Formation;Oui;2;Oui
+1513;ENS-0007;2025-08-22;Maladie;Oui;2;Non
+1514;ENS-0111;2025-08-22;Décès d'un proche;Oui;4;Non
+1514;ENS-0111;2025-08-22;Décès d'un proche;Oui;4;Non
+1515;ENS-0026;2025-08-25;Décès d'un proche;Oui;2;Oui
+1516;ENS-0074;2025-08-25;Décès d'un proche;Oui;8;Oui
+1517;ENS-0079;2009-08-06;Événement religieux;Oui;2;Oui
+1518;ENS-0084;2025-08-25;Événement religieux;Oui;4;Non
+1519;ENS-0115;2025-08-25;;Oui;4;Non
+1520;ENS-0010;2025-08-26;Examen médical;Oui;6;Non
+1521;ENS-0030;2025-08-26;Participation à un jury;Non;8;Non
+1522;ENS-0043;2025-08-26;Raison familiale;Oui;3;Non
+1523;ENS-0044;2025-08-26;Examen médical;Oui;4;Non
+1524;ENS-0067;2025-08-26;Maladie;Oui;8;Non
+1525;ENS-0113;2025-08-26;Congé de maternité;Oui;4;Non
+1526;ENS-0117;2025-08-26;Décès d'un proche;Non;2;Non
+1527;ENS-0002;2025-08-27;;Oui;3;Oui
+1528;ENS-0033;2025-08-27;Événement religieux;Oui;4;Oui
+1529;ENS-0082;2025-08-27;Formation;Oui;2;Oui
+1530;ENS-0088;2025-08-27;Décès d'un proche;Oui;3;Oui
+1531;ENS-0098;2025-08-27;Événement religieux;Oui;8;Oui
+1531;ENS-0098;2025-08-27;Événement religieux;Oui;8;Oui
+1532;ENS-0049;2025-08-28;Grève des transports;Non;6;Non
+1533;ENS-0097;2025-08-28;Grève des transports;Oui;8;Non
+1534;ENS-0103;2025-08-28;Examen médical;Oui;4;Oui
+1535;ENS-0001;2025-09-01;Formation;Oui;3;Non
+1536;ENS-0064;2025-09-01;Mission;Oui;2;Non
+1537;ENS-0067;2025-09-01;Maladie;Oui;4;Oui
+1538;ENS-0109;2025-09-01;Maladie;Oui;6;Oui
+1539;ENS-0116;2025-09-01;Formation;Non;8;Non
+1540;ENS-0024;2025-09-02;;Oui;6;Oui
+1541;ENS-0031;2027-01-25;Congé de maternité;Oui;3;Non
+1542;ENS-0032;2026-10-25;Grève des transports;Oui;4;Oui
+1543;ENS-0036;2025-09-03;;Non;3;Non
+1544;ENS-0077;2025-09-03;Examen médical;Non;2;Non
+1545;ENS-0028;2025-09-04;Événement religieux;Non;3;Oui
+1546;ENS-0065;2025-09-04;Congé de maternité;Oui;6;Non
+1547;ENS-0079;2025-09-04;Congé de maternité;Non;3;Non
+1548;ENS-0099;2025-09-04;Congé de maternité;Oui;2;Oui
+1548;ENS-0099;2025-09-04;Congé de maternité;Oui;2;Oui
+1549;ENS-0119;2026-12-02;Participation à un jury;Oui;8;Non
+1550;ENS-0023;2025-09-05;Événement religieux;Oui;3;Oui
+1551;ENS-0041;2025-09-05;Événement religieux;Non;8;Non
+1552;ENS-0060;05/09/2025;Examen médical;Non;4;Non
+1553;ENS-0086;2025-09-05;Grève des transports;Oui;8;Oui
+1554;ENS-0035;2025-09-08;;Oui;3;Non
+1555;ENS-0060;2025-09-08;Congé de maternité;Oui;4;Non
+1556;ENS-0080;2025-09-08;Décès d'un proche;Oui;6;Oui
+1557;ENS-0120;2025-09-08;Mission;Oui;8;Oui
+1558;ENS-0041;2025-09-09;Formation;Non;2;Oui
+1559;ENS-0088;2025-09-09;Événement religieux;Oui;3;Oui
+1559;ENS-0088;2025-09-09;Événement religieux;Oui;3;Oui
+1560;ENS-0099;2025-09-09;Événement religieux;Oui;6;Oui
+1561;ENS-0107;2025-09-09;Participation à un jury;Non;3;Non
+1561;ENS-0107;2025-09-09;Participation à un jury;Non;3;Non
+1562;ENS-0112;2025-09-09;Événement religieux;Non;2;Non
+1563;ENS-0005;2025-09-10;Mission;Oui;3;Oui
+1564;ENS-0020;2025-09-10;Participation à un jury;Oui;3;Oui
+1565;ENS-0048;2025-09-10;Examen médical;Oui;4;Oui
+1566;ENS-0054;2025-09-10;Mission;Oui;2;Non
+1567;ENS-0070;2025-09-10;Décès d'un proche;Oui;2;Non
+1568;ENS-0074;2025-09-10;Raison familiale;Oui;2;Oui
+1569;ENS-0014;2027-09-22;Formation;Oui;2;Non
+1570;ENS-0086;2025-09-11;Raison familiale;Oui;3;Oui
+1571;ENS-0090;2025-09-11;Congé de maternité;Oui;8;Non
+1572;ENS-0093;2025-09-11;Formation;Oui;4;Oui
+1573;ENS-0044;2025-09-12;Événement religieux;Oui;6;Non
+1574;ENS-0046;2025-09-12;Décès d'un proche;Non;2;Non
+1575;ENS-0018;2025-09-15;Raison familiale;Oui;8;Oui
+1576;ENS-0026;2016-07-27;Congé de maternité;Oui;6;Oui
+1577;ENS-0073;2025-09-16;Formation;Oui;2;Non
+1577;ENS-0073;2025-09-16;Formation;Oui;2;Non
+1578;ENS-0097;2025-09-16;Examen médical;Non;3;Oui
+1579;ENS-0033;2025-09-17;Grève des transports;Oui;8;Oui
+1580;ENS-0058;2027-04-16;Participation à un jury;Non;569;Oui
+1581;ENS-0090;2025-09-17;Congé de maternité;Oui;2;Oui
+1582;ENS-0098;2025-09-17;Grève des transports;Oui;3;Non
+1583;ENS-0009;2025-09-18;Événement religieux;Oui;2;Non
+1584;ENS-0020;2025-09-18;Événement religieux;Oui;3;Oui
+1585;ENS-0039;2025-09-18;Participation à un jury;Oui;2;Non
+1586;ENS-0055;2025-09-18;Formation;Non;263;Oui
+1587;ENS-0063;18/09/2025;Participation à un jury;Non;4;Oui
+1588;ENS-0106;2021-04-14;Formation;Oui;8;Non
+1589;ENS-0008;2025-09-19;Participation à un jury;Oui;2;Non
+1590;ENS-0010;2025-09-22;Examen médical;Oui;3;Oui
+1591;ENS-0079;2025-09-22;Examen médical;Non;2;Oui
+1592;ENS-0022;2025-09-23;Raison familiale;Oui;2;Non
+1593;ENS-0045;2021-01-01;Événement religieux;Non;3;Oui
+1594;ENS-0046;2025-09-23;Formation;Oui;8;Oui
+1595;ENS-0047;2025-09-23;Raison familiale;Oui;2;Non
+1596;ENS-0048;2025-09-23;Mission;Oui;3;Non
+1597;ENS-0056;2020-02-16;Raison familiale;Oui;163;Non
+1598;ENS-0071;2025-09-24;Mission;Oui;2;Oui
+1599;ENS-0091;24/09/2025;Formation;Non;3;Non
+1600;ENS-0104;2025-09-24;Événement religieux;Oui;4;Oui
+1601;ENS-0104;2025-09-24;Congé de maternité;Oui;4;Oui
+1602;ENS-0108;2025-09-25;Maladie;Oui;3;Oui
+1603;ENS-0110;2025-09-25;Décès d'un proche;Non;8;Oui
+1604;ENS-0042;2025-09-26;;Non;6;Non
+1605;ENS-0062;2025-09-26;Participation à un jury;Oui;6;Non
+1606;ENS-0073;2025-09-26;Mission;Oui;4;Non
+1606;ENS-0073;2025-09-26;Mission;Oui;4;Non
+1607;ENS-0092;2025-09-26;Examen médical;Non;6;Oui
+1608;ENS-0010;2025-10-01;Congé de maternité;Non;3;Non
+1609;ENS-0019;10-01-2025;Décès d'un proche;Oui;6;Non
+1610;ENS-0048;2025-10-01;Formation;Oui;6;Oui
+1611;ENS-0072;2027-01-12;Maladie;Non;8;Non
+1612;ENS-0080;2025-10-01;Congé de maternité;Oui;6;Non
+1613;ENS-0091;10-01-2025;Congé de maternité;Non;6;Non
+1614;ENS-0095;2025-10-01;;Oui;430;Non
+1615;ENS-0014;2025-10-02;Participation à un jury;Oui;3;Oui
+1616;ENS-0017;2025-10-02;Décès d'un proche;Oui;8;Non
+1617;ENS-0024;2025-10-02;Participation à un jury;Oui;6;Oui
+1618;ENS-0034;2025-10-02;Événement religieux;Non;6;Oui
+1619;ENS-0084;2025-10-02;Participation à un jury;Oui;2;Non
+1620;ENS-0064;2025-10-03;Grève des transports;Non;8;Non
+1621;ENS-0088;2025-10-03;Formation;Non;6;Non
+1622;ENS-0091;2025-10-03;Grève des transports;Oui;3;Oui
+1622;ENS-0091;2025-10-03;Grève des transports;Oui;3;Oui
+1623;ENS-0038;2025-10-07;Mission;Oui;8;Non
+1624;ENS-0052;2025-10-07;Congé de maternité;Oui;8;Non
+1625;ENS-0074;2025-10-07;;Oui;2;Non
+1626;ENS-0116;2025-10-07;Maladie;Oui;6;Non
+1627;ENS-0010;2025-10-08;Raison familiale;Oui;3;Oui
+1628;ENS-0023;2025-10-08;;Oui;4;Oui
+1629;ENS-0062;2025-10-08;Formation;Oui;2;Non
+1630;ENS-0002;2025-10-09;Congé de maternité;Non;8;Non
+1631;ENS-0079;2025-10-09;Formation;Oui;3;Non
+1632;ENS-0092;2025-10-09;Formation;Oui;8;Oui
+1633;ENS-0092;2025-10-09;Raison familiale;Non;8;Non
+1634;ENS-0115;2025-10-09;Congé de maternité;Oui;4;Non
+1635;ENS-0038;2025-10-10;Formation;Non;6;Non
+1636;ENS-0062;2025-10-10;Formation;Oui;3;Non
+1637;ENS-0069;2025-10-10;Décès d'un proche;Oui;3;Non
+1638;ENS-0069;2025-10-10;Mission;Oui;8;Non
+1639;ENS-0117;2025-10-10;Formation;Oui;8;Non
+1640;ENS-0029;2025-10-13;Examen médical;Oui;2;Non
+1641;ENS-0059;2025-10-13;Raison familiale;Oui;8;Non
+1642;ENS-0093;2025-10-13;Événement religieux;Oui;3;Non
+1643;ENS-0102;2025-10-13;Participation à un jury;Non;505;Oui
+1644;ENS-0022;2025-10-14;Grève des transports;Oui;3;Non
+1645;ENS-0050;2025-10-14;Événement religieux;Oui;4;Oui
+1646;ENS-0074;2025-10-14;Maladie;Non;6;Oui
+1647;ENS-0090;2025-10-14;Congé de maternité;Oui;8;Oui
+1648;ENS-0006;2025-10-15;Mission;Oui;8;Non
+1649;ENS-0008;2026-10-20;Examen médical;Non;2;Oui
+1650;ENS-0094;10-15-2025;Mission;Oui;3;Non
+1651;ENS-0019;2025-10-16;Grève des transports;Oui;466;Non
+1652;ENS-0063;2025-10-16;Congé de maternité;Oui;6;Oui
+1653;ENS-0096;2027-02-01;Événement religieux;Oui;8;Non
+1654;ENS-0097;2025-10-16;Maladie;Non;3;Oui
+1655;ENS-0119;2025-10-16;Maladie;Non;2;Oui
+1656;ENS-0108;2025-10-20;Participation à un jury;Oui;4;Non
+1657;ENS-0118;2025-10-20;Décès d'un proche;Non;6;Non
+1657;ENS-0118;2025-10-20;Décès d'un proche;Non;6;Non
+1658;ENS-0005;2025-10-21;Participation à un jury;Oui;6;Non
+1659;ENS-0084;2025-10-21;Décès d'un proche;Oui;2;Oui
+1660;ENS-0106;2025-10-21;Participation à un jury;Oui;6;Oui
+1661;ENS-0022;2025-10-22;Grève des transports;Oui;3;Non
+1662;ENS-0029;2027-07-31;Décès d'un proche;Oui;6;Non
+1663;ENS-0033;2025-10-22;Décès d'un proche;Oui;6;Oui
+1664;ENS-0032;2025-10-23;Examen médical;Oui;8;Non
+1665;ENS-0043;2025-10-23;Maladie;Non;6;Oui
+1666;ENS-0076;2025-10-23;Raison familiale;Oui;3;Non
+1667;ENS-0003;2025-10-24;Maladie;Oui;3;Non
+1668;ENS-0044;2025-10-24;Participation à un jury;Non;3;Non
+1669;ENS-0055;2025-10-24;Examen médical;Oui;6;Oui
+1670;ENS-0077;2025-10-24;Raison familiale;Oui;6;Non
+1671;ENS-0110;2017-03-19;Congé de maternité;Oui;3;Non
+1672;ENS-0042;2025-10-27;Formation;Oui;3;Non
+1673;ENS-0035;2025-10-28;Maladie;Oui;3;Non
+1674;ENS-0068;2025-10-28;Événement religieux;Oui;790;Oui
+1675;ENS-0120;2025-10-28;Raison familiale;Oui;2;Oui
+1676;ENS-0013;2025-11-03;Maladie;Oui;6;Oui
+1677;ENS-0025;2025-11-03;Congé de maternité;Oui;4;Non
+1678;ENS-0075;2025-11-03;Raison familiale;Oui;4;Oui
+1679;ENS-0090;2025-11-03;Mission;Oui;8;Oui
+1680;ENS-0097;2025-11-03;Congé de maternité;Oui;8;Non
+1681;ENS-0098;2025-11-03;Participation à un jury;Oui;3;Non
+1682;ENS-0109;2025-11-03;Événement religieux;Oui;2;Oui
+1683;ENS-0020;2025-11-04;Maladie;Non;4;Oui
+1684;ENS-0064;2025-11-04;Événement religieux;Oui;8;Non
+1685;ENS-0036;2025-11-05;Grève des transports;Non;8;Non
+1686;ENS-0008;2025-11-06;Maladie;Non;8;Non
+1687;ENS-0036;2025-11-06;Participation à un jury;Oui;3;Non
+1688;ENS-0066;2025-11-06;Examen médical;Oui;3;Non
+1689;ENS-0086;2025-11-06;Grève des transports;Non;8;Oui
+1690;ENS-0076;2026-10-17;Examen médical;Oui;2;Non
+1691;ENS-0002;2025-11-10;Mission;Non;3;Non
+1692;ENS-0026;2025-11-10;Formation;Oui;6;Oui
+1693;ENS-0060;2025-11-10;Grève des transports;Oui;6;Non
+1694;ENS-0099;2025-11-10;Formation;Oui;2;Non
+1695;ENS-0004;2020-09-03;Formation;Non;6;Non
+1696;ENS-0006;2025-11-11;Examen médical;Oui;6;Non
+1697;ENS-0080;2025-11-11;Formation;Oui;3;Oui
+1698;ENS-0058;2025-11-12;Mission;Non;4;Non
+1699;ENS-0083;2025-11-12;Décès d'un proche;Oui;6;Oui
+1700;ENS-0038;2025-11-13;Examen médical;Oui;2;Oui
+1701;ENS-0051;2025-11-13;Décès d'un proche;Oui;4;Non
+1702;ENS-0022;2025-11-14;Maladie;Oui;8;Oui
+1703;ENS-0029;2025-11-14;Formation;Oui;8;Non
+1704;ENS-0033;2025-11-14;Grève des transports;Oui;3;Non
+1705;ENS-0039;2027-06-03;Mission;Oui;3;Oui
+1706;ENS-0044;2025-11-14;Grève des transports;Oui;4;Non
+1706;ENS-0044;2025-11-14;Grève des transports;Oui;4;Non
+1707;ENS-0055;2025-11-14;Participation à un jury;Oui;4;Non
+1708;ENS-0065;2025-11-14;Examen médical;Oui;3;Non
+1709;ENS-0005;2015-11-22;Congé de maternité;Oui;2;Non
+1710;ENS-0023;2025-11-17;Mission;Oui;6;Non
+1711;ENS-0046;2025-11-17;Maladie;Oui;3;Non
+1712;ENS-0048;2025-11-17;Maladie;Non;4;Non
+1713;ENS-0082;2025-11-17;Décès d'un proche;Non;8;Oui
+1714;ENS-0105;17/11/2025;Congé de maternité;Non;2;Oui
+1715;ENS-0026;2025-11-18;Maladie;Non;6;Non
+1716;ENS-0074;2025-11-18;Participation à un jury;Non;2;Oui
+1717;ENS-0053;2025-11-19;Mission;Non;4;Non
+1718;ENS-0068;2025-11-19;Mission;Oui;3;Non
+1718;ENS-0068;2025-11-19;Mission;Oui;3;Non
+1719;ENS-0072;2025-11-19;Raison familiale;Non;2;Non
+1720;ENS-0101;2025-11-19;Congé de maternité;Oui;140;Non
+1721;ENS-0003;2025-11-20;Mission;Oui;8;Non
+1722;ENS-0017;2025-11-20;Participation à un jury;Oui;6;Oui
+1723;ENS-0101;2025-11-20;Décès d'un proche;Oui;4;Non
+1724;ENS-0045;2025-11-21;Maladie;Oui;3;Non
+1725;ENS-0048;2025-11-21;Raison familiale;Oui;3;Non
+1726;ENS-0003;2025-11-24;Congé de maternité;Oui;2;Oui
+1727;ENS-0031;2025-11-24;Mission;Oui;8;Oui
+1728;ENS-0040;2025-11-24;Participation à un jury;Non;335;Oui
+1729;ENS-0076;2025-11-24;Décès d'un proche;Non;4;Non
+1730;ENS-0112;24/11/2025;Maladie;Oui;3;Non
+1731;ENS-0119;2025-11-24;;Oui;8;Non
+1732;ENS-0007;2025-11-25;Événement religieux;Oui;348;Oui
+1733;ENS-0114;2025-11-25;Congé de maternité;Oui;3;Non
+1734;ENS-0009;2025-11-26;Décès d'un proche;Oui;3;Oui
+1735;ENS-0111;2025-11-26;Congé de maternité;Oui;8;Non
+1736;ENS-0011;2025-11-27;Maladie;Non;2;Non
+1737;ENS-0084;2025-11-27;;Oui;6;Oui
+1738;ENS-0089;2025-11-27;Événement religieux;Non;3;Non
+1738;ENS-0089;2025-11-27;Événement religieux;Non;3;Non
+1739;ENS-0087;2025-11-28;Congé de maternité;Oui;4;Oui
+1740;ENS-0097;2025-11-28;Grève des transports;Oui;8;Oui
+1741;ENS-0107;2025-11-28;Formation;Oui;2;Oui
+1742;ENS-0070;2025-12-01;Mission;Non;6;Oui
+1743;ENS-0093;2025-12-01;Congé de maternité;Non;8;Oui
+1744;ENS-0023;2025-12-02;Formation;Oui;4;Non
+1745;ENS-0036;2025-12-02;Formation;Oui;4;Non
+1746;ENS-0058;2025-12-02;Participation à un jury;Oui;3;Non
+1747;ENS-0071;2025-12-02;Maladie;Oui;3;Non
+1748;ENS-0115;2025-12-02;Grève des transports;Non;4;Oui
+1748;ENS-0115;2025-12-02;Grève des transports;Non;4;Oui
+1749;ENS-0020;2025-12-04;Maladie;Oui;3;Oui
+1750;ENS-0069;2025-12-04;Raison familiale;Oui;4;Non
+1751;ENS-0077;2025-12-04;Raison familiale;Oui;8;Non
+1752;ENS-0087;2025-12-04;Raison familiale;Oui;3;Non
+1753;ENS-0109;12-04-2025;Examen médical;Oui;2;Non
+1754;ENS-0003;2025-12-05;Mission;Oui;3;Non
+1754;ENS-0003;2025-12-05;Mission;Oui;3;Non
+1755;ENS-0090;2025-12-05;Formation;Non;6;Non
+1756;ENS-0061;2025-12-08;Mission;Non;4;Non
+1757;ENS-0113;2025-12-08;Examen médical;Oui;4;Oui
+1758;ENS-0033;2025-12-09;Participation à un jury;Oui;3;Oui
+1759;ENS-0040;2025-12-09;Décès d'un proche;Non;3;Non
+1760;ENS-0078;09/12/2025;Événement religieux;Oui;4;Oui
+1761;ENS-0092;2025-12-09;Examen médical;Oui;4;Non
+1762;ENS-0012;2025-12-11;Décès d'un proche;Oui;3;Oui
+1763;ENS-0025;2025-12-11;Examen médical;Non;6;Non
+1764;ENS-0035;2025-12-11;Raison familiale;Non;8;Oui
+1765;ENS-0063;2025-12-11;Formation;Non;3;Non
+1766;ENS-0109;2025-12-11;Congé de maternité;Oui;6;Oui
+1767;ENS-0117;2025-12-11;Congé de maternité;Oui;3;Non
+1768;ENS-0014;2025-12-12;Participation à un jury;Oui;4;Oui
+1769;ENS-0053;2025-12-12;Grève des transports;Non;3;Non
+1770;ENS-0085;2025-12-12;;Oui;2;Oui
+1771;ENS-0095;2025-12-12;Raison familiale;Oui;2;Non
+1772;ENS-0107;2025-12-12;Grève des transports;Non;2;Oui
+1773;ENS-0018;2022-09-11;Examen médical;Oui;2;Oui
+1774;ENS-0028;2025-12-15;Décès d'un proche;Oui;2;Non
+1775;ENS-0039;2025-12-15;Maladie;Oui;8;Non
+1776;ENS-0054;2025-12-15;Grève des transports;Non;3;Oui
+1776;ENS-0054;2025-12-15;Grève des transports;Non;3;Oui
+1777;ENS-0079;2025-12-15;Participation à un jury;Oui;2;Non
+1778;ENS-0114;2025-12-15;Décès d'un proche;Oui;3;Oui
+1779;ENS-0022;2025-12-16;Formation;Oui;4;Non
+1780;ENS-0038;2025-12-16;Examen médical;Oui;3;Non
+1781;ENS-0023;2025-12-17;Mission;Oui;3;Oui
+1782;ENS-0098;2011-05-11;Maladie;Non;4;Oui
+1783;ENS-0100;2025-12-17;Grève des transports;Oui;3;Non
+1784;ENS-0110;2025-12-17;Mission;Oui;8;Non
+1785;ENS-0118;17/12/2025;Grève des transports;Non;4;Non
+1786;ENS-0048;2025-12-18;Raison familiale;Non;3;Non
+1787;ENS-0049;2025-12-18;Événement religieux;Non;3;Non
+1788;ENS-0064;2025-12-18;Congé de maternité;Oui;4;Oui
+1789;ENS-0083;2025-12-18;;Oui;4;Oui
+1790;ENS-0027;2025-12-22;Grève des transports;Non;8;Oui
+1790;ENS-0027;2025-12-22;Grève des transports;Non;8;Oui
+1791;ENS-0096;2025-12-22;Mission;Non;324;Non
+1792;ENS-0116;2025-12-22;Participation à un jury;Oui;2;Non
+1793;ENS-0006;2025-12-23;Décès d'un proche;Oui;6;Oui
+1794;ENS-0031;2025-12-23;Mission;Oui;8;Non
+1795;ENS-0045;2025-12-23;Maladie;Oui;2;Non
+1796;ENS-0057;2025-12-25;Participation à un jury;Oui;3;Non
+1797;ENS-0016;2025-12-26;Formation;Oui;6;Non
+1798;ENS-0080;2025-12-26;Examen médical;Oui;6;Oui
+1799;ENS-0086;2025-12-26;Formation;Oui;2;Non
+1800;ENS-0094;2025-12-26;Raison familiale;Oui;3;Oui
+1801;ENS-0096;2025-12-26;Événement religieux;Oui;2;Non
+1802;ENS-0026;2026-01-01;Raison familiale;Non;3;Non
+1803;ENS-0016;2026-01-02;Examen médical;Oui;6;Non
+1804;ENS-0116;2026-01-02;Formation;Oui;6;Oui
+1805;ENS-0003;2026-01-05;Événement religieux;Oui;8;Oui
+1806;ENS-0015;2026-01-05;Raison familiale;Non;3;Non
+1807;ENS-0065;2026-01-05;Maladie;Oui;8;Oui
+1808;ENS-0070;2026-01-05;;Oui;6;Non
+1809;ENS-0011;2026-01-06;Participation à un jury;Oui;4;Non
+1810;ENS-0062;2027-01-23;Décès d'un proche;Oui;4;Oui
+1811;ENS-0061;2026-01-07;Formation;Oui;8;Non
+1812;ENS-0092;2026-01-07;Examen médical;Non;8;Oui
+1813;ENS-0004;2026-01-08;Examen médical;Oui;3;Non
+1814;ENS-0057;2026-01-08;Participation à un jury;Non;3;Oui
+1815;ENS-0064;2026-01-08;Décès d'un proche;Non;2;Non
+1816;ENS-0104;2026-01-08;Formation;Oui;8;Oui
+1817;ENS-0020;2026-01-09;Mission;Oui;3;Non
+1818;ENS-0023;2026-01-09;Événement religieux;Oui;8;Non
+1819;ENS-0049;2026-01-09;Maladie;Oui;2;Oui
+1820;ENS-0073;2026-01-09;Participation à un jury;Non;4;Non
+1821;ENS-0091;2026-01-09;Examen médical;Oui;4;Oui
+1822;ENS-0052;2026-01-12;Formation;Oui;520;Oui
+1823;ENS-0069;2027-05-30;Maladie;Oui;2;Non
+1824;ENS-0094;2026-01-12;Congé de maternité;Oui;4;Non
+1825;ENS-0051;2026-01-13;Grève des transports;Oui;6;Oui
+1826;ENS-0090;2026-01-13;Grève des transports;Non;3;Non
+1827;ENS-0117;2026-01-13;Grève des transports;Oui;6;Non
+1828;ENS-0018;2026-01-14;Raison familiale;Oui;8;Non
+1829;ENS-0073;2026-01-14;Formation;Non;3;Non
+1830;ENS-0022;2026-01-15;Examen médical;Oui;4;Non
+1831;ENS-0099;2026-01-15;Maladie;Oui;3;Non
+1832;ENS-0010;2026-01-16;Événement religieux;Oui;8;Oui
+1833;ENS-0031;2026-01-16;Formation;Oui;4;Oui
+1834;ENS-0105;2026-01-16;Grève des transports;Non;6;Non
+1835;ENS-0003;2026-01-19;Événement religieux;Oui;8;Non
+1836;ENS-0007;2026-01-19;Participation à un jury;Oui;2;Non
+1837;ENS-0023;2026-01-19;Grève des transports;Oui;4;Oui
+1838;ENS-0038;2026-01-19;Décès d'un proche;Non;104;Oui
+1839;ENS-0041;2026-01-19;Examen médical;Oui;2;Non
+1840;ENS-0068;2026-01-19;Mission;Oui;3;Non
+1840;ENS-0068;2026-01-19;Mission;Oui;3;Non
+1841;ENS-0078;2026-01-19;Maladie;Oui;4;Oui
+1841;ENS-0078;2026-01-19;Maladie;Oui;4;Oui
+1842;ENS-0014;2026-01-20;Maladie;Oui;4;Oui
+1843;ENS-0069;2027-01-11;Mission;Oui;3;Oui
+1844;ENS-0093;2026-01-20;Mission;Oui;4;Oui
+1845;ENS-0119;2026-01-20;Décès d'un proche;Oui;2;Non
+1846;ENS-0120;2026-01-20;Raison familiale;Oui;6;Non
+1847;ENS-0025;2026-01-21;Grève des transports;Oui;8;Non
+1848;ENS-0043;2026-01-21;Décès d'un proche;Non;4;Non
+1849;ENS-0048;2026-01-21;Décès d'un proche;Oui;8;Non
+1850;ENS-0058;2026-01-21;Examen médical;Non;8;Non
+1851;ENS-0067;2026-01-21;Participation à un jury;Non;2;Non
+1852;ENS-0096;2026-01-21;Décès d'un proche;Non;8;Oui
+1853;ENS-0008;2026-01-22;Participation à un jury;Oui;4;Oui
+1854;ENS-0050;2026-01-22;Formation;Oui;8;Non
+1855;ENS-0006;2026-01-23;Événement religieux;Oui;8;Non
+1856;ENS-0052;2026-01-23;Décès d'un proche;Non;2;Non
+1857;ENS-0060;2026-01-23;Congé de maternité;Oui;6;Oui
+1858;ENS-0096;2026-01-23;Examen médical;Oui;4;Non
+1859;ENS-0101;2026-01-23;;Oui;8;Non
+1860;ENS-0060;2026-01-26;Mission;Non;2;Oui
+1861;ENS-0063;2026-01-26;Congé de maternité;Non;8;Non
+1862;ENS-0095;2026-01-26;Événement religieux;Oui;3;Oui
+1863;ENS-0106;2026-01-26;Congé de maternité;Oui;336;Non
+1864;ENS-0001;01-27-2026;Événement religieux;Non;4;Non
+1865;ENS-0045;2026-01-27;Événement religieux;Oui;4;Oui
+1866;ENS-0065;2026-01-27;Grève des transports;Oui;2;Oui
+1867;ENS-0079;2026-01-27;Grève des transports;Oui;6;Non
+1868;ENS-0102;2026-01-27;Maladie;Non;8;Oui
+1869;ENS-0112;2026-01-27;Maladie;Oui;8;Oui
+1870;ENS-0035;2026-02-02;Décès d'un proche;Oui;8;Non
+1871;ENS-0048;2026-02-02;Décès d'un proche;Oui;8;Non
+1872;ENS-0054;2026-02-02;Congé de maternité;Oui;8;Oui
+1873;ENS-0029;2026-02-03;Examen médical;Non;3;Oui
+1874;ENS-0045;2026-02-03;Mission;Non;6;Oui
+1875;ENS-0088;2026-02-03;Mission;Non;4;Non
+1876;ENS-0119;2026-02-03;Maladie;Oui;4;Non
+1877;ENS-0041;2026-02-04;Grève des transports;Oui;4;Oui
+1878;ENS-0060;2026-02-04;Formation;Oui;6;Non
+1879;ENS-0093;2026-02-04;Maladie;Oui;2;Oui
+1880;ENS-0112;2026-02-04;Maladie;Oui;8;Oui
+1880;ENS-0112;2026-02-04;Maladie;Oui;8;Oui
+1881;ENS-0049;2026-02-05;Décès d'un proche;Oui;3;Non
+1882;ENS-0051;2026-02-05;Formation;Non;2;Non
+1883;ENS-0069;2026-02-05;;Oui;8;Non
+1884;ENS-0012;2026-02-06;Formation;Oui;8;Oui
+1885;ENS-0004;2026-02-09;Grève des transports;Oui;3;Oui
+1886;ENS-0009;2026-02-09;Événement religieux;Oui;4;Oui
+1887;ENS-0010;2026-02-09;Mission;Oui;4;Oui
+1888;ENS-0016;2026-02-09;;Non;3;Oui
+1889;ENS-0019;2026-02-09;Participation à un jury;Oui;6;Oui
+1890;ENS-0114;2026-02-09;Congé de maternité;Oui;8;Non
+1891;ENS-0063;2026-12-25;Formation;Oui;4;Non
+1892;ENS-0074;2026-02-10;Raison familiale;Oui;2;Non
+1893;ENS-0085;2026-02-10;Raison familiale;Non;2;Non
+1894;ENS-0109;2026-02-10;Formation;Oui;8;Non
+1895;ENS-0023;02-11-2026;Raison familiale;Oui;2;Oui
+1896;ENS-0056;2026-02-11;Formation;Non;2;Non
+1897;ENS-0114;2026-02-11;Congé de maternité;Non;3;Non
+1898;ENS-0003;2026-02-12;Maladie;Non;8;Non
+1899;ENS-0036;2026-02-12;Participation à un jury;Oui;3;Non
+1900;ENS-0044;2026-02-12;Maladie;Oui;6;Non
+1901;ENS-0047;2026-11-19;Participation à un jury;Non;6;Non
+1902;ENS-0068;2026-02-12;Mission;Oui;158;Non
+1903;ENS-0069;2026-02-12;Événement religieux;Non;3;Non
+1904;ENS-0071;2026-02-12;Formation;Oui;6;Non
+1905;ENS-0103;2026-02-12;Grève des transports;Non;2;Non
+1905;ENS-0103;2026-02-12;Grève des transports;Non;2;Non
+1906;ENS-0105;2026-02-12;Maladie;Non;6;Non
+1907;ENS-0020;2026-02-13;Grève des transports;Non;4;Non
+1908;ENS-0060;2026-02-13;Formation;Non;8;Non
+1909;ENS-0087;2026-02-13;Congé de maternité;Oui;6;Non
+1910;ENS-0094;2026-02-13;Raison familiale;Oui;2;Non
+1911;ENS-0007;2006-10-15;Mission;Non;8;Non
+1912;ENS-0008;2026-02-16;Raison familiale;Oui;6;Non
+1913;ENS-0050;2026-02-16;Mission;Non;2;Non
+1914;ENS-0052;2019-05-27;Décès d'un proche;Oui;2;Non
+1915;ENS-0026;2026-02-17;;Oui;8;Non
+1916;ENS-0030;2026-02-17;Participation à un jury;Oui;329;Non
+1917;ENS-0083;02-17-2026;Raison familiale;Oui;6;Non
+1918;ENS-0098;2026-02-17;Formation;Non;2;Non
+1919;ENS-0058;2026-02-18;Décès d'un proche;Oui;8;Oui
+1920;ENS-0067;2026-02-18;Événement religieux;Oui;8;Non
+1921;ENS-0017;2026-02-19;Congé de maternité;Oui;6;Oui
+1922;ENS-0044;2026-02-19;Raison familiale;Oui;2;Oui
+1923;ENS-0097;2026-02-19;Raison familiale;Oui;8;Non
+1924;ENS-0026;2026-02-20;Examen médical;Oui;3;Oui
+1925;ENS-0028;2026-02-20;Congé de maternité;Oui;3;Non
+1926;ENS-0084;2026-02-20;Raison familiale;Non;3;Non
+1927;ENS-0101;2026-02-20;Formation;Oui;3;Non
+1928;ENS-0022;02-24-2026;Grève des transports;Oui;4;Non
+1929;ENS-0110;2026-02-24;Participation à un jury;Oui;2;Non
+1930;ENS-0110;2026-02-25;Raison familiale;Oui;365;Oui
+1931;ENS-0039;2026-02-26;Congé de maternité;Non;6;Non
+1932;ENS-0067;2026-02-26;Grève des transports;Oui;6;Non
+1933;ENS-0079;2026-02-27;Examen médical;Oui;8;Non
+1934;ENS-0104;2026-02-27;Examen médical;Non;8;Non
+1935;ENS-0012;2026-03-02;Décès d'un proche;Oui;8;Oui
+1936;ENS-0028;03-02-2026;Participation à un jury;Oui;3;Non
+1937;ENS-0033;2026-03-03;Participation à un jury;Oui;6;Non
+1938;ENS-0060;03-03-2026;Congé de maternité;Oui;384;Non
+1939;ENS-0003;2026-03-04;Examen médical;Oui;3;Oui
+1940;ENS-0006;2026-03-04;Examen médical;Oui;6;Non
+1941;ENS-0083;2026-03-04;Raison familiale;Oui;2;Non
+1942;ENS-0092;2026-03-04;Formation;Non;6;Non
+1943;ENS-0017;2026-03-05;Formation;Oui;6;Non
+1944;ENS-0048;2026-03-05;;Oui;4;Non
+1945;ENS-0056;2026-03-05;Grève des transports;Oui;3;Non
+1946;ENS-0066;2026-03-05;Participation à un jury;Non;2;Non
+1947;ENS-0118;2026-03-05;Examen médical;Oui;6;Oui
+1948;ENS-0085;2026-03-06;Raison familiale;Oui;2;Non
+1949;ENS-0118;2026-03-06;Examen médical;Oui;3;Non
+1950;ENS-0038;2026-03-09;Maladie;Oui;6;Non
+1951;ENS-0045;2026-03-09;Grève des transports;Oui;2;Oui
+1952;ENS-0107;2026-03-09;Mission;Oui;2;Non
+1953;ENS-0114;2026-03-09;Mission;Non;6;Non
+1954;ENS-0041;2026-03-10;Événement religieux;Oui;2;Non
+1955;ENS-0047;2026-03-10;Décès d'un proche;Oui;6;Non
+1955;ENS-0047;2026-03-10;Décès d'un proche;Oui;6;Non
+1956;ENS-0051;2026-03-10;Examen médical;Oui;8;Oui
+1956;ENS-0051;2026-03-10;Examen médical;Oui;8;Oui
+1957;ENS-0022;2026-03-11;Formation;Non;2;Non
+1957;ENS-0022;2026-03-11;Formation;Non;2;Non
+1958;ENS-0046;2026-03-11;Maladie;Non;2;Oui
+1959;ENS-0062;2026-03-11;Décès d'un proche;Non;8;Non
+1960;ENS-0063;2026-03-11;Mission;Non;2;Non
+1961;ENS-0072;2026-03-11;Formation;Oui;3;Non
+1962;ENS-0023;2026-03-12;;Oui;3;Oui
+1963;ENS-0049;2026-03-12;Événement religieux;Oui;3;Oui
+1964;ENS-0068;2026-03-12;Participation à un jury;Non;2;Oui
+1965;ENS-0093;2026-03-12;Maladie;Oui;6;Non
+1966;ENS-0097;2026-03-13;Examen médical;Non;2;Non
+1967;ENS-0101;2026-03-13;Grève des transports;Oui;4;Non
+1968;ENS-0007;2026-03-16;Décès d'un proche;Oui;4;Non
+1969;ENS-0025;2026-03-16;Participation à un jury;Oui;8;Non
+1970;ENS-0039;2026-03-16;Mission;Oui;6;Non
+1971;ENS-0071;2026-03-16;Maladie;Non;8;Non
+1972;ENS-0074;2026-03-16;Décès d'un proche;Oui;2;Oui
+1972;ENS-0074;2026-03-16;Décès d'un proche;Oui;2;Oui
+1973;ENS-0094;2026-03-16;Mission;Non;3;Non
+1974;ENS-0009;2026-03-17;Examen médical;Oui;4;Non
+1975;ENS-0053;2026-11-23;Formation;Oui;8;Oui
+1976;ENS-0057;2026-03-17;Décès d'un proche;Oui;8;Oui
+1977;ENS-0077;2026-03-17;Raison familiale;Non;3;Non
+1978;ENS-0086;2026-03-17;Examen médical;Oui;4;Oui
+1979;ENS-0087;2026-03-17;Congé de maternité;Oui;8;Non
+1980;ENS-0100;2026-03-17;;Oui;118;Oui
+1981;ENS-0105;2026-03-17;Événement religieux;Non;6;Non
+1982;ENS-0109;2026-03-17;Raison familiale;Non;2;Non
+1983;ENS-0083;2026-03-18;Maladie;Oui;4;Oui
+1984;ENS-0098;2026-03-18;Mission;Non;6;Non
+1985;ENS-0104;2026-03-18;Participation à un jury;Oui;3;Non
+1986;ENS-0120;2026-03-18;Décès d'un proche;Oui;4;Non
+1987;ENS-0027;2026-03-20;Participation à un jury;Oui;8;Non
+1988;ENS-0004;2026-03-23;Maladie;Oui;8;Oui
+1988;ENS-0004;2026-03-23;Maladie;Oui;8;Oui
+1989;ENS-0005;2026-03-23;Participation à un jury;Oui;8;Non
+1990;ENS-0023;2026-03-23;Examen médical;Oui;2;Oui
+1991;ENS-0034;2027-09-13;Grève des transports;Non;6;Oui
+1992;ENS-0044;2026-03-23;Congé de maternité;Oui;6;Oui
+1993;ENS-0064;2026-12-20;Formation;Oui;89;Oui
+1994;ENS-0007;2026-03-24;Mission;Oui;6;Oui
+1995;ENS-0043;2026-03-24;Formation;Non;4;Non
+1996;ENS-0026;2026-03-25;Congé de maternité;Non;2;Non
+1997;ENS-0040;2026-03-25;Événement religieux;Oui;4;Non
+1998;ENS-0041;2026-03-25;Formation;Oui;8;Oui
+1999;ENS-0045;2026-03-25;Participation à un jury;Oui;8;Non
+2000;ENS-0079;2026-03-25;Formation;Oui;6;Oui
+2001;ENS-0017;2026-03-26;Événement religieux;Oui;4;Non
+2002;ENS-0020;2026-03-26;Maladie;Oui;4;Oui
+2003;ENS-0095;2026-03-26;Maladie;Oui;2;Oui
+2004;ENS-0116;2026-03-26;Examen médical;Oui;2;Oui
+2005;ENS-0117;2026-03-26;Grève des transports;Non;2;Oui
+2006;ENS-0013;2026-03-27;Événement religieux;Oui;6;Oui
+2007;ENS-0030;2026-03-27;Événement religieux;Oui;6;Non
+2007;ENS-0030;2026-03-27;Événement religieux;Oui;6;Non
+2008;ENS-0026;2027-08-11;Examen médical;Oui;2;Non
+2009;ENS-0053;2026-04-01;Grève des transports;Oui;8;Oui
+2010;ENS-0107;2026-04-01;Formation;Oui;3;Non
+2011;ENS-0110;2026-04-01;Examen médical;Non;3;Oui
+2012;ENS-0117;2026-04-01;Examen médical;Oui;2;Non
+2013;ENS-0003;2026-04-02;Congé de maternité;Oui;2;Non
+2014;ENS-0018;2026-04-02;Grève des transports;Oui;8;Non
+2015;ENS-0034;2026-04-02;Raison familiale;Oui;2;Non
+2016;ENS-0067;2026-04-02;Mission;Non;3;Oui
+2017;ENS-0084;2026-04-02;Congé de maternité;Oui;4;Oui
+2018;ENS-0103;02/04/2026;Événement religieux;Oui;6;Non
+2019;ENS-0062;2026-04-03;Décès d'un proche;Oui;6;Oui
+2019;ENS-0062;2026-04-03;Décès d'un proche;Oui;6;Oui
+2020;ENS-0082;2026-04-03;Événement religieux;Non;3;Non
+2021;ENS-0023;2026-04-06;Grève des transports;Non;3;Oui
+2022;ENS-0048;2026-04-06;Événement religieux;Oui;2;Non
+2023;ENS-0106;06/04/2026;Formation;Non;2;Non
+2024;ENS-0016;2026-04-07;Décès d'un proche;Non;8;Non
+2025;ENS-0044;2026-04-07;Grève des transports;Non;4;Oui
+2026;ENS-0079;2026-04-07;Maladie;Non;2;Non
+2027;ENS-0097;2026-04-07;Décès d'un proche;Non;6;Non
+2028;ENS-0025;2026-04-08;Mission;Oui;4;Non
+2029;ENS-0060;2026-04-08;Événement religieux;Non;140;Oui
+2030;ENS-0073;2026-04-08;Mission;Non;6;Oui
+2031;ENS-0085;2026-04-08;Grève des transports;Oui;4;Non
+2032;ENS-0090;2026-04-08;Raison familiale;Oui;6;Oui
+2033;ENS-0101;2026-04-08;Examen médical;Oui;8;Non
+2034;ENS-0007;2026-04-09;Événement religieux;Oui;8;Oui
+2035;ENS-0047;2026-04-09;Grève des transports;Oui;2;Non
+2036;ENS-0059;2026-04-09;Examen médical;Oui;6;Non
+2037;ENS-0091;2026-04-09;Mission;Non;3;Non
+2038;ENS-0109;2026-04-09;Examen médical;Oui;4;Non
+2039;ENS-0113;2026-04-09;Examen médical;Oui;6;Oui
+2040;ENS-0003;2026-04-10;Participation à un jury;Non;2;Non
+2041;ENS-0024;2026-04-10;Grève des transports;Non;93;Oui
+2042;ENS-0065;2026-04-10;Formation;Non;8;Oui
+2043;ENS-0054;2026-04-13;Maladie;Oui;6;Non
+2044;ENS-0058;2026-04-13;Grève des transports;Non;2;Non
+2045;ENS-0060;2026-04-13;Participation à un jury;Oui;4;Oui
+2046;ENS-0093;2026-04-13;Maladie;Oui;6;Oui
+2047;ENS-0100;2026-04-13;Examen médical;Oui;50;Oui
+2048;ENS-0045;2026-04-14;;Non;2;Non
+2049;ENS-0054;2026-04-14;Raison familiale;Oui;6;Non
+2050;ENS-0074;2026-04-14;Événement religieux;Non;4;Non
+2051;ENS-0099;2026-04-14;Examen médical;Oui;8;Oui
+2052;ENS-0023;2026-04-15;Grève des transports;Oui;6;Non
+2053;ENS-0026;2026-04-15;Raison familiale;Oui;8;Oui
+2054;ENS-0093;2026-04-15;Participation à un jury;Non;8;Oui
+2055;ENS-0008;2026-04-16;Maladie;Oui;4;Oui
+2056;ENS-0094;2009-02-04;Décès d'un proche;Oui;6;Oui
+2057;ENS-0010;17/04/2026;Examen médical;Oui;3;Oui
+2058;ENS-0030;17/04/2026;Mission;Non;4;Oui
+2059;ENS-0031;2026-04-17;Participation à un jury;Oui;8;Oui
+2060;ENS-0049;2026-04-17;Grève des transports;Non;6;Non
+2061;ENS-0050;2026-04-17;Grève des transports;Oui;4;Non
+2062;ENS-0108;2026-04-17;Mission;Oui;4;Non
+2063;ENS-0017;2026-04-20;Mission;Oui;4;Oui
+2064;ENS-0018;2026-04-20;Congé de maternité;Oui;2;Oui
+2065;ENS-0042;2026-04-21;Congé de maternité;Oui;4;Oui
+2066;ENS-0044;2026-04-21;Événement religieux;Oui;6;Non
+2067;ENS-0070;2026-04-21;Maladie;Oui;504;Non
+2068;ENS-0119;2022-03-04;Événement religieux;Oui;8;Non
+2069;ENS-0020;2026-04-22;Raison familiale;Oui;3;Oui
+2070;ENS-0022;2026-04-22;Grève des transports;Oui;4;Non
+2071;ENS-0049;04-22-2026;Participation à un jury;Non;3;Non
+2072;ENS-0067;2026-04-22;Congé de maternité;Oui;2;Non
+2073;ENS-0075;2026-04-22;Événement religieux;Non;8;Non
+2073;ENS-0075;2026-04-22;Événement religieux;Non;8;Non
+2074;ENS-0029;2026-04-23;Raison familiale;Oui;3;Oui
+2074;ENS-0029;2026-04-23;Raison familiale;Oui;3;Oui
+2075;ENS-0102;2026-04-23;Participation à un jury;Oui;6;Non
+2076;ENS-0120;2026-04-23;Congé de maternité;Oui;6;Oui
+2077;ENS-0014;2026-04-24;Grève des transports;Oui;4;Non
+2078;ENS-0061;2026-04-24;Examen médical;Non;3;Oui
+2079;ENS-0081;2026-04-24;;Oui;4;Non
+2080;ENS-0111;2026-04-24;Maladie;Oui;400;Non
+2081;ENS-0055;2026-04-27;Maladie;Non;4;Oui
+2082;ENS-0102;2026-04-27;Mission;Oui;3;Non
+2083;ENS-0078;2026-04-28;Maladie;Oui;6;Oui
+2084;ENS-0088;2026-04-28;Mission;Oui;2;Non
+2085;ENS-0096;2026-04-28;Décès d'un proche;Oui;2;Oui
+2086;ENS-0009;2026-05-01;Examen médical;Non;8;Non
+2087;ENS-0038;2026-05-01;Raison familiale;Oui;8;Non
+2088;ENS-0082;2026-05-01;Participation à un jury;Oui;4;Non
+2089;ENS-0084;2026-05-01;Raison familiale;Non;3;Oui
+2090;ENS-0021;2026-05-04;Maladie;Non;8;Oui
+2091;ENS-0022;2026-05-04;Formation;Oui;8;Non
+2092;ENS-0025;2026-05-04;;Oui;2;Non
+2093;ENS-0040;2026-05-04;Maladie;Oui;2;Oui
+2094;ENS-0080;2027-06-21;Raison familiale;Oui;6;Oui
+2095;ENS-0098;2026-05-04;Événement religieux;Oui;6;Non
+2096;ENS-0114;2026-05-04;Événement religieux;Oui;2;Non
+2096;ENS-0114;2026-05-04;Événement religieux;Oui;2;Non
+2097;ENS-0024;2026-05-05;Raison familiale;Non;2;Non
+2098;ENS-0036;2026-05-05;Examen médical;Oui;2;Non
+2099;ENS-0106;2026-05-05;Mission;Oui;6;Oui
+2100;ENS-0111;2026-05-05;Examen médical;Oui;3;Oui
+2101;ENS-0018;2026-05-06;Formation;Oui;556;Oui
+2102;ENS-0100;2026-05-06;Maladie;Oui;4;Non
+2103;ENS-0107;2026-05-06;Mission;Non;2;Oui
+2103;ENS-0107;2026-05-06;Mission;Non;2;Oui
+2104;ENS-0113;2026-05-06;Raison familiale;Oui;8;Non
+2104;ENS-0113;2026-05-06;Raison familiale;Oui;8;Non
+2105;ENS-0075;2026-05-07;Participation à un jury;Oui;3;Non
+2106;ENS-0102;2026-05-07;Mission;Non;6;Oui
+2107;ENS-0105;2026-05-07;Formation;Oui;3;Oui
+2108;ENS-0002;2026-05-08;Événement religieux;Oui;6;Non
+2109;ENS-0004;2026-05-08;Congé de maternité;Oui;335;Non
+2110;ENS-0089;2026-05-08;Événement religieux;Oui;4;Oui
+2111;ENS-0081;2026-05-11;Mission;Oui;461;Non
+2112;ENS-0119;2026-05-11;Formation;Oui;6;Non
+2113;ENS-0032;2026-05-12;Décès d'un proche;Non;3;Non
+2114;ENS-0034;2026-05-12;Grève des transports;Oui;2;Oui
+2115;ENS-0106;2026-05-12;Congé de maternité;Oui;4;Non
+2116;ENS-0112;2026-05-12;Mission;Oui;6;Oui
+2117;ENS-0026;13/05/2026;Examen médical;Oui;252;Non
+2118;ENS-0033;2026-05-14;Mission;Oui;8;Non
+2119;ENS-0108;2026-05-14;Congé de maternité;Oui;4;Non
+2120;ENS-0112;2026-05-14;Événement religieux;Oui;4;Non
+2121;ENS-0120;2026-05-14;Maladie;Oui;2;Non
+2122;ENS-0084;2026-05-15;Événement religieux;Oui;6;Non
+2123;ENS-0001;2026-05-18;Grève des transports;Oui;3;Non
+2124;ENS-0006;18/05/2026;Grève des transports;Non;6;Non
+2125;ENS-0006;2026-05-18;Événement religieux;Oui;6;Non
+2126;ENS-0014;2026-05-18;Grève des transports;Oui;8;Non
+2127;ENS-0027;2026-05-18;Examen médical;Non;4;Oui
+2128;ENS-0035;2026-05-18;Raison familiale;Oui;2;Non
+2129;ENS-0064;2026-05-18;Maladie;Non;2;Oui
+2130;ENS-0111;2026-05-18;Raison familiale;Oui;4;Non
+2131;ENS-0120;2026-05-19;Congé de maternité;Oui;3;Oui
+2132;ENS-0039;2026-05-20;Participation à un jury;Non;8;Oui
+2133;ENS-0075;2026-05-20;Congé de maternité;Oui;8;Non
+2134;ENS-0078;2026-05-20;Maladie;Non;2;Non
+2135;ENS-0096;2026-05-20;Mission;Oui;8;Oui
+2136;ENS-0107;2026-05-20;Formation;Oui;3;Non
+2137;ENS-0074;2026-05-21;Examen médical;Oui;3;Non
+2138;ENS-0087;2026-05-21;Mission;Non;2;Non
+2139;ENS-0020;2026-05-22;Décès d'un proche;Oui;526;Oui
+2140;ENS-0048;2026-05-22;Raison familiale;Oui;4;Oui
+2141;ENS-0052;2026-05-22;Grève des transports;Oui;4;Non
+2142;ENS-0057;2026-05-22;Examen médical;Oui;6;Non
+2143;ENS-0011;2026-05-25;Décès d'un proche;Non;4;Non
+2144;ENS-0029;2026-05-25;Raison familiale;Oui;8;Non
+2145;ENS-0053;2026-05-25;Grève des transports;Oui;4;Oui
+2146;ENS-0062;2026-05-25;Événement religieux;Oui;4;Oui
+2147;ENS-0103;2026-05-25;Événement religieux;Non;2;Non
+2148;ENS-0109;2026-05-25;Événement religieux;Non;4;Non
+2149;ENS-0118;2026-05-25;Décès d'un proche;Oui;2;Oui
+2150;ENS-0049;2026-05-26;Maladie;Oui;3;Non
+2151;ENS-0073;2026-05-26;Examen médical;Oui;6;Non
+2152;ENS-0026;2026-05-27;Participation à un jury;Oui;3;Non
+2153;ENS-0063;2026-05-27;Décès d'un proche;Oui;2;Non
+2154;ENS-0012;2026-05-28;Maladie;Oui;6;Oui
+2155;ENS-0031;2026-05-28;Raison familiale;Non;2;Non
+2156;ENS-0042;2026-05-28;Formation;Oui;2;Oui
+2157;ENS-0055;2026-05-28;Congé de maternité;Non;2;Oui
+2158;ENS-0061;2026-05-28;Maladie;Oui;6;Non
+2159;ENS-0101;2026-05-28;Mission;Oui;8;Non
+2160;ENS-0022;2026-06-01;Maladie;Oui;3;Non
+2161;ENS-0028;2026-06-01;Examen médical;Oui;2;Non
+2162;ENS-0107;2026-06-01;Raison familiale;Oui;2;Non
+2163;ENS-0083;2026-06-02;Participation à un jury;Oui;4;Non
+2164;ENS-0085;02/06/2026;Mission;Non;6;Oui
+2165;ENS-0120;2026-06-02;Formation;Oui;8;Non
+2166;ENS-0015;03/06/2026;Examen médical;Non;3;Non
+2167;ENS-0028;03/06/2026;Grève des transports;Oui;3;Non
+2168;ENS-0090;2026-06-03;Maladie;Non;3;Oui
+2169;ENS-0101;2026-06-03;Événement religieux;Oui;8;Non
+2170;ENS-0104;2026-06-03;Grève des transports;Oui;2;Non
+2171;ENS-0001;2026-06-04;Participation à un jury;Oui;4;Oui
+2172;ENS-0009;2026-06-04;Participation à un jury;Oui;2;Non
+2173;ENS-0072;2026-06-04;Raison familiale;Oui;2;Oui
+2174;ENS-0080;2026-06-04;Examen médical;Non;8;Oui
+2175;ENS-0105;2026-06-04;Participation à un jury;Oui;6;Non
+2176;ENS-0109;2026-06-04;Formation;Oui;8;Non
+2177;ENS-0113;2026-06-04;Examen médical;Oui;8;Oui
+2177;ENS-0113;2026-06-04;Examen médical;Oui;8;Oui
+2178;ENS-0118;2026-06-04;Formation;Non;2;Non
+2179;ENS-0013;2026-06-05;Grève des transports;Oui;4;Non
+2180;ENS-0018;2026-06-05;Décès d'un proche;Oui;4;Non
+2181;ENS-0012;2026-06-08;Événement religieux;Non;2;Non
+2182;ENS-0012;2026-06-08;Grève des transports;Non;4;Oui
+2183;ENS-0025;2016-12-10;Événement religieux;Oui;8;Non
+2184;ENS-0069;2026-06-08;Congé de maternité;Oui;6;Non
+2185;ENS-0067;2026-06-09;Événement religieux;Oui;8;Non
+2186;ENS-0074;2026-06-09;Congé de maternité;Oui;2;Non
+2187;ENS-0076;2026-06-09;Événement religieux;Non;4;Non
+2188;ENS-0016;2026-06-10;Grève des transports;Non;2;Non
+2189;ENS-0014;2026-06-11;Mission;Oui;8;Non
+2190;ENS-0026;2026-06-11;Événement religieux;Non;3;Non
+2191;ENS-0077;2026-06-11;Examen médical;Oui;4;Oui
+2192;ENS-0082;2026-06-11;Congé de maternité;Oui;2;Non
+2193;ENS-0114;2026-06-11;Mission;Oui;3;Non
+2194;ENS-0011;2026-06-12;Grève des transports;Oui;2;Non
+2195;ENS-0025;2026-06-12;Maladie;Non;440;Non
+2196;ENS-0030;2026-06-12;Mission;Non;4;Non
+2197;ENS-0049;2026-06-12;Maladie;Oui;2;Oui
+2198;ENS-0084;2026-06-12;Événement religieux;Oui;3;Non
+2199;ENS-0105;2026-06-12;Congé de maternité;Oui;8;Non
+2200;ENS-0115;2026-06-12;Décès d'un proche;Oui;4;Non
+2201;ENS-0119;2026-06-12;Maladie;Oui;3;Non
+2202;ENS-0029;2026-06-15;Grève des transports;Oui;8;Non
+2203;ENS-0031;2026-06-15;Maladie;Non;8;Oui
+2204;ENS-0048;2026-06-15;Formation;Oui;3;Oui
+2205;ENS-0091;2026-06-15;Événement religieux;Oui;8;Non
+2206;ENS-0097;2026-06-15;Grève des transports;Oui;472;Non
+2207;ENS-0108;2026-06-15;Raison familiale;Oui;8;Oui
+2208;ENS-0113;2026-06-15;Formation;Oui;2;Non
+2209;ENS-0027;2026-06-16;Mission;Non;3;Non
+2210;ENS-0071;2026-06-16;Mission;Oui;4;Non
+2211;ENS-0079;2026-06-16;Participation à un jury;Non;6;Oui
+2212;ENS-0004;2026-06-17;Congé de maternité;Non;8;Non
+2213;ENS-0007;2026-06-17;Mission;Non;8;Non
+2214;ENS-0031;2026-06-17;Grève des transports;Oui;2;Oui
+2215;ENS-0079;2026-06-17;Maladie;Oui;2;Non
+2216;ENS-0002;2026-06-18;Grève des transports;Oui;2;Non
+2217;ENS-0021;2026-06-18;Formation;Non;6;Oui
+2218;ENS-0057;2026-06-18;Formation;Oui;8;Oui
+2219;ENS-0006;2026-06-19;Décès d'un proche;Oui;4;Oui
+2220;ENS-0020;2026-06-19;Congé de maternité;Non;6;Non
+2221;ENS-0063;2026-06-19;Examen médical;Oui;2;Non
+2221;ENS-0063;2026-06-19;Examen médical;Oui;2;Non
+2222;ENS-0064;2026-06-19;Mission;Oui;6;Non
+2223;ENS-0074;2026-06-19;Mission;Oui;8;Oui
+2224;ENS-0062;2026-06-22;Événement religieux;Oui;2;Oui
+2224;ENS-0062;2026-06-22;Événement religieux;Oui;2;Oui
+2225;ENS-0088;2026-06-22;Participation à un jury;Oui;4;Non
+2226;ENS-0110;2016-11-24;Formation;Non;6;Oui
+2227;ENS-0020;06-23-2026;Raison familiale;Oui;8;Non
+2228;ENS-0036;2026-06-23;Formation;Oui;6;Non
+2229;ENS-0087;2026-06-23;Grève des transports;Oui;2;Non
+2230;ENS-0099;2026-06-23;Maladie;Non;226;Oui
+2231;ENS-0115;2026-06-23;Congé de maternité;Non;3;Non
+2232;ENS-0023;2026-06-24;Formation;Oui;2;Non
+2233;ENS-0033;2026-06-24;Mission;Oui;3;Oui
+2234;ENS-0040;2026-06-24;Décès d'un proche;Oui;4;Oui
+2235;ENS-0051;2026-06-24;Maladie;Oui;8;Non
+2236;ENS-0058;2026-06-24;Formation;Non;4;Non
+2237;ENS-0060;2026-06-24;Raison familiale;Oui;6;Non
+2238;ENS-0097;2026-06-24;Décès d'un proche;Oui;2;Non
+2239;ENS-0107;2026-06-24;Événement religieux;Oui;6;Oui
+2240;ENS-0052;06-25-2026;Grève des transports;Non;6;Non
+2241;ENS-0061;2026-06-25;Congé de maternité;Non;6;Non
+2242;ENS-0098;2026-06-25;Mission;Non;2;Oui
+2243;ENS-0101;2026-06-25;Raison familiale;Oui;248;Oui
+2244;ENS-0110;2026-06-25;Événement religieux;Oui;6;Non
+2245;ENS-0019;2026-06-26;Congé de maternité;Oui;6;Oui
+2246;ENS-0029;2026-06-26;Décès d'un proche;Non;3;Non
+2247;ENS-0047;2026-06-26;Mission;Oui;4;Non
+2248;ENS-0065;2026-06-26;Raison familiale;Oui;8;Oui
+2249;ENS-0070;2026-06-26;Participation à un jury;Oui;3;Non
+2250;ENS-0100;07-01-2026;Événement religieux;Oui;6;Non
+2251;ENS-0114;2026-07-01;Mission;Oui;142;Non
+2252;ENS-0120;2026-07-01;Raison familiale;Oui;4;Oui
+2253;ENS-0009;2026-07-02;Mission;Oui;3;Non
+2254;ENS-0042;2026-07-02;Décès d'un proche;Non;8;Non
+2255;ENS-0079;2026-07-02;Maladie;Oui;2;Non
+2256;ENS-0101;2026-07-02;Formation;Oui;6;Non
+2257;ENS-0113;2026-07-02;Participation à un jury;Non;8;Oui
+2258;ENS-0113;2026-07-03;Congé de maternité;Oui;3;Non
+2259;ENS-0115;2026-07-03;Raison familiale;Non;4;Non
+2260;ENS-0012;2026-07-06;Congé de maternité;Oui;3;Non
+2261;ENS-0039;2026-11-17;Décès d'un proche;Oui;6;Non
+2262;ENS-0044;06/07/2026;Décès d'un proche;Oui;4;Oui
+2263;ENS-0046;2026-07-06;Maladie;Oui;320;Non
+2264;ENS-0061;2026-07-06;Maladie;Oui;2;Non
+2265;ENS-0104;2026-07-06;;Non;6;Oui
+2266;ENS-0111;2026-07-06;Décès d'un proche;Oui;2;Non
+2266;ENS-0111;2026-07-06;Décès d'un proche;Oui;2;Non
+2267;ENS-0013;2026-07-07;Événement religieux;Oui;4;Non
+2267;ENS-0013;2026-07-07;Événement religieux;Oui;4;Non
+2268;ENS-0032;2026-07-07;Raison familiale;Non;6;Oui
+2269;ENS-0045;2026-07-07;Examen médical;Oui;3;Non
+2270;ENS-0084;2026-07-07;Examen médical;Oui;2;Non
+2271;ENS-0109;2026-07-07;Mission;Oui;322;Non
+2272;ENS-0002;2026-07-08;Événement religieux;Oui;2;Oui
+2273;ENS-0042;2026-07-08;Grève des transports;Oui;6;Oui
+2274;ENS-0044;2026-07-08;Congé de maternité;Oui;8;Non
+2275;ENS-0011;07-09-2026;Mission;Oui;533;Non
+2276;ENS-0018;2026-07-09;Examen médical;Oui;8;Oui
+2277;ENS-0058;2026-07-09;Décès d'un proche;Oui;8;Non
+2277;ENS-0058;2026-07-09;Décès d'un proche;Oui;8;Non
+2278;ENS-0096;2026-07-09;Formation;Oui;2;Non
+2279;ENS-0007;2026-07-10;Grève des transports;Oui;2;Oui
+2280;ENS-0025;2026-07-10;Raison familiale;Oui;3;Oui
+2281;ENS-0107;2026-07-10;Participation à un jury;Oui;4;Non
+2281;ENS-0107;2026-07-10;Participation à un jury;Oui;4;Non
+2282;ENS-0010;2009-04-01;Raison familiale;Oui;8;Non
+2283;ENS-0043;2026-07-13;Raison familiale;Non;6;Non
+2284;ENS-0095;2026-07-13;Maladie;Oui;3;Oui
+2285;ENS-0116;2026-07-13;Congé de maternité;Non;6;Oui
+2286;ENS-0063;2026-07-14;Examen médical;Oui;2;Non
+2287;ENS-0011;2026-07-15;Examen médical;Oui;4;Oui
+2288;ENS-0015;2026-07-15;Raison familiale;Oui;3;Non
+2289;ENS-0024;2026-07-15;Formation;Oui;2;Oui
+2289;ENS-0024;2026-07-15;Formation;Oui;2;Oui
+2290;ENS-0045;2026-07-15;Formation;Non;4;Oui
+2291;ENS-0111;2026-07-15;Examen médical;Non;3;Oui
+2292;ENS-0065;2026-07-16;Maladie;Oui;2;Oui
+2293;ENS-0072;2026-07-16;;Oui;6;Non
+2294;ENS-0094;2026-07-16;Examen médical;Oui;6;Non
+2295;ENS-0006;2026-07-17;Grève des transports;Oui;8;Non
+2296;ENS-0033;2026-07-17;Décès d'un proche;Oui;3;Non
+2297;ENS-0049;2026-07-21;Mission;Oui;8;Non
+2298;ENS-0064;2026-07-21;Grève des transports;Oui;4;Non
+2299;ENS-0102;21/07/2026;Raison familiale;Oui;8;Non
+2300;ENS-0073;2026-07-22;Événement religieux;Non;6;Oui
+2301;ENS-0106;2026-07-23;Mission;Oui;6;Non
+2302;ENS-0034;2026-07-24;Grève des transports;Non;8;Oui
+2303;ENS-0038;2026-07-24;Raison familiale;Oui;4;Non
+2304;ENS-0059;2026-07-24;;Oui;8;Oui
+2305;ENS-0079;2026-07-24;Maladie;Oui;8;Non
+2306;ENS-0082;2026-07-24;Grève des transports;Non;3;Non
+2307;ENS-0112;07-24-2026;Formation;Oui;8;Oui
+2308;ENS-0005;2026-07-27;Maladie;Non;4;Non
+2309;ENS-0009;2026-07-27;;Oui;6;Non
+2310;ENS-0012;2026-07-27;Participation à un jury;Oui;8;Non
+2311;ENS-0016;2026-07-27;Décès d'un proche;Oui;3;Non
+2312;ENS-0022;2026-07-27;Grève des transports;Oui;2;Oui
+2313;ENS-0081;2026-07-27;Congé de maternité;Oui;8;Non
+2314;ENS-0090;2026-07-27;Formation;Oui;4;Oui
+2315;ENS-0119;2026-07-27;Mission;Non;6;Oui
+2316;ENS-0001;2026-07-28;Raison familiale;Oui;3;Non
+2317;ENS-0118;2026-07-28;Grève des transports;Oui;3;Non
+2318;ENS-0017;2026-08-03;Congé de maternité;Oui;2;Oui
+2319;ENS-0021;2026-08-03;Participation à un jury;Oui;6;Oui
+2320;ENS-0053;2026-08-03;Maladie;Oui;2;Oui
+2321;ENS-0120;2026-08-03;Événement religieux;Non;3;Non
+2322;ENS-0007;2026-08-04;Maladie;Oui;3;Oui
+2323;ENS-0011;2026-08-04;Maladie;Oui;2;Non
+2324;ENS-0092;2026-08-04;Événement religieux;Non;4;Oui
+2325;ENS-0019;2026-08-05;Mission;Oui;6;Non
+2326;ENS-0027;2026-08-05;Grève des transports;Oui;6;Non
+2327;ENS-0087;2026-08-05;Événement religieux;Oui;2;Oui
+2328;ENS-0014;2026-08-06;Maladie;Oui;6;Oui
+2328;ENS-0014;2026-08-06;Maladie;Oui;6;Oui
+2329;ENS-0034;2026-08-06;Raison familiale;Oui;4;Non
+2330;ENS-0085;2026-08-06;Décès d'un proche;Non;8;Non
+2331;ENS-0091;2026-08-06;Mission;Non;8;Oui
+2332;ENS-0108;2026-08-06;Décès d'un proche;Oui;2;Non
+2333;ENS-0015;2026-08-07;Maladie;Oui;3;Oui
+2334;ENS-0025;2026-08-07;Événement religieux;Oui;4;Non
+2334;ENS-0025;2026-08-07;Événement religieux;Oui;4;Non
+2335;ENS-0031;2026-08-07;Examen médical;Non;4;Non
+2336;ENS-0002;2026-08-10;Congé de maternité;Oui;486;Non
+2337;ENS-0012;2026-08-11;Formation;Non;4;Oui
+2338;ENS-0022;2026-08-11;Grève des transports;Oui;4;Non
+2339;ENS-0046;2026-08-11;Participation à un jury;Oui;6;Oui
+2340;ENS-0070;2026-08-11;Participation à un jury;Oui;4;Oui
+2341;ENS-0075;2026-08-11;Mission;Oui;3;Non
+2342;ENS-0100;2026-08-11;Formation;Oui;3;Oui
+2343;ENS-0101;2026-08-11;Décès d'un proche;Oui;3;Non
+2344;ENS-0117;2026-08-11;Participation à un jury;Non;8;Oui
+2345;ENS-0009;2027-01-05;Congé de maternité;Non;4;Non
+2346;ENS-0032;2026-08-12;;Oui;8;Oui
+2347;ENS-0095;2026-08-12;;Non;6;Oui
+2348;ENS-0051;2026-08-13;Événement religieux;Oui;3;Non
+2349;ENS-0088;08-13-2026;Raison familiale;Oui;2;Non
+2350;ENS-0113;2026-08-13;Mission;Non;154;Oui
+2351;ENS-0012;2026-08-14;Décès d'un proche;Oui;8;Non
+2352;ENS-0023;2026-08-14;Décès d'un proche;Oui;6;Oui
+2353;ENS-0040;2026-08-14;Décès d'un proche;Non;8;Non
+2354;ENS-0041;2026-08-14;Événement religieux;Oui;638;Non
+2355;ENS-0042;2026-08-14;Grève des transports;Non;3;Non
+2356;ENS-0076;2026-08-14;;Oui;2;Oui
+2357;ENS-0007;2026-08-17;Formation;Non;4;Non
+2358;ENS-0044;2026-08-17;Congé de maternité;Oui;2;Non
+2359;ENS-0098;2026-08-17;Mission;Oui;487;Oui
+2360;ENS-0050;2026-08-18;Congé de maternité;Non;6;Non
+2361;ENS-0006;2026-08-19;Mission;Oui;4;Oui
+2362;ENS-0033;2026-08-19;Événement religieux;Oui;4;Oui
+2363;ENS-0065;2026-08-19;Raison familiale;Oui;4;Non
+2364;ENS-0082;19/08/2026;Décès d'un proche;Oui;2;Oui
+2365;ENS-0002;2026-08-20;Événement religieux;Oui;4;Oui
+2366;ENS-0025;2026-08-20;Décès d'un proche;Oui;4;Non
+2367;ENS-0093;2026-08-20;Grève des transports;Oui;3;Oui
+2368;ENS-0102;2026-08-20;Grève des transports;Oui;4;Non
+2369;ENS-0104;2026-08-20;Congé de maternité;Oui;4;Oui
+2370;ENS-0003;2026-08-21;Participation à un jury;Oui;3;Oui
+2371;ENS-0045;2026-08-21;Événement religieux;Oui;8;Oui
+2372;ENS-0063;24/08/2026;Mission;Non;8;Non
+2373;ENS-0067;2026-08-24;Raison familiale;Oui;4;Oui
+2374;ENS-0023;2026-08-25;Raison familiale;Oui;8;Oui
+2375;ENS-0034;2026-08-25;Décès d'un proche;Oui;6;Non
+2376;ENS-0042;2026-08-25;Formation;Non;8;Oui
+2377;ENS-0052;2026-08-25;Événement religieux;Oui;4;Oui
+2378;ENS-0055;2026-08-25;Maladie;Oui;3;Non
+2379;ENS-0060;2026-08-25;Événement religieux;Oui;2;Oui
+2380;ENS-0062;2026-08-25;Formation;Oui;6;Oui
+2381;ENS-0084;2026-08-25;Grève des transports;Non;2;Non
+2382;ENS-0095;2026-08-25;Congé de maternité;Oui;8;Oui
+2383;ENS-0028;2026-08-26;Événement religieux;Non;4;Oui
+2384;ENS-0035;08-26-2026;Décès d'un proche;Oui;8;Oui
+2385;ENS-0036;2026-08-26;Mission;Oui;3;Non
+2386;ENS-0047;2026-08-26;Examen médical;Oui;4;Non
+2387;ENS-0110;2026-08-26;Congé de maternité;Non;3;Non
+2388;ENS-0005;2026-08-27;Décès d'un proche;Oui;3;Non
+2389;ENS-0055;27/08/2026;Raison familiale;Oui;6;Non
+2390;ENS-0058;2026-08-27;Mission;Oui;8;Oui
+2391;ENS-0089;2026-08-27;Mission;Non;6;Oui
+2392;ENS-0091;2026-08-27;Grève des transports;Oui;2;Oui
+2393;ENS-0103;2026-08-27;Participation à un jury;Oui;8;Non
+2394;ENS-0118;2027-04-23;Congé de maternité;Oui;8;Non
+2395;ENS-0021;2026-08-28;Congé de maternité;Non;3;Oui
+2396;ENS-0105;2026-08-28;Examen médical;Oui;2;Non

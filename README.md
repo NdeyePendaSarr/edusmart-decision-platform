@@ -17,8 +17,9 @@ Les PDF du projet sont la seule source de vérité. Tout écart est tracé dans 
 | L0 | Infrastructure Docker, configuration, journalisation | Validé (G0 : 5/5) |
 | L1 | Référentiel maître, données sénégalaises, correspondances | Livré |
 | L2-a | Source 1 : PostgreSQL | Validé (G1 : 39/39) ([détails](sources/s1_postgresql/README.md)) |
-| L2-b | Source 2 : MySQL | Livré, en attente de G1 ([détails](sources/s2_mysql/README.md)) |
-| L2-c à L2-e | Sources 3 à 5 | À venir |
+| L2-b | Source 2 : MySQL | Validé (G1 : 45/45) ([détails](sources/s2_mysql/README.md)) |
+| L2-c | Source 3 : CSV RH | Livré, en attente de G1 ([détails](sources/s3_csv/README.md)) |
+| L2-d et L2-e | Sources 4 et 5 | À venir |
 | L3 à L10 | Plateforme BI (phases 1 à 18) | À venir |
 
 ## 2. Arborescence actuelle
@@ -41,7 +42,8 @@ edusmart-decision-platform/
 ├── scripts/check_infrastructure.py   point de contrôle G0
 ├── sources/
 │   ├── s1_postgresql/            Source 1 : SQL, génération, insertion, vérification G1
-│   └── s2_mysql/                 Source 2 : idem pour MySQL
+│   ├── s2_mysql/                 Source 2 : idem pour MySQL
+│   └── s3_csv/                   Source 3 : schéma, génération, vérification G1 + output/*.csv (livrés)
 ├── mappings/
 │   ├── mapping_etudiants.csv     9 000 paires matricule <-> student_code
 │   └── mapping_courses.csv       codes MODULE / COURSE-n / QUIZ-n <-> UUID MySQL (rempli en L2-b)
@@ -50,7 +52,7 @@ edusmart-decision-platform/
 │   ├── generated/<source>/       CSV intermédiaires + summary.json
 │   ├── anomalies/                journaux d'anomalies (vérité terrain)
 │   └── reports/                  rapports des portes G1
-├── tests/                        117 tests unitaires + 8 tests d'intégration
+├── tests/                        149 tests unitaires + 8 tests d'intégration
 ├── requirements.txt
 └── pytest.ini
 ```
