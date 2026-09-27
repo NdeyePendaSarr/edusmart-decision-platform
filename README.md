@@ -20,8 +20,9 @@ Les PDF du projet sont la seule source de vérité. Tout écart est tracé dans 
 | L2-b | Source 2 : MySQL | Validé (G1 : 45/45) ([détails](sources/s2_mysql/README.md)) |
 | L2-c | Source 3 : CSV RH | Validé (G1 : 50/50) ([détails](sources/s3_csv/README.md)) |
 | L2-d | Source 4 : MongoDB | Validé (G1 : 30/30) ([détails](sources/s4_mongodb/README.md)) |
-| L2-e | Source 5 : Redis | Livré, en attente de G1 ([détails](sources/s5_redis/README.md)) |
-| L3 à L10 | Plateforme BI (phases 1 à 18) | À venir |
+| L2-e | Source 5 : Redis | Validé (G1 : 31/31) ([détails](sources/s5_redis/README.md)) — **volet A complet** |
+| L3 | Recherches, phases 1 à 4 | Livré, en attente de validation ([docs/](docs/README.md)) |
+| L4 à L10 | Plateforme BI (phases 4 à 18) | À venir |
 
 ### Volet A : vérifier les 5 sources d'un coup
 
@@ -48,6 +49,8 @@ edusmart-decision-platform/
 │   └── referential.py            référentiel maître + correspondances
 ├── scripts/check_infrastructure.py   point de contrôle G0
 ├── scripts/verify_sources.py         les 5 portes G1 en une commande
+├── scripts/constats_sources.py       chiffres cités dans les documents de recherche
+├── docs/                         recherches des phases 1 à 4 (Markdown)
 ├── sources/
 │   ├── s1_postgresql/            Source 1 : SQL, génération, insertion, vérification G1
 │   ├── s2_mysql/                 Source 2 : idem pour MySQL
