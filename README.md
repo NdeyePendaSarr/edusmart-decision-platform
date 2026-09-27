@@ -22,14 +22,15 @@ Les PDF du projet sont la seule source de vérité. Tout écart est tracé dans 
 | L2-d | Source 4 : MongoDB | Validé (G1 : 30/30) ([détails](sources/s4_mongodb/README.md)) |
 | L2-e | Source 5 : Redis | Validé (G1 : 31/31) ([détails](sources/s5_redis/README.md)) — **volet A complet** |
 | L3 | Recherches, phases 1 à 4 | Validé ([docs/](docs/README.md)) |
-| L4 | Pipeline : extraction, staging, métadonnées | Livré, en attente de G2 ([détails](pipeline/README.md)) |
-| L5 à L10 | Plateforme BI (phases 5 à 18) | À venir |
+| L4 | Pipeline : extraction, staging, métadonnées | Validé (G2 : 85/85) ([détails](pipeline/README.md)) |
+| L5 | Couche clean, qualité, porte G3 | Livré, en attente de G3 ([détails](pipeline/README.md#lot-l5--couche-clean-contrôle-qualité-porte-g3)) |
+| L6 à L10 | Plateforme BI (phases 7 à 18) | À venir |
 
 ### Pipeline ELT (L4)
 
 ```powershell
 python -m sources.s5_redis.insert_data     # snapshot Redis frais
-python -m pipeline.run_pipeline            # extraction -> staging -> porte G2
+python -m pipeline.run_pipeline            # extraction -> staging -> G2 -> clean -> rapport qualité -> G3
 ```
 
 ### Volet A : vérifier les 5 sources d'un coup
@@ -58,8 +59,8 @@ edusmart-decision-platform/
 ├── scripts/check_infrastructure.py   point de contrôle G0
 ├── scripts/verify_sources.py         les 5 portes G1 en une commande
 ├── scripts/constats_sources.py       chiffres cités dans les documents de recherche
-├── docs/                         recherches des phases 1 à 4 (Markdown)
-├── pipeline/                     ELT : extract_*.py, load.py, run_pipeline.py, verify_g2.py, sql/meta, sql/staging
+├── docs/                         recherches des phases 1 à 6 (Markdown)
+├── pipeline/                     ELT : extract_*.py, load.py, transform.py, run_pipeline.py, portes G2 et G3, sql/{meta,staging,quality,clean}
 ├── sources/
 │   ├── s1_postgresql/            Source 1 : SQL, génération, insertion, vérification G1
 │   ├── s2_mysql/                 Source 2 : idem pour MySQL
@@ -74,7 +75,7 @@ edusmart-decision-platform/
 │   ├── generated/<source>/       CSV intermédiaires + summary.json
 │   ├── anomalies/                journaux d'anomalies (vérité terrain)
 │   └── reports/                  rapports des portes G1
-├── tests/                        191 tests unitaires + 23 tests d'intégration
+├── tests/                        201 tests unitaires + 49 tests d'intégration
 ├── requirements.txt
 └── pytest.ini
 ```

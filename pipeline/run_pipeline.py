@@ -6,8 +6,9 @@ Un lancement = un LOT (batch_id) :
     0. initialisation : schémas meta et staging (idempotent), catalogue des 17 objets ;
     1. EXTRACT : les 5 sources -> data/landing/<batch_id>/ ;
     2. LOAD    : data/landing/<batch_id>/ -> edusmart_dw.staging ;
-    3. VERIFY  : porte G2 (complétude, fidélité, traçabilité) ;
-   (4. TRANSFORM : lot L5.)
+    3. VERIFY    : porte G2 (complétude, fidélité, traçabilité) ;
+    4. TRANSFORM : staging -> clean, 89 règles qualité (lot L5) ;
+    5. QUALITE   : rapport qualité (Phase 5) et porte G3 (toutes les anomalies traitées).
 
 Politique d'erreur : l'échec d'une source n'empêche pas les autres d'être
 extraites. Il est tracé (statut ECHEC dans le journal), la source n'est pas
@@ -36,7 +37,7 @@ logger = get_logger("pipeline")
 EXTRACTEURS = {"s1_postgresql": "pipeline.extract_postgres", "s2_mysql": "pipeline.extract_mysql",
                "s3_csv": "pipeline.extract_csv", "s4_mongodb": "pipeline.extract_mongodb",
                "s5_redis": "pipeline.extract_redis"}
-ETAPES = ("extract", "load", "verify")
+ETAPES = ("extract", "load", "verify", "transform", "qualite")
 
 
 def emplacements() -> dict[str, str]:
@@ -94,10 +95,41 @@ def run(sources: list[str], etapes: list[str]) -> int:
             logger.info("Porte G2 : %d/%d contrôles réussis — %s", n_ok, len(checks), rapport)
             if n_ok != len(checks):
                 code_retour = 1
+        if "transform" in etapes:
+            from pipeline import transform as transform_mod
+            with log_step(logger, "TRANSFORM (couche clean, 5 sources)"):
+                transform_mod.transform(None, meta)
+
+        if "qualite" in etapes:
+            code_retour = max(code_retour, qualite(batch.batch_id, meta))
         logger.info("Lot %s terminé (code %d). Journal : meta.etl_execution_log", batch.batch_id, code_retour)
         return code_retour
     finally:
         conn_meta.close()
+
+
+def qualite(batch_id: str, meta) -> int:
+    """Rapport qualité (Phase 5) + porte G3. Retourne 0 si G3 est validée."""
+    import psycopg2
+    from pipeline import rapport_qualite, verify_g3
+    conn = psycopg2.connect(**get_settings().pg_dw.connect_kwargs())
+    try:
+        with log_step(logger, "QUALITE (rapport Phase 5 et porte G3)"):
+            with meta.step(batch_id, "VERIFY", "*", "G3") as step:
+                lignes, dims = rapport_qualite.calculer(conn, batch_id)
+                logger.info("Rapport qualité : %s", rapport_qualite.ecrire_rapport(conn, batch_id, lignes, dims))
+                resultats = verify_g3.verify(conn, batch_id)
+                step.nb_lignes = sum(r.traitees for r in resultats)
+        rapport = verify_g3.write_report(batch_id, resultats)
+    finally:
+        conn.close()
+    for r in resultats:
+        if not r.ok:
+            logger.error("[KO] G3 %s : %d/%d anomalies traitées", r.code, r.traitees, r.total)
+    ok = sum(r.ok for r in resultats)
+    logger.info("Porte G3 : %d/%d types d'anomalies traités à 100 %% (%d anomalies) — %s", ok, len(resultats),
+                sum(r.traitees for r in resultats), rapport)
+    return 0 if ok == len(resultats) else 1
 
 
 def main(argv: list[str] | None = None) -> int:

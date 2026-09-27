@@ -98,3 +98,46 @@ FROM staging.stg_mongo_events GROUP BY 1;
 - source en échec tracée.
 
 Le lot complet sur les 5 sources réelles (85 contrôles) est à valider **sur ta machine**, puisque MongoDB n'était pas disponible dans mon environnement.
+
+---
+
+# Lot L5 : couche clean, contrôle qualité, porte G3
+
+## 7. Fichiers ajoutés
+
+| Fichier | Rôle |
+|---|---|
+| `transform.py` | Staging → clean, **en SQL dans l'entrepôt** (ELT) ; une transaction par source ; ordre S1, S2, S3, S4, S5 (Redis dépend de MongoDB et MySQL) |
+| `qualite_regles.py` | Catalogue des **89 règles** : dimension, action (CORRIGE, REJETE, SIGNALE), anomalies couvertes |
+| `referentiels.py` | Villes, synonymes (profilés sur le staging), correspondances étudiants et contenus |
+| `rapport_qualite.py` | Indicateurs du PDF par table, 5 dimensions, fraîcheur → `data/reports/qualite_<lot>.md` |
+| `verify_g3.py` | **Porte G3** : chaque anomalie du journal a une trace de traitement → `data/reports/G3_<lot>.md` |
+| `sql/quality/01_quality_tables.sql` | `quality.regles`, `constats`, `rejets`, `synthese`, `dimensions` + fonctions `constater` et `rejeter` |
+| `sql/clean/00_fonctions.sql` | 14 fonctions de standardisation (dates dans 3 formats, téléphone, `student_code`, version, mois, IP…) |
+| `sql/clean/10_…` à `50_…` | Un script par source : chaque règle = un appel à `quality.constater` ou `quality.rejeter` |
+
+## 8. Exécution
+
+```powershell
+python -m pipeline.run_pipeline                              # les 5 étapes : extract, load, verify, transform, qualite
+python -m pipeline.run_pipeline --steps transform qualite    # retraiter le lot présent en staging (~40 s)
+```
+
+## 9. Couche clean
+
+26 tables typées : les tables source nettoyées, plus `comptes_lms` (population LMS rapprochée de PostgreSQL) et 7 tables Redis dépliées.
+
+Chaque table conserve `_batch_id` et `_anomalies`, la liste des règles qui ont touché la ligne. Une valeur neutralisée vaut NULL ; la valeur d'origine reste dans `quality.constats`.
+
+## 10. Résultats (lot local, 5 sources)
+
+- **Porte G3 : 159 946 / 159 946 anomalies traitées, 69/69 types à 100 %** : 55 853 corrigées, 25 932 rejetées, 78 161 signalées.
+- 797 378 lignes extraites → 772 432 lignes en couche clean.
+- Transformation : environ 36 s ; MongoDB et MySQL représentent 90 % du temps.
+
+## 11. Tests
+
+| Fichier | Portée |
+|---|---|
+| `tests/test_qualite.py` | 10 tests sans base : 69 anomalies couvertes, règles du catalogue = règles utilisées dans le SQL, référentiels cohérents avec les catalogues du volet A, logique de la porte G3 |
+| `tests/test_qualite_integration.py` | 26 tests sur l'entrepôt : G3 validée, 16 fonctions SQL sur des cas limites, 9 invariants de la couche clean, retraitement idempotent |
