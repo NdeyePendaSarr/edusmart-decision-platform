@@ -38,10 +38,10 @@ Aucun conteneur Docker n'est nécessaire pour cette source.
 
 | Fichier | Lignes | Encodage | Séparateur | Clé |
 |---|---:|---|:-:|---|
-| enseignants.csv | 124 | UTF-8 | `,` | teacher_code (UNIQUE) |
+| enseignants.csv | 126 | UTF-8 | `,` | teacher_code (UNIQUE) |
 | departements.csv | 12 | UTF-8 | `,` | id_departement |
-| salaires.csv | 4 192 | **ISO-8859-1** | `;` | id_salaire ; teacher_code = FK *logique* |
-| absences.csv | 2 493 | **ISO-8859-1** | `;` | id_absence ; teacher_code = FK *logique* |
+| salaires.csv | 4 125 | **ISO-8859-1** | `;` | id_salaire ; teacher_code = FK *logique* |
+| absences.csv | 2 465 | **ISO-8859-1** | `;` | id_absence ; teacher_code = FK *logique* |
 
 ```
 enseignants (teacher_code) 1──< salaires     (FK logique : aucun système ne la contrôle)
@@ -85,21 +85,21 @@ Journal : `data/anomalies/s3_csv_anomalies.csv`, **jamais lu par l'ETL**.
 | C04 | enseignants.grade | Grade hors référentiel | `Prof.`, `Maître Assistant`, `MC` | 4 | 3,33 % |
 | C05 | enseignants.date_naissance | Format JJ/MM/AAAA ou MM-JJ-AAAA | `15/08/1985`, `08-15-1985` | 6 | 5,00 % |
 | C06 | enseignants.date_embauche | Idem | — | 3 | 2,50 % |
-| C07 | enseignants | Ligne dupliquée (identique) | — | 4 | 3,33 % |
+| C07 | enseignants | Ligne dupliquée (identique) | — | 6 | 5,00 % |
 | C08 | departements.nom_departement | Même département, autre écriture | `Développement Data`, `Data Engineering` | 4 / 12 | fixe |
 | C09 | departements.budget_annuel | Budget manquant | vide | 2 / 12 | fixe |
-| C10 | salaires.salaire_net | Salaire négatif | `-627000.00` | 151 | 3,77 % |
-| C11 | salaires.primes | Primes supérieures au salaire de base (net non recalculé) | `1850000.00` pour une base de 686 000 | 118 | 2,95 % |
-| C12 | salaires | Ligne dupliquée (identique, même id) | — | 189 | 4,72 % |
-| C13 | salaires.mode_paiement | Écriture variable | `Virement`, `Banque`, `bank transfer` | 97 | 2,42 % |
-| C14 | salaires.mois | Mois mal orthographié ou autre format | `AOÛT`, `Fevrier`, `03`, `Sept.` | 194 | 4,85 % |
-| C15 | absences | Ligne dupliquée | — | 102 | 4,27 % |
-| C16 | absences.motif | Absence sans motif | vide | 75 | 3,14 % |
-| C17 | absences.date_absence | Date incohérente | avant l'embauche, ou après le 15/09/2026 | 108 | 4,52 % |
-| C18 | absences.duree_heures | Durée très élevée | `41`, `650` (heures, pour un jour) | 106 | 4,43 % |
-| C19 | absences.date_absence | Format JJ/MM/AAAA ou MM-JJ-AAAA | `02/05/2024`, `05-02-2024` | 96 | 4,02 % |
+| C10 | salaires.salaire_net | Salaire négatif | `-627000.00` | 151 | 3,75 % |
+| C11 | salaires.primes | Primes supérieures au salaire de base (net non recalculé) | `1850000.00` pour une base de 686 000 | 118 | 2,93 % |
+| C12 | salaires | Ligne dupliquée (identique, même id) | — | 102 | 2,54 % |
+| C13 | salaires.mode_paiement | Écriture variable | `Virement`, `Banque`, `bank transfer` | 179 | 4,45 % |
+| C14 | salaires.mois | Mois mal orthographié ou autre format | `AOÛT`, `Fevrier`, `03`, `Sept.` | 161 | 4,00 % |
+| C15 | absences | Ligne dupliquée | — | 56 | 2,32 % |
+| C16 | absences.motif | Absence sans motif | vide | 93 | 3,86 % |
+| C17 | absences.date_absence | Date incohérente | avant l'embauche, ou après le 15/09/2026 | 66 | 2,74 % |
+| C18 | absences.duree_heures | Durée très élevée | `41`, `650` (heures, pour un jour) | 82 | 3,40 % |
+| C19 | absences.date_absence | Format JJ/MM/AAAA ou MM-JJ-AAAA | `02/05/2024`, `05-02-2024` | 92 | 3,82 % |
 
-**Total : 1 273 anomalies.** Il faut y ajouter les anomalies **de format** propres aux
+**Total : 1 139 anomalies.** Il faut y ajouter les anomalies **de format** propres aux
 fichiers, qui s'appliquent à la totalité de certains fichiers : encodage ISO-8859-1
 (salaires, absences), séparateur `;`, fins de ligne CRLF.
 
@@ -125,6 +125,7 @@ fichiers, qui s'appliquent à la totalité de certains fichiers : encodage ISO-8
 | S3-10 | Absences | 0, 1 ou 2 par mois, un jour ouvré, 2 à 8 h | ~2 500 validées |
 | S3-11 | Embauches pendant la période | Réservées aux enseignants non responsables de classe (20 % d'entre eux) | Évite une incohérence non voulue avec PostgreSQL |
 | S3-12 | Encodage strict | L'écriture échoue si un caractère n'existe pas en ISO-8859-1 (jamais de `?` silencieux) | Qualité : un test le vérifie |
+| S3-13 | Dates sans fuseau horaire | Dates de naissance et d'embauche tirées par `common.seed.random_date` (un nombre de jours), et non `fake.date_between_dates` | Correction L4 : sous Windows, Faker décalait d'un jour les dates antérieures à 1970 (fuseau de la machine, `OSError` ignorée) ; les fichiers différaient d'un poste à l'autre. Test : `tests/test_reproductibilite_plateforme.py` |
 
 ## 7. Porte G1
 

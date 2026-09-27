@@ -21,8 +21,16 @@ Les PDF du projet sont la seule source de vérité. Tout écart est tracé dans 
 | L2-c | Source 3 : CSV RH | Validé (G1 : 50/50) ([détails](sources/s3_csv/README.md)) |
 | L2-d | Source 4 : MongoDB | Validé (G1 : 30/30) ([détails](sources/s4_mongodb/README.md)) |
 | L2-e | Source 5 : Redis | Validé (G1 : 31/31) ([détails](sources/s5_redis/README.md)) — **volet A complet** |
-| L3 | Recherches, phases 1 à 4 | Livré, en attente de validation ([docs/](docs/README.md)) |
-| L4 à L10 | Plateforme BI (phases 4 à 18) | À venir |
+| L3 | Recherches, phases 1 à 4 | Validé ([docs/](docs/README.md)) |
+| L4 | Pipeline : extraction, staging, métadonnées | Livré, en attente de G2 ([détails](pipeline/README.md)) |
+| L5 à L10 | Plateforme BI (phases 5 à 18) | À venir |
+
+### Pipeline ELT (L4)
+
+```powershell
+python -m sources.s5_redis.insert_data     # snapshot Redis frais
+python -m pipeline.run_pipeline            # extraction -> staging -> porte G2
+```
 
 ### Volet A : vérifier les 5 sources d'un coup
 
@@ -51,6 +59,7 @@ edusmart-decision-platform/
 ├── scripts/verify_sources.py         les 5 portes G1 en une commande
 ├── scripts/constats_sources.py       chiffres cités dans les documents de recherche
 ├── docs/                         recherches des phases 1 à 4 (Markdown)
+├── pipeline/                     ELT : extract_*.py, load.py, run_pipeline.py, verify_g2.py, sql/meta, sql/staging
 ├── sources/
 │   ├── s1_postgresql/            Source 1 : SQL, génération, insertion, vérification G1
 │   ├── s2_mysql/                 Source 2 : idem pour MySQL
@@ -65,7 +74,7 @@ edusmart-decision-platform/
 │   ├── generated/<source>/       CSV intermédiaires + summary.json
 │   ├── anomalies/                journaux d'anomalies (vérité terrain)
 │   └── reports/                  rapports des portes G1
-├── tests/                        174 tests unitaires + 20 tests d'intégration
+├── tests/                        191 tests unitaires + 23 tests d'intégration
 ├── requirements.txt
 └── pytest.ini
 ```
@@ -200,6 +209,7 @@ alimente le constat « nombre réel d'étudiants » des phases 1 et 11.
 | C22 | Codes de contenus | `mapping_courses.csv` livré (95 % des cours et quiz) ; `data/referential/referentiel_contenus.csv` caché (100 %) | Même logique que mapping_etudiants : les absents se découvrent par anti-jointure |
 | C23 | Sessions mobiles | `data/referential/sessions_mobile.csv` (caché) : 51 711 sessions MongoDB, dont 700 ouvertes le 15/09/2026 au soir | Base des sessions Redis (L2-e) |
 | C24 | Snapshot Redis | 15/09/2026 à 23 h 00 ; session active = activité de moins de 30 min | État temps réel déduit de MongoDB et MySQL, reproductible |
+| C25 | Dates aléatoires | `common.seed.random_date` (un nombre de jours tiré), jamais les fonctions de date de Faker sur des `date` | Faker dépend du fuseau de la machine et de Windows avant 1970 : écart constaté entre deux postes en L4 |
 
 Les écarts propres à chaque source sont documentés dans son README
 (ex. [Source 1, § 6](sources/s1_postgresql/README.md#6-conventions-et-écarts-assumés)).

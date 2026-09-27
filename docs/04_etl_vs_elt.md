@@ -75,7 +75,7 @@ En pratique, beaucoup de pipelines sont **hybrides**, ce qu'on appelle **EtLT** 
 
 | Argument | Constat EduSmart |
 |---|---|
-| **Traçabilité et contrôle qualité** (Phases 5, 6, 15) | Le PDF demande de compter les lignes extraites, **rejetées**, les doublons et les **corrections**. Il faut donc garder le brut dans l'entrepôt pour prouver chaque correction : les 160 080 anomalies doivent pouvoir être retrouvées **avant** et **après** traitement |
+| **Traçabilité et contrôle qualité** (Phases 5, 6, 15) | Le PDF demande de compter les lignes extraites, **rejetées**, les doublons et les **corrections**. Il faut donc garder le brut dans l'entrepôt pour prouver chaque correction : les 159 946 anomalies doivent pouvoir être retrouvées **avant** et **après** traitement |
 | **Des règles métier encore ouvertes** (Phase 2) | Faut-il exclure ou corriger les 1 650 paiements négatifs ? Quelle définition de la réussite ? En ELT, changer de règle revient à **relancer le SQL**, sans réextraire |
 | **Sources hétérogènes, schéma flexible** | MongoDB : documents aux champs variables et horodatages de 3 types. Ils se chargent tels quels en `JSONB` et s'interprètent ensuite en SQL |
 | **Sources volatiles** | Redis change à chaque instant : il faut **figer le snapshot** en *staging* dès l'extraction |
@@ -137,6 +137,7 @@ run_pipeline.py  (un lot = un batch_id)
 ```
 
 **Pourquoi une zone d'atterrissage (*landing*) sur disque entre l'extraction et le chargement ?**
+(Réalisé en L4 : même format CSV pour les 17 objets, y compris MongoDB et Redis, qui y placent leur JSON dans une colonne. Le chargement se réduit donc à un `COPY`.)
 - l'extraction et le chargement se **testent séparément** (Phase 15 : « toutes les lignes ont-elles été extraites ? chargées ? ») ;
 - en cas d'échec du chargement, on **recharge sans réinterroger** les sources ;
 - le lot est **archivé**, ce qui est utile pour l'audit.
@@ -148,8 +149,8 @@ run_pipeline.py  (un lot = un batch_id)
 | `extract_postgres.py` | 5 tables de `edusmart_academic` | 5 fichiers CSV | `COPY … TO STDOUT` : rapide et fidèle |
 | `extract_mysql.py` | 6 tables de `edusmart_learning` | 6 fichiers CSV | Lecture par lots (300 000 notes) ; le NULL reste un NULL |
 | `extract_csv.py` | 4 fichiers RH | 4 fichiers UTF-8 | Encodage et séparateur **déclarés** (`SCHEMAS`) ; contrôle de l'en-tête ; **aucune** conversion de valeur |
-| `extract_mongodb.py` | Collection `events` | 1 fichier JSON Lines | JSON étendu : un horodatage texte reste texte, un nombre reste nombre |
-| `extract_redis.py` | Toutes les clés (SCAN) | 1 fichier JSON Lines | Clé, type, valeur, TTL et **instant d'extraction** : le snapshot est figé |
+| `extract_mongodb.py` | Collection `events` | 1 fichier CSV (le document complet en JSON étendu dans une colonne) | Un horodatage texte reste texte, un nombre reste nombre |
+| `extract_redis.py` | Toutes les clés (SCAN) | 1 fichier CSV (clé, type, valeur JSON, TTL) | Le snapshot est figé à l'instant du lot |
 | `load.py` | Les fichiers du lot | Tables `staging.*` | Idempotent (le lot est remplacé s'il est rechargé) ; compte les lignes |
 | `transform.py` | `staging.*` + `mappings/` | `clean.*`, `dw.*`, `quality.*` | Scripts SQL ordonnés ; rejets tracés ; rapport qualité |
 | `run_pipeline.py` | — | Un lot complet | Orchestration, `batch_id`, arrêt propre en cas d'erreur |

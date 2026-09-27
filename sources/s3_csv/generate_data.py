@@ -40,7 +40,7 @@ from common import senegalese_data as sn
 from common.academic_catalog import DEPARTEMENTS, Enseignant, build_teacher_pool
 from common.config import GenerationConfig, get_settings
 from common.logger import get_logger, log_step
-from common.seed import get_faker, get_rng
+from common.seed import get_faker, get_rng, random_date
 from sources.s3_csv.anomalies import (MODES_PAIEMENT, MOIS, MOTIFS, SOURCE, SPECIALITE_PAR_DEPARTEMENT,
                                       inject_anomalies, measure_anomalies)
 from sources.s3_csv.create_source import FILE_ORDER, OUTPUT_DIR, SCHEMAS
@@ -125,14 +125,15 @@ def build_enseignants(pool, gen, rng, fake, responsables: set[str]) -> list[dict
     ref = gen.periode_debut
     rows, used = [], set()
     for t in pool:
-        naissance = fake.date_between_dates(date(ref.year - 65, 1, 1), date(ref.year - 28, 12, 31))
+        # random_date (et non fake.date_between_dates) : résultat identique sous Windows et Linux
+        naissance = random_date(fake.random, date(ref.year - 65, 1, 1), date(ref.year - 28, 12, 31))
         age = ref.year - naissance.year
         tirage = rng.random() < P_EMBAUCHE_PENDANT_PERIODE
         if tirage and t.nom_complet not in responsables:
-            embauche = fake.date_between_dates(ref, date(2026, 6, 30))
+            embauche = random_date(fake.random, ref, date(2026, 6, 30))
         else:
             debut = date(max(2005, naissance.year + 25), 1, 1)
-            embauche = fake.date_between_dates(min(debut, ref - timedelta(days=30)), ref - timedelta(days=1))
+            embauche = random_date(fake.random, min(debut, ref - timedelta(days=30)), ref - timedelta(days=1))
         statut = "Permanent" if rng.random() < P_PERMANENT else "Vacataire"
         rows.append({
             "teacher_code": t.teacher_code, "nom": t.nom, "prenom": t.prenom, "sexe": t.sexe,

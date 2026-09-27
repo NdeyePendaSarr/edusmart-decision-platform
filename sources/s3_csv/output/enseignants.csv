@@ -1,125 +1,127 @@
 teacher_code,nom,prenom,sexe,date_naissance,telephone,email,specialite,grade,date_embauche,statut
-ENS-0001,Dieng,Marie,F,1958-02-19,+221 77 757 51 00,marie.dieng@edusmart.sn,Génie Logiciel,MAITRE_CONFERENCE,2007-02-13,Permanent
-ENS-0002,Gueye,Babacar,M,1987-01-26,77-859-97-50,babacar.gueye@edusmart.sn,Science des Données,MAITRE_ASSISTANT,2023-08-17,Permanent
-ENS-0003,Camara,Matar,M,1988-09-22,77 347 24 09,matar.camara@edusmart.sn,Intelligence Artificielle,MAITRE_CONFERENCE,2021-10-18,Permanent
-ENS-0004,Camara,Khadim,M,1963-10-26,+221 77 151 68 69,khadim.camara@edusmart.sn,Réseaux et Télécommunications,ASSISTANT,2021-08-18,Vacataire
-ENS-0005,Diatta,Fatou,F,1983-08-12,+221 77 259 57 84,fatou.diatta@edusmart.sn,Cybersécurité,,2016-09-20,Vacataire
-ENS-0006,Sène,Astou,F,1993-08-16,+221 76 998 48 43,astou.sene@edusmart.sn,Management,,2021-08-09,Vacataire
-ENS-0006,Sène,Astou,F,1993-08-16,+221 76 998 48 43,astou.sene@edusmart.sn,Management,,2021-08-09,Vacataire
-ENS-0007,Sambou,Ngoné,F,1972-05-05,+221 78 909 60 41,ngone.sambou@edusmart.sn,Finance,MAITRE_CONFERENCE,2007-06-26,Permanent
-ENS-0008,Touré,Oumou,F,1970-05-01,+221 77 593 81 73,oumou.toure@edusmart.sn,Marketing Digital,MAITRE_CONFERENCE,2012-01-17,Permanent
-ENS-0009,Sambou,Sokhna,F,1994-10-11,+221 78 947 06 05,sokhna.sambou@edusmart.sn,Génie Logiciel,ASSISTANT,2021-04-01,Vacataire
-ENS-0010,Samb,Pape Moussa,M,1962-03-05,+221 77 187 60 12,pape.moussa.samb@edusmart.sn,Science des Données,PROFESSEUR,2010-01-18,Permanent
-ENS-0011,Sylla,Khady,F,1964-02-26,+221 76 273 86 15,khady.sylla@edusmart.sn,Intelligence Artificielle,PROFESSEUR,2013-12-30,Permanent
-ENS-0012,Senghor,Agnès,F,1976-06-02,+221 76 162 67 52,agnes.senghor@edusmart.sn,Réseaux et Télécommunications,PROFESSEUR,2007-09-17,Permanent
-ENS-0013,Ngom,Pape Moussa,M,19/06/1976,+221 76 901 29 21,pape.moussa.ngom@edusmart.sn,Cybersécurité,MAITRE_CONFERENCE,2010-04-07,Permanent
-ENS-0014,Seck,Bassirou,M,1987-04-27,+221 77 893 96 20,bassirou.seck@edusmart.sn,Management,MAITRE_CONFERENCE,2020-02-06,Permanent
-ENS-0015,Dieng,Thierno,M,1989-11-19,+221 76 408 92 54,thierno.dieng@edusmart.sn,Finance,ASSISTANT,2019-09-08,Permanent
-ENS-0016,Ba,Coumba,F,1977-02-10,+221 77 471 39 83,coumba.ba@edusmart.sn,Marketing Digital,MAITRE_CONFERENCE,2011-11-22,Permanent
-ENS-0017,Cissé,Samba,M,1966-03-11,+221 78 265 43 36,samba.cisse@edusmart.sn,Génie Logiciel,MAITRE_CONFERENCE,2010-11-02,Permanent
-ENS-0018,Cissé,Mouhamed,M,1994-11-23,+221 77 451 04 24,mouhamed.cisse@edusmart.sn,Science des Données,ASSISTANT,06-17-2023,Permanent
-ENS-0019,Samb,Seynabou,F,1983-03-24,+221 77 086 04 66,seynabou.samb@edusmart.sn,Intelligence Artificielle,,2023-04-12,Vacataire
-ENS-0020,Paye,Demba,M,1991-11-26,+221 70 673 71 43,demba.paye@edusmart.sn,Réseaux et Télécommunications,ASSISTANT,2017-01-25,Permanent
-ENS-0021,Paye,Aminata,F,1995-05-28,+221 77 347 98 74,aminata.paye@edusmart.sn,Cybersécurité,MAITRE_ASSISTANT,2026-03-31,Permanent
-ENS-0022,Faye,Serigne,M,1982-02-01,+221 76 858 58 55,serigne.faye@edusmart.sn,Management,,2010-04-02,Vacataire
-ENS-0023,Wade,Ngoné,F,1984-12-31,+221 78 784 55 40,ngone.wade@edusmart.sn,Finance,MAITRE_ASSISTANT,2013-04-26,Permanent
-ENS-0024,Diouf,Mouhamed,M,1984-06-14,+221 77 672 74 13,mouhamed.diouf@edusmart.sn,Marketing Digital,MAITRE_ASSISTANT,2018-11-29,Permanent
-ENS-0024,Diouf,Mouhamed,M,1984-06-14,+221 77 672 74 13,mouhamed.diouf@edusmart.sn,Marketing Digital,MAITRE_ASSISTANT,2018-11-29,Permanent
-ENS-0025,Traoré,Thérèse,F,1989-01-18,+221 75 783 34 24,therese.traore@edusmart.sn,Génie Logiciel,ASSISTANT,2017-07-19,Permanent
-ENS-0026,Manga,Idrissa,M,1991-07-18,+221 78 121 50 90,idrissa.manga@edusmart.sn,Science des Données,ASSISTANT,2016-12-13,Permanent
-ENS-0027,Sène,Oumou,F,1968-07-17,+221 78 195 66 73,oumou.sene@edusmart.sn,Intelligence Artificielle,MAITRE_CONFERENCE,2016-11-03,Permanent
-ENS-0028,Senghor,Samba,M,1988-09-14,+221 77 772 47 45,samba.senghor@edusmart.sn,Réseaux et Télécommunications,MAITRE_CONFERENCE,2024-03-14,Permanent
-ENS-0029,Dione,Jean-Baptiste,M,1971-08-30,+221 77 506 56 55,jean.baptiste.dione@edusmart.sn,Cybersécurité,ASSISTANT,2015-03-06,Vacataire
-ENS-0030,Thiaw,Marie,F,02-09-1969,+221 77 659 09 71,marie.thiaw@edusmart.sn,Management,PROFESSEUR,2014-07-14,Permanent
-ENS-0031,Diouf,Anta,F,1985-01-28,+221 70 950 57 11,anta.diouf@edusmart.sn,Finance,MAITRE_ASSISTANT,2015-10-03,Permanent
-ENS-0032,Baldé,Samba,M,1974-06-28,+221 78 466 79 65,samba.balde@edusmart.sn,Marketing Digital,,2008-04-20,Vacataire
-ENS-0033,Mbaye,Aïssatou,F,1989-01-11,+221 77 008 24 92,aissatou.mbaye@edusmart.sn,Génie Logiciel,ASSISTANT,2023-02-20,Permanent
-ENS-0034,Doucouré,Marème,F,1973-11-05,+221 75 070 98 21,mareme.doucoure@edusmart.sn,Science des Données,MAITRE_CONFERENCE,2013-01-14,Permanent
-ENS-0035,Ba,Khadija,F,1976-05-29,+221 76 604 84 49,khadija.ba@edusmart.sn,Intelligence Artificielle,PROFESSEUR,2025-06-19,Permanent
-ENS-0036,Doucouré,Malick,M,1994-07-23,221 778306801,malick.doucoure@edusmart.sn,Réseaux et Télécommunications,,2019-12-24,Vacataire
-ENS-0037,Dia,Mouhamed,M,1961-06-30,+221 77 260 20 39,mouhamed.dia@edusmart.sn,Cybersécurité,PROFESSEUR,2026-05-14,Permanent
-ENS-0038,Sène,Mame Diarra,F,1975-08-15,+221 77 969 25 98,mame.diarra.sene@edusmart.sn,Management,,2021-09-03,Vacataire
-ENS-0039,Sylla,Saliou,M,1992-05-06,+221 70 931 82 44,saliou.sylla@edusmart.sn,Finance,ASSISTANT,2022-04-06,Permanent
-ENS-0040,Ba,Ngoné,F,1994-04-05,+221 70 524 55 94,ngone.ba@edusmart.sn,Marketing Digital,ASSISTANT,2020-06-19,Permanent
-ENS-0041,Fall,Moussa,M,12/12/1975,+221 76 492 35 34,moussa.fall@edusmart.sn,Génie Logiciel,MAITRE_CONFERENCE,2006-07-10,Permanent
-ENS-0042,Diédhiou,Matar,M,1976-11-21,+221 76 256 82 02,matar.diedhiou@edusmart.sn,Data Science,PROFESSEUR,2023-03-06,Permanent
-ENS-0043,Camara,Pascal,M,1974-08-03,+221 70 087 50 00,pascal.camara@edusmart.sn,Intelligence Artificielle,,2009-04-01,Vacataire
-ENS-0044,Sagna,Mamadou,M,1976-01-30,+221 77 723 90 28,mamadou.sagna@edusmart.sn,Réseaux et Télécommunications,,2021-06-04,Vacataire
-ENS-0045,Dramé,Moussa,M,1967-02-10,+221 78 459 55 72,moussa.drame@edusmart.sn,Cybersécurité,ASSISTANT,2021-06-17,Vacataire
-ENS-0046,Ngom,Mouhamed,M,1966-07-05,+221 78 913 57 83,mouhamed.ngom@edusmart.sn,Management,MAITRE_CONFERENCE,2024-12-10,Permanent
-ENS-0047,Ngom,Fatou,F,1994-08-11,+221 77 096 02 79,fatou.ngom@edusmart.sn,Finance,,2021-06-20,Vacataire
-ENS-0048,Sagna,Arame,F,1985-03-19,+221 77 439 28 26,arame.sagna@edusmart.sn,Marketing Digital,ASSISTANT,2015-09-09,Vacataire
-ENS-0049,Camara,Awa,F,1993-03-13,+221 75 328 95 16,awa.camara@edusmart.sn,Génie Logiciel,,2019-05-07,Vacataire
-ENS-0050,Baldé,Madeleine,F,1970-10-06,00221708950444,madeleine.balde@edusmart.sn,Science des Données,ASSISTANT,2018-12-02,Vacataire
-ENS-0051,Wade,Waly,M,1988-05-20,+221 75 803 08 52,waly.wade@edusmart.sn,Intelligence Artificielle,MAITRE_CONFERENCE,2013-03-25,Permanent
-ENS-0052,Ba,Oumou,F,1995-11-28,+221 75 121 23 38,,Réseaux et Télécommunications,,2020-02-26,Vacataire
-ENS-0053,Cissé,Amadou,M,1976-04-18,+221 76 229 41 91,amadou.cisse@edusmart.sn,Cybersécurité,MAITRE_CONFERENCE,10/12/2015,Permanent
-ENS-0054,Dramé,Thierno,M,1992-05-06,+221 78 241 79 64,thierno.drame@edusmart.sn,Management,MAITRE_ASSISTANT,2022-11-29,Permanent
-ENS-0055,Dione,Nafissatou,F,1983-07-09,+221 70 894 45 54,nafissatou.dione@edusmart.sn,Finance,MAITRE_ASSISTANT,2023-12-19,Permanent
-ENS-0056,Sambou,Demba,M,1970-03-24,+221 77 434 33 87,demba.sambou@edusmart.sn,Marketing Digital,PROFESSEUR,2020-11-01,Permanent
-ENS-0057,Coly,Seynabou,F,1982-07-30,+221 76 489 97 46,seynabou.coly@edusmart.sn,Génie Logiciel,MAITRE_ASSISTANT,2025-11-17,Permanent
-ENS-0058,Badji,Sokhna Aïda,F,1979-05-22,+221 77 996 01 31,sokhna.aida.badji@edusmart.sn,Science des Données,MAITRE_CONFERENCE,2023-11-26,Permanent
-ENS-0059,Camara,Sokhna Aïda,F,1976-02-02,+221 70 383 84 49,sokhna.aida.camara@edusmart.sn,Intelligence Artificielle,ASSISTANT,2018-08-31,Vacataire
-ENS-0060,Manga,Ousmane,M,1968-05-12,+221 77 701 04 54,,Réseaux et Télécommunications,PROFESSEUR,2024-10-06,Permanent
-ENS-0061,Thiam,Codou,F,1967-01-01,+221 78 269 32 50,codou.thiam@edusmart.sn,Cybersécurité,ASSISTANT,2015-12-20,Vacataire
-ENS-0062,Diop,Khadija,F,1961-10-09,+221 78 600 34 14,khadija.diop@edusmart.sn,Management,PROFESSEUR,2012-01-22,Permanent
-ENS-0063,Konaté,Aliou,M,1990-04-29,+221 77 748 91 00,aliou.konate@edusmart.sn,Finance,,2018-08-29,Vacataire
-ENS-0064,Samb,Amadou,M,1981-10-01,+221 70 385 79 80,amadou.samb@edusmart.sn,Marketing Digital,ASSISTANT,2010-12-10,Vacataire
-ENS-0065,Ba,Dieynaba,F,1992-10-28,+221 76 308 96 23,dieynaba.ba@edusmart.sn,Génie Logiciel,ASSISTANT,2020-11-03,Permanent
-ENS-0066,Sakho,El Hadji,M,1963-12-15,+221 77 734 36 99,el.hadji.sakho@edusmart.sn,Science des Données,,2023-08-22,Vacataire
-ENS-0067,Sy,Thierno,M,1980-10-27,+221 76 129 47 95,thierno.sy@edusmart.sn,Intelligence Artificielle,MAITRE_CONFERENCE,2020-11-29,Permanent
-ENS-0068,Mbaye,Amadou,M,1979-03-20,+221 78 287 59 04,amadou.mbaye@edusmart.sn,Réseaux et Télécommunications,MAITRE_CONFERENCE,2012-11-07,Permanent
-ENS-0069,Thiaw,Thierno,M,1975-05-10,+221 76 699 37 27,thierno.thiaw@edusmart.sn,Cybersécurité,,2018-08-24,Vacataire
-ENS-0070,Sène,Souleymane,M,1973-04-11,+221 76 283 59 87,souleymane.sene@edusmart.sn,Management,MAITRE_CONFERENCE,2009-02-01,Permanent
-ENS-0071,Goudiaby,Sokhna Aïda,F,1986-01-11,+221 75 229 26 94,sokhna.aida.goudiaby@edusmart.sn,Finance,,2015-10-01,Vacataire
-ENS-0072,Baldé,Fatou,F,1969-06-03,+221 76 134 49 60,fatou.balde@edusmart.sn,Marketing Digital,PROFESSEUR,2025-02-07,Permanent
-ENS-0073,Ndoye,Ibrahima,M,1989-10-10,+221 76 777 63 52,ibrahima.ndoye@edusmart.sn,Génie Logiciel,ASSISTANT,2019-09-27,Vacataire
-ENS-0073,Ndoye,Ibrahima,M,1989-10-10,+221 76 777 63 52,ibrahima.ndoye@edusmart.sn,Génie Logiciel,ASSISTANT,2019-09-27,Vacataire
-ENS-0074,Mbaye,Louis,M,1990-12-07,+221 76 916 04 33,louis.mbaye@edusmart.sn,Science des Données,ASSISTANT,2022-07-01,Permanent
-ENS-0075,Dramé,Saliou,M,24/04/1977,765903071,saliou.drame@edusmart.sn,Intelligence Artificielle,PROFESSEUR,2007-06-20,Permanent
-ENS-0076,Diouf,Moussa,M,1968-08-27,+221 77 953 21 84,moussa.diouf@edusmart.sn,Réseaux et Télécommunications,PROFESSEUR,2021-10-11,Permanent
-ENS-0076,Diouf,Moussa,M,1968-08-27,+221 77 953 21 84,moussa.diouf@edusmart.sn,Réseaux et Télécommunications,PROFESSEUR,2021-10-11,Permanent
-ENS-0077,Sambou,Mame Diarra,F,1966-08-14,+221 70 028 04 20,mame.diarra.sambou@edusmart.sn,Cybersécurité,,2024-10-14,Vacataire
-ENS-0078,Mbengue,Aïssatou,F,1965-12-08,+221 78 355 13 24,aissatou.mbengue@edusmart.sn,Management,Maître de Conférences,2005-01-14,Permanent
-ENS-0079,Ngom,Aby,F,1963-09-21,+221 76 128 89 97,aby.ngom@edusmart.sn,Finance,,2009-09-21,Vacataire
-ENS-0080,Diédhiou,Ndeye Fatou,F,1961-07-19,+221 70 576 92 73,ndeye.fatou.diedhiou@edusmart.sn,Marketing Digital,,2022-12-17,Vacataire
-ENS-0081,Faye,Seynabou,F,1988-10-12,+221 76 215 65 71,seynabou.faye@edusmart.sn,Génie Logiciel,,2026-03-27,Vacataire
-ENS-0082,Seck,Seynabou,F,1989-05-02,+221 77 363 43 53,seynabou.seck@edusmart.sn,Science des Données,ASSISTANT,2016-01-04,Permanent
-ENS-0083,Badji,Diarra,F,1984-05-30,+221 77 932 74 85,diarra.badji@edusmart.sn,IA,MAITRE_CONFERENCE,2018-01-29,Permanent
-ENS-0084,Ndoye,Malick,M,04-13-1975,+221 76 122 96 51,malick.ndoye@edusmart.sn,Réseaux et Télécommunications,,2015-04-11,Vacataire
-ENS-0085,Camara,Mamadou,M,1994-05-12,+221 78 554 69 88,mamadou.camara@edusmart.sn,Cybersécurité,MAITRE_ASSISTANT,2021-02-28,Permanent
-ENS-0086,Niang,Abdoulaye,M,1993-05-05,+221 70 057 84 67,abdoulaye.niang@edusmart.sn,Management,MAITRE_ASSISTANT,2022-08-20,Permanent
-ENS-0087,Goudiaby,Mouhamed,M,1984-09-25,+221 77 360 60 30,,Finance,MAITRE_CONFERENCE,2014-11-27,Permanent
-ENS-0088,Fall,Aby,F,1983-09-21,+221 76 887 24 60,aby.fall@edusmart.sn,Marketing Digital,ASSISTANT,2014-11-23,Vacataire
-ENS-0089,Ndour,Coumba,F,1964-03-30,+221 78 464 30 43,coumba.ndour@edusmart.sn,Génie Logiciel,MAITRE_CONFERENCE,2022-05-17,Permanent
-ENS-0090,Wade,Serigne,M,1974-06-01,+221 77 766 78 87,serigne.wade@edusmart.sn,Science des Données,PROFESSEUR,2014-12-17,Permanent
-ENS-0091,Dione,Pascal,M,1990-12-14,+221 77 110 29 17,pascal.dione@edusmart.sn,Intelligence Artificielle,,05-27-2018,Vacataire
-ENS-0092,Sarr,Lamine,M,1976-12-07,+221 76 799 35 47,lamine.sarr@edusmart.sn,Réseaux et Télécommunications,MAITRE_CONFERENCE,2017-01-31,Permanent
-ENS-0093,Coly,Bassirou,M,1995-01-11,+221 76 720 94 41,bassirou.coly@edusmart.sn,Cybersécurité,ASSISTANT,2020-02-20,Permanent
-ENS-0094,Diatta,Madeleine,F,1983-12-16,+221 76 919 29 33,madeleine.diatta@edusmart.sn,Management,MC,2009-12-22,Permanent
-ENS-0095,Diallo,Youssou,M,1962-12-15,+221 77 715 51 99,youssou.diallo@edusmart.sn,Finance,PROFESSEUR,2005-03-03,Permanent
-ENS-0096,Tine,Malick,M,1981-05-15,+221 70 241 22 48,malick.tine@edusmart.sn,Marketing Digital,Maitre-Assistant,2010-12-13,Permanent
-ENS-0097,Dia,Khady,F,1977-03-27,+221 77 343 43 18,khady.dia@edusmart.sn,Génie Logiciel,,2019-11-21,Vacataire
-ENS-0098,Diédhiou,Yacine,F,1970-06-22,+221 77 920 62 73,yacine.diedhiou@edusmart.sn,Data Science,MAITRE_CONFERENCE,2011-08-26,Permanent
-ENS-0099,Diatta,Penda,F,1960-11-17,+221 77 866 88 51,,Intelligence Artificielle,,2016-08-29,Vacataire
-ENS-0100,Dione,Adama,F,1971-03-23,+221 77 736 96 21,adama.dione@edusmart.sn,Réseaux et Télécommunications,MAITRE_CONFERENCE,2017-05-07,Permanent
-ENS-0101,Dia,Louis,M,1979-12-29,+221 70 789 39 38,louis.dia@edusmart.sn,Cybersécurité,,2011-06-02,Vacataire
-ENS-0102,Diouf,Modou,M,1982-07-14,+221 76 921 84 69,modou.diouf@edusmart.sn,Management,,2021-09-29,Vacataire
-ENS-0103,Sarr,Germaine,F,1974-12-07,+221 78 383 38 41,germaine.sarr@edusmart.sn,Finance,Maître de Conférences,2009-08-04,Permanent
-ENS-0104,Faye,Birame,M,1990-10-26,765267670,birame.faye@edusmart.sn,Marketing Digital,MAITRE_ASSISTANT,2023-06-04,Permanent
-ENS-0105,Sène,Lamine,M,1989-09-17,+221 76 437 91 97,lamine.sene@edusmart.sn,Génie Logiciel,,2015-08-12,Vacataire
-ENS-0106,Ndiaye,Mame Diarra,F,1981-07-31,+221 76 298 97 06,mame.diarra.ndiaye@edusmart.sn,Science des Données,MAITRE_CONFERENCE,2021-06-12,Permanent
-ENS-0107,Diallo,El Hadji,M,1993-06-25,+221 78 763 85 25,,Intelligence Artificielle,MAITRE_ASSISTANT,2019-04-27,Permanent
-ENS-0108,Thiam,Marème,F,1980-06-03,+221 76 682 29 17,mareme.thiam@edusmart.sn,Réseaux et Télécommunications,MAITRE_CONFERENCE,2022-09-09,Permanent
-ENS-0109,Sow,Boubacar,M,1968-12-31,+221 76 758 73 20,boubacar.sow@edusmart.sn,Cybersécurité,PROFESSEUR,2010-05-07,Permanent
-ENS-0110,Konaté,Jean-Baptiste,M,26/03/1980,+221 70 622 61 53,jean.baptiste.konate@edusmart.sn,Management,,2017-08-04,Vacataire
-ENS-0111,Camara,Cheikh,M,1982-05-29,+221 77 121 35 96,cheikh.camara@edusmart.sn,Finance,ASSISTANT,2013-08-01,Vacataire
-ENS-0112,Gueye,Thérèse,F,1965-04-11,+221 78 845 96 16,therese.gueye@edusmart.sn,Marketing Digital,PROFESSEUR,2006-04-24,Permanent
-ENS-0113,Thiaw,Matar,M,1964-10-13,+221 77 880 95 44,matar.thiaw@edusmart.sn,Génie Logiciel,MAITRE_CONFERENCE,2014-04-15,Permanent
-ENS-0114,Sow,Matar,M,1961-02-27,+221 77 601 23 31,matar.sow@edusmart.sn,Science des Données,MAITRE_CONFERENCE,2011-03-29,Permanent
-ENS-0115,Senghor,Lamine,M,1989-12-15,+221 77 872 78 71,lamine.senghor@edusmart.sn,Intelligence Artificielle,ASSISTANT,2023-06-07,Vacataire
-ENS-0116,Ndiaye,Birame,M,1980-12-08,+221 76 203 14 57,birame.ndiaye@edusmart.sn,Réseaux et Télécommunications,MAITRE_CONFERENCE,2008-12-25,Permanent
-ENS-0117,Senghor,Youssou,M,1984-10-09,+221 77 887 21 14,youssou.senghor@edusmart.sn,Cybersécurité,,2014-04-27,Vacataire
-ENS-0118,Cissé,Mansour,M,1993-03-16,+221 70 577 53 14,mansour.cisse@edusmart.sn,Management,ASSISTANT,2021-03-17,Permanent
-ENS-0119,Cissé,Nafissatou,F,1980-08-12,+221 76 220 99 22,nafissatou.cisse@edusmart.sn,Finance,MAITRE_ASSISTANT,2023-03-15,Permanent
-ENS-0120,Cissé,Mamadou,M,1986-01-31,+221 70 531 72 46,mamadou.cisse@edusmart.sn,Marketing Digital,MAITRE_CONFERENCE,2021-05-27,Permanent
+ENS-0001,Dieng,Marie,F,1958-02-02,+221 77 757 51 00,marie.dieng@edusmart.sn,Génie Logiciel,MAITRE_CONFERENCE,2019-05-24,Permanent
+ENS-0002,Gueye,Babacar,M,1960-10-17,77-859-97-50,babacar.gueye@edusmart.sn,Science des Données,MAITRE_CONFERENCE,2017-09-13,Permanent
+ENS-0003,Camara,Matar,M,1990-08-10,77 347 24 09,matar.camara@edusmart.sn,Intelligence Artificielle,MAITRE_ASSISTANT,2019-10-16,Permanent
+ENS-0004,Camara,Khadim,M,1988-08-26,+221 77 151 68 69,khadim.camara@edusmart.sn,Réseaux et Télécommunications,ASSISTANT,2018-01-24,Vacataire
+ENS-0005,Diatta,Fatou,F,1981-03-10,+221 77 259 57 84,fatou.diatta@edusmart.sn,Cybersécurité,,2007-12-02,Vacataire
+ENS-0006,Sène,Astou,F,1979-12-03,+221 76 998 48 43,astou.sene@edusmart.sn,Management,,2018-08-08,Vacataire
+ENS-0007,Sambou,Ngoné,F,1974-11-19,+221 78 909 60 41,ngone.sambou@edusmart.sn,Finance,MAITRE_CONFERENCE,2016-07-01,Permanent
+ENS-0008,Touré,Oumou,F,1981-06-25,+221 77 593 81 73,oumou.toure@edusmart.sn,Marketing Digital,MAITRE_ASSISTANT,2015-07-05,Permanent
+ENS-0009,Sambou,Sokhna,F,1967-06-15,+221 78 947 06 05,sokhna.sambou@edusmart.sn,Génie Logiciel,ASSISTANT,2006-08-21,Vacataire
+ENS-0010,Samb,Pape Moussa,M,1966-02-16,+221 77 187 60 12,pape.moussa.samb@edusmart.sn,Science des Données,PROFESSEUR,2022-05-31,Permanent
+ENS-0011,Sylla,Khady,F,1967-04-15,+221 76 273 86 15,khady.sylla@edusmart.sn,Intelligence Artificielle,PROFESSEUR,2017-02-14,Permanent
+ENS-0012,Senghor,Agnès,F,1969-11-11,+221 76 162 67 52,agnes.senghor@edusmart.sn,Réseaux et Télécommunications,PROFESSEUR,2006-05-18,Permanent
+ENS-0013,Ngom,Pape Moussa,M,27/08/1964,+221 76 901 29 21,pape.moussa.ngom@edusmart.sn,Cybersécurité,MAITRE_CONFERENCE,2019-05-08,Permanent
+ENS-0014,Seck,Bassirou,M,1962-01-21,+221 77 893 96 20,bassirou.seck@edusmart.sn,Management,PROFESSEUR,2010-12-06,Permanent
+ENS-0015,Dieng,Thierno,M,1990-11-20,+221 76 408 92 54,thierno.dieng@edusmart.sn,Finance,ASSISTANT,2018-01-13,Permanent
+ENS-0016,Ba,Coumba,F,1961-07-28,+221 77 471 39 83,coumba.ba@edusmart.sn,Marketing Digital,MAITRE_CONFERENCE,2019-02-12,Permanent
+ENS-0016,Ba,Coumba,F,1961-07-28,+221 77 471 39 83,coumba.ba@edusmart.sn,Marketing Digital,MAITRE_CONFERENCE,2019-02-12,Permanent
+ENS-0017,Cissé,Samba,M,1970-03-04,+221 78 265 43 36,samba.cisse@edusmart.sn,Génie Logiciel,MAITRE_CONFERENCE,2022-03-02,Permanent
+ENS-0018,Cissé,Mouhamed,M,1964-12-09,+221 77 451 04 24,mouhamed.cisse@edusmart.sn,Science des Données,PROFESSEUR,08-31-2014,Permanent
+ENS-0019,Samb,Seynabou,F,1979-05-11,+221 77 086 04 66,seynabou.samb@edusmart.sn,Intelligence Artificielle,,2015-07-06,Vacataire
+ENS-0020,Paye,Demba,M,1990-05-12,+221 70 673 71 43,demba.paye@edusmart.sn,Réseaux et Télécommunications,ASSISTANT,2018-09-30,Permanent
+ENS-0020,Paye,Demba,M,1990-05-12,+221 70 673 71 43,demba.paye@edusmart.sn,Réseaux et Télécommunications,ASSISTANT,2018-09-30,Permanent
+ENS-0021,Paye,Aminata,F,1970-08-07,+221 77 347 98 74,aminata.paye@edusmart.sn,Cybersécurité,PROFESSEUR,2026-01-23,Permanent
+ENS-0022,Faye,Serigne,M,1984-09-11,+221 76 858 58 55,serigne.faye@edusmart.sn,Management,,2021-11-12,Vacataire
+ENS-0023,Wade,Ngoné,F,1985-09-17,+221 78 784 55 40,ngone.wade@edusmart.sn,Finance,MAITRE_ASSISTANT,2014-07-17,Permanent
+ENS-0024,Diouf,Mouhamed,M,1995-12-16,+221 77 672 74 13,mouhamed.diouf@edusmart.sn,Marketing Digital,ASSISTANT,2020-09-03,Permanent
+ENS-0025,Traoré,Thérèse,F,1965-09-11,+221 75 783 34 24,therese.traore@edusmart.sn,Génie Logiciel,MAITRE_CONFERENCE,2023-02-11,Permanent
+ENS-0026,Manga,Idrissa,M,1982-04-27,+221 78 121 50 90,idrissa.manga@edusmart.sn,Science des Données,MAITRE_CONFERENCE,2018-10-04,Permanent
+ENS-0027,Sène,Oumou,F,1974-08-18,+221 78 195 66 73,oumou.sene@edusmart.sn,Intelligence Artificielle,MAITRE_CONFERENCE,2016-03-05,Permanent
+ENS-0028,Senghor,Samba,M,1963-08-22,+221 77 772 47 45,samba.senghor@edusmart.sn,Réseaux et Télécommunications,PROFESSEUR,2025-04-15,Permanent
+ENS-0029,Dione,Jean-Baptiste,M,1984-05-06,+221 77 506 56 55,jean.baptiste.dione@edusmart.sn,Cybersécurité,ASSISTANT,2016-12-09,Vacataire
+ENS-0030,Thiaw,Marie,F,07-30-1966,+221 77 659 09 71,marie.thiaw@edusmart.sn,Management,PROFESSEUR,2013-11-25,Permanent
+ENS-0031,Diouf,Anta,F,1969-05-20,+221 70 950 57 11,anta.diouf@edusmart.sn,Finance,MAITRE_CONFERENCE,2023-05-02,Permanent
+ENS-0032,Baldé,Samba,M,1993-04-20,+221 78 466 79 65,samba.balde@edusmart.sn,Marketing Digital,,2022-05-12,Vacataire
+ENS-0033,Mbaye,Aïssatou,F,1984-02-16,+221 77 008 24 92,aissatou.mbaye@edusmart.sn,Génie Logiciel,MAITRE_ASSISTANT,2019-03-27,Permanent
+ENS-0034,Doucouré,Marème,F,1967-05-10,+221 75 070 98 21,mareme.doucoure@edusmart.sn,Science des Données,MAITRE_CONFERENCE,2019-01-09,Permanent
+ENS-0035,Ba,Khadija,F,1980-02-10,+221 76 604 84 49,khadija.ba@edusmart.sn,Intelligence Artificielle,MAITRE_CONFERENCE,2024-01-23,Permanent
+ENS-0036,Doucouré,Malick,M,1984-08-16,221 778306801,malick.doucoure@edusmart.sn,Réseaux et Télécommunications,,2012-06-23,Vacataire
+ENS-0037,Dia,Mouhamed,M,1973-08-11,+221 77 260 20 39,mouhamed.dia@edusmart.sn,Cybersécurité,PROFESSEUR,2026-05-08,Permanent
+ENS-0038,Sène,Mame Diarra,F,1978-03-29,+221 77 969 25 98,mame.diarra.sene@edusmart.sn,Management,,2007-05-21,Vacataire
+ENS-0039,Sylla,Saliou,M,1967-01-03,+221 70 931 82 44,saliou.sylla@edusmart.sn,Finance,MAITRE_CONFERENCE,2011-09-16,Permanent
+ENS-0040,Ba,Ngoné,F,1965-04-28,+221 70 524 55 94,ngone.ba@edusmart.sn,Marketing Digital,PROFESSEUR,2011-04-14,Permanent
+ENS-0041,Fall,Moussa,M,06/11/1975,+221 76 492 35 34,moussa.fall@edusmart.sn,Génie Logiciel,MAITRE_CONFERENCE,2012-08-01,Permanent
+ENS-0042,Diédhiou,Matar,M,1988-04-03,+221 76 256 82 02,matar.diedhiou@edusmart.sn,Data Science,MAITRE_CONFERENCE,2015-09-20,Permanent
+ENS-0043,Camara,Pascal,M,1982-12-11,+221 70 087 50 00,pascal.camara@edusmart.sn,Intelligence Artificielle,,2009-03-05,Vacataire
+ENS-0044,Sagna,Mamadou,M,1985-06-04,+221 77 723 90 28,mamadou.sagna@edusmart.sn,Réseaux et Télécommunications,,2020-03-24,Vacataire
+ENS-0044,Sagna,Mamadou,M,1985-06-04,+221 77 723 90 28,mamadou.sagna@edusmart.sn,Réseaux et Télécommunications,,2020-03-24,Vacataire
+ENS-0045,Dramé,Moussa,M,1982-02-05,+221 78 459 55 72,moussa.drame@edusmart.sn,Cybersécurité,ASSISTANT,2012-03-22,Vacataire
+ENS-0046,Ngom,Mouhamed,M,1968-08-06,+221 78 913 57 83,mouhamed.ngom@edusmart.sn,Management,MAITRE_CONFERENCE,2025-12-13,Permanent
+ENS-0047,Ngom,Fatou,F,1970-02-18,+221 77 096 02 79,fatou.ngom@edusmart.sn,Finance,,2014-01-22,Vacataire
+ENS-0047,Ngom,Fatou,F,1970-02-18,+221 77 096 02 79,fatou.ngom@edusmart.sn,Finance,,2014-01-22,Vacataire
+ENS-0048,Sagna,Arame,F,1982-02-05,+221 77 439 28 26,arame.sagna@edusmart.sn,Marketing Digital,ASSISTANT,2009-08-01,Vacataire
+ENS-0049,Camara,Awa,F,1960-04-21,+221 75 328 95 16,awa.camara@edusmart.sn,Génie Logiciel,,2018-10-21,Vacataire
+ENS-0050,Baldé,Madeleine,F,1969-08-13,00221708950444,madeleine.balde@edusmart.sn,Science des Données,ASSISTANT,2015-12-28,Vacataire
+ENS-0051,Wade,Waly,M,1980-08-22,+221 75 803 08 52,waly.wade@edusmart.sn,Intelligence Artificielle,MAITRE_CONFERENCE,2018-11-15,Permanent
+ENS-0052,Ba,Oumou,F,1990-09-15,+221 75 121 23 38,,Réseaux et Télécommunications,,2020-12-22,Vacataire
+ENS-0053,Cissé,Amadou,M,1985-01-17,+221 76 229 41 91,amadou.cisse@edusmart.sn,Cybersécurité,MAITRE_ASSISTANT,12/11/2013,Permanent
+ENS-0054,Dramé,Thierno,M,1990-04-07,+221 78 241 79 64,thierno.drame@edusmart.sn,Management,MAITRE_ASSISTANT,2023-02-17,Permanent
+ENS-0055,Dione,Nafissatou,F,1969-10-30,+221 70 894 45 54,nafissatou.dione@edusmart.sn,Finance,MAITRE_CONFERENCE,2023-11-15,Permanent
+ENS-0056,Sambou,Demba,M,1970-06-14,+221 77 434 33 87,demba.sambou@edusmart.sn,Marketing Digital,PROFESSEUR,2016-12-25,Permanent
+ENS-0057,Coly,Seynabou,F,1993-08-24,+221 76 489 97 46,seynabou.coly@edusmart.sn,Génie Logiciel,ASSISTANT,2026-05-03,Permanent
+ENS-0058,Badji,Sokhna Aïda,F,1968-12-07,+221 77 996 01 31,sokhna.aida.badji@edusmart.sn,Science des Données,PROFESSEUR,2024-02-05,Permanent
+ENS-0059,Camara,Sokhna Aïda,F,1969-12-02,+221 70 383 84 49,sokhna.aida.camara@edusmart.sn,Intelligence Artificielle,ASSISTANT,2023-05-27,Vacataire
+ENS-0060,Manga,Ousmane,M,1979-08-27,+221 77 701 04 54,,Réseaux et Télécommunications,MAITRE_CONFERENCE,2024-02-15,Permanent
+ENS-0061,Thiam,Codou,F,1979-09-13,+221 78 269 32 50,codou.thiam@edusmart.sn,Cybersécurité,ASSISTANT,2007-10-22,Vacataire
+ENS-0062,Diop,Khadija,F,1970-08-09,+221 78 600 34 14,khadija.diop@edusmart.sn,Management,PROFESSEUR,2017-01-25,Permanent
+ENS-0063,Konaté,Aliou,M,1971-01-04,+221 77 748 91 00,aliou.konate@edusmart.sn,Finance,,2013-12-21,Vacataire
+ENS-0064,Samb,Amadou,M,1972-12-30,+221 70 385 79 80,amadou.samb@edusmart.sn,Marketing Digital,ASSISTANT,2016-08-07,Vacataire
+ENS-0065,Ba,Dieynaba,F,1992-04-16,+221 76 308 96 23,dieynaba.ba@edusmart.sn,Génie Logiciel,ASSISTANT,2018-10-11,Permanent
+ENS-0066,Sakho,El Hadji,M,1966-05-31,+221 77 734 36 99,el.hadji.sakho@edusmart.sn,Science des Données,,2014-03-05,Vacataire
+ENS-0067,Sy,Thierno,M,1978-01-11,+221 76 129 47 95,thierno.sy@edusmart.sn,Intelligence Artificielle,PROFESSEUR,2005-04-21,Permanent
+ENS-0068,Mbaye,Amadou,M,1982-12-27,+221 78 287 59 04,amadou.mbaye@edusmart.sn,Réseaux et Télécommunications,MAITRE_CONFERENCE,2007-10-27,Permanent
+ENS-0069,Thiaw,Thierno,M,1991-06-23,+221 76 699 37 27,thierno.thiaw@edusmart.sn,Cybersécurité,,2022-12-15,Vacataire
+ENS-0070,Sène,Souleymane,M,1970-01-22,+221 76 283 59 87,souleymane.sene@edusmart.sn,Management,MAITRE_CONFERENCE,2019-08-06,Permanent
+ENS-0071,Goudiaby,Sokhna Aïda,F,1972-06-03,+221 75 229 26 94,sokhna.aida.goudiaby@edusmart.sn,Finance,,2023-09-12,Vacataire
+ENS-0072,Baldé,Fatou,F,1980-08-22,+221 76 134 49 60,fatou.balde@edusmart.sn,Marketing Digital,MAITRE_CONFERENCE,2025-09-11,Permanent
+ENS-0073,Ndoye,Ibrahima,M,1974-10-27,+221 76 777 63 52,ibrahima.ndoye@edusmart.sn,Génie Logiciel,ASSISTANT,2006-02-25,Vacataire
+ENS-0074,Mbaye,Louis,M,1966-01-22,+221 76 916 04 33,louis.mbaye@edusmart.sn,Science des Données,MAITRE_CONFERENCE,2015-06-10,Permanent
+ENS-0075,Dramé,Saliou,M,15/03/1974,765903071,saliou.drame@edusmart.sn,Intelligence Artificielle,PROFESSEUR,2016-03-29,Permanent
+ENS-0076,Diouf,Moussa,M,1984-07-10,+221 77 953 21 84,moussa.diouf@edusmart.sn,Réseaux et Télécommunications,MAITRE_CONFERENCE,2016-01-19,Permanent
+ENS-0077,Sambou,Mame Diarra,F,1959-08-24,+221 70 028 04 20,mame.diarra.sambou@edusmart.sn,Cybersécurité,,2024-06-29,Vacataire
+ENS-0078,Mbengue,Aïssatou,F,1986-09-16,+221 78 355 13 24,aissatou.mbengue@edusmart.sn,Management,Maître Assistant,2020-01-03,Permanent
+ENS-0079,Ngom,Aby,F,1964-10-30,+221 76 128 89 97,aby.ngom@edusmart.sn,Finance,,2010-05-14,Vacataire
+ENS-0080,Diédhiou,Ndeye Fatou,F,1963-12-08,+221 70 576 92 73,ndeye.fatou.diedhiou@edusmart.sn,Marketing Digital,,2012-03-25,Vacataire
+ENS-0081,Faye,Seynabou,F,1985-10-24,+221 76 215 65 71,seynabou.faye@edusmart.sn,Génie Logiciel,,2023-11-26,Vacataire
+ENS-0082,Seck,Seynabou,F,1992-01-07,+221 77 363 43 53,seynabou.seck@edusmart.sn,Science des Données,ASSISTANT,2019-04-30,Permanent
+ENS-0082,Seck,Seynabou,F,1992-01-07,+221 77 363 43 53,seynabou.seck@edusmart.sn,Science des Données,ASSISTANT,2019-04-30,Permanent
+ENS-0083,Badji,Diarra,F,1989-12-23,+221 77 932 74 85,diarra.badji@edusmart.sn,IA,ASSISTANT,2019-04-30,Permanent
+ENS-0084,Ndoye,Malick,M,08-25-1967,+221 76 122 96 51,malick.ndoye@edusmart.sn,Réseaux et Télécommunications,,2020-03-14,Vacataire
+ENS-0085,Camara,Mamadou,M,1986-12-04,+221 78 554 69 88,mamadou.camara@edusmart.sn,Cybersécurité,MAITRE_CONFERENCE,2018-10-29,Permanent
+ENS-0086,Niang,Abdoulaye,M,1964-07-06,+221 70 057 84 67,abdoulaye.niang@edusmart.sn,Management,PROFESSEUR,2023-09-19,Permanent
+ENS-0087,Goudiaby,Mouhamed,M,1990-02-17,+221 77 360 60 30,,Finance,MAITRE_ASSISTANT,2020-09-27,Permanent
+ENS-0088,Fall,Aby,F,1978-04-04,+221 76 887 24 60,aby.fall@edusmart.sn,Marketing Digital,ASSISTANT,2019-03-03,Vacataire
+ENS-0089,Ndour,Coumba,F,1961-12-04,+221 78 464 30 43,coumba.ndour@edusmart.sn,Génie Logiciel,MAITRE_CONFERENCE,2017-04-15,Permanent
+ENS-0090,Wade,Serigne,M,1973-01-16,+221 77 766 78 87,serigne.wade@edusmart.sn,Science des Données,PROFESSEUR,2019-10-10,Permanent
+ENS-0091,Dione,Pascal,M,1978-12-23,+221 77 110 29 17,pascal.dione@edusmart.sn,Intelligence Artificielle,,12-29-2011,Vacataire
+ENS-0092,Sarr,Lamine,M,1968-05-07,+221 76 799 35 47,lamine.sarr@edusmart.sn,Réseaux et Télécommunications,MAITRE_CONFERENCE,2021-05-12,Permanent
+ENS-0093,Coly,Bassirou,M,1983-01-31,+221 76 720 94 41,bassirou.coly@edusmart.sn,Cybersécurité,MAITRE_ASSISTANT,2013-09-20,Permanent
+ENS-0094,Diatta,Madeleine,F,1983-11-20,+221 76 919 29 33,madeleine.diatta@edusmart.sn,Management,MC,2016-12-28,Permanent
+ENS-0095,Diallo,Youssou,M,1968-01-26,+221 77 715 51 99,youssou.diallo@edusmart.sn,Finance,PROFESSEUR,2007-09-12,Permanent
+ENS-0096,Tine,Malick,M,1976-06-23,+221 70 241 22 48,malick.tine@edusmart.sn,Marketing Digital,Prof.,2023-08-14,Permanent
+ENS-0097,Dia,Khady,F,1970-07-10,+221 77 343 43 18,khady.dia@edusmart.sn,Génie Logiciel,,2008-10-06,Vacataire
+ENS-0098,Diédhiou,Yacine,F,1972-04-23,+221 77 920 62 73,yacine.diedhiou@edusmart.sn,Data Science,MAITRE_CONFERENCE,2018-07-25,Permanent
+ENS-0099,Diatta,Penda,F,1978-12-11,+221 77 866 88 51,,Intelligence Artificielle,,2012-07-25,Vacataire
+ENS-0100,Dione,Adama,F,1994-07-13,+221 77 736 96 21,adama.dione@edusmart.sn,Réseaux et Télécommunications,ASSISTANT,2023-07-06,Permanent
+ENS-0101,Dia,Louis,M,1979-09-17,+221 70 789 39 38,louis.dia@edusmart.sn,Cybersécurité,,2014-11-20,Vacataire
+ENS-0102,Diouf,Modou,M,1970-09-24,+221 76 921 84 69,modou.diouf@edusmart.sn,Management,,2023-09-06,Vacataire
+ENS-0103,Sarr,Germaine,F,1961-04-01,+221 78 383 38 41,germaine.sarr@edusmart.sn,Finance,Maître de Conférences,2019-03-18,Permanent
+ENS-0104,Faye,Birame,M,1965-01-09,765267670,birame.faye@edusmart.sn,Marketing Digital,PROFESSEUR,2023-09-21,Permanent
+ENS-0105,Sène,Lamine,M,1980-02-13,+221 76 437 91 97,lamine.sene@edusmart.sn,Génie Logiciel,,2007-11-04,Vacataire
+ENS-0106,Ndiaye,Mame Diarra,F,1968-12-21,+221 76 298 97 06,mame.diarra.ndiaye@edusmart.sn,Science des Données,PROFESSEUR,2007-08-14,Permanent
+ENS-0107,Diallo,El Hadji,M,1958-01-19,+221 78 763 85 25,,Intelligence Artificielle,PROFESSEUR,2021-06-10,Permanent
+ENS-0108,Thiam,Marème,F,1961-10-09,+221 76 682 29 17,mareme.thiam@edusmart.sn,Réseaux et Télécommunications,PROFESSEUR,2008-02-11,Permanent
+ENS-0109,Sow,Boubacar,M,1960-05-03,+221 76 758 73 20,boubacar.sow@edusmart.sn,Cybersécurité,PROFESSEUR,2016-11-03,Permanent
+ENS-0110,Konaté,Jean-Baptiste,M,16/04/1978,+221 70 622 61 53,jean.baptiste.konate@edusmart.sn,Management,,2018-02-14,Vacataire
+ENS-0111,Camara,Cheikh,M,1987-06-07,+221 77 121 35 96,cheikh.camara@edusmart.sn,Finance,ASSISTANT,2022-04-29,Vacataire
+ENS-0112,Gueye,Thérèse,F,1963-04-19,+221 78 845 96 16,therese.gueye@edusmart.sn,Marketing Digital,PROFESSEUR,2013-09-15,Permanent
+ENS-0113,Thiaw,Matar,M,1981-12-08,+221 77 880 95 44,matar.thiaw@edusmart.sn,Génie Logiciel,MAITRE_ASSISTANT,2021-08-26,Permanent
+ENS-0113,Thiaw,Matar,M,1981-12-08,+221 77 880 95 44,matar.thiaw@edusmart.sn,Génie Logiciel,MAITRE_ASSISTANT,2021-08-26,Permanent
+ENS-0114,Sow,Matar,M,1995-01-10,+221 77 601 23 31,matar.sow@edusmart.sn,Science des Données,ASSISTANT,2021-06-04,Permanent
+ENS-0115,Senghor,Lamine,M,1971-07-18,+221 77 872 78 71,lamine.senghor@edusmart.sn,Intelligence Artificielle,ASSISTANT,2020-07-22,Vacataire
+ENS-0116,Ndiaye,Birame,M,1981-12-20,+221 76 203 14 57,birame.ndiaye@edusmart.sn,Réseaux et Télécommunications,MAITRE_CONFERENCE,2020-02-28,Permanent
+ENS-0117,Senghor,Youssou,M,1986-02-03,+221 77 887 21 14,youssou.senghor@edusmart.sn,Cybersécurité,,2016-09-11,Vacataire
+ENS-0118,Cissé,Mansour,M,1981-04-19,+221 70 577 53 14,mansour.cisse@edusmart.sn,Management,MAITRE_ASSISTANT,2018-03-21,Permanent
+ENS-0119,Cissé,Nafissatou,F,1975-08-16,+221 76 220 99 22,nafissatou.cisse@edusmart.sn,Finance,MAITRE_CONFERENCE,2012-10-14,Permanent
+ENS-0120,Cissé,Mamadou,M,1989-08-06,+221 70 531 72 46,mamadou.cisse@edusmart.sn,Marketing Digital,MAITRE_ASSISTANT,2018-03-29,Permanent

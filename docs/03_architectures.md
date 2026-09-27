@@ -182,10 +182,10 @@ Organisations qui ont **à la fois** de gros volumes variés, des besoins BI **e
 
 | Critère | Constat EduSmart | Conséquence |
 |---|---|---|
-| **Volume** | ~800 000 enregistrements (799 130), quelques centaines de Mo | Pas de Big Data : un SGBD relationnel suffit largement |
+| **Volume** | ~800 000 enregistrements (799 037), quelques centaines de Mo | Pas de Big Data : un SGBD relationnel suffit largement |
 | **Nature des données** | 4 sources structurées (PostgreSQL, MySQL, CSV) + 1 semi-structurée (JSON MongoDB) + 1 clé-valeur temporaire (Redis). **Aucune donnée non structurée** (ni image, ni vidéo, ni texte libre) | Le stockage JSONB de PostgreSQL suffit pour MongoDB |
 | **Besoin principal** | Pilotage de direction : KPI, historique, Power BI (Phases 10 à 14) | Besoin typique d'un **entrepôt** |
-| **Qualité** | 160 080 anomalies réparties sur 69 types | Il faut des **couches** (brut → nettoyé) et un contrôle qualité traçable (Phases 5 et 6) |
+| **Qualité** | 159 946 anomalies réparties sur 69 types | Il faut des **couches** (brut → nettoyé) et un contrôle qualité traçable (Phases 5 et 6) |
 | **Historique** | Déménagements des étudiants (Phase 9) ; Redis ne garde rien | Il faut un **SCD 2** dans des dimensions : fonction d'entrepôt |
 | **Temps réel** | Redis n'est qu'un **snapshot** ; aucun besoin de décision à la seconde | Chargement par lots (quotidien) suffisant |
 | **Machine learning** | Aucun besoin exprimé | Aucun argument pour un lac ou un lakehouse |

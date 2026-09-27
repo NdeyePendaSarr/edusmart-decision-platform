@@ -33,6 +33,7 @@ from __future__ import annotations
 import hashlib
 import random
 import uuid
+from datetime import date, timedelta
 
 from common.config import get_settings
 
@@ -79,3 +80,18 @@ def get_faker(namespace: str, locale: str = "fr_FR", seed: int | None = None):
 def deterministic_uuid(rng: random.Random) -> str:
     """UUID version 4 valide, mais reproductible car tiré d'un générateur graine."""
     return str(uuid.UUID(int=rng.getrandbits(128), version=4))
+
+
+def random_date(rng: random.Random, start: date, end: date) -> date:
+    """
+    Date uniforme entre start et end (inclus), SANS conversion de fuseau horaire.
+
+    Pourquoi ne pas utiliser fake.date_between_dates() ? Faker convertit via le
+    fuseau horaire de la machine et, sous Windows, ignore silencieusement une
+    OSError pour les dates antérieures à 1970 : la même graine donnait alors
+    des dates décalées d'un jour sous Windows (constaté en L4 sur la Source 3).
+    Ici, seul un nombre de jours est tiré : le résultat est identique partout.
+    """
+    if end < start:
+        raise ValueError(f"Intervalle de dates invalide : {start} > {end}")
+    return start + timedelta(days=rng.randint(0, (end - start).days))

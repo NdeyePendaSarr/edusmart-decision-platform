@@ -116,7 +116,7 @@ S'y ajoutent les **erreurs de saisie des identifiants eux-mêmes** : `lms-000154
 
 - **Redondance voulue entre systèmes.** Un paiement Wave fait depuis le téléphone existe dans PostgreSQL (la transaction) **et** dans MongoDB (l'événement `PAYMENT_SUCCESS`, même référence `PAY-…`). La progression existe dans MySQL **et** dans Redis (le PDF prévoit qu'elle transite par Redis).
 - **Doublons techniques :**
-  - un export RH lancé deux fois (189 lignes de salaires strictement identiques) ;
+  - un export RH lancé deux fois (102 lignes de salaires strictement identiques) ;
   - un événement journalisé deux fois (12 164 dans MongoDB) ;
   - une inscription saisie deux fois (366).
 - **Doublons de saisie :** le même département écrit « Data », « Développement Data » et « Data Engineering ».
@@ -225,7 +225,7 @@ La définition de référence d'un entrepôt de données (W. H. Inmon) résume l
 
 ### 16. Pourquoi la BI est-elle indispensable aujourd'hui ?
 
-- **Le volume et la variété des données explosent.** Même une structure de taille moyenne comme EduSmart produit près de **800 000 enregistrements** (799 130) dans 4 technologies et des fichiers, en 3 ans.
+- **Le volume et la variété des données explosent.** Même une structure de taille moyenne comme EduSmart produit près de **800 000 enregistrements** (799 037) dans 4 technologies et des fichiers, en 3 ans.
 - **La concurrence impose des décisions rapides et fondées** : quelle filière ouvrir, quel module refondre, quand relancer un impayé.
 - **La décision « à l'intuition » coûte cher.** L'inversion du classement des formations (point 9) le montre.
 - **Les exigences de traçabilité** (financière, pédagogique) imposent de justifier chaque chiffre.
@@ -267,7 +267,7 @@ La définition de référence d'un entrepôt de données (W. H. Inmon) résume l
 
 Ce sont les constats de la partie B, résumés en quatre familles :
 1. **Intégration** : identifiants sans clé commune, codes de contenus non résolubles (89 codes MongoDB absents de `mapping_courses.csv`), même nom de champ au sens différent.
-2. **Qualité** : de 7 à 19 types d'anomalies selon la source, soit **160 080 anomalies journalisées au total**.
+2. **Qualité** : de 7 à 19 types d'anomalies selon la source, soit **159 946 anomalies journalisées au total**.
 3. **Technique** : encodages, séparateurs, formats de dates, types mixtes MongoDB, collation MySQL, données Redis temporaires.
 4. **Sémantique** : pas de définition partagée de l'« étudiant actif », de la « réussite » ou de l'« abandon », et des indicateurs sans aucune donnée (satisfaction, évaluation et activité des enseignants).
 

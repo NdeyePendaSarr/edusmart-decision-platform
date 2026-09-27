@@ -3,10 +3,10 @@ id_departement,nom_departement,responsable,budget_annuel,batiment
 2,Data,Pape Moussa Samb,70500000.00,Bâtiment B
 3,Intelligence Artificielle,Khady Sylla,146500000.00,Bâtiment C
 4,Réseaux et Télécommunications,Agnès Senghor,64500000.00,Bâtiment D
-5,Cybersécurité,Mouhamed Dia,109000000.00,Bâtiment A
-6,Management,Marie Thiaw,,Bâtiment B
+5,Cybersécurité,Aminata Paye,109000000.00,Bâtiment A
+6,Management,Bassirou Seck,,Bâtiment B
 7,Finance et Comptabilité,Youssou Diallo,88000000.00,Bâtiment C
-8,Marketing Digital,Demba Sambou,,Bâtiment D
+8,Marketing Digital,Ngoné Ba,,Bâtiment D
 9,Développement Data,Pape Moussa Samb,12000000.00,
 10,Data Engineering,,39500000.00,
 11,Département Informatique,,33500000.00,
