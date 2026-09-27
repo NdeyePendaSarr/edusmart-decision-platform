@@ -19,9 +19,15 @@ Les PDF du projet sont la seule source de vérité. Tout écart est tracé dans 
 | L2-a | Source 1 : PostgreSQL | Validé (G1 : 39/39) ([détails](sources/s1_postgresql/README.md)) |
 | L2-b | Source 2 : MySQL | Validé (G1 : 45/45) ([détails](sources/s2_mysql/README.md)) |
 | L2-c | Source 3 : CSV RH | Validé (G1 : 50/50) ([détails](sources/s3_csv/README.md)) |
-| L2-d | Source 4 : MongoDB | Livré, en attente de G1 ([détails](sources/s4_mongodb/README.md)) |
-| L2-e | Source 5 : Redis | À venir |
+| L2-d | Source 4 : MongoDB | Validé (G1 : 30/30) ([détails](sources/s4_mongodb/README.md)) |
+| L2-e | Source 5 : Redis | Livré, en attente de G1 ([détails](sources/s5_redis/README.md)) |
 | L3 à L10 | Plateforme BI (phases 1 à 18) | À venir |
+
+### Volet A : vérifier les 5 sources d'un coup
+
+```powershell
+python -m scripts.verify_sources     # les 5 portes G1 (sources générées et chargées)
+```
 
 ## 2. Arborescence actuelle
 
@@ -41,11 +47,13 @@ edusmart-decision-platform/
 │   ├── senegalese_data.py        noms, 14 régions, villes, téléphone +221
 │   └── referential.py            référentiel maître + correspondances
 ├── scripts/check_infrastructure.py   point de contrôle G0
+├── scripts/verify_sources.py         les 5 portes G1 en une commande
 ├── sources/
 │   ├── s1_postgresql/            Source 1 : SQL, génération, insertion, vérification G1
 │   ├── s2_mysql/                 Source 2 : idem pour MySQL
 │   ├── s3_csv/                   Source 3 : schéma, génération, vérification G1 + output/*.csv (livrés)
-│   └── s4_mongodb/               Source 4 : validateur, génération, insertion, vérification G1
+│   ├── s4_mongodb/               Source 4 : validateur, génération, insertion, vérification G1
+│   └── s5_redis/                 Source 5 : structures, snapshot, insertion, vérification G1
 ├── mappings/
 │   ├── mapping_etudiants.csv     9 000 paires matricule <-> student_code
 │   └── mapping_courses.csv       codes MODULE / COURSE-n / QUIZ-n <-> UUID MySQL (rempli en L2-b)
@@ -54,7 +62,7 @@ edusmart-decision-platform/
 │   ├── generated/<source>/       CSV intermédiaires + summary.json
 │   ├── anomalies/                journaux d'anomalies (vérité terrain)
 │   └── reports/                  rapports des portes G1
-├── tests/                        163 tests unitaires + 16 tests d'intégration
+├── tests/                        174 tests unitaires + 20 tests d'intégration
 ├── requirements.txt
 └── pytest.ini
 ```
@@ -188,6 +196,7 @@ alimente le constat « nombre réel d'étudiants » des phases 1 et 11.
 | C21 | Catalogue pédagogique | `common/learning_catalog.py` : 8 catégories (une par département), codes `MOD-XXX-NN`, `COURSE-n`, `QUIZ-n` | Codes partagés par MySQL, MongoDB et Redis |
 | C22 | Codes de contenus | `mapping_courses.csv` livré (95 % des cours et quiz) ; `data/referential/referentiel_contenus.csv` caché (100 %) | Même logique que mapping_etudiants : les absents se découvrent par anti-jointure |
 | C23 | Sessions mobiles | `data/referential/sessions_mobile.csv` (caché) : 51 711 sessions MongoDB, dont 700 ouvertes le 15/09/2026 au soir | Base des sessions Redis (L2-e) |
+| C24 | Snapshot Redis | 15/09/2026 à 23 h 00 ; session active = activité de moins de 30 min | État temps réel déduit de MongoDB et MySQL, reproductible |
 
 Les écarts propres à chaque source sont documentés dans son README
 (ex. [Source 1, § 6](sources/s1_postgresql/README.md#6-conventions-et-écarts-assumés)).
