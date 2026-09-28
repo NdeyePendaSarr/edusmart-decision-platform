@@ -43,7 +43,7 @@ COMMENT ON TABLE meta.metadata_sources IS 'Catalogue des 17 objets sources et é
 CREATE TABLE IF NOT EXISTS meta.etl_execution_log (
     id_execution        BIGSERIAL    PRIMARY KEY,
     batch_id            TEXT         NOT NULL,       -- un lot = une exécution du pipeline
-    etape               TEXT         NOT NULL,       -- EXTRACT, LOAD, VERIFY (TRANSFORM en L5)
+    etape               TEXT         NOT NULL,       -- EXTRACT, LOAD, VERIFY, TRANSFORM (L5), DW (L6)
     code_source         TEXT         NOT NULL,       -- PDF : source
     objet               TEXT         NOT NULL,
     date_debut          TIMESTAMP    NOT NULL,       -- PDF : date
@@ -54,9 +54,15 @@ CREATE TABLE IF NOT EXISTS meta.etl_execution_log (
     erreurs             TEXT,                        -- PDF : erreurs (message)
     statut              TEXT         NOT NULL,       -- PDF : statut
     version_pipeline    TEXT         NOT NULL,       -- PDF (Phase 6) : version
-    CONSTRAINT ck_log_etape  CHECK (etape IN ('EXTRACT', 'LOAD', 'VERIFY', 'TRANSFORM')),
+    CONSTRAINT ck_log_etape  CHECK (etape IN ('EXTRACT', 'LOAD', 'VERIFY', 'TRANSFORM', 'DW')),
     CONSTRAINT ck_log_statut CHECK (statut IN ('EN_COURS', 'SUCCES', 'ECHEC'))
 );
+-- Mise à niveau d'une base existante : CREATE TABLE IF NOT EXISTS ne modifie pas une table déjà
+-- créée. La contrainte est donc redéfinie à chaque initialisation, AVANT toute écriture du journal
+-- (correctif L6 : une base créée en L4 refusait l'étape DW).
+ALTER TABLE meta.etl_execution_log DROP CONSTRAINT IF EXISTS ck_log_etape;
+ALTER TABLE meta.etl_execution_log ADD CONSTRAINT ck_log_etape
+    CHECK (etape IN ('EXTRACT', 'LOAD', 'VERIFY', 'TRANSFORM', 'DW'));
 CREATE INDEX IF NOT EXISTS idx_log_batch  ON meta.etl_execution_log (batch_id);
 CREATE INDEX IF NOT EXISTS idx_log_source ON meta.etl_execution_log (code_source, objet, date_debut);
 COMMENT ON TABLE meta.etl_execution_log IS 'Journal de chaque étape du pipeline (Phase 6) : source, date, durée, lignes, erreurs, statut';

@@ -136,3 +136,49 @@ def test_extraction_redis_snapshot(batch):
     assert [s for _, s in classement] == sorted((s for _, s in classement), reverse=True)
     sessions = [r for k, r in lignes.items() if k.startswith("session:")]
     assert {r[3] for r in sessions} - {"-1"} and "-1" in {r[3] for r in sessions}   # TTL réels et sessions E01 sans TTL
+
+
+def test_toutes_les_etapes_du_code_sont_autorisees_par_le_journal():
+    """Régression L6 : l'étape DW était refusée par ck_log_etape sur une base créée en L4."""
+    import re
+    racine = Path(reg.__file__).parent
+    code = "\n".join(p.read_text(encoding="utf-8") for p in racine.glob("*.py"))
+    etapes = set(re.findall(r'\.step\([^,]+,\s*"([A-Z]+)"', code)) | set(re.findall(r'record_failure\([^,]+,\s*"([A-Z]+)"', code))
+    assert etapes >= {"EXTRACT", "LOAD", "TRANSFORM", "VERIFY", "DW"}
+    ddl = (racine / "sql" / "meta" / "01_meta_tables.sql").read_text(encoding="utf-8")
+    autorisees = re.findall(r"ADD CONSTRAINT ck_log_etape\s+CHECK \(etape IN \(([^)]*)\)", ddl)
+    assert autorisees, "la contrainte doit être redéfinie (mise à niveau des bases existantes)"
+    assert etapes <= set(re.findall(r"'([A-Z]+)'", autorisees[0]))
+    assert "ck_log_etape" not in (racine / "sql" / "dw" / "01_dimensions.sql").read_text(encoding="utf-8").split("--")[0]
+
+
+def test_avertissement_snapshot_redis_perime():
+    client = fakeredis.FakeRedis(decode_responses=True)
+    client.set("online_users", 5)
+    assert any("statistics:today absente" in a for a in extract_redis.controler_fraicheur(client))
+    client.hset("statistics:today", mapping={"active_students": 1})
+    client.expire("statistics:today", 3600)
+    assert extract_redis.controler_fraicheur(client) == []
+    client.expire("statistics:today", 60)
+    assert any("expire dans" in a for a in extract_redis.controler_fraicheur(client))
+
+
+def test_batch_en_staging_consulte_les_17_tables():
+    """Régression L6 : une relance ciblée (--sources s5_redis) doit être vue comme le lot courant."""
+    from pipeline.transform import batch_en_staging
+
+    class Curseur:
+        def __init__(self, journal): self.journal = journal
+        def __enter__(self): return self
+        def __exit__(self, *a): return False
+        def execute(self, sql): self.journal.append(sql)
+        def fetchall(self): return [("B20260101T000000",), ("B20260928T011811",)]
+
+    class Connexion:
+        def __init__(self): self.journal = []
+        def cursor(self): return Curseur(self.journal)
+
+    conn = Connexion()
+    assert batch_en_staging(conn) == "B20260928T011811"            # le plus récent
+    for o in reg.OBJECTS:
+        assert f"staging.{o.stg_table}" in conn.journal[0], o.stg_table

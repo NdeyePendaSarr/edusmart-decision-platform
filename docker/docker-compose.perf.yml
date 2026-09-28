@@ -1,0 +1,35 @@
+# =============================================================================
+# EduSmart — Réglages de performance de l'entrepôt (optionnel, ajouté en L6)
+# -----------------------------------------------------------------------------
+# Se SUPERPOSE à docker-compose.yml, sans le modifier :
+#     cd docker
+#     docker compose -f docker-compose.yml -f docker-compose.perf.yml up -d
+# Le conteneur pg_dw est recréé, et ses DONNÉES SONT CONSERVÉES (volume nommé).
+#
+# Pourquoi : la reconstruction de la couche clean écrit beaucoup. Avec les valeurs
+# par défaut (max_wal_size = 1 Go), PostgreSQL enchaîne les checkpoints, ce qui
+# est très coûteux sur un disque Docker Desktop / WSL2.
+# Réglages de DÉVELOPPEMENT : synchronous_commit = off accepte de perdre la
+# dernière seconde de transactions en cas de panne brutale (sans corruption).
+# =============================================================================
+services:
+  pg_dw:
+    command:
+      - postgres
+      - -c
+      - shared_buffers=512MB           # cache de données (défaut 128 Mo)
+      - -c
+      - work_mem=64MB                  # tris et hachages en mémoire (fenêtres, GROUP BY)
+      - -c
+      - maintenance_work_mem=256MB     # CREATE INDEX, ANALYZE
+      - -c
+      - max_wal_size=4GB               # moins de checkpoints (défaut 1 Go)
+      - -c
+      - checkpoint_timeout=15min       # défaut 5 min
+      - -c
+      - checkpoint_completion_target=0.9
+      - -c
+      - wal_compression=on             # moins d'octets écrits dans le WAL
+      - -c
+      - synchronous_commit=off         # développement uniquement
+    shm_size: 512mb                    # mémoire partagée du conteneur (défaut Docker : 64 Mo)

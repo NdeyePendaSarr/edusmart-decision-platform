@@ -141,3 +141,44 @@ Chaque table conserve `_batch_id` et `_anomalies`, la liste des règles qui ont 
 |---|---|
 | `tests/test_qualite.py` | 10 tests sans base : 69 anomalies couvertes, règles du catalogue = règles utilisées dans le SQL, référentiels cohérents avec les catalogues du volet A, logique de la porte G3 |
 | `tests/test_qualite_integration.py` | 26 tests sur l'entrepôt : G3 validée, 16 fonctions SQL sur des cas limites, 9 invariants de la couche clean, retraitement idempotent |
+
+---
+
+# Lot L6 : Data Warehouse (constellation, SCD 2)
+
+Conception détaillée dans [`docs/07_conception_dw.md`](../docs/07_conception_dw.md).
+
+| Fichier | Rôle |
+|---|---|
+| `sql/dw/01_dimensions.sql` | 7 dimensions (temps, étudiant SCD 2, formation, module, quiz, enseignant, région) et leur membre « Inconnu » (-1) |
+| `sql/dw/02_faits.sql` | 8 faits, grain garanti par une contrainte d'unicité, vraies clés étrangères |
+| `sql/dw/10_charger_dimensions.sql` | Chargement incrémental : SCD 1 ; SCD 2 sur la ville et la région de l'étudiant |
+| `sql/dw/20_charger_faits.sql` | Rechargement des faits, rattachés à la version de l'étudiant valable à leur date |
+| `load_dw.py` | Orchestration (une transaction) ; `--reset` repart d'un schéma vide |
+| `verify_g4.py` | **Porte G4** : clés étrangères, grain, complétude, mesures, SCD 2, inconnus (57 contrôles) |
+| `demo_scd2.py` | Second chargement : 200 déménagements dans la source, pipeline relancé, contrôles |
+
+> ⚠️ **Toujours régénérer le snapshot Redis juste avant le pipeline** : `python -m sources.s5_redis.insert_data`.
+> La clé `statistics:today` expire au bout d'une heure (elle « expire à minuit », snapshot pris à 23 h, C24).
+> Si elle a disparu, l'extraction l'annonce, et G3 compte l'anomalie E03 qu'elle portait comme « non extraite »,
+> sans échec : le pipeline ne peut pas traiter une donnée que Redis a effacée avant sa lecture.
+
+```powershell
+python -m sources.s5_redis.insert_data          # snapshot Redis frais (TTL)
+python -m pipeline.run_pipeline                 # 6 étapes, jusqu'au DW et à la porte G4
+python -m pipeline.load_dw                      # recharger le DW seul
+python -m pipeline.demo_scd2                    # démonstration SCD 2 (modifie la source PostgreSQL)
+python -m pipeline.demo_scd2 --restaurer        # remettre les villes d'origine dans la source
+```
+
+**Performance (L6).**
+
+| Levier | Effet |
+|---|---|
+| **`ANALYZE` explicites** dans les scripts clean (correctif L6) | **Cause principale des lenteurs.** L'autovacuum n'analyse jamais les tables temporaires, et ne voit pas les constats insérés dans la transaction en cours. Sans statistiques, PostgreSQL peut estimer 1 ligne là où il y en a des dizaines de milliers, et choisir une boucle imbriquée (des milliards de comparaisons). Les `ANALYZE` coûtent environ 8 s au total et rendent le plan fiable, quelle que soit la version de PostgreSQL |
+| Tables `staging` et `clean` `UNLOGGED` | Écritures dans le WAL évitées. ⚠️ Après un **arrêt brutal** de PostgreSQL, ces tables sont **vidées** (un arrêt normal les conserve) : relancer le pipeline suffit à les reconstruire |
+| `docker/docker-compose.perf.yml` (optionnel) | Moins de checkpoints, plus de mémoire |
+
+Diagnostic objectif : `python -m scripts.diagnostic_perf --profil s2_mysql` affiche les réglages actifs, l'état `UNLOGGED`, les checkpoints, les instructions les plus lentes et le plan de la pire. Tout se fait dans une transaction annulée à la fin, donc sans rien modifier.
+
+**Tests :** `tests/test_dw.py` (6 tests, sans base) et `tests/test_dw_integration.py` (3 tests : G4, cas limites du SCD 2, idempotence).

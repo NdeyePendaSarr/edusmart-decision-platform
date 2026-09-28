@@ -30,6 +30,7 @@ SELECT s._row_number, s.event_id, s._batch_id, s.document AS d,
        CASE WHEN jsonb_typeof(s.document -> 'duration_seconds') = 'number'
             THEN (s.document ->> 'duration_seconds')::INT END AS duree
 FROM staging.stg_mongo_events s;
+ANALYZE t_evt;   -- statistiques (L6)
 
 -- Référentiels (jointures plutôt que fonctions ligne à ligne : 300 000 documents)
 DROP TABLE IF EXISTS t_evt2;
@@ -43,6 +44,7 @@ LEFT JOIN clean.ref_synonymes o ON o.domaine = 'os' AND o.cle = clean.cle(t.os)
 LEFT JOIN (SELECT session_id, min(code) AS code_session FROM t_evt WHERE code IS NOT NULL GROUP BY session_id) sess
        ON sess.session_id = t.session_id
 WHERE t.rn = 1;
+ANALYZE t_evt2;   -- statistiques (L6)
 
 SELECT quality.rejeter('MG_DOUBLON', 'events', $q$
     SELECT t.event_id, t._row_number, 'Événement déjà journalisé', t.d FROM t_evt t WHERE t.rn > 1 $q$);
@@ -65,8 +67,9 @@ SELECT quality.constater('MG_CONTENU_HORS_MAPPING', 'events', $q$
     WHERE (t.d ? 'course_code' AND NOT EXISTS (SELECT 1 FROM clean.ref_mapping_contenus m WHERE m.code_externe = t.d->>'course_code'))
        OR (t.d ? 'quiz_code'   AND NOT EXISTS (SELECT 1 FROM clean.ref_mapping_contenus m WHERE m.code_externe = t.d->>'quiz_code')) $q$);
 
+ANALYZE quality.constats, quality.rejets;   -- statistiques (L6)
 DROP TABLE IF EXISTS clean.evenements CASCADE;
-CREATE TABLE clean.evenements AS
+CREATE UNLOGGED TABLE clean.evenements AS
 SELECT t.event_id, COALESCE(t.code, t.code_session) AS student_code, t.ts AS horodatage, t.d->>'event_type' AS event_type,
        t.d->>'module_code' AS module_code, t.d->>'course_code' AS course_code, t.d->>'quiz_code' AS quiz_code,
        mm.id_mysql::UUID AS id_module, mc.id_mysql::UUID AS id_cours, mq.id_mysql::UUID AS id_quiz,

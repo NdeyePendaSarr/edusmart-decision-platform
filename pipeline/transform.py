@@ -50,9 +50,15 @@ class TransformError(Exception):
 
 
 def batch_en_staging(conn) -> str:
+    """
+    Lot le plus récent présent en staging, parmi LES 17 TABLES.
+    Correctif L6 : seules les tables PostgreSQL et MySQL étaient consultées. Une relance ciblée
+    (--sources s5_redis) enregistrait alors les constats sous l'ancien lot, et G3 ne les trouvait pas.
+    """
+    from pipeline.registry import OBJECTS, STAGING_SCHEMA
+    union = " UNION ".join(f"SELECT DISTINCT _batch_id FROM {STAGING_SCHEMA}.{o.stg_table}" for o in OBJECTS)
     with conn.cursor() as cur:
-        cur.execute("SELECT DISTINCT _batch_id FROM staging.stg_pg_etudiants UNION "
-                    "SELECT DISTINCT _batch_id FROM staging.stg_mysql_notes")
+        cur.execute(union)
         lots = sorted(r[0] for r in cur.fetchall())
     if not lots:
         raise TransformError("Staging vide : lancez d'abord python -m pipeline.run_pipeline")

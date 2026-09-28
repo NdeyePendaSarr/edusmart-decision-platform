@@ -90,3 +90,34 @@ def test_g3_constats_hors_journal():
     journal = [_rec("A13", "p1")]
     res = {r.code: r for r in evaluer(journal, {"PG_REFERENCE_DOUBLON": {"p1": "SIGNALE", "p2": "SIGNALE"}})}
     assert res["A13"].ok and res["A13"].hors_journal == 1
+
+
+# --- G3 et volatilité de Redis (correctif L6) ------------------------------------------------
+def test_g3_cle_redis_expiree_non_extraite():
+    """E03 videos_streaming : la clé statistics:today (TTL 1 h) a expiré avant l'extraction."""
+    journal = [_rec("E03", "online_users"), _rec("E03", "statistics:today.videos_streaming")]
+    preuves = {"RD_COMPTEUR": {"online_users": "CORRIGE"}}
+    strict = {r.code: r for r in evaluer(journal, preuves)}["E03"]
+    assert not strict.ok and strict.traitees == 1                          # sans tenir compte de l'expiration : KO
+    res = {r.code: r for r in evaluer(journal, preuves, cles_extraites={"online_users"})}["E03"]
+    assert res.ok and res.non_extraites == 1 and res.traitees == 1
+
+
+def test_g3_cle_presente_mais_non_traitee_reste_un_echec():
+    journal = [_rec("E03", "statistics:today.videos_streaming")]
+    res = {r.code: r for r in evaluer(journal, {}, cles_extraites={"statistics:today"})}["E03"]
+    assert not res.ok and res.non_extraites == 0
+
+
+def test_g3_tolerance_limitee_a_redis():
+    journal = [_rec("A01", "e1")]
+    res = {r.code: r for r in evaluer(journal, {}, cles_extraites=set())}["A01"]
+    assert not res.ok and res.non_extraites == 0                           # une anomalie PostgreSQL n'est jamais excusée
+
+
+def test_cles_redis_des_anomalies():
+    from pipeline.verify_g3 import cles_redis
+    assert cles_redis("E03", "statistics:today.videos_streaming") == ["statistics:today"]
+    assert cles_redis("E03", "online_users") == ["online_users"]
+    assert "progress:LMS-000001" in cles_redis("E06", "LMS-000001")
+    assert cles_redis("E01", "session:abc") == ["session:abc"]

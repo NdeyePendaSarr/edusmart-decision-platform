@@ -10,7 +10,13 @@ d'anomalie, sur la même ligne.
     - doublons dont la copie porte un NOUVEL identifiant (A10, B12, B15) : il suffit
       que le groupe soit dédoublonné (la copie OU l'original est rejeté).
 
-Porte G3 validée si 100 % des anomalies de chacun des 69 types sont traitées.
+Porte G3 validée si 100 % des anomalies REÇUES de chacun des 69 types sont traitées.
+
+Cas particulier de Redis, volatile par nature (PDF : « Redis ne conserve pas les données de
+manière permanente ») : une anomalie dont la clé a EXPIRÉ avant l'extraction n'est jamais
+parvenue au pipeline. Elle est comptée à part, « non extraite », et n'est pas un échec de
+traitement. G2 garantit déjà que tout ce qui existait à l'extraction a été extrait. Cette
+tolérance ne s'applique qu'à la Source 5 ; le rapport affiche ces anomalies.
 Le rapport indique aussi les constats « hors journal » d'une règle, par exemple
 les deux lignes d'une référence partagée : c'est une information de précision,
 pas un échec.
@@ -41,10 +47,11 @@ class ResultatAnomalie:
     traitees: int
     par_action: dict
     hors_journal: int
+    non_extraites: int = 0
 
     @property
     def ok(self) -> bool:
-        return self.total > 0 and self.traitees == self.total
+        return self.total > 0 and self.traitees == self.total - self.non_extraites
 
 
 def regles_par_anomalie() -> dict[str, list]:
@@ -55,10 +62,20 @@ def regles_par_anomalie() -> dict[str, list]:
     return res
 
 
-def evaluer(journal: list, preuves: dict[str, dict[str, str]]) -> list[ResultatAnomalie]:
+def cles_redis(code: str, id_ligne: str) -> list[str]:
+    """Clé(s) Redis porteuse(s) d'une anomalie E.. du journal."""
+    if code == "E06":                                   # id = student_code, présent dans plusieurs clés
+        return [f"{famille}:{id_ligne}" for famille in ("last_course", "last_quiz", "progress", "notifications")]
+    if code == "E03" and id_ligne.startswith("statistics:today."):
+        return ["statistics:today"]
+    return [id_ligne]                                   # session:…, notifications:…, progress:…, online_users
+
+
+def evaluer(journal: list, preuves: dict[str, dict[str, str]], cles_extraites: set[str] | None = None) -> list[ResultatAnomalie]:
     """
     journal : enregistrements (code, id_ligne, valeur_originale) ;
-    preuves : {code_regle: {id_ligne: action}} issu de quality.constats.
+    preuves : {code_regle: {id_ligne: action}} issu de quality.constats ;
+    cles_extraites : clés Redis présentes en staging (None = ne pas tenir compte de l'expiration).
     Fonction PURE (testable sans base).
     """
     par_code = defaultdict(list)
@@ -69,8 +86,12 @@ def evaluer(journal: list, preuves: dict[str, dict[str, str]]) -> list[ResultatA
     for code in sorted(set(couvertures) | set(par_code)):
         recs, regles = par_code.get(code, []), couvertures.get(code, [])
         ids_journal = {r.id_ligne for r in recs} | ({r.valeur_originale for r in recs} if code in DOUBLONS_NOUVEL_ID else set())
-        actions, traitees = Counter(), 0
+        actions, traitees, non_extraites = Counter(), 0, 0
         for rec in recs:
+            if cles_extraites is not None and code.startswith("E") and \
+                    not any(k in cles_extraites for k in cles_redis(code, rec.id_ligne)):
+                non_extraites += 1
+                continue
             candidats = [rec.id_ligne] + ([rec.valeur_originale] if code in DOUBLONS_NOUVEL_ID else [])
             action = next((preuves.get(r.code, {}).get(c) for r in regles for c in candidats
                            if preuves.get(r.code, {}).get(c)), None)
@@ -78,7 +99,7 @@ def evaluer(journal: list, preuves: dict[str, dict[str, str]]) -> list[ResultatA
                 traitees += 1
                 actions[action] += 1
         hors = sum(1 for r in regles for i in preuves.get(r.code, {}) if i not in ids_journal)
-        resultats.append(ResultatAnomalie(code, len(recs), traitees, dict(actions), hors))
+        resultats.append(ResultatAnomalie(code, len(recs), traitees, dict(actions), hors, non_extraites))
     return resultats
 
 
@@ -97,13 +118,17 @@ def verify(conn, batch_id: str) -> list[ResultatAnomalie]:
     journal = []
     for source in SOURCES:
         journal += read_journal(anomalies_dir / f"{source}_anomalies.csv")
-    return evaluer(journal, charger_preuves(conn, batch_id))
+    with conn.cursor() as cur:
+        cur.execute("SELECT cle FROM staging.stg_redis_keys")
+        cles = {r[0] for r in cur.fetchall()}
+    return evaluer(journal, charger_preuves(conn, batch_id), cles)
 
 
 def write_report(batch_id: str, resultats: list[ResultatAnomalie]) -> str:
     ok = all(r.ok for r in resultats)
     total = sum(r.total for r in resultats)
     traitees = sum(r.traitees for r in resultats)
+    non_extraites = sum(r.non_extraites for r in resultats)
     actions = Counter()
     for r in resultats:
         actions.update(r.par_action)
@@ -112,11 +137,14 @@ def write_report(batch_id: str, resultats: list[ResultatAnomalie]) -> str:
               f"*Rapport du {datetime.now():%d/%m/%Y %H:%M}*", "",
               f"**Résultat : {'VALIDÉE' if ok else 'NON VALIDÉE'}** — {fmt(traitees)} / {fmt(total)} anomalies traitées "
               f"({sum(r.ok for r in resultats)}/{len(resultats)} types à 100 %)", "",
+              *([f"⚠️ **{non_extraites} anomalie(s) Redis non extraite(s)** : leur clé a expiré avant l'extraction "
+                 "(snapshot trop ancien). Pour un contrôle complet, relancer `python -m sources.s5_redis.insert_data` "
+                 "juste avant le pipeline.", ""] if non_extraites else []),
               f"Répartition : {fmt(actions['CORRIGE'])} corrigées · {fmt(actions['REJETE'])} rejetées · "
               f"{fmt(actions['SIGNALE'])} signalées", "",
-              "| Anomalie | Journal | Traitées | Corrigées | Rejetées | Signalées | Constats hors journal | OK |",
-              "|---|---:|---:|---:|---:|---:|---:|:-:|",
-              *[f"| {r.code} | {fmt(r.total)} | {fmt(r.traitees)} | {fmt(r.par_action.get('CORRIGE', 0))} | "
+              "| Anomalie | Journal | Non extraites | Traitées | Corrigées | Rejetées | Signalées | Constats hors journal | OK |",
+              "|---|---:|---:|---:|---:|---:|---:|---:|:-:|",
+              *[f"| {r.code} | {fmt(r.total)} | {fmt(r.non_extraites)} | {fmt(r.traitees)} | {fmt(r.par_action.get('CORRIGE', 0))} | "
                 f"{fmt(r.par_action.get('REJETE', 0))} | {fmt(r.par_action.get('SIGNALE', 0))} | {fmt(r.hors_journal)} | "
                 f"{'✅' if r.ok else '❌'} |" for r in resultats], "",
               "*« Constats hors journal » : lignes touchées par la même règle sans être dans le journal, par exemple "

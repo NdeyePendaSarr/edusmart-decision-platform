@@ -20,8 +20,28 @@ from common.config import get_settings
 from pipeline.extract_common import extract_object
 from pipeline.landing import Batch, new_batch_id
 from pipeline.registry import get_object
+from common.logger import get_logger
 
 SOURCE = "s5_redis"
+logger = get_logger("extract_redis")
+# Clés à durée de vie courte : leur absence signale un snapshot trop ancien (C24)
+CLES_TEMOINS = {"statistics:today": 3600, "online_users": None}
+
+
+def controler_fraicheur(client) -> list[str]:
+    """
+    Avertissements (non bloquants) si le snapshot a commencé à expirer.
+    Le pipeline ne régénère JAMAIS une source : il signale, et l'on relance
+    python -m sources.s5_redis.insert_data juste avant le pipeline.
+    """
+    alertes = []
+    for cle, ttl_initial in CLES_TEMOINS.items():
+        ttl = client.ttl(cle)
+        if ttl == -2:
+            alertes.append(f"clé {cle} absente : expirée depuis la génération du snapshot")
+        elif ttl_initial and 0 <= ttl < ttl_initial // 4:
+            alertes.append(f"clé {cle} expire dans {ttl} s")
+    return alertes
 
 
 def emplacement() -> str:
@@ -50,6 +70,9 @@ def extract(batch: Batch, meta=None, client=None) -> dict[str, int]:
         client = redis.Redis(**get_settings().redis.connect_kwargs())
     try:
         obj = get_object(SOURCE, "keys")
+        for alerte in controler_fraicheur(client):
+            logger.warning("Snapshot Redis périmé : %s. Relancez python -m sources.s5_redis.insert_data "
+                           "juste avant le pipeline pour une porte G3 complète.", alerte)
         cles = sorted(client.scan_iter(count=1000))                     # ordre stable
 
         def rows():

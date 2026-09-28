@@ -8,7 +8,8 @@ Un lancement = un LOT (batch_id) :
     2. LOAD    : data/landing/<batch_id>/ -> edusmart_dw.staging ;
     3. VERIFY    : porte G2 (complétude, fidélité, traçabilité) ;
     4. TRANSFORM : staging -> clean, 89 règles qualité (lot L5) ;
-    5. QUALITE   : rapport qualité (Phase 5) et porte G3 (toutes les anomalies traitées).
+    5. QUALITE   : rapport qualité (Phase 5) et porte G3 (toutes les anomalies traitées) ;
+    6. DW        : dimensions (SCD 1 / SCD 2) et 8 faits, porte G4 (lot L6).
 
 Politique d'erreur : l'échec d'une source n'empêche pas les autres d'être
 extraites. Il est tracé (statut ECHEC dans le journal), la source n'est pas
@@ -37,7 +38,7 @@ logger = get_logger("pipeline")
 EXTRACTEURS = {"s1_postgresql": "pipeline.extract_postgres", "s2_mysql": "pipeline.extract_mysql",
                "s3_csv": "pipeline.extract_csv", "s4_mongodb": "pipeline.extract_mongodb",
                "s5_redis": "pipeline.extract_redis"}
-ETAPES = ("extract", "load", "verify", "transform", "qualite")
+ETAPES = ("extract", "load", "verify", "transform", "qualite", "dw")
 
 
 def emplacements() -> dict[str, str]:
@@ -102,6 +103,9 @@ def run(sources: list[str], etapes: list[str]) -> int:
 
         if "qualite" in etapes:
             code_retour = max(code_retour, qualite(batch.batch_id, meta))
+
+        if "dw" in etapes:
+            code_retour = max(code_retour, entrepot(batch.batch_id, meta))
         logger.info("Lot %s terminé (code %d). Journal : meta.etl_execution_log", batch.batch_id, code_retour)
         return code_retour
     finally:
@@ -127,9 +131,34 @@ def qualite(batch_id: str, meta) -> int:
         if not r.ok:
             logger.error("[KO] G3 %s : %d/%d anomalies traitées", r.code, r.traitees, r.total)
     ok = sum(r.ok for r in resultats)
+    non_extraites = sum(r.non_extraites for r in resultats)
+    if non_extraites:
+        logger.warning("G3 : %d anomalie(s) Redis non extraite(s) (clé expirée avant l'extraction) — "
+                       "relancez python -m sources.s5_redis.insert_data avant le pipeline", non_extraites)
     logger.info("Porte G3 : %d/%d types d'anomalies traités à 100 %% (%d anomalies) — %s", ok, len(resultats),
                 sum(r.traitees for r in resultats), rapport)
     return 0 if ok == len(resultats) else 1
+
+
+def entrepot(batch_id: str, meta) -> int:
+    """Chargement du Data Warehouse + porte G4. Retourne 0 si G4 est validée."""
+    import psycopg2
+    from pipeline import load_dw, verify_g4
+    conn = psycopg2.connect(**get_settings().pg_dw.connect_kwargs())
+    try:
+        with log_step(logger, "DW (dimensions, faits, porte G4)"):
+            with meta.step(batch_id, "DW", "*", "dw") as step:
+                comptes = load_dw.charger(conn)
+                step.nb_lignes = sum(n for t, n in comptes.items() if t.startswith("fact_"))
+            checks = verify_g4.verify(conn)
+        rapport = verify_g4.write_report(checks, batch_id)
+    finally:
+        conn.close()
+    for c in checks:
+        if not c.ok:
+            logger.error("[KO] %s %s : %s", c.code, c.libelle, c.detail)
+    logger.info("Porte G4 : %d/%d contrôles réussis — %s", sum(c.ok for c in checks), len(checks), rapport)
+    return 0 if all(c.ok for c in checks) else 1
 
 
 def main(argv: list[str] | None = None) -> int:

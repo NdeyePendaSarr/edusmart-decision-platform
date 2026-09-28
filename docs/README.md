@@ -1,6 +1,6 @@
 # Documentation de recherche — EduSmart Decision Platform
 
-Réponses aux questions de recherche du PDF « BI Recherche P8 » (phases 1 à 6), **appuyées sur les 5 sources réellement construites** (volet A).
+Réponses aux questions de recherche du PDF « BI Recherche P8 » (phases 1 à 9), **appuyées sur les 5 sources réellement construites** (volet A).
 
 | Document | Phase | Étape | Contenu |
 |---|---|---|---|
@@ -10,6 +10,7 @@ Réponses aux questions de recherche du PDF « BI Recherche P8 » (phases 1 à 6
 | [04_etl_vs_elt.md](04_etl_vs_elt.md) | 4 | 2 | ETL ou ELT ; décision ELT (EtLT) ; conception du pipeline et pièges d'intégration |
 | [05_qualite.md](05_qualite.md) | 5 | 3 | Qualité des données, 5 dimensions, méthode (corriger, rejeter, signaler), rapport qualité, porte G3 |
 | [06_metadonnees.md](06_metadonnees.md) | 6 | 3 | Métadonnées, `metadata_sources`, `etl_execution_log`, lignage de bout en bout |
+| [07_conception_dw.md](07_conception_dw.md) | 7, 8, 9 | 4 | Faits, dimensions, mesures, grain ; étoile, flocon, constellation ; SCD 1, 2, 3 et démonstration |
 
 Tous les chiffres cités se recalculent avec :
 

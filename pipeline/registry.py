@@ -119,6 +119,8 @@ def staging_ddl() -> str:
         "-- Redis). Aucune valeur n'est interprétée ni corrigée à ce stade : un montant",
         "-- négatif, une date '12/09/2026' ou un sexe 'Garçon' se chargent sans erreur.",
         "-- Colonnes techniques : lot, source, instant d'extraction, rang de la ligne.",
+        "-- UNLOGGED (L6) : couche reconstruite à chaque lot, inutile de la journaliser dans le WAL",
+        "-- (écritures divisées par deux ; en cas de panne brutale, elle est vidée et le lot se recharge).",
         "-- =============================================================================",
         "",
         f"CREATE SCHEMA IF NOT EXISTS {STAGING_SCHEMA};",
@@ -132,7 +134,8 @@ def staging_ddl() -> str:
                  "    _row_number          INTEGER   NOT NULL",
                  f"    CONSTRAINT pk_{o.stg_table} PRIMARY KEY (_batch_id, _row_number)"]
         blocs += [f"-- {o.source}.{o.objet} : {o.description}",
-                  f"CREATE TABLE IF NOT EXISTS {STAGING_SCHEMA}.{o.stg_table} (", ",\n".join(cols), ");",
+                  f"CREATE UNLOGGED TABLE IF NOT EXISTS {STAGING_SCHEMA}.{o.stg_table} (", ",\n".join(cols), ");",
+                  f"ALTER TABLE {STAGING_SCHEMA}.{o.stg_table} SET UNLOGGED;   -- tables créées avant L6",
                   f"COMMENT ON TABLE {STAGING_SCHEMA}.{o.stg_table} IS "
                   f"'Bronze - {o.source}.{o.objet} ({o.technologie}), copie brute';", ""]
     return "\n".join(blocs)

@@ -23,14 +23,16 @@ LEFT JOIN (SELECT session_id, min(student_code) AS code_mongo FROM clean.eveneme
            WHERE session_id IN (SELECT substr(cle, 9) FROM staging.stg_redis_keys WHERE cle LIKE 'session:%')
            GROUP BY session_id) m ON m.session_id = substr(s.cle, 9)
 WHERE s.cle LIKE 'session:%';
+ANALYZE t_ses;   -- statistiques (L6)
 
 SELECT quality.constater('RD_SESSION_EXPIREE', 'sessions', 'SELECT cle, status, statut_c FROM t_ses WHERE statut_c = ''EXPIREE''');
 SELECT quality.constater('RD_SESSION_INACTIVE', 'sessions', 'SELECT cle, status, statut_c FROM t_ses WHERE statut_c = ''INACTIVE''');
 SELECT quality.constater('RD_SESSION_ETUDIANT_RECUPERE', 'sessions', 'SELECT cle, NULL, code_mongo FROM t_ses WHERE code IS NULL AND code_mongo IS NOT NULL');
 SELECT quality.constater('RD_SESSION_SANS_ETUDIANT', 'sessions', 'SELECT cle, NULL, NULL FROM t_ses WHERE code IS NULL AND code_mongo IS NULL');
 
+ANALYZE quality.constats, quality.rejets;   -- statistiques (L6)
 DROP TABLE IF EXISTS clean.redis_sessions CASCADE;
-CREATE TABLE clean.redis_sessions AS
+CREATE UNLOGGED TABLE clean.redis_sessions AS
 SELECT t.session_id, COALESCE(t.code, t.code_mongo) AS student_code, t.statut_c AS statut, t.status AS statut_source,
        t.login_time, t.last_activity, t.plateforme, t.ip, t.ttl, COALESCE(a.codes, '{}') AS _anomalies, t._batch_id
 FROM t_ses t LEFT JOIN quality.anomalies_par_ligne('s5_redis', 'sessions') a ON a.id_ligne = t.cle;
@@ -44,21 +46,24 @@ SELECT s.*, split_part(s.cle, ':', 1) AS famille, substr(s.cle, strpos(s.cle, ':
        EXISTS (SELECT 1 FROM clean.comptes_lms c WHERE c.student_code = substr(s.cle, strpos(s.cle, ':') + 1)) AS connu
 FROM staging.stg_redis_keys s
 WHERE split_part(s.cle, ':', 1) IN ('last_course', 'last_quiz', 'progress', 'notifications');
+ANALYZE t_cles_etudiant;   -- statistiques (L6)
 
 SELECT quality.rejeter('RD_ETUDIANT_INCONNU', 'cles_etudiant', $q$
     SELECT code, _row_number, 'Clé ' || cle || ' : étudiant absent des autres systèmes', to_jsonb(t) - 'connu'
     FROM t_cles_etudiant t WHERE NOT connu $q$);
 
 -- ---------------------------------------------------- dernier cours / quiz --
+ANALYZE quality.constats, quality.rejets;   -- statistiques (L6)
 DROP TABLE IF EXISTS clean.redis_last_course CASCADE;
-CREATE TABLE clean.redis_last_course AS
+CREATE UNLOGGED TABLE clean.redis_last_course AS
 SELECT t.code AS student_code, t.valeur #>> '{}' AS course_code, m.id_mysql::UUID AS id_cours, t._batch_id
 FROM t_cles_etudiant t LEFT JOIN clean.ref_mapping_contenus m ON m.code_externe = t.valeur #>> '{}'
 WHERE t.famille = 'last_course' AND t.connu;
 ALTER TABLE clean.redis_last_course ADD PRIMARY KEY (student_code);
 
+ANALYZE quality.constats, quality.rejets;   -- statistiques (L6)
 DROP TABLE IF EXISTS clean.redis_last_quiz CASCADE;
-CREATE TABLE clean.redis_last_quiz AS
+CREATE UNLOGGED TABLE clean.redis_last_quiz AS
 SELECT t.code AS student_code, t.valeur #>> '{}' AS quiz_code, m.id_mysql::UUID AS id_quiz, t._batch_id
 FROM t_cles_etudiant t LEFT JOIN clean.ref_mapping_contenus m ON m.code_externe = t.valeur #>> '{}'
 WHERE t.famille = 'last_quiz' AND t.connu;
@@ -71,10 +76,12 @@ SELECT t.cle, t.code, t.valeur ->> 'module' AS module_code, t.valeur ->> 'course
        clean.nombre(t.valeur ->> 'progress') AS pct, t.valeur ->> 'progress' AS progress_brut,
        (t.valeur ->> 'last_update')::TIMESTAMP AS last_update, t.ttl::INT AS ttl, t._batch_id
 FROM t_cles_etudiant t WHERE t.famille = 'progress' AND t.connu;
+ANALYZE t_prg;   -- statistiques (L6)
 SELECT quality.constater('RD_PROGRESSION_HORS_BORNES', 'progress', 'SELECT cle, progress_brut, NULL FROM t_prg WHERE pct NOT BETWEEN 0 AND 100');
 
+ANALYZE quality.constats, quality.rejets;   -- statistiques (L6)
 DROP TABLE IF EXISTS clean.redis_progress CASCADE;
-CREATE TABLE clean.redis_progress AS
+CREATE UNLOGGED TABLE clean.redis_progress AS
 SELECT t.code AS student_code, t.module_code, t.course_code,
        CASE WHEN t.pct BETWEEN 0 AND 100 THEN t.pct END::NUMERIC(5,2) AS progress, t.last_update, t.ttl,
        COALESCE(a.codes, '{}') AS _anomalies, t._batch_id
@@ -88,19 +95,22 @@ SELECT t.cle, t.code, t._row_number, t._batch_id, m.message, m.rang,
        row_number() OVER (PARTITION BY t.cle, m.message ORDER BY m.rang) AS rn
 FROM t_cles_etudiant t CROSS JOIN LATERAL jsonb_array_elements_text(t.valeur) WITH ORDINALITY AS m(message, rang)
 WHERE t.famille = 'notifications' AND t.connu;
+ANALYZE t_ntf;   -- statistiques (L6)
 SELECT quality.rejeter('RD_NOTIFICATION_DOUBLON', 'notifications', $q$
     SELECT cle, _row_number, 'Notification répétée : ' || message, jsonb_build_object('cle', cle, 'rang', rang, 'message', message)
     FROM t_ntf WHERE rn > 1 $q$);
 
+ANALYZE quality.constats, quality.rejets;   -- statistiques (L6)
 DROP TABLE IF EXISTS clean.redis_notifications CASCADE;
-CREATE TABLE clean.redis_notifications AS
+CREATE UNLOGGED TABLE clean.redis_notifications AS
 SELECT code AS student_code, row_number() OVER (PARTITION BY code ORDER BY rang) AS rang, message, _batch_id
 FROM t_ntf WHERE rn = 1;
 ALTER TABLE clean.redis_notifications ADD PRIMARY KEY (student_code, rang);
 
 -- ------------------------------------------------------------ classement --
+ANALYZE quality.constats, quality.rejets;   -- statistiques (L6)
 DROP TABLE IF EXISTS clean.redis_leaderboard CASCADE;
-CREATE TABLE clean.redis_leaderboard AS
+CREATE UNLOGGED TABLE clean.redis_leaderboard AS
 SELECT substr(s.cle, 13) AS classement, e.membre ->> 0 AS student_code, (e.membre ->> 1)::NUMERIC(6,2) AS score,
        e.rang::INT AS rang, s._batch_id
 FROM staging.stg_redis_keys s CROSS JOIN LATERAL jsonb_array_elements(s.valeur) WITH ORDINALITY AS e(membre, rang)
@@ -137,12 +147,14 @@ SELECT b.nom, b.valeur_source::INT AS valeur_source,
                AND (duration_seconds IS NULL OR horodatage + duration_seconds * INTERVAL '1 second' > t.snap))
        END AS valeur_recalculee
 FROM brut b;
+ANALYZE t_cpt;   -- statistiques (L6)
 
 SELECT quality.constater('RD_COMPTEUR', 'compteurs', 'SELECT nom, valeur_source, valeur_recalculee FROM t_cpt WHERE valeur_recalculee IS NOT NULL AND valeur_source <> valeur_recalculee');
 SELECT quality.constater('RD_COMPTEUR_NON_VERIFIABLE', 'compteurs', 'SELECT nom, valeur_source, NULL FROM t_cpt WHERE valeur_recalculee IS NULL');
 
+ANALYZE quality.constats, quality.rejets;   -- statistiques (L6)
 DROP TABLE IF EXISTS clean.redis_compteurs CASCADE;
-CREATE TABLE clean.redis_compteurs AS
+CREATE UNLOGGED TABLE clean.redis_compteurs AS
 SELECT t.nom, t.valeur_source, COALESCE(t.valeur_recalculee, t.valeur_source) AS valeur,
        (t.valeur_recalculee IS NOT NULL) AS verifiable, COALESCE(a.codes, '{}') AS _anomalies
 FROM t_cpt t LEFT JOIN quality.anomalies_par_ligne('s5_redis', 'compteurs') a ON a.id_ligne = t.nom;
