@@ -9,7 +9,8 @@ Un lancement = un LOT (batch_id) :
     3. VERIFY    : porte G2 (complétude, fidélité, traçabilité) ;
     4. TRANSFORM : staging -> clean, 89 règles qualité (lot L5) ;
     5. QUALITE   : rapport qualité (Phase 5) et porte G3 (toutes les anomalies traitées) ;
-    6. DW        : dimensions (SCD 1 / SCD 2) et 8 faits, porte G4 (lot L6).
+    6. DW        : dimensions (SCD 1 / SCD 2) et 8 faits, porte G4 (lot L6) ;
+    7. KPI       : exploration du cube (OLAP), 8 KPI et porte G5a (lot L7).
 
 Politique d'erreur : l'échec d'une source n'empêche pas les autres d'être
 extraites. Il est tracé (statut ECHEC dans le journal), la source n'est pas
@@ -38,7 +39,7 @@ logger = get_logger("pipeline")
 EXTRACTEURS = {"s1_postgresql": "pipeline.extract_postgres", "s2_mysql": "pipeline.extract_mysql",
                "s3_csv": "pipeline.extract_csv", "s4_mongodb": "pipeline.extract_mongodb",
                "s5_redis": "pipeline.extract_redis"}
-ETAPES = ("extract", "load", "verify", "transform", "qualite", "dw")
+ETAPES = ("extract", "load", "verify", "transform", "qualite", "dw", "kpi")
 
 
 def emplacements() -> dict[str, str]:
@@ -106,6 +107,9 @@ def run(sources: list[str], etapes: list[str]) -> int:
 
         if "dw" in etapes:
             code_retour = max(code_retour, entrepot(batch.batch_id, meta))
+
+        if "kpi" in etapes:
+            code_retour = max(code_retour, indicateurs(batch.batch_id))
         logger.info("Lot %s terminé (code %d). Journal : meta.etl_execution_log", batch.batch_id, code_retour)
         return code_retour
     finally:
@@ -159,6 +163,25 @@ def entrepot(batch_id: str, meta) -> int:
             logger.error("[KO] %s %s : %s", c.code, c.libelle, c.detail)
     logger.info("Porte G4 : %d/%d contrôles réussis — %s", sum(c.ok for c in checks), len(checks), rapport)
     return 0 if all(c.ok for c in checks) else 1
+
+
+def indicateurs(batch_id: str) -> int:
+    """Exploration OLAP + 8 KPI + porte G5a (SQL sur le DW = Python sur la couche clean)."""
+    import psycopg2
+    from pipeline import kpi, olap
+    conn = psycopg2.connect(**get_settings().pg_dw.connect_kwargs())
+    try:
+        with log_step(logger, "KPI (cube OLAP, 8 KPI, porte G5a)"):
+            logger.info("Exploration du cube : %s", olap.ecrire(batch_id, olap.executer(conn)))
+            comparaison, (md, _) = kpi.executer(conn, batch_id)
+    finally:
+        conn.close()
+    for code, ok, a, b in comparaison:
+        if not ok:
+            logger.error("[KO] G5a %s : SQL=%s, Python=%s", code, a, b)
+    n_ok = sum(c[1] for c in comparaison)
+    logger.info("Porte G5a : %d/%d KPI identiques (SQL sur le DW = Python sur la couche clean) — %s", n_ok, len(comparaison), md)
+    return 0 if n_ok == len(comparaison) else 1
 
 
 def main(argv: list[str] | None = None) -> int:

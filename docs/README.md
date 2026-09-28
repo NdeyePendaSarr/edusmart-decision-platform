@@ -1,6 +1,6 @@
 # Documentation de recherche — EduSmart Decision Platform
 
-Réponses aux questions de recherche du PDF « BI Recherche P8 » (phases 1 à 9), **appuyées sur les 5 sources réellement construites** (volet A).
+Réponses aux questions de recherche du PDF « BI Recherche P8 » (phases 1 à 11), **appuyées sur les 5 sources réellement construites** (volet A).
 
 | Document | Phase | Étape | Contenu |
 |---|---|---|---|
@@ -11,6 +11,8 @@ Réponses aux questions de recherche du PDF « BI Recherche P8 » (phases 1 à 9
 | [05_qualite.md](05_qualite.md) | 5 | 3 | Qualité des données, 5 dimensions, méthode (corriger, rejeter, signaler), rapport qualité, porte G3 |
 | [06_metadonnees.md](06_metadonnees.md) | 6 | 3 | Métadonnées, `metadata_sources`, `etl_execution_log`, lignage de bout en bout |
 | [07_conception_dw.md](07_conception_dw.md) | 7, 8, 9 | 4 | Faits, dimensions, mesures, grain ; étoile, flocon, constellation ; SCD 1, 2, 3 et démonstration |
+| [10_olap.md](10_olap.md) | 10 | 5 | Cube OLAP ; roll up, drill down, slice, dice, pivot sur le cube EduSmart |
+| [11_kpi.md](11_kpi.md) | 11 | 5 | KPI ou métrique, critères de choix, 8 fiches KPI, satisfaction non calculable, porte G5 |
 
 Tous les chiffres cités se recalculent avec :
 

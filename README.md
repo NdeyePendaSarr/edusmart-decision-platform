@@ -24,14 +24,15 @@ Les PDF du projet sont la seule source de vérité. Tout écart est tracé dans 
 | L3 | Recherches, phases 1 à 4 | Validé ([docs/](docs/README.md)) |
 | L4 | Pipeline : extraction, staging, métadonnées | Validé (G2 : 85/85) ([détails](pipeline/README.md)) |
 | L5 | Couche clean, qualité, porte G3 | Validé (G3 : 69/69, 159 946 anomalies) |
-| L6 | Data Warehouse : constellation de 8 faits, SCD 2 | Livré, en attente de G4 ([conception](docs/07_conception_dw.md)) |
-| L7 à L10 | Plateforme BI (phases 10 à 18) | À venir |
+| L6 | Data Warehouse : constellation de 8 faits, SCD 2 | Validé (G4 : 57/57) ([conception](docs/07_conception_dw.md)) |
+| L7 | OLAP et KPI | Livré, en attente de G5a ([OLAP](docs/10_olap.md), [KPI](docs/11_kpi.md)) |
+| L8 à L10 | Power BI, storytelling, tests et soutenance (phases 12 à 18) | À venir |
 
 ### Pipeline ELT (L4)
 
 ```powershell
 python -m sources.s5_redis.insert_data     # snapshot Redis frais
-python -m pipeline.run_pipeline            # extraction -> staging -> G2 -> clean -> qualité -> G3 -> DW -> G4
+python -m pipeline.run_pipeline            # extraction -> staging -> G2 -> clean -> G3 -> DW -> G4 -> OLAP, KPI -> G5a
 ```
 
 ### Volet A : vérifier les 5 sources d'un coup
@@ -60,8 +61,9 @@ edusmart-decision-platform/
 ├── scripts/check_infrastructure.py   point de contrôle G0
 ├── scripts/verify_sources.py         les 5 portes G1 en une commande
 ├── scripts/constats_sources.py       chiffres cités dans les documents de recherche
-├── docs/                         recherches des phases 1 à 9 (Markdown)
-├── pipeline/                     ELT : extract_*.py, load.py, transform.py, run_pipeline.py, portes G2 et G3, load_dw.py, sql/{meta,staging,quality,clean,dw}
+├── docs/                         recherches des phases 1 à 11 (Markdown)
+├── pipeline/                     ELT : extract_*.py, load.py, transform.py, run_pipeline.py, portes G2 et G3, load_dw.py, olap.py, kpi.py, sql/{meta,staging,quality,clean,dw,olap}
+├── powerbi/                      mesures DAX des 8 KPI (L7), rapport Power BI (L8)
 ├── sources/
 │   ├── s1_postgresql/            Source 1 : SQL, génération, insertion, vérification G1
 │   ├── s2_mysql/                 Source 2 : idem pour MySQL
@@ -76,7 +78,7 @@ edusmart-decision-platform/
 │   ├── generated/<source>/       CSV intermédiaires + summary.json
 │   ├── anomalies/                journaux d'anomalies (vérité terrain)
 │   └── reports/                  rapports des portes G1
-├── tests/                        207 tests unitaires + 52 tests d'intégration
+├── tests/                        234 tests unitaires + 57 tests d'intégration
 ├── requirements.txt
 └── pytest.ini
 ```

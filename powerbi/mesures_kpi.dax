@@ -1,0 +1,62 @@
+// =============================================================================
+// EduSmart — Mesures DAX des 8 KPI (Phase 11, Lot L7 ; utilisées en L8, Power BI)
+// -----------------------------------------------------------------------------
+// Tables importées depuis le schéma dw, sous leur nom : fact_*, dim_*.
+// Relations (plusieurs vers un) : chaque clé *_key d'un fait vers la dimension du même nom.
+// PORTE G5b : sans aucun filtre (ni segment, ni visuel filtré), chaque mesure doit afficher
+// la valeur de data/reports/kpi_reference.json, calculée en SQL (dw.v_kpi).
+// =============================================================================
+
+// ---------------------------------------------------------------- Paramètres
+Date de référence = DATE ( 2026, 9, 15 )      // convention C20
+
+// ---------------------------------------------------------- 1. CA encaissé
+// Paiements VALIDE rattachés, négatifs exclus : la règle est déjà dans la colonne montant_ca
+CA encaissé = SUM ( fact_paiements[montant_ca] )
+
+// ------------------------------------------------- 2. Taux de recouvrement
+Montant dû = SUM ( fact_inscriptions[montant_du] )
+Taux de recouvrement = DIVIDE ( [CA encaissé], [Montant dû] )
+// Par année : dim_formation est commune aux deux faits ; un segment sur
+// dim_formation[annee_academique] filtre le numérateur ET le dénominateur.
+
+// ----------------------------------------------------- 3. Taux de réussite
+// Couples (étudiant durable, quiz) validés au moins une fois / couples tentés
+Taux de réussite =
+VAR couples = SUMMARIZE ( fact_notes, dim_etudiant[etudiant_id], fact_notes[quiz_key] )
+VAR valides = FILTER ( couples, CALCULATE ( MAX ( fact_notes[est_valide] ) ) = 1 )
+RETURN DIVIDE ( COUNTROWS ( valides ), COUNTROWS ( couples ) )
+
+// ------------------------------------------------------- 4. Taux d'abandon
+Taux d'abandon = DIVIDE ( SUM ( fact_inscriptions[est_abandon] ), COUNTROWS ( fact_inscriptions ) )
+
+// --------------------------------------------------- 5. Progression moyenne
+// Semi-additive : on la moyenne ; AVERAGE ignore les valeurs vides (neutralisées en L5)
+Progression moyenne = AVERAGE ( fact_progression[pourcentage] )
+
+// ------------------------------------------------ 6. Étudiants actifs (30 j)
+Étudiants actifs (30 j) =
+VAR fin = [Date de référence]
+VAR debut = fin - 29
+VAR c = SELECTCOLUMNS (
+            FILTER ( fact_connexions, RELATED ( dim_temps[date_complete] ) >= debut && RELATED ( dim_temps[date_complete] ) <= fin ),
+            "id", RELATED ( dim_etudiant[etudiant_id] ) )
+VAR n = SELECTCOLUMNS (
+            FILTER ( fact_notes, RELATED ( dim_temps[date_complete] ) >= debut && RELATED ( dim_temps[date_complete] ) <= fin ),
+            "id", RELATED ( dim_etudiant[etudiant_id] ) )
+VAR q = SELECTCOLUMNS (
+            FILTER ( fact_quiz_activite, RELATED ( dim_temps[date_complete] ) >= debut && RELATED ( dim_temps[date_complete] ) <= fin ),
+            "id", RELATED ( dim_etudiant[etudiant_id] ) )
+RETURN COUNTROWS ( DISTINCT ( UNION ( c, n, q ) ) )
+
+// ------------------------------------------- 7. Temps médian de connexion (s)
+// MEDIAN ignore les valeurs vides (connexions sans déconnexion) ; nombre pair : moyenne des 2 valeurs centrales
+Temps médian de connexion (s) = MEDIAN ( fact_connexions[duree_secondes] )
+
+// ---------------------------------------------- 8. Nombre réel d'étudiants
+Nombre réel d'étudiants =
+CALCULATE (
+    DISTINCTCOUNT ( dim_etudiant[etudiant_id] ),
+    dim_etudiant[est_courant] = TRUE (),
+    dim_etudiant[etudiant_key] <> -1
+)

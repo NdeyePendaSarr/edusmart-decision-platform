@@ -182,3 +182,25 @@ python -m pipeline.demo_scd2 --restaurer        # remettre les villes d'origine 
 Diagnostic objectif : `python -m scripts.diagnostic_perf --profil s2_mysql` affiche les réglages actifs, l'état `UNLOGGED`, les checkpoints, les instructions les plus lentes et le plan de la pire. Tout se fait dans une transaction annulée à la fin, donc sans rien modifier.
 
 **Tests :** `tests/test_dw.py` (6 tests, sans base) et `tests/test_dw_integration.py` (3 tests : G4, cas limites du SCD 2, idempotence).
+
+---
+
+# Lot L7 : OLAP et KPI (Phases 10 et 11)
+
+Documents : [`docs/10_olap.md`](../docs/10_olap.md) et [`docs/11_kpi.md`](../docs/11_kpi.md).
+
+| Fichier | Rôle |
+|---|---|
+| `sql/olap/01_cube.sql` | Deux cubes matérialisés (`GROUP BY CUBE`) : `dw.cube_finance`, `dw.cube_pedagogie` |
+| `sql/olap/02_roll_up.sql` … `06_pivot.sql` | Roll up, drill down, slice, dice, pivot sur le cube EduSmart |
+| `sql/olap/10_kpi.sql` | Vues `dw.v_kpi` (8 KPI) et `dw.v_kpi_annee` (par année académique de la formation) |
+| `olap.py` | Exécute les requêtes OLAP → `data/reports/olap_<lot>.md` |
+| `kpi.py` | Fiches des 8 KPI, **recalcul indépendant en Python depuis la couche clean**, porte G5a → `kpi_<lot>.md` et `kpi_reference.json` |
+| `../powerbi/mesures_kpi.dax` | Les 8 mesures DAX (utilisées en L8, porte G5b) |
+
+```powershell
+python -m pipeline.run_pipeline                  # 7 étapes, jusqu'aux KPI et à la porte G5a
+python -m pipeline.run_pipeline --steps kpi      # recalculer seulement l'OLAP et les KPI (quelques secondes)
+```
+
+**Tests :** `tests/test_kpi.py` (20 tests sans base : cas limites des recalculs, fiches, SQL, DAX, OLAP) et `tests/test_kpi_integration.py` (5 tests : G5a, total du cube = KPI CA, additivité du cube, pivot = cube).
