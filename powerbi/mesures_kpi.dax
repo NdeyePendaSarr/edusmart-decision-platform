@@ -60,3 +60,41 @@ CALCULATE (
     dim_etudiant[est_courant] = TRUE (),
     dim_etudiant[etudiant_key] <> -1
 )
+
+// =============================================================================
+// MESURES D'APPUI AUX VISUELS (L8) — des métriques, pas des KPI (docs/11_kpi.md, § 2)
+// =============================================================================
+
+// ---------------------------------------------------------------- Finance
+Impayés = [Montant dû] - [CA encaissé]
+Nombre de paiements = COUNTROWS ( fact_paiements )
+Paiements négatifs (exclus du CA) = SUM ( fact_paiements[est_montant_negatif] )
+Cible recouvrement = 0.90
+Écart à la cible de recouvrement = [Taux de recouvrement] - [Cible recouvrement]
+
+// ------------------------------------------------------------- Inscriptions
+Inscriptions = COUNTROWS ( fact_inscriptions )
+Abandons = SUM ( fact_inscriptions[est_abandon] )
+Cible abandon = 0.05
+
+// --------------------------------------------------------------- Pédagogie
+Tentatives = COUNTROWS ( fact_notes )
+Taux de validation par tentative = DIVIDE ( SUM ( fact_notes[est_valide] ), COUNTROWS ( fact_notes ) )
+Score moyen sur 20 = AVERAGE ( fact_notes[score_sur_20] )
+Modules terminés = SUM ( fact_progression[est_termine] )
+
+// -------------------------------------------------------------- Engagement
+Connexions = COUNTROWS ( fact_connexions )
+Heures connectées = DIVIDE ( SUM ( fact_connexions[duree_secondes] ), 3600 )
+Temps médian de connexion (min) = DIVIDE ( [Temps médian de connexion (s)], 60 )
+Événements de quiz = COUNTROWS ( fact_quiz_activite )
+Part des étudiants actifs = DIVIDE ( [Étudiants actifs (30 j)], [Nombre réel d'étudiants] )
+
+// --------------------------------------------------------------------- RH
+Masse salariale nette = SUM ( fact_salaires[salaire_net] )
+Heures d'absence = SUM ( fact_absences[duree_heures] )
+Absences = COUNTROWS ( fact_absences )
+
+// ---------------------------------------------------- KPI non calculable
+// Affiché tel quel sur la carte « Satisfaction » : ne JAMAIS le remplacer par un indicateur de substitution
+Satisfaction = "Non mesurée : aucune source"
