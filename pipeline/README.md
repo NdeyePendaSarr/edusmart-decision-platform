@@ -204,3 +204,31 @@ python -m pipeline.run_pipeline --steps kpi      # recalculer seulement l'OLAP e
 ```
 
 **Tests :** `tests/test_kpi.py` (20 tests sans base : cas limites des recalculs, fiches, SQL, DAX, OLAP) et `tests/test_kpi_integration.py` (5 tests : G5a, total du cube = KPI CA, additivité du cube, pivot = cube).
+
+---
+
+# Lot L9 : tests du pipeline, porte G6 (Phase 15)
+
+Document : [`docs/15_tests_pipeline.md`](../docs/15_tests_pipeline.md) (recherche, stratégie, rapport de tests final, décisions L9).
+
+| Fichier | Rôle |
+|---|---|
+| `verify_g6.py` | **Porte G6** : les 5 questions du PDF + non-régression des KPI, de la source au DW (101 contrôles) → `data/reports/G6_<lot>.md` |
+
+| Code | Question (PDF Phase 15) | Contrôles |
+|---|---|---:|
+| G6.1 | Toutes les lignes ont-elles été extraites ? | source = manifeste = journal `EXTRACT` (17) |
+| G6.2 | Toutes les lignes ont-elles été chargées ? | staging = manifeste = journal `LOAD`, aucune ligne d'un autre lot (17) |
+| G6.3 | Des données ont-elles été perdues ? | staging = clean + rejets distincts, Redis par famille, clean = DW, rapport qualité (35) |
+| G6.4 | Des erreurs sont-elles apparues ? | 41 étapes du journal, aucune `EN_COURS`, 0 erreur, `metadata_sources` (9) |
+| G6.5 | Les clés sont-elles toujours valides ? | 26 clés étrangères, membres −1, SCD 2, clés primaires clean, intégrité clean (15) |
+| G6.6 | Les KPI ont-ils changé ? | 8 KPI = référence L7 (8) |
+
+```powershell
+python -m pipeline.verify_g6                       # recompte les 4 sources persistantes (Redis : jamais, il est volatile)
+python -m pipeline.verify_g6 --sans-recomptage     # sans interroger les sources
+```
+
+**Principes.** Lecture seule (aucun `COMMIT`, d'où les tests de mutation en transaction annulée) ; G6 n'écrit pas dans `meta.etl_execution_log` (D-L9-03) ; les listes de G4 et du rapport qualité sont réutilisées, jamais recopiées.
+
+**Tests :** `tests/test_verify_g6.py` (41 tests sans base) et `tests/test_pipeline_integration.py` (14 tests : pipeline complet, G6, **8 tests de mutation** qui cassent volontairement une donnée pour vérifier que G6 la détecte, contre-épreuve).

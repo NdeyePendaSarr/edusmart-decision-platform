@@ -1,6 +1,6 @@
 # Documentation de recherche — EduSmart Decision Platform
 
-Réponses aux questions de recherche du PDF « BI Recherche P8 » (phases 1 à 13), **appuyées sur les 5 sources réellement construites** (volet A).
+Réponses aux questions de recherche du PDF « BI Recherche P8 » (phases 1 à 15), **appuyées sur les 5 sources réellement construites** (volet A).
 
 | Document | Phase | Étape | Contenu |
 |---|---|---|---|
@@ -15,6 +15,8 @@ Réponses aux questions de recherche du PDF « BI Recherche P8 » (phases 1 à 1
 | [11_kpi.md](11_kpi.md) | 11 | 5 | KPI ou métrique, critères de choix, 8 fiches KPI, satisfaction non calculable, porte G5 |
 | [12_visualisations.md](12_visualisations.md) | 12 | 6 | Histogramme, boxplot, scatterplot, heatmap, barplot : pourquoi ce choix, pourquoi pas un autre (graphiques dans `figures/`) |
 | [13_powerbi.md](13_powerbi.md) | 13 | 6 | Modèle relationnel, mesures ou colonnes, segments et filtres, pages du tableau de bord, porte G5b |
+| [14_data_storytelling.md](14_data_storytelling.md) | 14 | 6 | Data Storytelling, convaincre un décideur ; récit en 3 actes du tableau de bord, recommandations, limites des données simulées |
+| [15_tests_pipeline.md](15_tests_pipeline.md) | 15 | 7 | Pourquoi tester un pipeline ; porte G6 (5 questions + non-régression), tests de mutation, rapport de tests final, décisions L9 |
 
 Tous les chiffres cités se recalculent avec :
 

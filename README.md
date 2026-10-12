@@ -26,14 +26,16 @@ Les PDF du projet sont la seule source de vérité. Tout écart est tracé dans 
 | L5 | Couche clean, qualité, porte G3 | Validé (G3 : 69/69, 159 946 anomalies) |
 | L6 | Data Warehouse : constellation de 8 faits, SCD 2 | Validé (G4 : 57/57) ([conception](docs/07_conception_dw.md)) |
 | L7 | OLAP et KPI | Validé (G5a : 8/8) ([OLAP](docs/10_olap.md), [KPI](docs/11_kpi.md)) |
-| L8 | Visualisations et Power BI | Livré, en attente de G5b ([guide](powerbi/guide_powerbi.md)) |
-| L9 et L10 | Storytelling, tests, projet et soutenance (phases 14 à 18) | À venir |
+| L8 | Visualisations et Power BI | Validé (G5b : 8/8) ([guide](powerbi/guide_powerbi.md), [Power BI](docs/13_powerbi.md)) |
+| L9 | Data Storytelling, tests du pipeline (phases 14 et 15) | Livré, en attente de G6 ([storytelling](docs/14_data_storytelling.md), [tests](docs/15_tests_pipeline.md)) |
+| L10 | Rapports finaux et présentation (phases 16 à 18) | À venir |
 
 ### Pipeline ELT (L4)
 
 ```powershell
 python -m sources.s5_redis.insert_data     # snapshot Redis frais
 python -m pipeline.run_pipeline            # extraction -> staging -> G2 -> clean -> G3 -> DW -> G4 -> OLAP, KPI -> G5a
+python -m pipeline.verify_g6               # porte G6 : tests du pipeline de bout en bout (Phase 15)
 ```
 
 ### Volet A : vérifier les 5 sources d'un coup
@@ -65,9 +67,9 @@ edusmart-decision-platform/
 ├── scripts/diagnostic_perf.py        diagnostic de performance de l'entrepôt (L6)
 ├── scripts/visualisations.py         les 5 graphiques de la Phase 12 (L8)
 ├── scripts/verifier_g5b.py           porte G5b : DAX de Power BI = KPI SQL (L8)
-├── docs/                         recherches des phases 1 à 13 (Markdown), figures/ (graphiques de la Phase 12)
-├── pipeline/                     ELT : extract_*.py, load.py, transform.py, run_pipeline.py, portes G2 et G3, load_dw.py, olap.py, kpi.py, sql/{meta,staging,quality,clean,dw,olap}
-├── powerbi/                      mesures DAX, guide de construction, EduSmart.pbix (à construire), saisie G5b
+├── docs/                         recherches des phases 1 à 15 (Markdown), figures/ (graphiques de la Phase 12)
+├── pipeline/                     ELT : extract_*.py, load.py, transform.py, run_pipeline.py, portes G2, G3, G4 et G6, load_dw.py, olap.py, kpi.py, sql/{meta,staging,quality,clean,dw,olap}
+├── powerbi/                      mesures DAX, guide de construction, EduSmart.pbix (47,6 Mo), EduSmart.pdf (export 4 pages), saisie G5b
 ├── sources/
 │   ├── s1_postgresql/            Source 1 : SQL, génération, insertion, vérification G1
 │   ├── s2_mysql/                 Source 2 : idem pour MySQL
@@ -81,8 +83,8 @@ edusmart-decision-platform/
 │   ├── referential/              référentiel maître caché
 │   ├── generated/<source>/       CSV intermédiaires + summary.json
 │   ├── anomalies/                journaux d'anomalies (vérité terrain)
-│   └── reports/                  rapports des portes G1
-├── tests/                        249 tests unitaires + 57 tests d'intégration
+│   └── reports/                  rapports des portes G1 à G6, rapport qualité, KPI
+├── tests/                        290 tests unitaires + 68 tests d'intégration
 ├── requirements.txt
 └── pytest.ini
 ```
