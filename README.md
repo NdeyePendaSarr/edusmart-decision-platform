@@ -27,8 +27,8 @@ Les PDF du projet sont la seule source de vérité. Tout écart est tracé dans 
 | L6 | Data Warehouse : constellation de 8 faits, SCD 2 | Validé (G4 : 57/57) ([conception](docs/07_conception_dw.md)) |
 | L7 | OLAP et KPI | Validé (G5a : 8/8) ([OLAP](docs/10_olap.md), [KPI](docs/11_kpi.md)) |
 | L8 | Visualisations et Power BI | Validé (G5b : 8/8) ([guide](powerbi/guide_powerbi.md), [Power BI](docs/13_powerbi.md)) |
-| L9 | Data Storytelling, tests du pipeline (phases 14 et 15) | Livré, en attente de G6 ([storytelling](docs/14_data_storytelling.md), [tests](docs/15_tests_pipeline.md)) |
-| L10 | Rapports finaux et présentation (phases 16 à 18) | À venir |
+| L9 | Data Storytelling, tests du pipeline (phases 14 et 15) | Validé (G6 : 101/101 ; 358 tests au vert) ([storytelling](docs/14_data_storytelling.md), [tests](docs/15_tests_pipeline.md)) |
+| L10 | Rapports finaux et présentation (phases 16 à 18) | En cours : [rapport individuel](docs/16_rapport_individuel.md), [rapport décisionnel](docs/17_rapport_decisionnel.md) livrés ; présentation et PDF final à venir |
 
 ### Pipeline ELT (L4)
 
@@ -67,7 +67,7 @@ edusmart-decision-platform/
 ├── scripts/diagnostic_perf.py        diagnostic de performance de l'entrepôt (L6)
 ├── scripts/visualisations.py         les 5 graphiques de la Phase 12 (L8)
 ├── scripts/verifier_g5b.py           porte G5b : DAX de Power BI = KPI SQL (L8)
-├── docs/                         recherches des phases 1 à 15 (Markdown), figures/ (graphiques de la Phase 12)
+├── docs/                         recherches et rapports des phases 1 à 17 (Markdown), figures/ (graphiques de la Phase 12)
 ├── pipeline/                     ELT : extract_*.py, load.py, transform.py, run_pipeline.py, portes G2, G3, G4 et G6, load_dw.py, olap.py, kpi.py, sql/{meta,staging,quality,clean,dw,olap}
 ├── powerbi/                      mesures DAX, guide de construction, EduSmart.pbix (47,6 Mo), EduSmart.pdf (export 4 pages), saisie G5b
 ├── sources/
@@ -84,7 +84,7 @@ edusmart-decision-platform/
 │   ├── generated/<source>/       CSV intermédiaires + summary.json
 │   ├── anomalies/                journaux d'anomalies (vérité terrain)
 │   └── reports/                  rapports des portes G1 à G6, rapport qualité, KPI
-├── tests/                        290 tests unitaires + 68 tests d'intégration
+├── tests/                        299 tests unitaires + 69 tests d'intégration
 ├── requirements.txt
 └── pytest.ini
 ```

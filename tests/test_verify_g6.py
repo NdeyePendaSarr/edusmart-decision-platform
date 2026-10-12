@@ -144,6 +144,17 @@ def test_compter_familles_signale_les_cles_non_routees():
     assert comptes == {"session": 2, "compteur": 1} and inconnues == ["inconnue:1"]
 
 
+def test_classement_sans_perte():
+    ok, detail = verify_g6.evaluer_classement(1_325, 1_325)
+    assert ok and "aucune perte silencieuse" in detail
+
+
+def test_classement_membre_ecarte_est_bloquant():
+    """L9-A1 (décision A1-bis) : un membre écarté sans trace fait échouer G6, il n'est plus une information."""
+    ok, detail = verify_g6.evaluer_classement(1_325, 1_324)
+    assert not ok and "1 écarté(s) SANS trace" in detail
+
+
 # ------------------------------------------------------------------------- Q6 non-régression --
 def test_kpi_identiques_a_la_reference():
     res = comparer_kpi(dict(verify_g6.REFERENCE_KPI))

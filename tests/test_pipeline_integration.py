@@ -119,6 +119,11 @@ MUTATIONS = {
            SELECT batch_id, code_regle, code_source, table_source, id_ligne, rang, motif, ligne FROM quality.rejets
            WHERE batch_id = %(lot)s AND code_source <> 's5_redis' LIMIT 1""",
         "controles_pertes", "Aucune ligne rejetée deux fois (16 tables)"),
+    # Q3 (L10, A1-bis) : un membre du classement Redis disparaît sans trace (perte silencieuse)
+    "Q3_membre_classement_perdu": (
+        """DELETE FROM clean.redis_leaderboard
+           WHERE (classement, student_code) = (SELECT classement, student_code FROM clean.redis_leaderboard LIMIT 1)""",
+        "controles_pertes", "Redis : membres du classement -> clean.redis_leaderboard"),
     # Q4 « des erreurs sont-elles apparues ? » : la dernière exécution d'une étape est en échec
     "Q4_etape_en_echec": (
         """INSERT INTO meta.etl_execution_log (batch_id, etape, code_source, objet, date_debut, date_fin, nb_lignes,

@@ -219,7 +219,7 @@ Document : [`docs/15_tests_pipeline.md`](../docs/15_tests_pipeline.md) (recherch
 |---|---|---:|
 | G6.1 | Toutes les lignes ont-elles été extraites ? | source = manifeste = journal `EXTRACT` (17) |
 | G6.2 | Toutes les lignes ont-elles été chargées ? | staging = manifeste = journal `LOAD`, aucune ligne d'un autre lot (17) |
-| G6.3 | Des données ont-elles été perdues ? | staging = clean + rejets distincts, Redis par famille, clean = DW, rapport qualité (35) |
+| G6.3 | Des données ont-elles été perdues ? | staging = clean + rejets distincts, Redis par famille (classement bloquant depuis L10), clean = DW, rapport qualité (35) |
 | G6.4 | Des erreurs sont-elles apparues ? | 41 étapes du journal, aucune `EN_COURS`, 0 erreur, `metadata_sources` (9) |
 | G6.5 | Les clés sont-elles toujours valides ? | 26 clés étrangères, membres −1, SCD 2, clés primaires clean, intégrité clean (15) |
 | G6.6 | Les KPI ont-ils changé ? | 8 KPI = référence L7 (8) |
@@ -231,4 +231,6 @@ python -m pipeline.verify_g6 --sans-recomptage     # sans interroger les sources
 
 **Principes.** Lecture seule (aucun `COMMIT`, d'où les tests de mutation en transaction annulée) ; G6 n'écrit pas dans `meta.etl_execution_log` (D-L9-03) ; les listes de G4 et du rapport qualité sont réutilisées, jamais recopiées.
 
-**Tests :** `tests/test_verify_g6.py` (41 tests sans base) et `tests/test_pipeline_integration.py` (14 tests : pipeline complet, G6, **8 tests de mutation** qui cassent volontairement une donnée pour vérifier que G6 la détecte, contre-épreuve).
+**Tests :** `tests/test_verify_g6.py` (43 tests sans base) et `tests/test_pipeline_integration.py` (15 tests : pipeline complet, G6, **9 tests de mutation** qui cassent volontairement une donnée pour vérifier que G6 la détecte, contre-épreuve).
+
+**L10 (décision A1-bis).** Le contrôle des membres du classement Redis est désormais **bloquant** : un membre écarté sans trace dans `quality.rejets` fait échouer G6 (constat L9-A1).

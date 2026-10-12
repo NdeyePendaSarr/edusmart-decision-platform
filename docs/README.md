@@ -1,6 +1,6 @@
 # Documentation de recherche — EduSmart Decision Platform
 
-Réponses aux questions de recherche du PDF « BI Recherche P8 » (phases 1 à 15), **appuyées sur les 5 sources réellement construites** (volet A).
+Réponses aux questions de recherche du PDF « BI Recherche P8 » (phases 1 à 17), **appuyées sur les 5 sources réellement construites** (volet A).
 
 | Document | Phase | Étape | Contenu |
 |---|---|---|---|
@@ -16,7 +16,9 @@ Réponses aux questions de recherche du PDF « BI Recherche P8 » (phases 1 à 1
 | [12_visualisations.md](12_visualisations.md) | 12 | 6 | Histogramme, boxplot, scatterplot, heatmap, barplot : pourquoi ce choix, pourquoi pas un autre (graphiques dans `figures/`) |
 | [13_powerbi.md](13_powerbi.md) | 13 | 6 | Modèle relationnel, mesures ou colonnes, segments et filtres, pages du tableau de bord, porte G5b |
 | [14_data_storytelling.md](14_data_storytelling.md) | 14 | 6 | Data Storytelling, convaincre un décideur ; récit en 3 actes du tableau de bord, recommandations, limites des données simulées |
-| [15_tests_pipeline.md](15_tests_pipeline.md) | 15 | 7 | Pourquoi tester un pipeline ; porte G6 (5 questions + non-régression), tests de mutation, rapport de tests final, décisions L9 |
+| [15_tests_pipeline.md](15_tests_pipeline.md) | 15 | 7 | Pourquoi tester un pipeline ; porte G6 (5 questions + non-régression), tests de mutation, rapport de tests final, décisions L9 et L10 |
+| [16_rapport_individuel.md](16_rapport_individuel.md) | 16 | 7 | Rapport individuel (lecteur technique) : les 7 livrables et leurs preuves, choix, difficultés, tests, limites, compétences |
+| [17_rapport_decisionnel.md](17_rapport_decisionnel.md) | 17 | 7 | Rapport décisionnel (Directeur Général) : résumé exécutif, 8 KPI, finance, pédagogie, engagement, RH, 7 recommandations, limites |
 
 Tous les chiffres cités se recalculent avec :
 

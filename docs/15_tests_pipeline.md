@@ -31,9 +31,9 @@ Trois niveaux, du plus rapide au plus complet :
 
 | Niveau | Quoi | Où | Quand | Volume |
 |---|---|---|---|---|
-| **Tests unitaires** | Fonctions pures : règles de nettoyage, équation de conservation, comparaison des KPI, format des rapports | `tests/test_*.py` (sans base) | À chaque modification, en 2 min | 290 tests (249 avant L9 + 41 en L9) |
+| **Tests unitaires** | Fonctions pures : règles de nettoyage, équation de conservation, comparaison des KPI, format des rapports | `tests/test_*.py` (sans base) | À chaque modification, en 2 min | 299 tests (249 avant L9, + 41 en L9, + 9 en L10) |
 | **Portes de contrôle** | Invariants sur les vraies données, couche par couche | `pipeline/verify_g2.py` … `verify_g6.py` | À chaque exécution du pipeline | G2 85, G3 69, G4 57, G5a 8, G5b 8, **G6 101** |
-| **Tests d'intégration** | Le pipeline complet sur les 5 vraies sources, les portes, **les mutations** | `tests/test_*_integration.py` (`EDUSMART_INTEGRATION=1`) | Avant chaque livraison de lot | 68 tests (57 avant L9 + 11 en L9) |
+| **Tests d'intégration** | Le pipeline complet sur les 5 vraies sources, les portes, **les mutations** | `tests/test_*_integration.py` (`EDUSMART_INTEGRATION=1`) | Avant chaque livraison de lot | 69 tests (57 avant L9, + 11 en L9, + 1 en L10) |
 
 **Pourquoi G6 alors que G2, G3 et G4 existent ?** Chaque porte précédente regarde **une** frontière. G6 regarde la chaîne **entière**, et ajoute deux choses qui manquaient :
 
@@ -91,7 +91,7 @@ Une ligne du staging Redis est une **clé**. La couche clean, elle, compte des c
 | `notifications:*` (clé) | un étudiant | clés = étudiants distincts en clean + clés rejetées |
 | `notifications:*` (message) | un message | messages = clean + doublons (E04) + messages des clés rejetées |
 | `online_users`, `statistics:today` | un compteur | 1 + 4 lignes de `clean.redis_compteurs` |
-| `leaderboard:*` | un membre | **information** : voir le constat L9-A1 |
+| `leaderboard:*` | un membre | membres = clean, **bloquant** depuis L10 (constat L9-A1, décision A1-bis) |
 | toute autre clé | — | aucune clé non routée (sinon elle disparaîtrait sans trace) |
 
 ## 5. Les tests de mutation : prouver que les tests savent échouer
@@ -108,8 +108,9 @@ Un test qui ne peut pas échouer ne prouve rien. Pour chaque question du PDF, un
 | `Q4_etape_en_echec` | Erreurs ? | Dernière exécution de `TRANSFORM s2_mysql` en `ECHEC` | `Journal : étape TRANSFORM` |
 | `Q5_cle_orpheline` | Clés ? | Une inscription supprimée : ses paiements deviennent orphelins | `Intégrité clean : paiements -> inscriptions` |
 | `NR_kpi_ca_fausse` | Non-régression | **1 000 XOF** ajoutés à un seul paiement (sur 13,55 Mds) | `KPI CA` |
+| `Q3_membre_classement_perdu` *(L10)* | Perdues ? | Un membre du classement Redis supprimé de la couche clean | `Redis : membres du classement -> clean.redis_leaderboard` |
 
-Une **contre-épreuve** termine la série : après les 8 mutations, G6 est de nouveau verte, ce qui prouve qu'aucune n'a été validée par erreur.
+Une **contre-épreuve** termine la série : après les 9 mutations, G6 est de nouveau verte, ce qui prouve qu'aucune n'a été validée par erreur.
 
 **Preuve que les tests de mutation mordent (faite pendant le développement).** En sabotant volontairement l'équation de conservation de G6 (« toujours vrai »), les deux tests `Q3_ligne_*_perdue` échouent ; G6 restaurée, ils repassent. Un test de mutation qui resterait vert avec une porte sabotée serait inutile.
 
@@ -126,18 +127,20 @@ Une **contre-épreuve** termine la série : après les 8 mutations, G6 est de no
 | G4 | L6 | Le Data Warehouse est-il juste ? | 57/57 ✅ |
 | G5a | L7 | KPI : SQL (DW) = Python (clean) ? | 8/8 ✅ |
 | G5b | L8 | KPI : DAX (Power BI) = SQL ? | 8/8 ✅ |
-| **G6** | **L9** | **Le pipeline est-il fiable de bout en bout ?** | ⏳ **à renseigner après ton exécution** (attendu : 101/101) |
+| **G6** | **L9** | **Le pipeline est-il fiable de bout en bout ?** | **101/101** ✅ (17 + 17 + 35 + 9 + 15 + 8) |
 
 ### 6.2 Suite pytest
 
 | Mode | Commande | Avant L9 | Attendu après L9 | Obtenu |
 |---|---|---|---|---|
-| Unitaire | `python -m pytest` | 249 passed, 57 skipped | **290 passed, 68 skipped** | ⏳ |
-| Intégration | `$env:EDUSMART_INTEGRATION = "1"; python -m pytest` | — | **358 passed, 0 skipped** | ⏳ |
+| Unitaire | `python -m pytest` | 249 passed, 57 skipped | 290 passed, 68 skipped | **290 passed, 68 skipped** ✅ (166 s) |
+| Intégration | `$env:EDUSMART_INTEGRATION = "1"; python -m pytest` | — | 358 passed, 0 skipped | **358 passed, 0 skipped** ✅ (1 464 s, soit 24 min) |
 
-Critère de la porte G6 (validé le 12/10/2026) : la suite **complète** en mode intégration, **0 test ignoré**. Un test ignoré ne prouve rien. Durée constatée de la suite d'intégration avant L9 : environ 30 min, dont 16 min pour `test_qualite_integration`.
+Critère de la porte G6 (validé le 12/10/2026) : la suite **complète** en mode intégration, **0 test ignoré**. Un test ignoré ne prouve rien. Durée constatée : 24 min pour la suite d'intégration complète (dont environ 16 min pour `test_qualite_integration`).
 
-*Les cellules ⏳ seront complétées avec les chiffres réels de ton exécution, au retour des tests (cycle du lot).*
+**Après L10** (contrôle du classement rendu bloquant, test de cohérence des rapports), attendu : **299 passed, 69 skipped** en mode unitaire, **368 passed, 0 skipped** en mode intégration.
+
+*Résultats obtenus sur le poste de développement (Windows, Python 3.14, Docker), le 12/10/2026 ; porte G6 validée sur le lot `B20261012T134851`.*
 
 ### 6.3 Ce qui a été testé, et où
 
@@ -146,7 +149,7 @@ Critère de la porte G6 (validé le 12/10/2026) : la suite **complète** en mode
 | 41 tests unitaires de G6 | Atelier de développement, Python 3.13 | 41/41 ✅ ; suite unitaire complète : 288 passed, 70 skipped (2 tests ignorés de plus que chez toi : `data/` absent) |
 | G6 sur un **entrepôt miniature** | PostgreSQL 16 local, **vrais DDL du dépôt** (meta, staging, quality, dw), couche clean minimale, 99 lignes de staging aux équations connues, dont un échec rattrapé, un doublon de notification, un étudiant Redis inconnu et un membre de classement écarté | 101/101 ✅ |
 | 8 mutations + contre-épreuve + ligne de commande | Même entrepôt miniature | 10/10 ✅ ; G6 sabotée : 2 échecs attendus ✅ |
-| **G6 sur les 5 vraies sources** | Ton poste (Docker) | ⏳ **non testé de mon côté** : je n'ai pas accès à tes conteneurs |
+| **G6 sur les 5 vraies sources** | Poste de développement (Docker) | **101/101** ✅ ; suite d'intégration complète 358/358 |
 
 ## 7. Journal des décisions et constats du lot L9
 
@@ -162,12 +165,14 @@ Critère de la porte G6 (validé le 12/10/2026) : la suite **complète** en mode
 | D-L9-06 | Référence KPI figée dans le code (`REFERENCE_KPI`) ; égalité exacte pour montants et effectifs, 10⁻⁹ pour les ratios, 10⁻⁶ pour la progression | Valeurs L7 transmises avec 10 et 8 décimales : la tolérance est d'un ordre de grandeur au-dessus de la troncature |
 | D-L9-07 | Tests de mutation en transaction annulée | Prouver que G6 détecte chaque type de défaut, sans jamais modifier les données |
 | D-L9-08 | Critère G6 : 0 test ignoré en mode intégration | Un test ignoré ne prouve rien |
+| D-L10-01 | Contrôle du classement Redis **bloquant** (A1-bis), plutôt qu'une nouvelle règle de rejet (A1) | 0 cas attendu : une règle ne rejetterait rien, alors qu'un contrôle bloquant détecte toute perte future, sans modifier la couche clean validée en L5 |
+| D-L10-02 | Test de cohérence des rapports (`tests/test_rapports.py`) | Les chiffres des rapports sont écrits à la main : ils sont comparés à `REFERENCE_KPI`, et toute variante arrondie contradictoire (« 93,1 % ») est refusée |
 
 ### Constats (à arbitrer, aucun ne bloque G6)
 
 | # | Constat | Source | Impact | Proposition |
 |---|---|---|---|---|
-| **L9-A1** | Les membres du classement Redis (`leaderboard:python`) inconnus de MySQL sont écartés par un **filtre** dans `50_s5_redis.sql`, **sans trace** dans `quality.rejets` | `clean/50_s5_redis.sql`, bloc « classement » | C'est la seule perte silencieuse du pipeline. Elle est mesurée par G6 en **information**, pour ne pas invalider L5 (validé) | Ajouter une règle `RD_CLASSEMENT_ETUDIANT_INCONNU` (action REJETE) ; G6 passerait alors ce contrôle en bloquant. À décider |
+| **L9-A1** ✅ | Les membres du classement Redis (`leaderboard:python`) inconnus de MySQL seraient écartés par un **filtre** dans `50_s5_redis.sql`, **sans trace** dans `quality.rejets` | `clean/50_s5_redis.sql`, bloc « classement » | Risque de perte silencieuse. **0 cas attendu** : sur les données régénérées à la graine 2026, les 1 325 membres sont tous présents dans MySQL. Les « 137 » d'abord évoqués sont les 137 faux comptes E06 (`last_course`, `progress`), **rejetés avec trace** | **Résolu en L10 (A1-bis)** : le contrôle G6 devient **bloquant** (membres = clean) au lieu d'ajouter une règle qui ne rejetterait rien ; mutation `Q3_membre_classement_perdu` |
 | L9-A2 | G2.1 recompte Redis en direct (`dbsize()`) : G2 relancée **seule** plus d'une heure après l'extraction échoue | `pipeline/verify_g2.py` | Faux rouge possible ; sans effet dans `run_pipeline` (G2 juste après l'extraction) | Aligner G2.1 sur D-L9-04. Non fait en L9 pour ne pas toucher une porte validée |
 | L9-A3 | Le dernier commit sur GitHub est `e544056` (mise à jour du `.pbix`), pas `2c2dd26` | `git log` | Références de version dans les rapports | Utiliser `e544056` comme base de L9 |
 | L9-A4 | Le README racine indiquait encore « L8 : en attente de G5b » | `README.md` | Documentation | Corrigé en L9 |
@@ -182,7 +187,7 @@ python -m pytest -q
 python -m pipeline.verify_g6
 python -m pipeline.verify_g6 --sans-recomptage     # si une source est arrêtée : G6.1 compare manifeste et journal
 
-# 3. Suite complète en mode intégration (≈ 30 min) : critère de la porte G6
+# 3. Suite complète en mode intégration (≈ 24 min) : critère de la porte G6
 $env:EDUSMART_INTEGRATION = "1"; python -m pytest -q
 Remove-Item Env:EDUSMART_INTEGRATION
 ```

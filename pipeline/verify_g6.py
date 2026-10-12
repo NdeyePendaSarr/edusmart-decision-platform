@@ -247,6 +247,18 @@ def compter_familles(cles: Iterable[str]) -> tuple[dict[str, int], list[str]]:
     return comptes, inconnues
 
 
+def evaluer_classement(membres: int, gardes: int) -> tuple[bool, str]:
+    """
+    Classement Redis : chaque membre du staging doit arriver en clean. Aucune règle de rejet ne couvre ce
+    cas : un membre écarté serait une perte SILENCIEUSE (constat L9-A1), donc un échec bloquant.
+    """
+    ecartes = membres - gardes
+    if ecartes == 0:
+        return True, f"{fmt(membres)} membres = {fmt(gardes)} en clean (aucune perte silencieuse)"
+    return False, (f"{fmt(membres)} membres, {fmt(gardes)} en clean : {fmt(ecartes)} écarté(s) SANS trace dans "
+                   "quality.rejets (perte silencieuse, constat L9-A1)")
+
+
 def comparer_kpi(valeurs: dict[str, Decimal], reference: dict[str, Decimal] = REFERENCE_KPI,
                  tolerances: dict[str, Decimal] = TOLERANCE_KPI) -> list[tuple[str, bool, str]]:
     """Q6 : (code, ok, détail) pour chaque KPI de la référence."""
@@ -434,15 +446,14 @@ def controles_pertes_redis(cur, b: str) -> list[Check]:
     ok, detail = equation_conservation(attendu, {"lignes de clean.redis_compteurs": _v(cur, "SELECT COUNT(*) FROM clean.redis_compteurs")})
     checks.append(Check("G6.3", "Redis : compteurs -> clean.redis_compteurs", ok, detail.replace(f"{fmt(attendu)} =", f"{fmt(attendu)} attendues =", 1)))
 
-    # classement : un membre inconnu de MySQL est écarté par un filtre, SANS trace dans quality.rejets (constat L9-A1)
+    # classement : un membre inconnu de MySQL serait écarté par un FILTRE, sans trace dans quality.rejets.
+    # Constat L9-A1, décision A1-bis (L10) : 0 cas attendu (1 325 membres, tous présents dans MySQL sur les
+    # données régénérées à la graine 2026) ; le contrôle devient BLOQUANT
+    # pour que toute perte future soit détectée (au lieu d'ajouter une règle de rejet qui ne rejetterait rien).
     membres = _v(cur, """SELECT COALESCE(SUM(jsonb_array_length(valeur)), 0) FROM staging.stg_redis_keys
                          WHERE _batch_id = %s AND cle LIKE 'leaderboard:%%' AND jsonb_typeof(valeur) = 'array'""", (b,))
-    gardes = _v(cur, "SELECT COUNT(*) FROM clean.redis_leaderboard")
-    ecartes = membres - gardes
-    checks.append(Check("G6.3", "Redis : membres du classement (information)", True,
-                        f"{fmt(membres)} membres, {fmt(gardes)} en clean" +
-                        (f", {fmt(ecartes)} écartés SANS trace dans quality.rejets (constat L9-A1)" if ecartes
-                         else ", aucun écarté")))
+    ok, detail = evaluer_classement(membres, _v(cur, "SELECT COUNT(*) FROM clean.redis_leaderboard"))
+    checks.append(Check("G6.3", "Redis : membres du classement -> clean.redis_leaderboard", ok, detail))
     return checks
 
 

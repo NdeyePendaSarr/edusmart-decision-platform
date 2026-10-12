@@ -204,7 +204,23 @@ ORDER BY recouvrement_pct DESC NULLS FIRST;
 - Si Kaffrine est proche de 90 % en SQL, le problème vient du **contexte de filtre de Power BI** (segment posé sur une colonne qui ne filtre qu'un des deux faits, interaction entre visuels…).
 - Si Kaffrine est aberrante en SQL aussi, le problème vient du **rattachement des régions** dans le DW, et il faut comparer, pour les étudiants concernés, la région de l'inscription et celle des paiements.
 
-**Règle de lecture retenue :** un taux se lit sur une population suffisante et cohérente ; au-delà de 100 %, on vérifie le contexte de filtre avant de conclure.
+**Résultat (lot L10, requêtes K1 à K4 de `diagnostics_L10.sql`, 12/10/2026) :**
+
+| Requête | Résultat | Conclusion |
+|---|---|---|
+| K1 : recouvrement par région | Kaffrine **89,68 %** ; les 14 régions entre 88,57 % (Matam) et 93,29 % (Kédougou) | Kaffrine est normale |
+| K2 : par filière à Kaffrine, chaque fait agrégé séparément | De 79,84 % à 100 % | Aucun taux au-dessus de 100 % |
+| K3 : paiements rattachés à une autre région que leur inscription | **0** sur 38 372 | Hypothèse « déménagements SCD 2 » réfutée |
+| K4 : versions SCD 2 dans `dim_etudiant` | **0** | Réfutée une seconde fois : aucun étudiant n'a déménagé dans le DW actuel |
+
+**Le Data Warehouse est juste ; le 2 821 % vient du contexte de filtre de Power BI**, dont le mécanisme exact reste à identifier (comparer, dans ce contexte, les valeurs séparées de `[CA encaissé]` et `[Montant dû]`).
+
+**Un second piège, rencontré pendant le diagnostic.** Une première requête de vérification donnait 32 à 47 % pour toutes les filières de Kaffrine. Elle joignait `fact_paiements` et `fact_inscriptions` **ligne à ligne** (sur l'étudiant et la formation) : le montant dû de chaque inscription était compté **une fois par paiement**. Avec 2,29 paiements par inscription en moyenne, 90,10 % ÷ 2,29 ≈ 39,4 %. C'est le « chasm trap » de la modélisation dimensionnelle : dans une constellation, on **agrège chaque fait séparément** sur les dimensions partagées, puis on joint les résultats.
+
+**Règles de lecture retenues :**
+- un taux se lit sur une population suffisante et cohérente, avec son effectif ;
+- numérateur et dénominateur issus de deux faits s'agrègent **séparément** ;
+- au-delà de 100 %, ou loin de la moyenne, on vérifie le calcul avant de conclure.
 
 ## 9. Objections probables du décideur, et réponses
 
