@@ -26,7 +26,7 @@ EduSmart est une plateforme de formation en ligne dont les données sont dispers
 | 6 | Construire un tableau de bord | Power BI, 4 pages, 31 mesures DAX, 26 relations, 5 hiérarchies | `powerbi/EduSmart.pbix`, porte **G5b 8/8** |
 | 7 | Rédiger un rapport d'analyse | Data Storytelling, rapport décisionnel | [14_data_storytelling.md](14_data_storytelling.md), [17_rapport_decisionnel.md](17_rapport_decisionnel.md) |
 
-Et, au-delà du PDF : une porte de **tests de bout en bout** (**G6 101/101**) et **368 tests automatisés** (§ 7).
+Et, au-delà du PDF : une porte de **tests de bout en bout** (**G6 101/101**) et **372 tests automatisés** (§ 7).
 
 ## 3. La démarche : des lots et des portes de contrôle
 
@@ -45,6 +45,8 @@ Le projet a été découpé en **11 lots** (L0 à L10). Chaque lot suit le même
 | L8 | Visualisations, Power BI | 12, 13 | G5b | 8/8 |
 | L9 | Data Storytelling, tests du pipeline | 14, 15 | G6 | 101/101 |
 | L10 | Rapports, présentation | 16, 17, 18 | — | Ce document |
+
+**Outils et assistance.** Ce projet a été réalisé avec l'assistance d'un outil d'IA générative (Claude, Anthropic) pour la génération de code, la documentation et la revue de qualité. Les choix de conception ont été arbitrés et validés par l'auteure à chaque lot ; l'exécution des tests, la vérification des résultats et la validation finale ont été effectuées par l'auteure, sur son poste (Windows, Python 3.14, Docker, Power BI Desktop).
 
 **Pourquoi cette méthode ?** Une erreur découverte en L8 dans un chiffre du tableau de bord peut venir de n'importe quelle couche. Avec une porte par couche, chaque couche est prouvée juste **avant** de construire la suivante : quand un écart apparaît, on sait où chercher.
 
@@ -90,13 +92,13 @@ Chaque difficulté ci-dessous a réellement eu lieu ; elle est tracée dans le l
 | 6 | L8 | Filtrage ambigu dans Power BI | Relations créées automatiquement, branche en flocon `dim_quiz` → `dim_module` | 2 relations supprimées, modèle en étoiles pures, aucun filtrage bidirectionnel | Ne jamais accepter les relations automatiques sans les relire |
 | 7 | L8 | Pas de boxplot natif dans Power BI | Limite de l'outil | Visuel certifié AppSource, avec le graphique Python en alternative | Connaître les limites de l'outil avant de promettre un visuel |
 | 8 | L9 | Une perte de lignes peut passer inaperçue | Une ligne écartée par un filtre ne lève aucune erreur | Équation de conservation (staging = clean + rejets) et **tests de mutation** : on casse volontairement une donnée pour vérifier que le test la détecte | Un test qui ne peut pas échouer ne prouve rien |
-| 9 | L10 | Un taux de recouvrement de **2 821 %** dans Power BI, puis de **32 à 47 %** dans ma requête de vérification | Ma requête joignait les paiements et les inscriptions **ligne à ligne** : le montant dû de chaque inscription était compté une fois **par paiement** (2,29 paiements par inscription ; 90,10 % ÷ 2,29 ≈ 39,4 %). C'est le « chasm trap » de la modélisation dimensionnelle | Agréger chaque fait **séparément**, puis joindre les résultats : Kaffrine est à **89,68 %**. Hypothèse « déménagements SCD 2 » réfutée par deux requêtes (0 paiement rattaché à une autre région que son inscription ; 0 version SCD 2) | Dans une constellation, on n'additionne jamais les mesures de deux faits joints ligne à ligne. Et une hypothèse se **teste** avant d'être écrite |
+| 9 | L10 | Un taux de recouvrement de **2 821 %** dans Power BI, puis de **32 à 47 %** dans ma requête de vérification | Ma requête joignait les paiements et les inscriptions **ligne à ligne** : le montant dû de chaque inscription était compté une fois **par paiement** (2,29 paiements par inscription ; 90,10 % ÷ 2,29 ≈ 39,4 %). C'est le « chasm trap » de la modélisation dimensionnelle | Agréger chaque fait **séparément**, puis joindre les résultats : Kaffrine est à **89,68 %**. Hypothèse « déménagements SCD 2 » réfutée par deux requêtes (0 paiement rattaché à une autre région que son inscription ; 0 version SCD 2). **Cause du 2 821 %** : dans Power BI, la relation `fact_paiements → dim_region` était **inactive** ; le filtre de région ne touchait pas le CA. Relation rendue active | Dans une constellation, on n'additionne jamais les mesures de deux faits joints ligne à ligne. Une hypothèse se **teste** avant d'être écrite. Et un total juste ne prouve pas qu'un modèle filtre juste : la porte G5b, qui ne contrôle que des totaux, était verte |
 
 ## 7. Tests et qualité
 
 | Niveau | Volume | Rôle |
 |---|---:|---|
-| Tests unitaires (sans base) | 299 | Règles de nettoyage, calculs des KPI, équation de conservation, cohérence des chiffres des rapports |
+| Tests unitaires (sans base) | 303 | Règles de nettoyage, calculs des KPI, équation de conservation, cohérence des chiffres des rapports |
 | Tests d'intégration (5 vraies sources) | 69 | Pipeline complet, portes, idempotence, cas limites du SCD 2, **9 tests de mutation** |
 | Portes de contrôle | G0 à G6 | 7 portes, toutes vertes |
 
@@ -112,12 +114,21 @@ Le détail est dans [15_tests_pipeline.md](15_tests_pipeline.md).
 | **Satisfaction et évaluation des enseignants absentes** | 2 des 7 questions du DG restent sans réponse | [02_besoin_metier.md](02_besoin_metier.md) |
 | **KPI d'activité incomplet** | Les vidéos et téléchargements MongoDB ne sont pas dans le DW | [11_kpi.md](11_kpi.md) |
 | **Snapshot Redis unique** | Pas d'historique temps réel (une seule photographie, le 15/09/2026 à 23 h) | Convention C24 |
-| **Un chiffre exploratoire non mis à jour** | `docs/04` cite 1 650 paiements négatifs (calcul exploratoire de L3) ; le journal de la source en compte **1 700** (A14) | [04_etl_vs_elt.md](04_etl_vs_elt.md) |
 | **Pas de déploiement** | Le pipeline tourne à la demande, sans planificateur (Airflow, cron) ni rafraîchissement automatique du tableau de bord | — |
 
 ## 9. Bilan personnel
 
-⏳ **À compléter par l'auteure** : temps consacré, ce qui m'a le plus appris, ce que je referais autrement.
+*Texte de l'auteure.*
+
+**Durée et méthode.** J'ai consacré environ trois semaines à ce projet, en travaillant par lots successifs (L0 à L10), avec une méthode rigoureuse de tests et de portes de contrôle.
+
+**Ce qui a été le plus difficile.** La gestion des 159 946 anomalies dans la couche clean : il fallait à la fois les corriger, les tracer et ne pas casser les KPI validés. Puis la compréhension du fan-out dans ma requête Kaffrine, qui m'a fait réaliser qu'une jointure ligne à ligne entre deux faits fausse tout.
+
+**Ce que j'ai préféré.** La construction du tableau de bord Power BI, parce qu'elle transforme dix lots de travail technique en quelque chose de visuel et de compréhensible pour un décideur.
+
+**Ce que j'ai appris.** Les fondamentaux de la BI de bout en bout (ETL/ELT, Data Warehouse en constellation, OLAP, KPI, Power BI), mais aussi la rigueur nécessaire pour intégrer cinq sources hétérogènes sans perdre une seule ligne, et l'importance des tests automatisés (372 tests : 303 unitaires et 69 d'intégration) pour garantir la fiabilité.
+
+**Ce que je referais autrement.** Je prendrais plus de temps sur la modélisation initiale pour anticiper les pièges comme le fan-out, et je documenterais mes décisions au fur et à mesure plutôt qu'à la fin.
 
 ## 10. Compétences mobilisées
 

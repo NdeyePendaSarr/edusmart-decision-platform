@@ -213,7 +213,13 @@ ORDER BY recouvrement_pct DESC NULLS FIRST;
 | K3 : paiements rattachés à une autre région que leur inscription | **0** sur 38 372 | Hypothèse « déménagements SCD 2 » réfutée |
 | K4 : versions SCD 2 dans `dim_etudiant` | **0** | Réfutée une seconde fois : aucun étudiant n'a déménagé dans le DW actuel |
 
-**Le Data Warehouse est juste ; le 2 821 % vient du contexte de filtre de Power BI**, dont le mécanisme exact reste à identifier (comparer, dans ce contexte, les valeurs séparées de `[CA encaissé]` et `[Montant dû]`).
+**Le Data Warehouse est juste ; le 2 821 % venait du modèle Power BI.**
+
+**Cause identifiée et corrigée (21/10/2026).** La relation `fact_paiements[region_key] → dim_region[region_key]` était **inactive**. Un filtre sur Kaffrine filtrait donc le montant dû (les inscriptions de Kaffrine) mais **pas** le CA (les paiements de toutes les régions) : 13,55 Mds XOF rapportés au seul dû de Kaffrine. Le même défaut rendait égales les 14 barres du graphique « CA par région » de la page Vue Direction. La relation a été rendue active : dans l'export du 21/10/2026, le CA par région suit désormais l'entrepôt (Dakar ≈ 3,9 Mds XOF, soit 29 % ; Thiès ≈ 1,8 Md, soit 13 %). Le numérateur du taux est donc filtré comme le dénominateur.
+
+**Point resté ouvert :** la lecture directe du taux de Kaffrine dans Power BI n'a pas pu être faite, car la matrice du recouvrement (page Finance) ne réagit pas au segment région. La valeur de référence reste celle de l'entrepôt, **89,68 %** (requête K1). Ce comportement de la matrice est un défaut d'interaction du tableau de bord, à corriger ([13_powerbi.md](13_powerbi.md)).
+
+Pourquoi la porte G5b ne l'avait pas vu : elle compare les mesures **sans filtre**, et une relation inactive ne change aucun total ([13_powerbi.md](13_powerbi.md), § 7).
 
 **Un second piège, rencontré pendant le diagnostic.** Une première requête de vérification donnait 32 à 47 % pour toutes les filières de Kaffrine. Elle joignait `fact_paiements` et `fact_inscriptions` **ligne à ligne** (sur l'étudiant et la formation) : le montant dû de chaque inscription était compté **une fois par paiement**. Avec 2,29 paiements par inscription en moyenne, 90,10 % ÷ 2,29 ≈ 39,4 %. C'est le « chasm trap » de la modélisation dimensionnelle : dans une constellation, on **agrège chaque fait séparément** sur les dimensions partagées, puis on joint les résultats.
 

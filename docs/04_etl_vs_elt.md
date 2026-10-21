@@ -76,7 +76,7 @@ En pratique, beaucoup de pipelines sont **hybrides**, ce qu'on appelle **EtLT** 
 | Argument | Constat EduSmart |
 |---|---|
 | **Traçabilité et contrôle qualité** (Phases 5, 6, 15) | Le PDF demande de compter les lignes extraites, **rejetées**, les doublons et les **corrections**. Il faut donc garder le brut dans l'entrepôt pour prouver chaque correction : les 159 946 anomalies doivent pouvoir être retrouvées **avant** et **après** traitement |
-| **Des règles métier encore ouvertes** (Phase 2) | Faut-il exclure ou corriger les 1 650 paiements négatifs ? Quelle définition de la réussite ? En ELT, changer de règle revient à **relancer le SQL**, sans réextraire |
+| **Des règles métier encore ouvertes** (Phase 2) | Faut-il exclure ou corriger les 1 650 paiements négatifs au statut VALIDE (sur 1 700 paiements négatifs, A14) ? Quelle définition de la réussite ? En ELT, changer de règle revient à **relancer le SQL**, sans réextraire |
 | **Sources hétérogènes, schéma flexible** | MongoDB : documents aux champs variables et horodatages de 3 types. Ils se chargent tels quels en `JSONB` et s'interprètent ensuite en SQL |
 | **Sources volatiles** | Redis change à chaque instant : il faut **figer le snapshot** en *staging* dès l'extraction |
 | **Moteur disponible** | PostgreSQL 15 : SQL analytique, `JSONB`, expressions régulières, fonctions |

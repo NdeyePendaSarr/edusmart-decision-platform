@@ -1,6 +1,6 @@
 # Documentation de recherche — EduSmart Decision Platform
 
-Réponses aux questions de recherche du PDF « BI Recherche P8 » (phases 1 à 17), **appuyées sur les 5 sources réellement construites** (volet A).
+Réponses aux questions de recherche du PDF « BI Recherche P8 » (phases 1 à 18), **appuyées sur les 5 sources réellement construites** (volet A).
 
 | Document | Phase | Étape | Contenu |
 |---|---|---|---|
@@ -19,6 +19,7 @@ Réponses aux questions de recherche du PDF « BI Recherche P8 » (phases 1 à 1
 | [15_tests_pipeline.md](15_tests_pipeline.md) | 15 | 7 | Pourquoi tester un pipeline ; porte G6 (5 questions + non-régression), tests de mutation, rapport de tests final, décisions L9 et L10 |
 | [16_rapport_individuel.md](16_rapport_individuel.md) | 16 | 7 | Rapport individuel (lecteur technique) : les 7 livrables et leurs preuves, choix, difficultés, tests, limites, compétences |
 | [17_rapport_decisionnel.md](17_rapport_decisionnel.md) | 17 | 7 | Rapport décisionnel (Directeur Général) : résumé exécutif, 8 KPI, finance, pédagogie, engagement, RH, 7 recommandations, limites |
+| [18_presentation.md](18_presentation.md) | 18 | 7 | Plan du support de présentation (21 diapositives, 11 points du PDF) et source de chaque chiffre ; support : `presentation/EduSmart_presentation.pptx` |
 
 Tous les chiffres cités se recalculent avec :
 
@@ -28,4 +29,4 @@ python -m scripts.constats_sources
 
 Prérequis : les 5 sources générées. Les calculs sont exploratoires ; les valeurs officielles viendront du Data Warehouse.
 
-Version PDF (livrable final) : à produire en fin de projet à partir de ces fichiers Markdown.
+Version PDF (livrable final) : [EduSmart_documentation.pdf](EduSmart_documentation.pdf), compilation des documents 01 à 18 (sommaire cliquable). Elle est produite à partir de ces fichiers Markdown : en cas d'écart, **le Markdown fait foi**.

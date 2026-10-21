@@ -31,7 +31,7 @@ Trois niveaux, du plus rapide au plus complet :
 
 | Niveau | Quoi | Où | Quand | Volume |
 |---|---|---|---|---|
-| **Tests unitaires** | Fonctions pures : règles de nettoyage, équation de conservation, comparaison des KPI, format des rapports | `tests/test_*.py` (sans base) | À chaque modification, en 2 min | 299 tests (249 avant L9, + 41 en L9, + 9 en L10) |
+| **Tests unitaires** | Fonctions pures : règles de nettoyage, équation de conservation, comparaison des KPI, format des rapports | `tests/test_*.py` (sans base) | À chaque modification, en 2 min | 303 tests (249 avant L9, + 41 en L9, + 13 en L10) |
 | **Portes de contrôle** | Invariants sur les vraies données, couche par couche | `pipeline/verify_g2.py` … `verify_g6.py` | À chaque exécution du pipeline | G2 85, G3 69, G4 57, G5a 8, G5b 8, **G6 101** |
 | **Tests d'intégration** | Le pipeline complet sur les 5 vraies sources, les portes, **les mutations** | `tests/test_*_integration.py` (`EDUSMART_INTEGRATION=1`) | Avant chaque livraison de lot | 69 tests (57 avant L9, + 11 en L9, + 1 en L10) |
 
@@ -138,7 +138,9 @@ Une **contre-épreuve** termine la série : après les 9 mutations, G6 est de no
 
 Critère de la porte G6 (validé le 12/10/2026) : la suite **complète** en mode intégration, **0 test ignoré**. Un test ignoré ne prouve rien. Durée constatée : 24 min pour la suite d'intégration complète (dont environ 16 min pour `test_qualite_integration`).
 
-**Après L10** (contrôle du classement rendu bloquant, test de cohérence des rapports), attendu : **299 passed, 69 skipped** en mode unitaire, **368 passed, 0 skipped** en mode intégration.
+**Après L10** (contrôle du classement rendu bloquant, test de cohérence des rapports) : **299 passed, 69 skipped** en mode unitaire ✅, **368 passed, 0 skipped** en mode intégration ✅ (1 190 s, soit 20 min), porte G6 **101/101** ✅ avec `Redis : membres du classement -> clean.redis_leaderboard : 1 325 membres = 1 325 en clean`.
+
+**L10, partie 2** : 4 tests de plus sur le support de présentation (KPI, variantes, 11 points de la Phase 18). Attendu : **303 passed, 69 skipped** en mode unitaire, **372 passed, 0 skipped** en mode intégration.
 
 *Résultats obtenus sur le poste de développement (Windows, Python 3.14, Docker), le 12/10/2026 ; porte G6 validée sur le lot `B20261012T134851`.*
 

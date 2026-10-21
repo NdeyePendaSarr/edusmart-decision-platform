@@ -10,7 +10,7 @@
 
 ## 1. Le modèle relationnel
 
-Power BI importe les 15 tables du schéma `dw` (7 dimensions, 8 faits) et reproduit la **constellation** de la Phase 8. Les 26 relations sont de cardinalité **plusieurs à un**, filtrent **de la dimension vers le fait**, et sont toutes actives.
+Power BI importe les 15 tables du schéma `dw` (7 dimensions, 8 faits) et reproduit la **constellation** de la Phase 8. Les 26 relations sont de cardinalité **plusieurs à un**, filtrent **de la dimension vers le fait**, et doivent toutes être **actives** (voir l'encadré ci-dessous : l'une d'elles ne l'était pas, corrigée en L10).
 
 **Deux adaptations par rapport au DW, et pourquoi :**
 
@@ -19,6 +19,19 @@ Power BI importe les 15 tables du schéma `dw` (7 dimensions, 8 faits) et reprod
 | `dim_quiz` → `dim_module` (branche en flocon) | **Supprimée** | Les faits portent déjà `module_key`. Deux chemins vers le module rendraient le filtrage **ambigu**, et Power BI désactiverait arbitrairement l'un des deux. Le modèle Power BI est une constellation d'**étoiles pures** |
 | `dim_etudiant.region_key` | **Relation supprimée** (la colonne reste) | Les faits portent la région **à la date du fait** (SCD 2). C'est elle qui fait foi : le paiement de 2024 reste attribué à la région de 2024 |
 | Ligne « Inconnu » (−1) de `dim_temps` (1900) | **Filtrée** dans Power Query | Pour marquer `dim_temps` comme table de dates, les dates doivent être contiguës. Aucun fait n'utilise −1 (porte G4.6) |
+
+> **Correctif L10 (21/10/2026) : une relation inactive.** La relation `fact_paiements[region_key] → dim_region[region_key]` existait mais était **inactive** (trait pointillé). Power BI l'ignore alors : un filtre sur une région ne filtrait **pas** les paiements.
+>
+> | Symptôme | Explication |
+> |---|---|
+> | Page Vue Direction : 14 barres « CA par région » **toutes égales**, au niveau du CA total | Chaque région recevait le CA de **toutes** les régions |
+> | Kaffrine : recouvrement de **2 821 %** | CA total (13,55 Mds) ÷ montant dû de Kaffrine seule (le dénominateur, lui, était bien filtré) |
+>
+> **Correction :** relation rendue active ; les relations de `fact_inscriptions` et `fact_quiz_activite` vers `dim_region` ont été contrôlées (actives). Après correction, le CA se répartit entre les régions (Dakar en tête, ≈ 29 %, comme dans l'entrepôt ; export du 21/10/2026). Le Data Warehouse n'était pas en cause : les requêtes K1 à K4 donnaient déjà Kaffrine à 89,68 % ([14_data_storytelling.md](14_data_storytelling.md), § 8.5).
+>
+> **Points restés ouverts :** (1) sur la page Finance, la matrice du recouvrement par filière ne réagit pas au segment région : vérifier « Format › Modifier les interactions » pour ce segment ; tant que ce n'est pas corrigé, le taux de Kaffrine ne peut pas être relu dans Power BI (référence : 89,68 % dans l'entrepôt). (2) La carte « CA encaissé » de la page Vue Direction affiche encore `13553901000,00` dans l'export : format d'affichage à appliquer.
+>
+> **Leçon :** après la création du modèle, relire **chaque** relation dans la vue Modèle (trait plein = active), et tester au moins une mesure **filtrée** par chaque dimension, pas seulement les totaux.
 
 **Pas de filtrage bidirectionnel.** Avec 8 faits qui partagent `dim_etudiant`, un filtre remontant d'un fait vers une dimension se propagerait aux 7 autres faits : les résultats dépendraient du visuel où l'on clique.
 
@@ -94,6 +107,8 @@ Chaque mesure DAX, **sans filtre**, doit retrouver la valeur SQL de référence 
 Le fichier de saisie ne contient pas les valeurs attendues : la saisie reste « à l'aveugle ».
 
 La chaîne de confiance est alors complète : **SQL (DW) = Python (clean) = DAX (Power BI)**, soit trois langages et trois couches pour les mêmes 8 chiffres.
+
+**Limite de G5b, révélée en L10.** G5b ne compare que des valeurs **sans filtre**. Or une relation inactive ne change pas un total : elle ne fausse que les valeurs **filtrées** par la dimension concernée. G5b était donc verte (8/8) alors que tout filtre par région faussait le CA. Une version renforcée de la porte comparerait aussi quelques valeurs filtrées par chaque dimension (par exemple le recouvrement d'une région, calculé en SQL et lu dans Power BI).
 
 ## Références
 

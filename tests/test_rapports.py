@@ -1,11 +1,12 @@
 """
-Tests unitaires — cohérence des rapports (L10, Phases 14, 16, 17). Sans base de données.
+Tests unitaires — cohérence des rapports et du support de présentation (L10, Phases 14 à 18). Sans base de données.
 
 Les chiffres des rapports sont écrits à la main : ce test vérifie qu'ils restent ALIGNÉS sur la
 référence validée des KPI (pipeline/verify_g6.py, REFERENCE_KPI), qu'aucune variante arrondie
 contradictoire ne s'y glisse, et que tous les liens relatifs de la documentation fonctionnent.
 """
 import re
+import zipfile
 from decimal import ROUND_HALF_UP, Decimal
 from pathlib import Path
 
@@ -15,8 +16,9 @@ from pipeline.verify_g6 import REFERENCE_KPI
 
 RACINE = Path(__file__).resolve().parent.parent
 DOCS = RACINE / "docs"
-RAPPORTS_KPI = ("14_data_storytelling.md", "17_rapport_decisionnel.md")
-RAPPORTS = ("14_data_storytelling.md", "16_rapport_individuel.md", "17_rapport_decisionnel.md")
+RAPPORTS_KPI = ("14_data_storytelling.md", "17_rapport_decisionnel.md", "18_presentation.md")
+RAPPORTS = ("14_data_storytelling.md", "16_rapport_individuel.md", "17_rapport_decisionnel.md", "18_presentation.md")
+PRESENTATION = RACINE / "presentation" / "EduSmart_presentation.pptx"
 
 
 def _fr(valeur: Decimal, decimales: int) -> str:
@@ -67,6 +69,33 @@ def test_aucune_variante_arrondie_contradictoire(rapport):
     if re.search(rf"(?<![\d,]){re.escape(une_decimale)}(?!\d)", texte):
         variantes.append(une_decimale)
     assert not variantes, f"{rapport} : variantes à une décimale : {variantes}"
+
+
+def texte_presentation() -> str:
+    """Tout le texte des diapositives (balises <a:t>), lu directement dans le .pptx (un fichier ZIP)."""
+    with zipfile.ZipFile(PRESENTATION) as z:
+        diapos = sorted(n for n in z.namelist() if re.fullmatch(r"ppt/slides/slide\d+\.xml", n))
+        return " ".join(" ".join(re.findall(r"<a:t>([^<]*)</a:t>", z.read(n).decode("utf-8"))) for n in diapos)
+
+
+def test_presentation_kpi_et_variantes():
+    """Le support PowerPoint (Phase 18) cite les 8 KPI à la valeur de référence, sans variante arrondie."""
+    texte = texte_presentation().replace("&amp;", "&")
+    absents = [code for code, forme in formes_canoniques().items() if forme not in texte]
+    assert not absents, f"KPI absents de la présentation : {absents}"
+    for code in ("RECOUVREMENT", "REUSSITE", "ABANDON"):
+        une_decimale = _fr(100 * REFERENCE_KPI[code], 1)
+        assert not re.search(rf"(?<![\d,]){re.escape(une_decimale)}(?!\d)\s?%", texte), une_decimale
+
+
+def test_presentation_couvre_les_11_points_de_la_phase_18():
+    with zipfile.ZipFile(PRESENTATION) as z:
+        diapos = [n for n in z.namelist() if re.fullmatch(r"ppt/slides/slide\d+\.xml", n)]
+        badges = set()
+        for n in diapos:
+            xml = z.read(n).decode("utf-8")
+            badges |= {int(v) for v in re.findall(r'name="badge_num_\d+".*?<a:t>(\d+)</a:t>', xml, re.S)}
+    assert badges == set(range(1, 12)), sorted(badges)
 
 
 def test_liens_relatifs_de_la_documentation():
