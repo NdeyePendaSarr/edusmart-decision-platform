@@ -27,7 +27,7 @@ Les PDF du projet sont la seule source de vérité. Tout écart est tracé dans 
 | L6 | Data Warehouse : constellation de 8 faits, SCD 2 | Validé (G4 : 57/57) ([conception](docs/07_conception_dw.md)) |
 | L7 | OLAP et KPI | Validé (G5a : 8/8) ([OLAP](docs/10_olap.md), [KPI](docs/11_kpi.md)) |
 | L8 | Visualisations et Power BI | Validé (G5b : 8/8) ([guide](powerbi/guide_powerbi.md), [Power BI](docs/13_powerbi.md)) |
-| L9 | Data Storytelling, tests du pipeline (phases 14 et 15) | Validé (G6 : 101/101 ; 358 tests au vert) ([storytelling](docs/14_data_storytelling.md), [tests](docs/15_tests_pipeline.md)) |
+| L9 | Data Storytelling, tests du pipeline (phases 14 et 15) | Validé (G6 : 101/101 ; 358 tests au vert à la livraison du lot, 372 aujourd’hui) ([storytelling](docs/14_data_storytelling.md), [tests](docs/15_tests_pipeline.md)) |
 | L10 | Rapports finaux et présentation (phases 16 à 18) | Livré, en attente de validation : [rapport individuel](docs/16_rapport_individuel.md), [rapport décisionnel](docs/17_rapport_decisionnel.md), [présentation](docs/18_presentation.md), [documentation complète en PDF](docs/EduSmart_documentation.pdf) |
 
 ### Pipeline ELT (L4)
