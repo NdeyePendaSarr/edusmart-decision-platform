@@ -8,6 +8,24 @@ Projet du module *Business Intelligence et Analyse Décisionnelle*.
 Les PDF du projet sont la seule source de vérité. Tout écart est tracé dans le
 [registre des conventions](#7-registre-des-conventions-et-écarts-assumés).
 
+### En chiffres
+
+| | |
+|---|---|
+| Sources | **5** : PostgreSQL, MySQL, CSV, MongoDB, Redis |
+| Entrepôt | Constellation de **8 faits** et **7 dimensions** (temps, étudiant, formation, module, quiz, enseignant, région), SCD 2 ([conception](docs/07_conception_dw.md)) |
+| Qualité | Portes de contrôle **G0 à G6** ; **159 946 anomalies** détectées et tracées en couche clean (G3) |
+| Indicateurs | **8 KPI** : CA encaissé, taux de recouvrement, réussite aux quiz, abandon, progression moyenne, étudiants actifs, temps médian de connexion, nombre réel d'étudiants ([KPI](docs/11_kpi.md)) |
+| Tests | **372 tests Pytest** : 303 unitaires et 69 d'intégration ([stratégie de test](docs/15_tests_pipeline.md)) |
+
+**Diagnostic notable : un recouvrement de 2 821 %.** Dans Power BI, Kaffrine affichait un
+taux de recouvrement de 2 821 % et les 14 régions un chiffre d'affaires identique. Les
+requêtes SQL sur l'entrepôt donnaient 89,68 % pour Kaffrine : le Data Warehouse était hors
+de cause. La cause était une relation **inactive** entre `fact_paiements` et `dim_region`
+dans le modèle Power BI : le filtre de région ne s'appliquait qu'au montant dû, pas au
+montant encaissé. La relation a été activée et les autres relations vers `dim_region`
+contrôlées ([détail du correctif](docs/13_powerbi.md)).
+
 ---
 
 ## 1. État d'avancement
