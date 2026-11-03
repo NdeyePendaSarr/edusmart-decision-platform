@@ -288,7 +288,7 @@ Et, **avant toute technique, un travail de définition avec le métier** (Phase 
 | Idée clé | Preuve EduSmart |
 |---|---|
 | Les données opérationnelles servent à *faire*, pas à *décider* | 5 sources, 4 technologies, chacune optimisée pour son métier |
-| La dispersion fausse les chiffres | 26 476 « étudiants » pour 10 500 personnes réelles |
+| La dispersion fausse les chiffres | 26 476 « étudiants » pour 10 500 personnes distinctes |
 | La qualité change les décisions | Le classement des formations s'inverse après standardisation |
 | Certains besoins n'ont aucune donnée | Satisfaction, évaluation des enseignants : des gaps à remonter au DG |
 | La BI apporte une version unique, historisée et traçable de la vérité | Objet des phases 3 à 18 |
