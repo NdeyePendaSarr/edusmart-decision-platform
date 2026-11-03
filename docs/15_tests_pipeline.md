@@ -140,9 +140,11 @@ Critère de la porte G6 (validé le 12/10/2026) : la suite **complète** en mode
 
 **Après L10** (contrôle du classement rendu bloquant, test de cohérence des rapports) : **299 passed, 69 skipped** en mode unitaire ✅, **368 passed, 0 skipped** en mode intégration ✅ (1 190 s, soit 20 min), porte G6 **101/101** ✅ avec `Redis : membres du classement -> clean.redis_leaderboard : 1 325 membres = 1 325 en clean`.
 
-**L10, partie 2** : 4 tests de plus sur le support de présentation (KPI, variantes, 11 points de la Phase 18). Attendu : **303 passed, 69 skipped** en mode unitaire, **372 passed, 0 skipped** en mode intégration.
+**L10, partie 2** : 4 tests de plus sur le support de présentation (KPI, variantes, 11 points de la Phase 18).
 
-*Résultats obtenus sur le poste de développement (Windows, Python 3.14, Docker), le 12/10/2026 ; porte G6 validée sur le lot `B20261012T134851`.*
+*Résultats ci-dessus obtenus sur le poste de développement (Windows, Python 3.14, Docker), le 12/10/2026 ; porte G6 validée sur le lot `B20261012T134851`.*
+
+**Résultat actuel, en CI, Linux, Python 3.12 : 372 collectés, 372 passés, 0 ignoré, 0 échec** ([run du job d'intégration](https://github.com/NdeyePendaSarr/edusmart-decision-platform/actions/runs/41600897908)). Répartition : 303 unitaires + 69 d'intégration (`pytest --collect-only` sur le même code).
 
 ### 6.3 Ce qui a été testé, et où
 
