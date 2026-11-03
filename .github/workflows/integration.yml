@@ -70,7 +70,10 @@ jobs:
           python -m sources.s5_redis.generate_data
 
       - name: Comparer les fichiers générés sous Linux aux fichiers versionnés
-        run: git status --short && git diff --stat
+        run: |
+          git diff --ignore-cr-at-eol --stat
+          git diff --ignore-cr-at-eol --exit-code --quiet
+          test -z "$(git ls-files --others --exclude-standard)"
 
       - name: Charger Redis puis lancer le pipeline
         run: |

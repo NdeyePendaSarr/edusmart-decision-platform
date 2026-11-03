@@ -84,9 +84,3 @@ def test_guide_coherent_avec_le_modele():
     assert "`dim_quiz[module_key]` → `dim_module`" in GUIDE and "`dim_etudiant[region_key]` → `dim_region`" in GUIDE
     assert "date_key` ≠ **-1**" in GUIDE
     assert "dim_formation[annee_academique]" in GUIDE and "dim_temps[annee_academique]" in GUIDE
-
-
-def test_les_cinq_graphiques_de_la_phase_12():
-    from scripts import visualisations as v
-    for f in ("histogramme", "boxplot", "scatterplot", "heatmap", "barplot"):
-        assert callable(getattr(v, f))

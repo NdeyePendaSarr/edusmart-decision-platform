@@ -149,7 +149,7 @@ def test_toutes_les_etapes_du_code_sont_autorisees_par_le_journal():
     autorisees = re.findall(r"ADD CONSTRAINT ck_log_etape\s+CHECK \(etape IN \(([^)]*)\)", ddl)
     assert autorisees, "la contrainte doit être redéfinie (mise à niveau des bases existantes)"
     assert etapes <= set(re.findall(r"'([A-Z]+)'", autorisees[0]))
-    assert "ck_log_etape" not in (racine / "sql" / "dw" / "01_dimensions.sql").read_text(encoding="utf-8").split("--")[0]
+    assert "ck_log_etape" not in (racine / "sql" / "dw" / "01_dimensions.sql").read_text(encoding="utf-8")
 
 
 def test_avertissement_snapshot_redis_perime():
