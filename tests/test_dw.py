@@ -66,3 +66,50 @@ def test_demenagements_deterministes_et_valides():
         assert sn.CITY_TO_REGION[d["nouvelle_ville"]] == d["nouvelle_region"]
     choisis = {d["id_etudiant"] for d in a}
     assert not choisis & {e[0] for e in etudiants if e[3] == "Homme"}       # contrainte CHECK de la source
+
+
+class _CurseurG4:
+    """Curseur factice : seuls le nombre d'étudiants courants et celui des personnes en clean varient."""
+
+    def __init__(self, courants, personnes):
+        self.courants, self.personnes, self.sql = courants, personnes, ""
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *args):
+        return False
+
+    def execute(self, sql):
+        self.sql = sql
+
+    def fetchone(self):
+        if "clean.comptes_lms" in self.sql:
+            return (self.personnes,)
+        if "est_courant AND etudiant_key <> -1" in self.sql:
+            return (self.courants,)
+        return (0,)
+
+    def fetchall(self):
+        return []
+
+
+class _ConnexionG4:
+    def __init__(self, courants, personnes):
+        self.curseur = _CurseurG4(courants, personnes)
+
+    def cursor(self):
+        return self.curseur
+
+
+def _controle_courants(courants, personnes):
+    from pipeline.verify_g4 import verify
+    return next(c for c in verify(_ConnexionG4(courants, personnes)) if c.code == "G4.5")
+
+
+def test_g45_accepte_un_vrai_nouvel_etudiant():
+    assert _controle_courants(10_501, 10_501).ok
+
+
+def test_g45_detecte_un_ecart_avec_la_couche_clean():
+    assert not _controle_courants(10_500, 10_501).ok

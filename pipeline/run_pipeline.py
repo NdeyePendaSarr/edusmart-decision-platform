@@ -18,7 +18,8 @@ la source n'est pas chargée, et le code de sortie vaut 1.
 
 Le lot s'arrête alors avant la couche clean. Un staging mêlant plusieurs lots est aussi
 refusé, sauf relance ciblée avec --autoriser-lots-mixtes. Il s'arrête aussi quand une porte
-échoue : G2 avant la couche clean, G3 avant l'entrepôt, G4 avant les KPI. Les
+échoue : G2 avant la couche clean, G3 avant l'entrepôt, G4 avant les KPI, en
+annulant le chargement de l'entrepôt. Les
 anomalies détectées ne sont pas un échec : G3 échoue si l'une d'elles n'est pas
 traitée. L'arrêt ne vaut que pour le lancement en cours (--steps reste libre).
 
@@ -176,11 +177,14 @@ def entrepot(batch_id: str, meta) -> int:
     try:
         with log_step(logger, "DW (dimensions, faits, porte G4)"):
             with meta.step(batch_id, "DW", "*", "dw") as step:
-                comptes = load_dw.charger(conn)
+                comptes = load_dw.charger(conn, valider=False)
                 step.nb_lignes = sum(n for t, n in comptes.items() if t.startswith("fact_"))
-                checks = verify_g4.verify(conn)
-                if not all(c.ok for c in checks):
-                    step.echec = f"G4 KO : {sum(not c.ok for c in checks)} contrôle(s) en échec"
+                checks = verify_g4.verify(conn)         # même transaction : G4 voit le chargement non validé
+                if all(c.ok for c in checks):
+                    conn.commit()
+                else:
+                    conn.rollback()                     # l'entrepôt garde l'état du lot précédent
+                    step.echec = f"G4 KO : {sum(not c.ok for c in checks)} contrôle(s) en échec, chargement annulé"
         rapport = verify_g4.write_report(checks, batch_id)
     finally:
         conn.close()

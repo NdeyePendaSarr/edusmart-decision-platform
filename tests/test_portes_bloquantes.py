@@ -7,6 +7,7 @@ vraies : ce sont elles qui traduisent le résultat de G3 et de G4 en code de sor
 """
 import sys
 from contextlib import contextmanager
+from datetime import date
 from types import ModuleType, SimpleNamespace
 from unittest.mock import MagicMock
 
@@ -19,6 +20,8 @@ from pipeline.meta import MetaStore, StepResult
 
 ETAPES = list(rp.ETAPES)
 SOURCES = ["s1_postgresql", "s2_mysql"]
+
+charger_reel = load_dw.charger                      # avant que les doublures ne le remplacent
 
 G3_VALIDEE = [
     # 159 946 anomalies détectées et traitées : c'est le cas nominal, pas un échec
@@ -181,3 +184,37 @@ def test_step_ecrit_echec_sans_exception(monkeypatch):
     with store.step("B1", "VERIFY", "*", "G3"):
         pass
     assert fermetures == [("ECHEC", "G3 : 1 type KO"), ("SUCCES", None)]
+
+
+def _connexion_g4(monkeypatch):
+    conn = MagicMock()
+    monkeypatch.setattr("psycopg2.connect", lambda **kwargs: conn)
+    return conn
+
+
+def test_g4_ko_annule_le_chargement_de_l_entrepot(pipeline, monkeypatch):
+    conn = _connexion_g4(monkeypatch)
+    recu = {}
+    monkeypatch.setattr(load_dw, "charger", lambda c, **kwargs: recu.update(kwargs) or {})
+    pipeline.g4_ok = False
+    assert rp.entrepot("B1", Journal()) == 1
+    assert recu.get("valider") is False
+    conn.rollback.assert_called_once()
+    conn.commit.assert_not_called()
+
+
+def test_g4_validee_valide_le_chargement_de_l_entrepot(pipeline, monkeypatch):
+    conn = _connexion_g4(monkeypatch)
+    monkeypatch.setattr(load_dw, "charger", lambda c, **kwargs: {})
+    assert rp.entrepot("B1", Journal()) == 0
+    conn.commit.assert_called_once()
+    conn.rollback.assert_not_called()
+
+
+def test_charger_sans_validation_ne_commit_pas():
+    conn = MagicMock()
+    conn.cursor.return_value.__enter__.return_value.fetchone.return_value = (0,)
+    charger_reel(conn, effet=date(2026, 10, 1), valider=False)
+    conn.commit.assert_not_called()
+    charger_reel(conn, effet=date(2026, 10, 1))
+    conn.commit.assert_called_once()

@@ -7,7 +7,7 @@ pipeline/verify_g4.py — Porte G4 : le Data Warehouse est-il juste ? (Lot L6)
     G4.3 Complétude : chaque fait contient exactement les lignes de sa table clean
     G4.4 Mesures réconciliées : sommes du DW = sommes de la couche clean
     G4.5 SCD 2 : une seule version courante par étudiant, périodes sans chevauchement
-         ni trou, 10 500 étudiants courants (définition L3)
+         ni trou, autant d'étudiants courants que de personnes en clean (définition L3)
     G4.6 Membres « Inconnu » : aucun fait sans étudiant ni sans date (information pour les autres dimensions)
 
 Rapport : data/reports/G4_<lot>.md
@@ -89,6 +89,8 @@ def verify(conn) -> list[Check]:
             a, b = _v(cur, sql_dw), _v(cur, sql_clean)
             checks.append(Check("G4.4", libelle, a == b, f"DW={a}, clean={b}"))
         courants = _v(cur, "SELECT COUNT(*) FROM dw.dim_etudiant WHERE est_courant AND etudiant_key <> -1")
+        personnes = _v(cur, """SELECT (SELECT COUNT(*) FROM clean.etudiants)
+                                    + (SELECT COUNT(*) FROM clean.comptes_lms WHERE NOT a_inscription)""")
         plusieurs = _v(cur, "SELECT COUNT(*) FROM (SELECT etudiant_id FROM dw.dim_etudiant WHERE est_courant GROUP BY 1 HAVING COUNT(*) > 1) x")
         chevauch = _v(cur, """SELECT COUNT(*) FROM dw.dim_etudiant a JOIN dw.dim_etudiant b ON a.etudiant_id = b.etudiant_id
                               AND a.etudiant_key < b.etudiant_key AND a.date_debut <= b.date_fin AND b.date_debut <= a.date_fin""")
@@ -97,7 +99,8 @@ def verify(conn) -> list[Check]:
         cur.execute("SELECT rapprochement, COUNT(*) FROM dw.dim_etudiant WHERE est_courant AND etudiant_key <> -1 GROUP BY 1 ORDER BY 1")
         repartition = dict(cur.fetchall())
         versions = _v(cur, "SELECT COUNT(*) FROM dw.dim_etudiant WHERE version > 1")
-        checks += [Check("G4.5", "10 500 étudiants courants (définition L3)", courants == 10_500, f"{courants} : {repartition}"),
+        checks += [Check("G4.5", "Étudiants courants = personnes en clean (définition L3)", courants == personnes,
+                         f"{courants} courants, {personnes} en clean : {repartition}"),
                    Check("G4.5", "Une seule version courante par étudiant", plusieurs == 0, f"{plusieurs} étudiant(s) en défaut"),
                    Check("G4.5", "Périodes de validité sans chevauchement", chevauch == 0, f"{chevauch} chevauchement(s)"),
                    Check("G4.5", "Versions contiguës (sans trou)", trous == 0, f"{trous} trou(s) ; {versions} version(s) > 1")]
