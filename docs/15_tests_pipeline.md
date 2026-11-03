@@ -31,7 +31,7 @@ Trois niveaux, du plus rapide au plus complet :
 
 | Niveau | Quoi | Où | Quand | Volume |
 |---|---|---|---|---|
-| **Tests unitaires** | Fonctions pures : règles de nettoyage, équation de conservation, comparaison des KPI, format des rapports | `tests/test_*.py` (sans base) | À chaque modification, en 2 min | 303 tests (249 avant L9, + 41 en L9, + 13 en L10) |
+| **Tests unitaires** | Fonctions pures : règles de nettoyage, équation de conservation, comparaison des KPI, format des rapports | `tests/test_*.py` (sans base) | À chaque modification, en 2 min | 308 tests (249 avant L9, + 41 en L9, + 13 en L10, + 5 sur l'arrêt du pipeline) |
 | **Portes de contrôle** | Invariants sur les vraies données, couche par couche | `pipeline/verify_g2.py` … `verify_g6.py` | À chaque exécution du pipeline | G2 85, G3 69, G4 57, G5a 8, G5b 8, **G6 101** |
 | **Tests d'intégration** | Le pipeline complet sur les 5 vraies sources, les portes, **les mutations** | `tests/test_*_integration.py` (`EDUSMART_INTEGRATION=1`) | Avant chaque livraison de lot | 69 tests (57 avant L9, + 11 en L9, + 1 en L10) |
 
@@ -144,7 +144,7 @@ Critère de la porte G6 (validé le 12/10/2026) : la suite **complète** en mode
 
 *Résultats ci-dessus obtenus sur le poste de développement (Windows, Python 3.14, Docker), le 12/10/2026 ; porte G6 validée sur le lot `B20261012T134851`.*
 
-**Résultat actuel, en CI, Linux, Python 3.12 : 372 collectés, 372 passés, 0 ignoré, 0 échec** ([run du job d'intégration](https://github.com/NdeyePendaSarr/edusmart-decision-platform/actions/runs/41600897908)). Répartition : 303 unitaires + 69 d'intégration (`pytest --collect-only` sur le même code).
+**Résultat actuel, en CI, Linux, Python 3.12 : 377 collectés, 377 passés, 0 ignoré, 0 échec** ([run du job d'intégration](https://github.com/NdeyePendaSarr/edusmart-decision-platform/actions/runs/41607922083)). Répartition : 308 unitaires + 69 d'intégration (`pytest --collect-only` sur le même code).
 
 ### 6.3 Ce qui a été testé, et où
 

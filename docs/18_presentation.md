@@ -33,7 +33,7 @@
 | 5 | Le projet | 3 | Intégrer, c'est d'abord savoir qui est qui | 26 476 → 10 500 personnes ; identifiants, formats, source volatile |
 | 6 | Le projet | 4 | ELT : transformer dans l'entrepôt | Schéma sources → bronze → argent → or → Power BI ; pourquoi ELT |
 | 7 | Le projet | 5 | 159 946 anomalies traitées, aucune devinée | Graphique corrigées / rejetées / signalées ; 69/69, 89 règles |
-| 8 | Le projet | 5 | Sept portes de contrôle, toutes vertes | G0 à G6 ; équation de conservation ; 368 tests ; 9 mutations détectées |
+| 8 | Le projet | 5 | Sept portes de contrôle, toutes vertes | G0 à G6 ; équation de conservation ; 377 tests ; 9 mutations détectées |
 | 9 | Le projet | 6 | Chaque chiffre est traçable jusqu'à sa source | `metadata_sources`, `etl_execution_log`, lignage de bout en bout |
 | 10 | Le projet | 7 | Un entrepôt PostgreSQL en trois couches | Bronze, argent, or ; SCD 2 « un étudiant change de ville » |
 | 11 | Le projet | 8 | Une constellation de 8 faits et 7 dimensions | Matrice de bus : grain de chaque fait, dimensions partagées |
@@ -65,7 +65,7 @@
 | Recouvrement par région | 88,57 % à 93,29 % ; Kaffrine 89,68 % | Requête K1 (lot L10) |
 | Heures d'absence non remplacées | 6 409 sur 10 365 (61,8 %) | Requêtes RH3 et RH4 (lot L10) |
 | Masse salariale nette | 3 034 M XOF sur trois ans | Requêtes RH1 et RH2 (lot L10) |
-| Tests automatisés | 368 (299 unitaires, 69 d'intégration) | [15_tests_pipeline.md](15_tests_pipeline.md) |
+| Tests automatisés | 377 passés, 0 ignoré, 0 échec, en CI, Linux, Python 3.12 (308 unitaires, 69 d'intégration) | [15_tests_pipeline.md](15_tests_pipeline.md), [run](https://github.com/NdeyePendaSarr/edusmart-decision-platform/actions/runs/41607922083) |
 
 ## 4. La page Vue Direction et le correctif du 21/10/2026
 
