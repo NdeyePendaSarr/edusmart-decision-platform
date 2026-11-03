@@ -6,7 +6,10 @@ par tests/test_pipeline_integration.py.
 import csv
 import itertools
 import json
+from datetime import datetime
 from pathlib import Path
+from types import SimpleNamespace
+from unittest.mock import MagicMock
 
 import fakeredis
 import mongomock
@@ -182,3 +185,43 @@ def test_batch_en_staging_consulte_les_17_tables():
     assert batch_en_staging(conn) == "B20260928T011811"            # le plus récent
     for o in reg.OBJECTS:
         assert f"staging.{o.stg_table}" in conn.journal[0], o.stg_table
+
+
+def _lots_factices(lots):
+    conn = MagicMock()
+    conn.cursor.return_value.__enter__.return_value.fetchall.return_value = [(lot,) for lot in lots]
+    return conn
+
+
+def test_transformation_refuse_un_staging_a_plusieurs_lots(monkeypatch):
+    from pipeline import transform
+    appels = []
+    monkeypatch.setattr(transform, "initialiser", lambda conn: None)
+    monkeypatch.setattr(transform, "transformer_source", lambda conn, source: appels.append(source))
+    with pytest.raises(transform.TransformError, match="--autoriser-lots-mixtes"):
+        transform.transform(conn=_lots_factices(["B20260101T000000", "B20260102T000000"]))
+    assert appels == []
+
+
+def test_transformation_accepte_plusieurs_lots_avec_l_option(monkeypatch):
+    from pipeline import transform
+    appels = []
+    monkeypatch.setattr(transform, "initialiser", lambda conn: None)
+    monkeypatch.setattr(transform, "transformer_source", lambda conn, source: appels.append(source))
+    lot = transform.transform(conn=_lots_factices(["B20260101T000000", "B20260102T000000"]), autoriser_lots_mixtes=True)
+    assert lot == "B20260102T000000" and len(appels) == 5
+
+
+def test_g2_echoue_si_un_objet_attendu_manque_au_lot(monkeypatch):
+    from pipeline import verify_g2
+    monkeypatch.setattr(verify_g2, "read_manifest", lambda batch: {"objets": {}})
+    checks = verify_g2.verify(SimpleNamespace(batch_id="B1"), ["s3_csv"], conn=MagicMock())
+    assert {c.code for c in checks} == {"G2.0"} and len(checks) == 4 and not any(c.ok for c in checks)
+
+
+def test_rapport_g2_sans_controle_n_est_pas_valide(monkeypatch, tmp_path):
+    from pipeline import verify_g2
+    reglages = SimpleNamespace(paths=SimpleNamespace(reports_dir=tmp_path))
+    monkeypatch.setattr(verify_g2, "get_settings", lambda: reglages)
+    lot = SimpleNamespace(batch_id="B1", extracted_at=datetime(2026, 1, 1))
+    assert "NON VALIDÉE" in Path(verify_g2.write_report(lot, [])).read_text(encoding="utf-8")
