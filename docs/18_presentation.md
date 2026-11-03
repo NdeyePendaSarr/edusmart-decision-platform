@@ -27,7 +27,7 @@
 | # | Section | Point PDF | Titre (le message) | Contenu |
 |---:|---|:-:|---|---|
 | 1 | Introduction | — | EduSmart Decision Platform | De cinq sources dispersées à une plateforme décisionnelle |
-| 2 | Introduction | — | L'essentiel en une page | Idée maîtresse ; 10 500 étudiants réels, 13,554 Mds XOF encaissés, 90,10 % de recouvrement, 3 003 actifs (28,6 %) |
+| 2 | Introduction | — | L'essentiel en une page | Idée maîtresse ; 10 500 étudiants distincts, 13,554 Mds XOF encaissés, 90,10 % de recouvrement, 3 003 actifs (28,6 %) |
 | 3 | Le projet | 1 | Le Directeur Général pose 7 questions | 5 répondues, 2 sans données (satisfaction, évaluation des enseignants) |
 | 4 | Le projet | 2 | Cinq sources hétérogènes, volontairement imparfaites | Volumes et types d'anomalies par source (≈ 800 000 enregistrements, 69 types) |
 | 5 | Le projet | 3 | Intégrer, c'est d'abord savoir qui est qui | 26 476 → 10 500 personnes ; identifiants, formats, source volatile |

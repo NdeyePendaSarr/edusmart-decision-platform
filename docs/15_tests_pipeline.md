@@ -32,8 +32,8 @@ Trois niveaux, du plus rapide au plus complet :
 | Niveau | Quoi | Où | Quand | Volume |
 |---|---|---|---|---|
 | **Tests unitaires** | Fonctions pures : règles de nettoyage, équation de conservation, comparaison des KPI, format des rapports | `tests/test_*.py` (sans base) | À chaque modification, en 2 min | 308 tests (249 avant L9, + 41 en L9, + 13 en L10, + 5 sur l'arrêt du pipeline) |
-| **Portes de contrôle** | Invariants sur les vraies données, couche par couche | `pipeline/verify_g2.py` … `verify_g6.py` | À chaque exécution du pipeline | G2 85, G3 69, G4 57, G5a 8, G5b 8, **G6 101** |
-| **Tests d'intégration** | Le pipeline complet sur les 5 vraies sources, les portes, **les mutations** | `tests/test_*_integration.py` (`EDUSMART_INTEGRATION=1`) | Avant chaque livraison de lot | 69 tests (57 avant L9, + 11 en L9, + 1 en L10) |
+| **Portes de contrôle** | Invariants sur les données synthétiques, couche par couche | `pipeline/verify_g2.py` … `verify_g6.py` | G2, G3, G4, G5a à chaque exécution de `run_pipeline` ; G6 et G5b à part | G2 85, G3 69, G4 57, G5a 8, G5b 8, **G6 101** |
+| **Tests d'intégration** | Le pipeline complet sur les 5 sources chargées dans de vraies bases, les portes, **les mutations** | `tests/test_*_integration.py` (`EDUSMART_INTEGRATION=1`) | Avant chaque livraison de lot | 69 tests (57 avant L9, + 11 en L9, + 1 en L10) |
 
 **Pourquoi G6 alors que G2, G3 et G4 existent ?** Chaque porte précédente regarde **une** frontière. G6 regarde la chaîne **entière**, et ajoute deux choses qui manquaient :
 
@@ -96,7 +96,7 @@ Une ligne du staging Redis est une **clé**. La couche clean, elle, compte des c
 
 ## 5. Les tests de mutation : prouver que les tests savent échouer
 
-Un test qui ne peut pas échouer ne prouve rien. Pour chaque question du PDF, un test d'intégration **casse volontairement** une donnée, dans une transaction, vérifie que G6 passe au rouge sur le bon contrôle, puis **annule** la transaction (`ROLLBACK`). Les données réelles ne sont jamais modifiées durablement.
+Un test qui ne peut pas échouer ne prouve rien. Pour chaque question du PDF, un test d'intégration **casse volontairement** une donnée, dans une transaction, vérifie que G6 passe au rouge sur le bon contrôle, puis **annule** la transaction (`ROLLBACK`). Les données chargées ne sont jamais modifiées durablement.
 
 | Mutation | Question | Défaut introduit | Contrôle G6 qui doit échouer |
 |---|---|---|---|
@@ -153,7 +153,7 @@ Critère de la porte G6 (validé le 12/10/2026) : la suite **complète** en mode
 | 41 tests unitaires de G6 | Atelier de développement, Python 3.13 | 41/41 ✅ ; suite unitaire complète : 288 passed, 70 skipped (2 tests ignorés de plus que chez toi : `data/` absent) |
 | G6 sur un **entrepôt miniature** | PostgreSQL 16 local, **vrais DDL du dépôt** (meta, staging, quality, dw), couche clean minimale, 99 lignes de staging aux équations connues, dont un échec rattrapé, un doublon de notification, un étudiant Redis inconnu et un membre de classement écarté | 101/101 ✅ |
 | 8 mutations + contre-épreuve + ligne de commande | Même entrepôt miniature | 10/10 ✅ ; G6 sabotée : 2 échecs attendus ✅ |
-| **G6 sur les 5 vraies sources** | Poste de développement (Docker) | **101/101** ✅ ; suite d'intégration complète 358/358 |
+| **G6 sur les 5 sources chargées** | Poste de développement (Docker) | **101/101** ✅ ; suite d'intégration complète 358/358 |
 
 ## 7. Journal des décisions et constats du lot L9
 
