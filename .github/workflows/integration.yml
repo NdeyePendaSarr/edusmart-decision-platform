@@ -9,6 +9,7 @@ on:
       - "pipeline/**"
       - "sources/**"
       - "tests/**"
+      - "tests_pannes/**"
       - "common/**"
       - "docker/**"
       - "requirements.txt"
@@ -104,6 +105,79 @@ jobs:
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02  # v4.6.2
         with:
           name: rapports-integration
+          path: |
+            data/reports/
+            logs/
+          if-no-files-found: warn
+
+  pannes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0
+
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065  # v5.6.0
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Générer les mots de passe jetables
+        run: |
+          for var in PG_SOURCE_PASSWORD PG_DW_PASSWORD MYSQL_PASSWORD MYSQL_ROOT_PASSWORD MONGO_ROOT_PASSWORD REDIS_PASSWORD; do
+            valeur="$(openssl rand -hex 24)"
+            echo "::add-mask::$valeur"
+            echo "$var=$valeur" >> "$GITHUB_ENV"
+          done
+
+      - name: Installer les dépendances
+        run: pip install -r requirements.txt
+
+      - name: Démarrer les bases
+        working-directory: docker
+        run: docker compose -f docker-compose.yml -f docker-compose.perf.yml up -d --wait --wait-timeout 300
+
+      - name: Générer et charger les sources
+        run: |
+          python -m common.referential
+          python -m sources.s1_postgresql.generate_data
+          python -m sources.s1_postgresql.insert_data
+          python -m sources.s2_mysql.generate_data
+          python -m sources.s2_mysql.insert_data
+          python -m sources.s3_csv.create_source
+          python -m sources.s3_csv.generate_data
+          python -m sources.s4_mongodb.generate_data
+          python -m sources.s4_mongodb.insert_data
+          python -m sources.s5_redis.create_source
+          python -m sources.s5_redis.generate_data
+
+      - name: Provoquer les pannes réelles
+        run: |
+          mkdir -p data/reports
+          python -m pytest tests_pannes -v -ra --junitxml=data/reports/pytest_pannes.xml
+
+      - name: Exiger 0 test ignoré
+        run: |
+          python - <<'EOF'
+          import sys
+          import xml.etree.ElementTree as ET
+          racine = ET.parse("data/reports/pytest_pannes.xml").getroot()
+          suite = racine if racine.tag == "testsuite" else racine[0]
+          total, ignores, echecs, erreurs = (int(suite.get(k)) for k in ("tests", "skipped", "failures", "errors"))
+          print(f"collectés={total} passés={total - ignores - echecs - erreurs} ignorés={ignores} échecs={echecs} erreurs={erreurs}")
+          sys.exit(1 if total == 0 or ignores or echecs or erreurs else 0)
+          EOF
+
+      - name: Journaux des conteneurs en cas d'échec
+        if: failure()
+        working-directory: docker
+        run: docker compose -f docker-compose.yml -f docker-compose.perf.yml logs --tail=100
+
+      - name: Publier les rapports
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02  # v4.6.2
+        with:
+          name: rapports-pannes
           path: |
             data/reports/
             logs/
