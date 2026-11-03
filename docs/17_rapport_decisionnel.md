@@ -12,8 +12,10 @@
 
 > **EduSmart encaisse 90 % de ce qu'elle attend et ses apprenants réussissent leurs quiz (93 %), mais seulement 3 sur 10 sont actifs sur 30 jours. La priorité n'est plus de recruter, c'est d'engager et d'écouter.**
 
+*Les données sont simulées : ces constats se lisent avec les réserves du § 7.1.*
+
 **Ce qui va bien**
-- **10 500** étudiants réels, enfin comptés une seule fois (la somme des systèmes en annonçait 26 476).
+- **10 500** étudiants distincts, enfin comptés une seule fois (la somme des systèmes en annonçait 26 476).
 - **13,554 Mds XOF** encaissés ; activité multipliée par deux en deux ans (3 617 → 7 383 inscriptions).
 - **93,13 %** de réussite aux quiz ; sessions médianes de **29 min**.
 
@@ -47,11 +49,11 @@ Oui, et voici pourquoi :
 
 | Garantie | Preuve |
 |---|---|
-| **Aucune donnée perdue sans trace** | Chaque ligne extraite arrive dans l'entrepôt ou est écartée **avec son motif** : l'équation est vérifiée à chaque exécution, table par table (101 contrôles automatiques) |
+| **Aucune donnée perdue sans trace** | Chaque ligne extraite arrive dans l'entrepôt ou est écartée **avec son motif** : l'équation est vérifiée par la porte G6, lancée à part du pipeline, table par table (101 contrôles automatiques) |
 | **Les erreurs de saisie sont traitées, pas ignorées** | 159 946 anomalies traitées : 55 853 corrigées, 25 932 traitées par rejet, 78 161 signalées sans être devinées |
-| **Chaque KPI est calculé trois fois** | Trois langages, trois couches (SQL sur l'entrepôt, Python sur les données nettoyées, DAX dans Power BI) : même résultat |
+| **Chaque KPI est calculé trois fois** | Trois langages, trois couches (SQL sur l'entrepôt, Python sur les données nettoyées, DAX dans Power BI) : même résultat sur les totaux non filtrés |
 | **Les contrôles savent détecter une erreur** | 9 tests introduisent volontairement une erreur (ligne perdue, clé orpheline, montant faussé de 1 000 XOF) : tous détectés |
-| **Le tableau de bord est réconcilié avec l'entrepôt** | Un taux aberrant observé dans Power BI (Kaffrine) a été recalculé dans l'entrepôt : 89,68 %, valeur normale (§ 7.2) |
+| **Un taux aberrant du tableau de bord a été diagnostiqué** | Un taux observé dans Power BI (Kaffrine) a été recalculé dans l'entrepôt : 89,68 %, valeur normale. Un écart de 0,39 point reste non expliqué (§ 7.2) |
 
 ## 4. Les indicateurs clés
 
@@ -85,7 +87,7 @@ Oui, et voici pourquoi :
 - **Le taux est stable, le montant ne l'est pas.** À 90 % de recouvrement, chaque doublement de l'activité double les impayés.
 - **L'année 2025-2026 n'est pas close** : une partie des 655 M peut encore être encaissée.
 - **Aucune région n'est en décrochage** : de 88,57 % (Matam) à 93,29 % (Kédougou) ; Dakar à 90,16 %.
-- **Saisonnalité** : le pic d'encaissement est en octobre, à la rentrée (1ʳᵉ tranche).
+- **Saisonnalité** : en 2025, trois pics d'encaissement : janvier (909 M), avril (906 M) et août-septembre (2 263 M), avant la rentrée d'octobre.
 
 ### 5.2 Pédagogie : on réussit les quiz, on ne finit pas les parcours
 

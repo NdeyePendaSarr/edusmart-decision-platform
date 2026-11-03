@@ -99,7 +99,7 @@ Chaque difficulté ci-dessous a réellement eu lieu ; elle est tracée dans le l
 | Niveau | Volume | Rôle |
 |---|---:|---|
 | Tests unitaires (sans base) | 308 | Règles de nettoyage, calculs des KPI, équation de conservation, cohérence des chiffres des rapports |
-| Tests d'intégration (5 vraies sources) | 69 | Pipeline complet, portes, idempotence, cas limites du SCD 2, **9 tests de mutation** |
+| Tests d'intégration (5 sources chargées dans de vraies bases) | 69 | Pipeline complet, portes, idempotence, cas limites du SCD 2, **9 tests de mutation** |
 | Portes de contrôle | G0 à G6 | 7 portes, toutes vertes |
 
 Les KPI sont calculés par **trois chemins** qui doivent donner le même résultat : SQL sur le DW, Python sur la couche clean (porte G5a), DAX dans Power BI (porte G5b). La porte G6 fige ces valeurs : toute modification du pipeline qui changerait un KPI la fait échouer.
