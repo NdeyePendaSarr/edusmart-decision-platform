@@ -21,9 +21,6 @@ concurrency:
   group: integration-${{ github.ref }}
   cancel-in-progress: true
 
-env:
-  TZ: Africa/Dakar
-
 jobs:
   integration:
     runs-on: ubuntu-latest
