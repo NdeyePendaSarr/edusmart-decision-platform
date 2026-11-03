@@ -104,7 +104,7 @@ Chaque difficulté ci-dessous a réellement eu lieu ; elle est tracée dans le l
 
 Les KPI sont calculés par **trois chemins** qui doivent donner le même résultat : SQL sur le DW, Python sur la couche clean (porte G5a), DAX dans Power BI (porte G5b). La porte G6 fige ces valeurs : toute modification du pipeline qui changerait un KPI la fait échouer.
 
-Le détail est dans [15_tests_pipeline.md](15_tests_pipeline.md).
+Résultat constaté : 377 tests passés, 0 ignoré, 0 échec, en CI, Linux, Python 3.12 ([run du job d'intégration](https://github.com/NdeyePendaSarr/edusmart-decision-platform/actions/runs/41607922083)). Le détail est dans [15_tests_pipeline.md](15_tests_pipeline.md).
 
 ## 8. Limites du projet
 
