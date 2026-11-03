@@ -185,7 +185,7 @@ def indicateurs(batch_id: str) -> int:
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Pipeline ELT EduSmart (L4 : extraction, chargement, porte G2)")
+    parser = argparse.ArgumentParser(description="Pipeline ELT EduSmart (extraction, chargement, couche clean, entrepôt, KPI et portes G2 à G5a)")
     parser.add_argument("--sources", nargs="+", choices=SOURCES, default=list(SOURCES))
     parser.add_argument("--steps", nargs="+", choices=ETAPES, default=list(ETAPES))
     args = parser.parse_args(argv)

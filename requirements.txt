@@ -1,4 +1,4 @@
-# EduSmart Decision Platform — dépendances Python (3.11 ou 3.12 recommandé)
+# EduSmart Decision Platform — dépendances Python (3.12, version utilisée par la CI)
 # Faker est épinglé à une version EXACTE : une autre version peut produire
 # des données différentes à graine identique (reproductibilité).
 Faker==40.39.0
