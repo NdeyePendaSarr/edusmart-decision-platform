@@ -9,6 +9,9 @@ on:
       - "pipeline/**"
       - "sources/**"
       - "tests/**"
+      - "common/**"
+      - "docker/**"
+      - "requirements.txt"
       - ".github/workflows/integration.yml"
 
 permissions:
