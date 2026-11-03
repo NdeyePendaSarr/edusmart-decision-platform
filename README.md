@@ -18,7 +18,7 @@ Les PDF du projet sont la seule source de vérité. Tout écart est tracé dans 
 | Entrepôt | Constellation de **8 faits** et **7 dimensions** (temps, étudiant, formation, module, quiz, enseignant, région), SCD 2 ([conception](docs/07_conception_dw.md)) |
 | Qualité | Portes de contrôle **G0 à G6** ; **159 946 anomalies** détectées et tracées en couche clean (G3) |
 | Indicateurs | **8 KPI** : CA encaissé, taux de recouvrement, réussite aux quiz, abandon, progression moyenne, étudiants actifs, temps médian de connexion, nombre réel d'étudiants ([KPI](docs/11_kpi.md)) |
-| Tests | **377 tests Pytest** : 308 unitaires et 69 d'intégration ; 377 passés, 0 ignoré, 0 échec, dans le job d'intégration en CI, Linux, Python 3.12 ([run](https://github.com/NdeyePendaSarr/edusmart-decision-platform/actions/runs/41607922083), [stratégie de test](docs/15_tests_pipeline.md)) |
+| Tests | **398 tests Pytest** : 328 unitaires et 70 d'intégration ; 398 passés, 0 ignoré, 0 échec, dans le job d'intégration en CI, Linux, Python 3.12, et 7 pannes réelles provoquées sur de vraies bases : 7 passés, 0 ignoré, 0 échec ([run](https://github.com/NdeyePendaSarr/edusmart-decision-platform/actions/runs/41694410668), [stratégie de test](docs/15_tests_pipeline.md)) |
 
 **Diagnostic notable : un recouvrement de 2 821 %.** Dans Power BI, Kaffrine affichait un
 taux de recouvrement de 2 821 % et les 14 régions un chiffre d'affaires identique. Les
@@ -47,7 +47,7 @@ contrôlées ([détail du correctif](docs/13_powerbi.md)).
 | L6 | Data Warehouse : constellation de 8 faits, SCD 2 | Validé (G4 : 57/57) ([conception](docs/07_conception_dw.md)) |
 | L7 | OLAP et KPI | Validé (G5a : 8/8) ([OLAP](docs/10_olap.md), [KPI](docs/11_kpi.md)) |
 | L8 | Visualisations et Power BI | Validé (G5b : 8/8) ([guide](powerbi/guide_powerbi.md), [Power BI](docs/13_powerbi.md)) |
-| L9 | Data Storytelling, tests du pipeline (phases 14 et 15) | Validé (G6 : 101/101 ; 358 tests au vert à la livraison du lot, 377 aujourd’hui) ([storytelling](docs/14_data_storytelling.md), [tests](docs/15_tests_pipeline.md)) |
+| L9 | Data Storytelling, tests du pipeline (phases 14 et 15) | Validé (G6 : 101/101 ; 358 tests au vert à la livraison du lot, 398 aujourd’hui) ([storytelling](docs/14_data_storytelling.md), [tests](docs/15_tests_pipeline.md)) |
 | L10 | Rapports finaux et présentation (phases 16 à 18) | Livré, en attente de validation : [rapport individuel](docs/16_rapport_individuel.md), [rapport décisionnel](docs/17_rapport_decisionnel.md), [présentation](docs/18_presentation.md), [documentation complète en Word](docs/EduSmart_documentation.docx) |
 
 ### Pipeline ELT (L4)
@@ -108,9 +108,10 @@ edusmart-decision-platform/
 │   ├── generated/<source>/       CSV intermédiaires + summary.json
 │   ├── anomalies/                journaux d'anomalies (vérité terrain)
 │   └── reports/                  rapports des portes G1 à G6, rapport qualité, KPI
-├── tests/                        308 tests unitaires + 69 tests d'intégration
+├── tests/                        328 tests unitaires + 70 tests d'intégration
+├── tests_pannes/                 7 pannes réelles, hors du décompte de la suite (job pannes)
 ├── .github/workflows/ci.yml      CI : tests sans base de données, à chaque pull request et sur main
-├── .github/workflows/integration.yml   CI : pipeline et suite complète sur des bases Docker neuves
+├── .github/workflows/integration.yml   CI : pipeline, suite complète et pannes réelles sur des bases Docker neuves
 ├── requirements.txt
 └── pytest.ini
 ```
@@ -154,7 +155,7 @@ python -m common.referential
 python -m pytest
 ```
 
-Il y a deux CI. `ci.yml` lance cette même commande sous Python 3.12, sans base de données : les tests d'intégration y sont ignorés. `integration.yml` lance le pipeline et toute la suite sur des bases Docker neuves, à la demande et sur les pull requests qui touchent `pipeline/`, `sources/`, `tests/`, `common/`, `docker/` ou `requirements.txt`.
+Il y a deux CI. `ci.yml` lance cette même commande sous Python 3.12, sans base de données : les tests d'intégration y sont ignorés. `integration.yml` lance le pipeline, toute la suite et 7 pannes réelles sur des bases Docker neuves, à la demande et sur les pull requests qui touchent `pipeline/`, `sources/`, `tests/`, `tests_pannes/`, `common/`, `docker/` ou `requirements.txt`.
 
 ### Services et ports
 
