@@ -16,14 +16,15 @@ Politique d'erreur : l'échec d'une source n'empêche pas les autres d'être
 extraites, chargées et vérifiées. Il est tracé (statut ECHEC dans le journal),
 la source n'est pas chargée, et le code de sortie vaut 1.
 
-Le lot s'arrête alors avant la couche clean. Il s'arrête aussi quand une porte
+Le lot s'arrête alors avant la couche clean. Un staging mêlant plusieurs lots est aussi
+refusé, sauf relance ciblée avec --autoriser-lots-mixtes. Il s'arrête aussi quand une porte
 échoue : G2 avant la couche clean, G3 avant l'entrepôt, G4 avant les KPI. Les
 anomalies détectées ne sont pas un échec : G3 échoue si l'une d'elles n'est pas
 traitée. L'arrêt ne vaut que pour le lancement en cours (--steps reste libre).
 
 Exemples :
     python -m pipeline.run_pipeline                              # tout
-    python -m pipeline.run_pipeline --sources s3_csv s5_redis    # deux sources
+    python -m pipeline.run_pipeline --sources s3_csv s5_redis --autoriser-lots-mixtes    # deux sources
     python -m pipeline.run_pipeline --steps load verify          # rechargement du dernier lot
 """
 
@@ -61,7 +62,7 @@ def arret(batch_id: str, cause: str, code: int) -> int:
     return code
 
 
-def run(sources: list[str], etapes: list[str]) -> int:
+def run(sources: list[str], etapes: list[str], autoriser_lots_mixtes: bool = False) -> int:
     import psycopg2
     from pipeline import load as load_mod
     from pipeline import verify_g2
@@ -106,7 +107,7 @@ def run(sources: list[str], etapes: list[str]) -> int:
                     logger.error("[KO] %s %s %s : %s", c.code, c.objet, c.libelle, c.detail)
             n_ok = sum(c.ok for c in checks)
             logger.info("Porte G2 : %d/%d contrôles réussis — %s", n_ok, len(checks), rapport)
-            if n_ok != len(checks):
+            if not checks or n_ok != len(checks):
                 code_retour = 1
         if code_retour:
             return arret(batch.batch_id, "extraction en échec ou porte G2", code_retour)
@@ -114,7 +115,7 @@ def run(sources: list[str], etapes: list[str]) -> int:
         if "transform" in etapes:
             from pipeline import transform as transform_mod
             with log_step(logger, "TRANSFORM (couche clean, 5 sources)"):
-                transform_mod.transform(None, meta)
+                transform_mod.transform(None, meta, autoriser_lots_mixtes=autoriser_lots_mixtes)
 
         if "qualite" in etapes:
             code_retour = qualite(batch.batch_id, meta)
@@ -206,10 +207,13 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Pipeline ELT EduSmart (extraction, chargement, couche clean, entrepôt, KPI et portes G2 à G5a)")
     parser.add_argument("--sources", nargs="+", choices=SOURCES, default=list(SOURCES))
     parser.add_argument("--steps", nargs="+", choices=ETAPES, default=list(ETAPES))
+    parser.add_argument("--autoriser-lots-mixtes", action="store_true",
+                        help="relance --sources : accepter un staging mêlant plusieurs lots")
     args = parser.parse_args(argv)
+    from pipeline.transform import TransformError
     try:
-        return run(args.sources, args.steps)
-    except ConfigError as exc:
+        return run(args.sources, args.steps, args.autoriser_lots_mixtes)
+    except (ConfigError, TransformError) as exc:
         logger.error("%s", exc)
         return 1
     except FileNotFoundError as exc:

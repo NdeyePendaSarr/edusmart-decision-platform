@@ -109,3 +109,18 @@ def test_g4_ko_arrete_avant_les_kpi(pipeline):
     pipeline.g4_ok = False
     assert rp.run(SOURCES, ETAPES) == 1
     assert pipeline.appels[-1] == "dw"
+
+
+def test_g2_sans_aucun_controle_arrete_le_lot(pipeline, monkeypatch):
+    monkeypatch.setattr(verify_g2, "verify", lambda batch, sources: [])
+    assert rp.run(SOURCES, ETAPES) == 1
+    assert "transform" not in pipeline.appels
+
+
+def test_option_lots_mixtes_transmise_a_la_transformation(pipeline, monkeypatch):
+    recu = {}
+    monkeypatch.setattr(transform, "transform", lambda sources, meta, autoriser_lots_mixtes=False: recu.update(option=autoriser_lots_mixtes))
+    assert rp.run(SOURCES, ETAPES) == 0
+    assert recu == {"option": False}
+    assert rp.run(SOURCES, ETAPES, autoriser_lots_mixtes=True) == 0
+    assert recu == {"option": True}

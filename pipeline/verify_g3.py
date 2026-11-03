@@ -13,10 +13,10 @@ d'anomalie, sur la même ligne.
 Porte G3 validée si 100 % des anomalies REÇUES de chacun des 69 types sont traitées.
 
 Cas particulier de Redis, volatile par nature (PDF : « Redis ne conserve pas les données de
-manière permanente ») : une anomalie dont la clé a EXPIRÉ avant l'extraction n'est jamais
+manière permanente ») : une anomalie dont la clé a pu EXPIRER avant l'extraction n'est jamais
 parvenue au pipeline. Elle est comptée à part, « non extraite », et n'est pas un échec de
-traitement. G2 garantit déjà que tout ce qui existait à l'extraction a été extrait. Cette
-tolérance ne s'applique qu'à la Source 5 ; le rapport affiche ces anomalies.
+traitement. Cette tolérance ne vaut que pour les clés qui ont un TTL (peut_expirer), et jamais
+si aucune clé Redis n'a été extraite : un Redis vide est un échec. Le rapport affiche ces anomalies.
 Le rapport indique aussi les constats « hors journal » d'une règle, par exemple
 les deux lignes d'une référence partagée : c'est une information de précision,
 pas un échec.
@@ -71,6 +71,11 @@ def cles_redis(code: str, id_ligne: str) -> list[str]:
     return [id_ligne]                                   # session:…, notifications:…, progress:…, online_users
 
 
+def peut_expirer(code: str, id_ligne: str) -> bool:
+    """La clé porteuse a-t-elle un TTL ? E01, E04, E06 et online_users n'en ont pas (sources/s5_redis/anomalies.py)."""
+    return code in ("E02", "E05", "E07") or (code == "E03" and id_ligne.startswith("statistics:today."))
+
+
 def evaluer(journal: list, preuves: dict[str, dict[str, str]], cles_extraites: set[str] | None = None) -> list[ResultatAnomalie]:
     """
     journal : enregistrements (code, id_ligne, valeur_originale) ;
@@ -88,7 +93,7 @@ def evaluer(journal: list, preuves: dict[str, dict[str, str]], cles_extraites: s
         ids_journal = {r.id_ligne for r in recs} | ({r.valeur_originale for r in recs} if code in DOUBLONS_NOUVEL_ID else set())
         actions, traitees, non_extraites = Counter(), 0, 0
         for rec in recs:
-            if cles_extraites is not None and code.startswith("E") and \
+            if cles_extraites and code.startswith("E") and peut_expirer(code, rec.id_ligne) and \
                     not any(k in cles_extraites for k in cles_redis(code, rec.id_ligne)):
                 non_extraites += 1
                 continue

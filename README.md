@@ -58,6 +58,9 @@ python -m pipeline.run_pipeline            # extraction -> staging -> G2 -> clea
 python -m pipeline.verify_g6               # porte G6 : tests du pipeline de bout en bout (Phase 15)
 ```
 
+Le pipeline refuse un staging mêlant plusieurs lots. Pour relancer quelques sources seulement, l'option est explicite :
+`python -m pipeline.run_pipeline --sources s5_redis --autoriser-lots-mixtes`. Le staging contient alors plusieurs instants d'extraction.
+
 ### Volet A : vérifier les 5 sources d'un coup
 
 ```powershell

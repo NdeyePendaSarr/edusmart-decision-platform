@@ -121,3 +121,26 @@ def test_cles_redis_des_anomalies():
     assert cles_redis("E03", "online_users") == ["online_users"]
     assert "progress:LMS-000001" in cles_redis("E06", "LMS-000001")
     assert cles_redis("E01", "session:abc") == ["session:abc"]
+
+
+def test_g3_redis_vide_echoue():
+    """Aucune clé extraite : ce n'est pas une expiration, les 7 types Redis doivent échouer."""
+    journal = [_rec(code, cle) for code, cle in (("E01", "session:a"), ("E02", "session:b"), ("E05", "progress:LMS-000001"))]
+    res = {r.code: r for r in evaluer(journal, {}, cles_extraites=set())}
+    assert not res["E01"].ok and not res["E02"].ok and not res["E05"].ok
+    assert res["E01"].non_extraites == res["E02"].non_extraites == res["E05"].non_extraites == 0
+
+
+def test_g3_cle_sans_ttl_absente_echoue():
+    """E01, E04 et online_users n'ont pas de TTL : leur absence n'est jamais une expiration."""
+    journal = [_rec("E01", "session:a"), _rec("E04", "notifications:LMS-000001"), _rec("E03", "online_users")]
+    res = {r.code: r for r in evaluer(journal, {}, cles_extraites={"autre:cle"})}
+    assert not res["E01"].ok and not res["E04"].ok and not res["E03"].ok
+    assert res["E01"].non_extraites == res["E04"].non_extraites == res["E03"].non_extraites == 0
+
+
+def test_g3_cle_a_ttl_absente_reste_toleree():
+    journal = [_rec("E02", "session:b"), _rec("E05", "progress:LMS-000001")]
+    res = {r.code: r for r in evaluer(journal, {}, cles_extraites={"autre:cle"})}
+    assert res["E02"].ok and res["E02"].non_extraites == 1
+    assert res["E05"].ok and res["E05"].non_extraites == 1
