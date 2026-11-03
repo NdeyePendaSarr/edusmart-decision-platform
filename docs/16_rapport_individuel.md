@@ -46,7 +46,7 @@ Le projet a été découpé en **11 lots** (L0 à L10). Chaque lot suit le même
 | L9 | Data Storytelling, tests du pipeline | 14, 15 | G6 | 101/101 |
 | L10 | Rapports, présentation | 16, 17, 18 | — | Ce document |
 
-**Outils et assistance.** Ce projet a été réalisé avec l'assistance d'un outil d'IA générative (Claude, Anthropic) pour la génération de code, la documentation et la revue de qualité. Les choix de conception ont été arbitrés et validés par l'auteure à chaque lot ; l'exécution des tests, la vérification des résultats et la validation finale ont été effectuées par l'auteure, sur son poste (Windows, Python 3.14, Docker, Power BI Desktop).
+**Validation.** Les choix de conception ont été arbitrés et validés par l'auteure à chaque lot ; l'exécution des tests, la vérification des résultats et la validation finale ont été effectuées par l'auteure, sur son poste (Windows, Python 3.14, Docker, Power BI Desktop).
 
 **Pourquoi cette méthode ?** Une erreur découverte en L8 dans un chiffre du tableau de bord peut venir de n'importe quelle couche. Avec une porte par couche, chaque couche est prouvée juste **avant** de construire la suivante : quand un écart apparaît, on sait où chercher.
 
