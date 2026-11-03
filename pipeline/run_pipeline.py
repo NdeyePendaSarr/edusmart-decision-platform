@@ -99,9 +99,12 @@ def run(sources: list[str], etapes: list[str], autoriser_lots_mixtes: bool = Fal
                 load_mod.load(batch, sources, meta)
 
         if "verify" in etapes and sources:
-            with log_step(logger, "VERIFY (porte G2)"):
+            with log_step(logger, "VERIFY (porte G2)"), meta.step(batch.batch_id, "VERIFY", "*", "G2") as step:
                 checks = verify_g2.verify(batch, sources)
                 rapport = verify_g2.write_report(batch, checks)
+                step.nb_lignes = len(checks)
+                if not checks or not all(c.ok for c in checks):
+                    step.echec = f"G2 KO : {sum(not c.ok for c in checks)} contrôle(s) en échec sur {len(checks)}"
             for c in checks:
                 if not c.ok:
                     logger.error("[KO] %s %s %s : %s", c.code, c.objet, c.libelle, c.detail)
@@ -147,6 +150,8 @@ def qualite(batch_id: str, meta) -> int:
                 logger.info("Rapport qualité : %s", rapport_qualite.ecrire_rapport(conn, batch_id, lignes, dims))
                 resultats = verify_g3.verify(conn, batch_id)
                 step.nb_lignes = sum(r.traitees for r in resultats)
+                if not all(r.ok for r in resultats):
+                    step.echec = f"G3 KO : {sum(not r.ok for r in resultats)} type(s) d'anomalies non traités"
         rapport = verify_g3.write_report(batch_id, resultats)
     finally:
         conn.close()
@@ -173,7 +178,9 @@ def entrepot(batch_id: str, meta) -> int:
             with meta.step(batch_id, "DW", "*", "dw") as step:
                 comptes = load_dw.charger(conn)
                 step.nb_lignes = sum(n for t, n in comptes.items() if t.startswith("fact_"))
-            checks = verify_g4.verify(conn)
+                checks = verify_g4.verify(conn)
+                if not all(c.ok for c in checks):
+                    step.echec = f"G4 KO : {sum(not c.ok for c in checks)} contrôle(s) en échec"
         rapport = verify_g4.write_report(checks, batch_id)
     finally:
         conn.close()

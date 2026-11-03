@@ -222,7 +222,7 @@ Document : [`docs/15_tests_pipeline.md`](../docs/15_tests_pipeline.md) (recherch
 | G6.1 | Toutes les lignes ont-elles été extraites ? | source = manifeste = journal `EXTRACT` (17) |
 | G6.2 | Toutes les lignes ont-elles été chargées ? | staging = manifeste = journal `LOAD`, aucune ligne d'un autre lot (17) |
 | G6.3 | Des données ont-elles été perdues ? | staging = clean + rejets distincts, Redis par famille (classement bloquant depuis L10), clean = DW, rapport qualité (35) |
-| G6.4 | Des erreurs sont-elles apparues ? | 41 étapes du journal, aucune `EN_COURS`, 0 erreur, `metadata_sources` (9) |
+| G6.4 | Des erreurs sont-elles apparues ? | 42 étapes du journal, aucune `EN_COURS`, 0 erreur, `metadata_sources` (9) |
 | G6.5 | Les clés sont-elles toujours valides ? | 26 clés étrangères, membres −1, SCD 2, clés primaires clean, intégrité clean (15) |
 | G6.6 | Les KPI ont-ils changé ? | 8 KPI = référence L7 (8) |
 

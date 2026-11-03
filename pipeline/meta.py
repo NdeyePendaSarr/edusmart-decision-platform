@@ -28,10 +28,11 @@ DDL_FILES = (SQL_DIR / "meta" / "01_meta_tables.sql", SQL_DIR / "staging" / "01_
 
 
 class StepResult:
-    """Objet rempli par l'étape : nombre de lignes traitées."""
+    """Objet rempli par l'étape : nombre de lignes traitées, et motif si une porte a échoué."""
 
     def __init__(self):
         self.nb_lignes: int | None = None
+        self.echec: str | None = None
 
 
 class MetaStore:
@@ -106,7 +107,10 @@ class MetaStore:
         except Exception as exc:
             self._close(id_execution, t0, result.nb_lignes, "ECHEC", f"{type(exc).__name__}: {exc}"[:2000])
             raise
-        self._close(id_execution, t0, result.nb_lignes, "SUCCES", None)
+        if result.echec:                                 # porte KO : pas d'exception, mais pas un succès non plus
+            self._close(id_execution, t0, result.nb_lignes, "ECHEC", result.echec[:2000])
+        else:
+            self._close(id_execution, t0, result.nb_lignes, "SUCCES", None)
 
     def _close(self, id_execution: int, t0: float, nb: int | None, statut: str, erreur: str | None) -> None:
         with self.conn.cursor() as cur:
