@@ -24,7 +24,7 @@ services:
   # Source 1 — PostgreSQL « Gestion académique »
   # ---------------------------------------------------------------------------
   pg_source:
-    image: postgres:15
+    image: postgres:15.19
     container_name: edusmart_pg_source
     restart: unless-stopped
     environment:
@@ -34,7 +34,7 @@ services:
       TZ: ${TZ:-Africa/Dakar}
       PGTZ: ${TZ:-Africa/Dakar}
     ports:
-      - "${PG_SOURCE_PORT:-5435}:5432"      # 5435 côté Windows : 5432 (PostgreSQL local) et 5433 (autre projet) sont occupés
+      - "127.0.0.1:${PG_SOURCE_PORT:-5435}:5432"      # 5435 côté Windows : 5432 (PostgreSQL local) et 5433 (autre projet) sont occupés
     volumes:
       - pg_source_data:/var/lib/postgresql/data
     healthcheck:
@@ -48,7 +48,7 @@ services:
   # Data Warehouse — PostgreSQL séparé (simule un système distinct des sources)
   # ---------------------------------------------------------------------------
   pg_dw:
-    image: postgres:15
+    image: postgres:15.19
     container_name: edusmart_pg_dw
     restart: unless-stopped
     environment:
@@ -58,7 +58,7 @@ services:
       TZ: ${TZ:-Africa/Dakar}
       PGTZ: ${TZ:-Africa/Dakar}
     ports:
-      - "${PG_DW_PORT:-5434}:5432"          # Port utilisé par Power BI
+      - "127.0.0.1:${PG_DW_PORT:-5434}:5432"          # Port utilisé par Power BI
     volumes:
       - pg_dw_data:/var/lib/postgresql/data
       # Scripts exécutés UNIQUEMENT au premier démarrage (volume vide)
@@ -74,7 +74,7 @@ services:
   # Source 2 — MySQL « Plateforme pédagogique »
   # ---------------------------------------------------------------------------
   mysql:
-    image: mysql:8.0                        # >= 8.0.16 : CHECK appliqués / NOT ENFORCED disponible
+    image: mysql:8.0.46                     # >= 8.0.16 : CHECK appliqués / NOT ENFORCED disponible
     container_name: edusmart_mysql
     restart: unless-stopped
     command:
@@ -88,11 +88,11 @@ services:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?MYSQL_ROOT_PASSWORD manquant dans docker/.env}
       TZ: ${TZ:-Africa/Dakar}
     ports:
-      - "${MYSQL_PORT:-3307}:3306"
+      - "127.0.0.1:${MYSQL_PORT:-3307}:3306"
     volumes:
       - mysql_data:/var/lib/mysql
     healthcheck:
-      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -uroot -p$${MYSQL_ROOT_PASSWORD} --silent"]
+      test: ["CMD-SHELL", "MYSQL_PWD=\"$${MYSQL_ROOT_PASSWORD}\" mysqladmin ping -h 127.0.0.1 -uroot --silent"]
       interval: 10s
       timeout: 5s
       retries: 12
@@ -103,7 +103,7 @@ services:
   # Source 4 — MongoDB « Journaux de l'application mobile »
   # ---------------------------------------------------------------------------
   mongo:
-    image: mongo:6.0
+    image: mongo:6.0.28
     container_name: edusmart_mongo
     restart: unless-stopped
     environment:
@@ -112,7 +112,7 @@ services:
       MONGO_INITDB_DATABASE: ${MONGO_DB:-edusmart_mobile}
       TZ: ${TZ:-Africa/Dakar}
     ports:
-      - "${MONGO_PORT:-27018}:27017"
+      - "127.0.0.1:${MONGO_PORT:-27018}:27017"
     volumes:
       - mongo_data:/data/db
     healthcheck:
@@ -129,24 +129,18 @@ services:
   # snapshot est régénéré par graine fixe avant chaque extraction (point 6 validé).
   # ---------------------------------------------------------------------------
   redis:
-    image: redis:7-alpine
+    image: redis:7.4.11-alpine
     container_name: edusmart_redis
     restart: unless-stopped
-    command:
-      - redis-server
-      - --requirepass
-      - ${REDIS_PASSWORD:?REDIS_PASSWORD manquant dans docker/.env}
-      - --appendonly
-      - "no"
-      - --save
-      - ""
+    # Le mot de passe est lu dans l'environnement du conteneur, pas écrit dans sa commande
+    command: ["sh", "-c", "exec redis-server --requirepass \"$${REDIS_PASSWORD}\" --appendonly no --save ''"]
     environment:
-      REDIS_PASSWORD: ${REDIS_PASSWORD}
+      REDIS_PASSWORD: ${REDIS_PASSWORD:?REDIS_PASSWORD manquant dans docker/.env}
       TZ: ${TZ:-Africa/Dakar}
     ports:
-      - "${REDIS_PORT:-6380}:6379"
+      - "127.0.0.1:${REDIS_PORT:-6380}:6379"
     healthcheck:
-      test: ["CMD-SHELL", "redis-cli -a \"$${REDIS_PASSWORD}\" --no-auth-warning ping | grep -q PONG"]
+      test: ["CMD-SHELL", "REDISCLI_AUTH=\"$${REDIS_PASSWORD}\" redis-cli ping | grep -q PONG"]
       interval: 10s
       timeout: 5s
       retries: 10
@@ -157,13 +151,13 @@ services:
   # 8081 côté Windows : 8080 est occupé par Airflow (autre projet)
   # ---------------------------------------------------------------------------
   adminer:
-    image: adminer:4
+    image: adminer:4.17.1
     container_name: edusmart_adminer
     restart: unless-stopped
     environment:
       ADMINER_DEFAULT_SERVER: pg_source
     ports:
-      - "${ADMINER_PORT:-8081}:8080"
+      - "127.0.0.1:${ADMINER_PORT:-8081}:8080"
     depends_on:
       pg_source: { condition: service_healthy }
       pg_dw:     { condition: service_healthy }

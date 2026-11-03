@@ -1,9 +1,13 @@
 """Tests unitaires — common/config.py"""
+import re
 from datetime import date
+from pathlib import Path
 
 import pytest
 
 from common.config import ConfigError, GenerationConfig, PostgresConfig, get_settings
+
+COMPOSE = Path(__file__).resolve().parent.parent / "docker" / "docker-compose.yml"
 
 
 def test_volumes_valides_par_defaut():
@@ -39,6 +43,9 @@ def test_configuration_incoherente_rejetee():
 def test_mot_de_passe_jamais_dans_repr():
     cfg = PostgresConfig(service="t", host="h", port=1, user="u", password="SECRET", database="d")
     assert "SECRET" not in repr(cfg)
+    # Ni dans les commandes de contrôle de santé : le mot de passe passe par l'environnement
+    compose = COMPOSE.read_text(encoding="utf-8")
+    assert "-p$${" not in compose and "redis-cli -a" not in compose
 
 
 def test_mot_de_passe_par_defaut_refuse():
@@ -52,7 +59,9 @@ def test_get_settings_est_mis_en_cache():
 
 
 def test_ports_par_defaut_hors_ports_reserves(monkeypatch):
-    """Les ports par défaut n'utilisent pas ceux de l'autre projet (5433, 27017, 8080)."""
+    """Hors des ports de l'autre projet (5433, 27017, 8080), et publiés sur la seule machine locale."""
+    publies = re.findall(r'^\s+- "([^"]*:\d+)"', COMPOSE.read_text(encoding="utf-8"), re.MULTILINE)
+    assert len(publies) == 6 and all(p.startswith("127.0.0.1:") for p in publies), publies
     for var in ("PG_SOURCE_PORT", "PG_DW_PORT", "MYSQL_PORT", "MONGO_PORT", "REDIS_PORT"):
         monkeypatch.delenv(var, raising=False)
     get_settings.cache_clear()
