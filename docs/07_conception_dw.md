@@ -141,6 +141,8 @@ Awa, inscrite en 2024 à Thiès, déménage à Ziguinchor en septembre 2026. Que
 
 **Décision : SCD 2 sur la ville et la région** de `dim_etudiant`, et SCD 1 sur ses autres attributs. Une faute d'orthographe corrigée dans un nom est une **correction**, pas une évolution : elle s'applique à toutes les versions.
 
+**Limite connue.** `dim_etudiant` ne ferme pas la version d'un étudiant disparu de la source et ne gère pas un changement de clé durable, par exemple un compte LMS seul qui obtient une inscription. Le générateur ne produit pas ces cas. La porte G4.5 compare le nombre d'étudiants courants aux personnes de la couche clean : elle signale ces écarts, sans les résoudre.
+
 ### 9.3 Mise en œuvre (`pipeline/sql/dw/10_charger_dimensions.sql`)
 
 | Colonne | Rôle |

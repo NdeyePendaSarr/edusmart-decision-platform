@@ -41,7 +41,8 @@ def date_effet(conn) -> date:
     return d
 
 
-def charger(conn, reset: bool = False, effet: date | None = None) -> dict[str, int]:
+def charger(conn, reset: bool = False, effet: date | None = None, valider: bool = True) -> dict[str, int]:
+    """valider=False laisse la transaction ouverte : l'appelant la valide ou l'annule après la porte G4."""
     effet = effet or date_effet(conn)
     try:
         with conn.cursor() as cur:
@@ -56,7 +57,8 @@ def charger(conn, reset: bool = False, effet: date | None = None) -> dict[str, i
             for t in DIMENSIONS + FAITS:
                 cur.execute(f"SELECT COUNT(*) FROM dw.{t}")
                 comptes[t] = cur.fetchone()[0]
-        conn.commit()
+        if valider:
+            conn.commit()
         return comptes
     except Exception:
         conn.rollback()
