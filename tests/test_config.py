@@ -40,7 +40,7 @@ def test_configuration_incoherente_rejetee():
         GenerationConfig(taux_anomalie_min=0.06, taux_anomalie_max=0.05).validate()
 
 
-def test_mot_de_passe_jamais_dans_repr():
+def test_mot_de_passe_absent_du_repr_et_des_controles_de_sante():
     cfg = PostgresConfig(service="t", host="h", port=1, user="u", password="SECRET", database="d")
     assert "SECRET" not in repr(cfg)
     # Ni dans les commandes de contrôle de santé : le mot de passe passe par l'environnement
@@ -58,7 +58,7 @@ def test_get_settings_est_mis_en_cache():
     assert get_settings() is get_settings()
 
 
-def test_ports_par_defaut_hors_ports_reserves(monkeypatch):
+def test_ports_hors_ports_reserves_et_publies_en_local(monkeypatch):
     """Hors des ports de l'autre projet (5433, 27017, 8080), et publiés sur la seule machine locale."""
     publies = re.findall(r'^\s+- "([^"]*:\d+)"', COMPOSE.read_text(encoding="utf-8"), re.MULTILINE)
     assert len(publies) == 6 and all(p.startswith("127.0.0.1:") for p in publies), publies
