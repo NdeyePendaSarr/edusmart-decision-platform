@@ -26,7 +26,7 @@ EduSmart est une plateforme de formation en ligne dont les données sont dispers
 | 6 | Construire un tableau de bord | Power BI, 4 pages, 31 mesures DAX, 26 relations, 5 hiérarchies | `powerbi/EduSmart.pbix`, porte **G5b 8/8** |
 | 7 | Rédiger un rapport d'analyse | Data Storytelling, rapport décisionnel | [14_data_storytelling.md](14_data_storytelling.md), [17_rapport_decisionnel.md](17_rapport_decisionnel.md) |
 
-Et, au-delà du PDF : une porte de **tests de bout en bout** (**G6 101/101**) et **372 tests automatisés** (§ 7).
+Et, au-delà du PDF : une porte de **tests de bout en bout** (**G6 101/101**) et **377 tests automatisés** (§ 7).
 
 ## 3. La démarche : des lots et des portes de contrôle
 
@@ -98,7 +98,7 @@ Chaque difficulté ci-dessous a réellement eu lieu ; elle est tracée dans le l
 
 | Niveau | Volume | Rôle |
 |---|---:|---|
-| Tests unitaires (sans base) | 303 | Règles de nettoyage, calculs des KPI, équation de conservation, cohérence des chiffres des rapports |
+| Tests unitaires (sans base) | 308 | Règles de nettoyage, calculs des KPI, équation de conservation, cohérence des chiffres des rapports |
 | Tests d'intégration (5 vraies sources) | 69 | Pipeline complet, portes, idempotence, cas limites du SCD 2, **9 tests de mutation** |
 | Portes de contrôle | G0 à G6 | 7 portes, toutes vertes |
 
@@ -126,7 +126,7 @@ Le détail est dans [15_tests_pipeline.md](15_tests_pipeline.md).
 
 **Ce que j'ai préféré.** La construction du tableau de bord Power BI, parce qu'elle transforme dix lots de travail technique en quelque chose de visuel et de compréhensible pour un décideur.
 
-**Ce que j'ai appris.** Les fondamentaux de la BI de bout en bout (ETL/ELT, Data Warehouse en constellation, OLAP, KPI, Power BI), mais aussi la rigueur nécessaire pour intégrer cinq sources hétérogènes sans perdre une seule ligne, et l'importance des tests automatisés (372 tests : 303 unitaires et 69 d'intégration) pour garantir la fiabilité.
+**Ce que j'ai appris.** Les fondamentaux de la BI de bout en bout (ETL/ELT, Data Warehouse en constellation, OLAP, KPI, Power BI), mais aussi la rigueur nécessaire pour intégrer cinq sources hétérogènes sans perdre une seule ligne, et l'importance des tests automatisés (377 tests : 308 unitaires et 69 d'intégration) pour garantir la fiabilité.
 
 **Ce que je referais autrement.** Je prendrais plus de temps sur la modélisation initiale pour anticiper les pièges comme le fan-out, et je documenterais mes décisions au fur et à mesure plutôt qu'à la fin.
 
