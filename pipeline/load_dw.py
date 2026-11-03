@@ -2,7 +2,7 @@
 pipeline/load_dw.py — Chargement du Data Warehouse (Lot L6, Phases 7 à 9)
 ========================================================================
 
-    1. DDL : 8 dimensions et 8 faits (constellation), membres « Inconnu » (-1) ;
+    1. DDL : 7 dimensions et 8 faits (constellation), membres « Inconnu » (-1) ;
     2. dimensions : chargement INCRÉMENTAL (SCD 1 ; SCD 2 pour la localisation de l'étudiant) ;
     3. faits : rechargement complet, rattachés à la version de l'étudiant valable à leur date.
 

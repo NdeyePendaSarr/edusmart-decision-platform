@@ -104,6 +104,7 @@ edusmart-decision-platform/
 │   ├── anomalies/                journaux d'anomalies (vérité terrain)
 │   └── reports/                  rapports des portes G1 à G6, rapport qualité, KPI
 ├── tests/                        303 tests unitaires + 69 tests d'intégration
+├── .github/workflows/ci.yml      CI : tests sans base de données, à chaque pull request et sur main
 ├── requirements.txt
 └── pytest.ini
 ```
@@ -113,7 +114,7 @@ edusmart-decision-platform/
 | Outil | Version | Remarque |
 |---|---|---|
 | Docker Desktop | récent, moteur WSL 2 | Doit être démarré avant `docker compose` |
-| Python | 3.11 ou 3.12 | Cocher « Add Python to PATH » à l'installation |
+| Python | 3.12 | Version utilisée par la CI (tests unitaires). Cocher « Add Python to PATH » à l'installation |
 | Power BI Desktop | récent | Connecteur PostgreSQL intégré |
 | Git | récent | Recommandé |
 
@@ -146,6 +147,8 @@ python -m common.referential
 # 6. Tests unitaires
 python -m pytest
 ```
+
+La CI GitHub Actions lance cette même commande sous Python 3.12, sans base de données : les tests d'intégration y sont ignorés.
 
 ### Services et ports
 
