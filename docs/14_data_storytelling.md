@@ -142,7 +142,7 @@ Chaque recommandation est rattachée à un constat, à un indicateur de suivi et
 | **R6** | **Normaliser la saisie à la source** : listes fermées pour les modes de paiement (« OM », « Orange Money », « orange money »), les villes (« Dakar », « DAKAR », « dakarr »), les catégories | 159 946 anomalies traitées en L5 (55 853 corrigées, 25 932 rejetées, 78 161 signalées) | Taux de conformité qualité ([05_qualite.md](05_qualite.md)) | DSI, chaque service | **Haute** |
 
 **Ce qui n'est PAS recommandé, et pourquoi :**
-- *« Développer une application tablette pour allonger les sessions »* : la durée des sessions est identique sur mobile, PC et tablette (§ 8.1). Rien ne justifie cet investissement.
+- *« Développer une application tablette pour allonger les sessions »* : la durée des sessions est identique sur mobile, PC et tablette (§ 8.1). Sur ces données simulées, cette durée est un paramètre du générateur : le constat reste à confirmer sur données réelles avant toute décision.
 - *« Pousser les étudiants à se connecter plus longtemps pour progresser »* : aucune relation entre heures connectées et progression (r = −0,01, § 8.1).
 - *« Remplacer la satisfaction par le taux de réussite »* : un indicateur de substitution tromperait le décideur ([11_kpi.md](11_kpi.md), § 5).
 
@@ -161,7 +161,7 @@ Les 5 sources ont été **générées** (Python, Faker, graine 2026). Plusieurs 
 | Durée de connexion identique sur les 3 appareils | Durée tirée d'une loi log-normale, **indépendamment** de l'appareil | idem |
 | Aucune relation heures connectées / progression (r = −0,01) | Variables tirées indépendamment ([12_visualisations.md](12_visualisations.md), § 2.3) | idem |
 | Recouvrement quasi uniforme entre filières (89 à 91 %) | Mêmes probabilités de paiement pour toutes les filières (aucun paramètre de filière) | `sources/s1_postgresql/generate_data.py` |
-| Pic du CA en octobre | Rentrée au 1er octobre (C7) et 1ʳᵉ tranche payée dans les 10 jours suivant l'inscription | idem |
+| Pic du CA en août-septembre, avant la rentrée | Rentrée au 1er octobre (C7) et 1ʳᵉ tranche payée dans les 10 jours suivant l'inscription | idem |
 
 **Comment les présenter :** comme des **capacités** de la plateforme, pas comme des découvertes. Exemple : « Sur des données réelles, cette carte de chaleur dirait au DG quand programmer les classes virtuelles et la maintenance. »
 
@@ -242,7 +242,7 @@ Pourquoi la porte G5b ne l'avait pas vu : elle compare les mesures **sans filtre
 
 ## 10. L'histoire en une minute
 
-> Pour la première fois, EduSmart connaît son nombre réel d'étudiants : **10 500**, et non 26 476. Ses fondamentaux sont sains : **13,55 milliards de XOF** encaissés, **90 %** de recouvrement, **93 %** de réussite aux quiz.
+> Sur ces données simulées, EduSmart connaît enfin son nombre réel d'étudiants : **10 500**, et non 26 476. Ses fondamentaux sont sains : **13,55 milliards de XOF** encaissés, **90 %** de recouvrement, **93 %** de réussite aux quiz.
 >
 > Mais trois signaux doivent alerter : l'argent non encaissé a **doublé en deux ans** (655 M XOF sur la dernière année) ; **7 étudiants sur 10** n'ont aucune activité mesurée sur 30 jours ; l'abandon reste au-dessus de la cible, **à 6,24 %**, depuis trois ans.
 >
