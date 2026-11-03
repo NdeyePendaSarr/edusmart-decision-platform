@@ -161,7 +161,7 @@ def attendus_journal() -> dict[str, set]:
         "EXTRACT": {("EXTRACT", o.source, o.objet) for o in OBJECTS},
         "LOAD": {("LOAD", o.source, o.objet) for o in OBJECTS},
         "TRANSFORM": {("TRANSFORM", s, "*") for s in SOURCES},
-        "VERIFY": {("VERIFY", "*", "G3")},
+        "VERIFY": {("VERIFY", "*", "G2"), ("VERIFY", "*", "G3")},
         "DW": {("DW", "*", "dw")},
     }
 

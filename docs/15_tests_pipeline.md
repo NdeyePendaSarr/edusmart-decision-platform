@@ -53,7 +53,7 @@ Les deux ajouts : l'**équation de conservation staging → clean + rejets**, qu
 | **G6.1** | Toutes les lignes ont-elles été **extraites** ? | Source recomptée maintenant = manifeste du lot = journal `EXTRACT` (statut SUCCES) | 17 |
 | **G6.2** | Toutes les lignes ont-elles été **chargées** ? | Staging (lignes du lot) = manifeste = journal `LOAD`, et **aucune ligne d'un autre lot** | 17 |
 | **G6.3** | Des données ont-elles été **perdues** ? | Équation de conservation (§ 4) : 16 tables + 9 contrôles Redis + 8 faits + 2 contrôles du rapport qualité | 35 |
-| **G6.4** | Des **erreurs** sont-elles apparues ? | Journal du lot : 41 étapes attendues présentes, dernière exécution SUCCES, aucune `EN_COURS`, 0 erreur ; `metadata_sources` à jour | 9 |
+| **G6.4** | Des **erreurs** sont-elles apparues ? | Journal du lot : 42 étapes attendues présentes, dernière exécution SUCCES, aucune `EN_COURS`, 0 erreur ; `metadata_sources` à jour | 9 |
 | **G6.5** | Les **clés** sont-elles toujours valides ? | 26 clés étrangères des 8 faits (regroupées par fait), membres « Inconnu », version courante unique (SCD 2), clés primaires des 24 tables clean, 4 intégrités garanties par les rejets | 15 |
 | **G6.6** | *(ajout)* Les KPI ont-ils changé ? | Les 8 KPI de `dw.v_kpi` = valeurs validées en L7, tolérance explicite | 8 |
 | | | **Total** | **101** |
