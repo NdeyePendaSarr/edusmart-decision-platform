@@ -29,4 +29,4 @@ python -m scripts.constats_sources
 
 Prérequis : les 5 sources générées. Les calculs sont exploratoires ; les valeurs officielles viendront du Data Warehouse.
 
-Version PDF (livrable final) : [EduSmart_documentation.pdf](EduSmart_documentation.pdf), compilation des documents 01 à 18 (sommaire cliquable). Elle est produite à partir de ces fichiers Markdown : en cas d'écart, **le Markdown fait foi**.
+Version Word (livrable final) : [EduSmart_documentation.docx](EduSmart_documentation.docx), compilation des documents 01 à 18. Elle est produite à partir de ces fichiers Markdown : en cas d'écart, **le Markdown fait foi**.
