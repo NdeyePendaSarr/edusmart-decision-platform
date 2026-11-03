@@ -13,15 +13,14 @@ import pytest
 import faker.providers.date_time as faker_dt
 from common.config import GenerationConfig
 from common.referential import build_referential
-from common.referential import main as build_referential_files
 from common.seed import get_rng, random_date
 
 GEN = GenerationConfig(seed=2026)
 
 
 @pytest.fixture(scope="module", autouse=True)
-def referentiel():
-    assert build_referential_files() == 0
+def referentiel(referentiel_temporaire):
+    """Le générateur de la Source 3 relit le référentiel : copie temporaire."""
 
 
 @pytest.mark.parametrize("decalage", [+5, -8])
