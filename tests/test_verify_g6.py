@@ -56,7 +56,7 @@ def test_attendus_journal_d_un_lot_complet():
     assert set(att) == set(verify_g6.ETAPES_JOURNAL)
     assert len(att["EXTRACT"]) == len(att["LOAD"]) == 17
     assert att["TRANSFORM"] == {("TRANSFORM", s, "*") for s in SOURCES}
-    assert sum(len(v) for v in att.values()) == 41
+    assert sum(len(v) for v in att.values()) == 42
 
 
 def test_derniere_execution_seule_jugee_et_echecs_rattrapes_comptes():

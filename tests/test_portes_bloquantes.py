@@ -6,6 +6,7 @@ remplacés par des doublures qui notent leur appel. Les fonctions qualite() et e
 vraies : ce sont elles qui traduisent le résultat de G3 et de G4 en code de sortie.
 """
 import sys
+from contextlib import contextmanager
 from types import ModuleType, SimpleNamespace
 from unittest.mock import MagicMock
 
@@ -14,6 +15,7 @@ import pytest
 from pipeline import load, load_dw, rapport_qualite
 from pipeline import run_pipeline as rp
 from pipeline import transform, verify_g2, verify_g3, verify_g4
+from pipeline.meta import MetaStore, StepResult
 
 ETAPES = list(rp.ETAPES)
 SOURCES = ["s1_postgresql", "s2_mysql"]
@@ -124,3 +126,58 @@ def test_option_lots_mixtes_transmise_a_la_transformation(pipeline, monkeypatch)
     assert recu == {"option": False}
     assert rp.run(SOURCES, ETAPES, autoriser_lots_mixtes=True) == 0
     assert recu == {"option": True}
+
+
+class Journal:
+    """Journal en mémoire : garde, pour chaque étape, ce que la porte a déclaré."""
+
+    def __init__(self):
+        self.etapes = []
+
+    @contextmanager
+    def step(self, batch_id, etape, source, objet):
+        resultat = StepResult()
+        yield resultat
+        self.etapes.append((etape, objet, resultat.echec))
+
+    def init_schema(self):
+        pass
+
+    def sync_sources(self, emplacements):
+        pass
+
+    def record_failure(self, *args):
+        pass
+
+
+@pytest.fixture
+def journal(pipeline, monkeypatch):
+    memoire = Journal()
+    monkeypatch.setattr(rp, "MetaStore", lambda conn: memoire)
+    return memoire
+
+
+def test_journal_sans_echec_quand_les_portes_passent(journal):
+    assert rp.run(SOURCES, ETAPES) == 0
+    assert journal.etapes == [("VERIFY", "G2", None), ("VERIFY", "G3", None), ("DW", "dw", None)]
+
+
+@pytest.mark.parametrize("reglage,objet", [("g2_ok", "G2"), ("g3", "G3"), ("g4_ok", "dw")])
+def test_journal_porte_ko_declaree_en_echec(pipeline, journal, reglage, objet):
+    setattr(pipeline, reglage, G3_KO if reglage == "g3" else False)
+    assert rp.run(SOURCES, ETAPES) == 1
+    derniere = journal.etapes[-1]
+    assert derniere[1] == objet and "KO" in derniere[2]
+
+
+def test_step_ecrit_echec_sans_exception(monkeypatch):
+    conn = MagicMock()
+    conn.cursor.return_value.__enter__.return_value.fetchone.return_value = (1,)
+    store = MetaStore(conn)
+    fermetures = []
+    monkeypatch.setattr(store, "_close", lambda id_exec, t0, nb, statut, erreur: fermetures.append((statut, erreur)))
+    with store.step("B1", "VERIFY", "*", "G3") as etape:
+        etape.echec = "G3 : 1 type KO"
+    with store.step("B1", "VERIFY", "*", "G3"):
+        pass
+    assert fermetures == [("ECHEC", "G3 : 1 type KO"), ("SUCCES", None)]
