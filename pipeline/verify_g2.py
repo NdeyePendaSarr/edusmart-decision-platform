@@ -13,6 +13,9 @@ Pour chaque objet du lot, trois questions de la Phase 15 :
           EN SQL sur le staging (même ordre, même représentation des NULL).
           Pour MongoDB et Redis (JSONB normalise le texte) : mêmes event_id / clés.
 
+un contrôle de complétude, seulement en cas d'écart :
+    G2.0  chaque objet attendu pour les sources demandées est présent dans le lot ;
+
 et deux contrôles de traçabilité (Phase 6) :
     G2.4  une ligne SUCCES dans meta.etl_execution_log pour EXTRACT et LOAD ;
     G2.5  meta.metadata_sources à jour (dernier lot, nombre de lignes, statut).
@@ -30,7 +33,7 @@ from datetime import datetime
 from common.config import get_settings
 from common.logger import get_logger
 from pipeline.landing import SEP_CHAMP, SEP_LIGNE, Batch, latest_batch, read_landing, read_manifest
-from pipeline.registry import NULL_MARKER, STAGING_SCHEMA, get_object
+from pipeline.registry import NULL_MARKER, OBJECTS, STAGING_SCHEMA, get_object
 
 logger = get_logger("verify_g2")
 
@@ -125,6 +128,10 @@ def verify(batch: Batch, sources: list[str] | None = None, conn=None, recompter=
     checks: list[Check] = []
     try:
         conn.autocommit = True
+        for obj in OBJECTS:
+            cle = f"{obj.source}.{obj.objet}"
+            if (not sources or obj.source in sources) and cle not in manifest["objets"]:
+                checks.append(Check("G2.0", cle, "Objet attendu présent dans le lot", False, "absent du manifeste"))
         for cle, info in sorted(manifest["objets"].items()):
             source, objet, extrait = info["source"], info["objet"], info["nb_lignes"]
             if sources and source not in sources:
@@ -179,7 +186,7 @@ def verify(batch: Batch, sources: list[str] | None = None, conn=None, recompter=
 
 def write_report(batch: Batch, checks: list[Check]) -> str:
     path = get_settings().paths.reports_dir / f"G2_{batch.batch_id}.md"
-    ok = all(c.ok for c in checks)
+    ok = bool(checks) and all(c.ok for c in checks)
     lignes = [f"# Porte G2 — Lot {batch.batch_id}", "",
               f"*Extraction du {batch.extracted_at:%d/%m/%Y %H:%M:%S} — rapport du {datetime.now():%d/%m/%Y %H:%M}*", "",
               f"**Résultat : {'VALIDÉE' if ok else 'NON VALIDÉE'}** ({sum(c.ok for c in checks)}/{len(checks)} contrôles)", "",
@@ -201,7 +208,7 @@ def main() -> int:
         (logger.info if c.ok else logger.error)("[%s] %s %-28s %-36s %s", "OK" if c.ok else "KO", c.code, c.objet, c.libelle, c.detail)
     logger.info("Porte G2 (%s) : %d/%d - rapport : %s", lot.batch_id, sum(c.ok for c in checks), len(checks),
                 write_report(lot, checks))
-    return 0 if all(c.ok for c in checks) else 1
+    return 0 if checks and all(c.ok for c in checks) else 1
 
 
 if __name__ == "__main__":

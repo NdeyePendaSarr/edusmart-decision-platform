@@ -24,6 +24,7 @@ Exécution : python -m pipeline.transform   (sur le lot présent en staging)
 
 from __future__ import annotations
 
+import argparse
 import sys
 from pathlib import Path
 
@@ -49,9 +50,9 @@ class TransformError(Exception):
     """Aucun lot en staging, ou lots incohérents."""
 
 
-def batch_en_staging(conn) -> str:
+def lots_en_staging(conn) -> list[str]:
     """
-    Lot le plus récent présent en staging, parmi LES 17 TABLES.
+    Lots présents en staging, parmi LES 17 TABLES, du plus ancien au plus récent.
     Correctif L6 : seules les tables PostgreSQL et MySQL étaient consultées. Une relance ciblée
     (--sources s5_redis) enregistrait alors les constats sous l'ancien lot, et G3 ne les trouvait pas.
     """
@@ -62,7 +63,12 @@ def batch_en_staging(conn) -> str:
         lots = sorted(r[0] for r in cur.fetchall())
     if not lots:
         raise TransformError("Staging vide : lancez d'abord python -m pipeline.run_pipeline")
-    return lots[-1]
+    return lots
+
+
+def batch_en_staging(conn) -> str:
+    """Lot le plus récent présent en staging."""
+    return lots_en_staging(conn)[-1]
 
 
 def _parametres(conn, batch_id: str) -> None:
@@ -102,14 +108,21 @@ def transformer_source(conn, source: str) -> None:
         raise
 
 
-def transform(sources: list[str] | None = None, meta=None, conn=None) -> str:
-    """Transforme les sources demandées (par défaut les 5). Retourne le batch_id traité."""
+def transform(sources: list[str] | None = None, meta=None, conn=None, autoriser_lots_mixtes: bool = False) -> str:
+    """
+    Transforme les sources demandées (par défaut les 5). Retourne le batch_id traité.
+    Un staging qui mêle plusieurs lots est refusé, sauf relance ciblée explicite.
+    """
     import psycopg2
     propre = conn is None
     conn = conn or psycopg2.connect(**get_settings().pg_dw.connect_kwargs())
     try:
         conn.autocommit = False
-        batch_id = batch_en_staging(conn)
+        lots = lots_en_staging(conn)
+        if len(lots) > 1 and not autoriser_lots_mixtes:
+            raise TransformError(f"Staging mêlant {len(lots)} lots ({lots[0]} à {lots[-1]}) : rechargez toutes les "
+                                 "sources, ou relancez avec --autoriser-lots-mixtes pour une relance --sources")
+        batch_id = lots[-1]
         _parametres(conn, batch_id)
         with log_step(logger, "Initialisation (qualité, fonctions, règles, référentiels)"):
             initialiser(conn)
@@ -146,9 +159,12 @@ def compter_clean(conn, source: str) -> int:
     return total
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description="Transformation staging -> clean")
+    parser.add_argument("--autoriser-lots-mixtes", action="store_true", help="accepter un staging mêlant plusieurs lots")
+    args = parser.parse_args(argv)
     try:
-        batch_id = transform()
+        batch_id = transform(autoriser_lots_mixtes=args.autoriser_lots_mixtes)
         logger.info("Couche clean construite pour le lot %s", batch_id)
         return 0
     except TransformError as exc:

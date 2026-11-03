@@ -137,7 +137,7 @@ def main(argv: list[str] | None = None) -> int:
     logger.info("%d déménagements écrits dans la source (liste : %s)", modifier_source(demenagements), chemin)
 
     from pipeline.run_pipeline import main as pipeline
-    code = pipeline(["--sources", "s1_postgresql"])
+    code = pipeline(["--sources", "s1_postgresql", "--autoriser-lots-mixtes"])
     if code != 0:
         logger.error("Le second chargement a échoué (code %d)", code)
         return code

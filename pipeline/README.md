@@ -32,7 +32,7 @@ python -m pipeline.run_pipeline               # 5 sources : EXTRACT, LOAD, VERIF
 Options :
 
 ```powershell
-python -m pipeline.run_pipeline --sources s3_csv s5_redis      # certaines sources seulement
+python -m pipeline.run_pipeline --sources s3_csv s5_redis --autoriser-lots-mixtes   # certaines sources seulement
 python -m pipeline.run_pipeline --steps load verify            # recharge le DERNIER lot, sans réextraire
 ```
 
@@ -50,7 +50,8 @@ Chaque étape reste utilisable seule, par exemple `python -m pipeline.extract_cs
 | **Idempotence** | `TRUNCATE` + `COPY` dans une transaction par table ; recharger un lot redonne le même état |
 | **Traçabilité (Phase 6)** | Une ligne `etl_execution_log` par étape et par objet (source, date, durée, lignes, erreurs, statut, version), y compris en cas d'**échec de connexion** |
 | **Tolérance aux pannes** | Une source en échec est tracée (`ECHEC`) ; les autres sont extraites, chargées et vérifiées ; le lot s'arrête ensuite avant la couche clean ; code de sortie 1 |
-| **Portes bloquantes** | G2 KO : arrêt avant la couche clean. G3 KO : arrêt avant l'entrepôt. G4 KO : arrêt avant les KPI. Code de sortie 1. Les anomalies détectées ne bloquent pas : G3 échoue seulement si l'une d'elles n'est pas traitée |
+| **Portes bloquantes** | G2 KO : arrêt avant la couche clean. G3 KO : arrêt avant l'entrepôt. G4 KO : arrêt avant les KPI. Code de sortie 1. Les anomalies détectées ne bloquent pas : G3 échoue si l'une d'elles n'est pas traitée, ou si une clé Redis sans TTL manque (un Redis vide échoue). G2 échoue aussi si un objet attendu manque au lot |
+| **Lots mêlés** | La couche clean refuse un staging mêlant plusieurs lots. Une relance ciblée `--sources` l'accepte avec `--autoriser-lots-mixtes` : le staging contient alors plusieurs instants d'extraction |
 
 Le staging ne contient que le **dernier lot**. L'historique reste dans `data/landing/` et dans le journal.
 
