@@ -20,8 +20,14 @@ def test_log_step_relance_les_exceptions():
             raise ValueError("erreur de test")
 
 
-def test_log_step_succes():
+def test_log_step_journalise_le_debut_et_la_fin(caplog):
     logger = get_logger("test_log_step")
-    with log_step(logger, "étape réussie"):
-        resultat = 1 + 1
-    assert resultat == 2
+    logger.addHandler(caplog.handler)                 # propagate = False : caplog ne voit rien sans cela
+    try:
+        with log_step(logger, "étape réussie"):
+            pass
+    finally:
+        logger.removeHandler(caplog.handler)
+    messages = [r.getMessage() for r in caplog.records]
+    assert messages[0] == "[DEBUT] étape réussie"
+    assert messages[1].startswith("[FIN] étape réussie")

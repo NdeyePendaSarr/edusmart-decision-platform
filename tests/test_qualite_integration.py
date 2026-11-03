@@ -52,7 +52,7 @@ def test_fonctions_sql(dw, expr, attendu):
     "SELECT COUNT(*) FROM clean.paiements p WHERE NOT EXISTS (SELECT 1 FROM clean.inscriptions i WHERE i.id_inscription = p.id_inscription)",
     "SELECT COUNT(*) FROM clean.evenements WHERE horodatage IS NULL OR student_code IS NULL",
     "SELECT COUNT(*) FROM clean.salaires WHERE salaire_net < 0",
-    "SELECT COUNT(*) FROM clean.redis_compteurs WHERE verifiable AND valeur <> (SELECT valeur FROM clean.redis_compteurs c2 WHERE c2.nom = redis_compteurs.nom)",
+    "SELECT COUNT(*) FROM clean.redis_compteurs WHERE nom = 'online_users' AND valeur <> (SELECT count(DISTINCT student_code) FROM clean.redis_sessions WHERE statut = 'ONLINE')",
 ])
 def test_invariants_de_la_couche_clean(dw, requete):
     assert _val(dw, requete) == 0
