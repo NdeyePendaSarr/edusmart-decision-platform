@@ -13,8 +13,13 @@ Un lancement = un LOT (batch_id) :
     7. KPI       : exploration du cube (OLAP), 8 KPI et porte G5a (lot L7).
 
 Politique d'erreur : l'échec d'une source n'empêche pas les autres d'être
-extraites. Il est tracé (statut ECHEC dans le journal), la source n'est pas
-chargée, et le code de sortie vaut 1.
+extraites, chargées et vérifiées. Il est tracé (statut ECHEC dans le journal),
+la source n'est pas chargée, et le code de sortie vaut 1.
+
+Le lot s'arrête alors avant la couche clean. Il s'arrête aussi quand une porte
+échoue : G2 avant la couche clean, G3 avant l'entrepôt, G4 avant les KPI. Les
+anomalies détectées ne sont pas un échec : G3 échoue si l'une d'elles n'est pas
+traitée. L'arrêt ne vaut que pour le lancement en cours (--steps reste libre).
 
 Exemples :
     python -m pipeline.run_pipeline                              # tout
@@ -48,6 +53,12 @@ def emplacements() -> dict[str, str]:
         mod = importlib.import_module(module)
         res[source] = mod.emplacement() if hasattr(mod, "emplacement") else "sources/s3_csv/output/"
     return res
+
+
+def arret(batch_id: str, cause: str, code: int) -> int:
+    """Journalise l'arrêt du lot et rend son code de sortie."""
+    logger.error("Lot %s arrêté (%s) : étapes suivantes non exécutées (code %d).", batch_id, cause, code)
+    return code
 
 
 def run(sources: list[str], etapes: list[str]) -> int:
@@ -97,16 +108,23 @@ def run(sources: list[str], etapes: list[str]) -> int:
             logger.info("Porte G2 : %d/%d contrôles réussis — %s", n_ok, len(checks), rapport)
             if n_ok != len(checks):
                 code_retour = 1
+        if code_retour:
+            return arret(batch.batch_id, "extraction en échec ou porte G2", code_retour)
+
         if "transform" in etapes:
             from pipeline import transform as transform_mod
             with log_step(logger, "TRANSFORM (couche clean, 5 sources)"):
                 transform_mod.transform(None, meta)
 
         if "qualite" in etapes:
-            code_retour = max(code_retour, qualite(batch.batch_id, meta))
+            code_retour = qualite(batch.batch_id, meta)
+            if code_retour:
+                return arret(batch.batch_id, "porte G3", code_retour)
 
         if "dw" in etapes:
-            code_retour = max(code_retour, entrepot(batch.batch_id, meta))
+            code_retour = entrepot(batch.batch_id, meta)
+            if code_retour:
+                return arret(batch.batch_id, "porte G4", code_retour)
 
         if "kpi" in etapes:
             code_retour = max(code_retour, indicateurs(batch.batch_id))
