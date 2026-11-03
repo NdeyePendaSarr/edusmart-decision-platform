@@ -261,3 +261,7 @@ Les écarts propres à chaque source sont documentés dans son README
 | MySQL « unhealthy » | Premier démarrage lent | Attendre 30 à 60 s |
 | `Activate.ps1 cannot be loaded` | Politique d'exécution PowerShell | `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` |
 | Accents mal affichés en console | Encodage de la console | `chcp 65001` ; le fichier de log reste en UTF-8 |
+
+## 10. Licence
+
+Projet sous licence [MIT](LICENSE). Le fichier `powerbi/EduSmart.pbix` embarque un visuel tiers (Box and Whisker), qui reste soumis à sa propre licence.
