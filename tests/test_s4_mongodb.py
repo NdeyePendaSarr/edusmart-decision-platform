@@ -4,6 +4,9 @@ Aucun serveur MongoDB nécessaire (mongomock pour l'insertion). Génération com
 """
 import hashlib
 import itertools
+import os
+import subprocess
+import sys
 from collections import defaultdict
 from datetime import datetime, time
 
@@ -155,3 +158,15 @@ def test_reproductibilite(students):
     a, _ = g.generate_clean(GEN, echantillon)
     b, _ = g.generate_clean(GEN, echantillon)
     assert a == b
+
+
+@pytest.mark.parametrize("fuseau", ["EST5EDT", "JST-9"])
+def test_epoch_d08_independant_du_fuseau(fuseau):
+    """Le 01/07/2026 à 12:00 UTC vaut 1782907200000 ms, quel que soit le fuseau de la machine."""
+    code = ("import random; from datetime import datetime; "
+            "from sources.s4_mongodb.anomalies import variante_timestamp; "
+            "rng = random.Random(); rng.choice = lambda seq: seq[-1]; "
+            "print(variante_timestamp(datetime(2026, 7, 1, 12, 0), rng))")
+    sortie = subprocess.run([sys.executable, "-c", code], env={**os.environ, "TZ": fuseau},
+                            capture_output=True, text=True, check=True)
+    assert sortie.stdout.strip().splitlines()[-1] == "1782907200000"
