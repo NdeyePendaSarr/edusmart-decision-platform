@@ -49,7 +49,8 @@ Chaque étape reste utilisable seule, par exemple `python -m pipeline.extract_cs
 | **Colonnes techniques** | `_batch_id`, `_source`, `_extracted_at`, `_row_number` sur chaque ligne de staging |
 | **Idempotence** | `TRUNCATE` + `COPY` dans une transaction par table ; recharger un lot redonne le même état |
 | **Traçabilité (Phase 6)** | Une ligne `etl_execution_log` par étape et par objet (source, date, durée, lignes, erreurs, statut, version), y compris en cas d'**échec de connexion** |
-| **Tolérance aux pannes** | Une source en échec est tracée (`ECHEC`) ; les autres sont extraites, chargées et vérifiées ; code de sortie 1 |
+| **Tolérance aux pannes** | Une source en échec est tracée (`ECHEC`) ; les autres sont extraites, chargées et vérifiées ; le lot s'arrête ensuite avant la couche clean ; code de sortie 1 |
+| **Portes bloquantes** | G2 KO : arrêt avant la couche clean. G3 KO : arrêt avant l'entrepôt. G4 KO : arrêt avant les KPI. Code de sortie 1. Les anomalies détectées ne bloquent pas : G3 échoue seulement si l'une d'elles n'est pas traitée |
 
 Le staging ne contient que le **dernier lot**. L'historique reste dans `data/landing/` et dans le journal.
 
