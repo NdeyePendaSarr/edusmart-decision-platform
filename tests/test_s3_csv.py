@@ -9,7 +9,6 @@ import pytest
 
 from common.academic_catalog import build_teacher_pool
 from common.config import GenerationConfig
-from common.referential import main as build_referential_files
 from sources.s3_csv import anomalies as an
 from sources.s3_csv import create_source as cs
 from sources.s3_csv import generate_data as g
@@ -19,8 +18,8 @@ GEN = GenerationConfig(seed=2026)
 
 
 @pytest.fixture(scope="module", autouse=True)
-def referentiel():
-    assert build_referential_files() == 0   # le générateur relit le référentiel (responsables de classe)
+def referentiel(referentiel_temporaire):
+    """Le générateur relit le référentiel (responsables de classe) : copie temporaire."""
 
 
 @pytest.fixture(scope="module")

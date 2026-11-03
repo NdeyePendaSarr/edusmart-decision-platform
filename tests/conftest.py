@@ -13,6 +13,9 @@ from pathlib import Path
 
 import pytest
 
+from common import referential as ref
+from common.config import get_settings
+
 RACINE = Path(__file__).resolve().parent.parent
 
 
@@ -46,3 +49,15 @@ def fichiers_suivis_intacts():
     apres = empreintes(chemins)
     modifies = sorted(chemin for chemin in chemins if avant[chemin] != apres[chemin])
     assert not modifies, f"Des tests ont écrit dans des fichiers suivis par Git : {modifies}"
+
+
+@pytest.fixture(scope="module")
+def referentiel_temporaire(tmp_path_factory):
+    """Référentiel écrit hors du dépôt : load_referential() le lit à la place de data/referential/."""
+    dossier = tmp_path_factory.mktemp("referential")
+    ref.write_referential(ref.build_referential(get_settings().generation), dossier)
+    chemin = dossier / ref.REFERENTIAL_FILENAME
+    charger = ref.load_referential
+    with pytest.MonkeyPatch.context() as patch:
+        patch.setattr(ref, "load_referential", lambda path=None: charger(path or chemin))
+        yield chemin
