@@ -21,7 +21,7 @@ import math
 import random
 import re
 import unicodedata
-from datetime import datetime
+from datetime import datetime, timezone
 
 from common import senegalese_data as sn
 from common.anomaly_journal import AnomalyJournal, AnomalyType
@@ -80,7 +80,7 @@ def variante_timestamp(ts: datetime, rng: random.Random):
         ts.strftime("%Y-%m-%dT%H:%M:%S"),        # texte ISO (comme l'exemple JSON du PDF)
         ts.strftime("%d/%m/%Y %H:%M:%S"),
         ts.strftime("%Y-%m-%d %H:%M:%S"),
-        int(ts.timestamp() * 1000),               # epoch en millisecondes (nombre)
+        int(ts.replace(tzinfo=timezone.utc).timestamp() * 1000),  # epoch en millisecondes (nombre), en UTC
     ))
 
 
