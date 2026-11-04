@@ -72,6 +72,43 @@ def test_rechargement_sans_changement_idempotent(dw):
     assert _v(dw, "SELECT COUNT(*) FROM dw.dim_etudiant") == avant
 
 
+def test_scd2_chaque_paiement_suit_la_version_de_sa_date(dw):
+    """Déménagement entre deux paiements : le premier reste à Dakar, le second part à Ziguinchor. Mutation : un rattachement à la version courante est détecté."""
+    from pipeline import load_dw
+    identifiant, effet = _q(dw, """SELECT i.id_etudiant::TEXT, MAX(p.date_paiement)
+                                   FROM clean.paiements p JOIN clean.inscriptions i USING (id_inscription)
+                                   JOIN clean.etudiants e USING (id_etudiant) WHERE e.ville = 'Dakar'
+                                   GROUP BY 1 HAVING MIN(p.date_paiement) < MAX(p.date_paiement) ORDER BY 1 LIMIT 1""")[0]
+    avant, apres = _q(dw, f"""SELECT COUNT(*) FILTER (WHERE p.date_paiement < '{effet}'), COUNT(*) FILTER (WHERE p.date_paiement >= '{effet}')
+                              FROM clean.paiements p JOIN clean.inscriptions i USING (id_inscription)
+                              WHERE i.id_etudiant::TEXT = '{identifiant}'""")[0]
+    assert avant > 0 and apres > 0
+    with dw.cursor() as cur:
+        cur.execute("UPDATE clean.etudiants SET ville = 'Ziguinchor', region = 'Ziguinchor' WHERE id_etudiant::TEXT = %s", (identifiant,))
+    dw.commit()
+    load_dw.charger(dw, effet=effet)
+    attendu = {(False, 1, "Dakar"): avant, (True, 2, "Ziguinchor"): apres}
+    assert _rattachements(dw, identifiant, effet) == attendu
+
+    sql = (load_dw.SQL_DW / "20_charger_faits.sql").read_text(encoding="utf-8")
+    regle = "p.date_paiement BETWEEN d.date_debut AND d.date_fin"
+    assert sql.count(regle) == 1
+    with dw.cursor() as cur:
+        cur.execute(sql.replace(regle, "d.est_courant"))
+    fausse = _rattachements(dw, identifiant, effet)
+    dw.rollback()
+    assert fausse == {(False, 2, "Ziguinchor"): avant, (True, 2, "Ziguinchor"): apres}
+
+
+def _rattachements(conn, identifiant, effet):
+    """Paiements de l'étudiant : (à partir de la date d'effet ?, version, région) -> nombre."""
+    lignes = _q(conn, f"""SELECT t.date_complete >= '{effet}', d.version, r.region, COUNT(*)
+                          FROM dw.fact_paiements f JOIN dw.dim_etudiant d USING (etudiant_key)
+                          JOIN dw.dim_temps t USING (date_key) JOIN dw.dim_region r ON r.region_key = f.region_key
+                          WHERE d.etudiant_id = '{identifiant}' GROUP BY 1, 2, 3""")
+    return {(apres, version, region): n for apres, version, region, n in lignes}
+
+
 def _q(conn, sql):
     with conn.cursor() as cur:
         cur.execute(sql)
