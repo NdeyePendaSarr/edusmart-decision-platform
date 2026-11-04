@@ -173,7 +173,7 @@ Un filtre sur la région de Kaffrine affichait **2 821 %** dans Power BI. L'entr
 | Recouvrement de Kaffrine, calculé dans l'entrepôt | **89,68 %** : normal (14 régions entre 88,57 % et 93,29 %) |
 | Recouvrement par filière à Kaffrine | de 79,84 % à 100 %, **aucun au-dessus de 100 %** |
 | Paiements rattachés à une autre région que leur inscription | **0** sur 38 372 |
-| Étudiants ayant déménagé (versions SCD 2) | **0** à cette date ; 200 dans le lot actuel, datées du 12/10/2026 |
+| Étudiants ayant déménagé (versions SCD 2) | **0** à cette date ; 200 dans l'entrepôt local (démonstration du 12/10/2026) |
 
 **Conclusion** : l'entrepôt est juste. Les hypothèses « petit effectif » et « déménagements » ont été testées et **réfutées** pour ce 2 821 %. La cause était dans le tableau de bord : la relation entre les paiements et les régions était **inactive**. Un filtre de région s'appliquait au montant dû, mais pas au chiffre d'affaires : le CA de toutes les régions était divisé par le dû de Kaffrine seule. **Corrigé le 21/10/2026** : le CA se répartit désormais correctement entre les régions (Dakar 29 %, Thiès 13 %, comme dans l'entrepôt). L'écart de 0,39 point qui restait (**89,29 %** contre **89,68 %**) est expliqué : l'ancien `.pbix` portait des données d'un autre état que l'entrepôt. Actualisé le 04/11/2026, il retrouve 89,68 % ([13_powerbi.md](13_powerbi.md)). **La valeur qui fait foi est celle de l'entrepôt, 89,68 %.**
 
@@ -190,7 +190,7 @@ Un filtre sur la région de Kaffrine affichait **2 821 %** dans Power BI. L'entr
 | Abandon non daté, sans motif | On ne peut ni prévenir l'abandon au bon moment, ni en traiter la cause |
 | Réussite au diplôme absente | Le taux de réussite ne porte que sur les quiz en ligne |
 | Snapshot temps réel unique (15/09/2026, 23 h) | Pas de tendance sur les données temps réel |
-| Aucun historique de déménagement dans l'entrepôt actuel | Le mécanisme d'historisation (SCD 2) est en place et testé, mais aucun étudiant n'a changé de ville dans les données chargées |
+| Historique de déménagement limité à la démonstration | Le mécanisme d'historisation (SCD 2) est en place et testé ; l'entrepôt local contient 200 versions 2, issues de la démonstration du 12/10/2026 ; un entrepôt reconstruit par le pipeline seul n'en contient aucune |
 | Pas de rafraîchissement automatique | Le tableau de bord se met à jour à la demande, après exécution du pipeline |
 
 ## 8. Annexes
