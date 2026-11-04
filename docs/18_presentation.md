@@ -45,7 +45,7 @@
 | 17 | Les résultats | — | On réussit les quiz, on ne finit pas les parcours | 93,13 % ; 65,59 % ; 6,24 % ; 28,6 % ; associations, pas causes |
 | 18 | Les résultats | — | 6 409 heures de cours non remplacées en trois ans | Graphique heures remplacées / non remplacées ; masse salariale ; salaire moyen |
 | 19 | Décider | 11 | Sept recommandations, deux priorités | R1 à R7, KPI de suivi, priorité ; pourquoi R1 d'abord |
-| 20 | Décider | — | Ce que ces données ne permettent pas de dire | Simulation, angles morts, Kaffrine, absence d'historique SCD 2 |
+| 20 | Décider | — | Ce que ces données ne permettent pas de dire | Simulation, angles morts, Kaffrine, historique SCD 2 limité à la démonstration |
 | 21 | Décider | — | Engager et écouter | Conclusion : première décision, mesurer la satisfaction |
 
 ## 3. Les chiffres du support et leur source
