@@ -28,6 +28,24 @@ dans le modèle Power BI : le filtre de région ne s'appliquait qu'au montant d�
 montant encaissé. La relation a été activée et les autres relations vers `dim_region`
 contrôlées ([détail du correctif](docs/13_powerbi.md)).
 
+### Tableau de bord Power BI
+
+Rapport de 4 pages, sur les données synthétiques du projet. Il n'existe pas de version interactive en ligne : le rapport se consulte en [PDF](powerbi/EduSmart.pdf), ou en [`.pbix`](powerbi/EduSmart.pbix) (47,6 Mo, à ouvrir dans Power BI Desktop). Voir aussi la [construction du modèle et des mesures](docs/13_powerbi.md) et le [récit des données](docs/14_data_storytelling.md).
+
+**Vue Direction : les 8 KPI.** La réussite, la progression, les étudiants actifs, le temps médian et le nombre d'étudiants restent des valeurs nationales : ils ne suivent pas le filtre région.
+
+![Page Vue Direction : cartes des KPI, CA encaissé et montant dû par année académique, CA encaissé par région](docs/figures/powerbi/vue_direction.png)
+
+**Finance : CA encaissé par mois, recouvrement par filière et par année, impayés par filière, paiements négatifs exclus du CA.**
+
+![Page Finance : CA par mois, taux de recouvrement par filière et année, impayés par filière, paiements négatifs par mode de paiement](docs/figures/powerbi/finance.png)
+
+**Engagement : étudiants actifs, connexions par jour et par heure, durée de connexion par appareil.**
+
+![Page Engagement : cartes d'activité, connexions par jour et par heure, durée de connexion par appareil, connexions par mois](docs/figures/powerbi/engagement.png)
+
+La quatrième page, Pédagogie, est dans le [PDF](powerbi/EduSmart.pdf).
+
 ---
 
 ## 1. État d'avancement
@@ -90,7 +108,7 @@ edusmart-decision-platform/
 ├── scripts/diagnostic_perf.py        diagnostic de performance de l'entrepôt (L6)
 ├── scripts/visualisations.py         les 5 graphiques de la Phase 12 (L8)
 ├── scripts/verifier_g5b.py           porte G5b : DAX de Power BI = KPI SQL (L8)
-├── docs/                         recherches et rapports des phases 1 à 18 (Markdown), figures/ (graphiques de la Phase 12)
+├── docs/                         recherches et rapports des phases 1 à 18 (Markdown), figures/ (graphiques de la Phase 12, captures du rapport Power BI dans figures/powerbi/)
 ├── presentation/                 EduSmart_presentation.pptx : support de la Phase 18 (21 diapositives)
 ├── pipeline/                     ELT : extract_*.py, load.py, transform.py, run_pipeline.py, portes G2, G3, G4 et G6, load_dw.py, olap.py, kpi.py, sql/{meta,staging,quality,clean,dw,olap}
 ├── powerbi/                      mesures DAX, guide de construction, EduSmart.pbix (47,6 Mo), EduSmart.pdf (export 4 pages), saisie G5b
