@@ -10,7 +10,7 @@
 
 ## 1. Le modèle relationnel
 
-Power BI importe les 15 tables du schéma `dw` (7 dimensions, 8 faits) et reproduit la **constellation** de la Phase 8. Les 26 relations sont de cardinalité **plusieurs à un**, filtrent **de la dimension vers le fait**, et doivent toutes être **actives** (voir l'encadré ci-dessous : l'une d'elles ne l'était pas, corrigée en L10).
+Power BI importe 16 tables : les 15 du schéma `dw` (7 dimensions, 8 faits), qui reproduisent la **constellation** de la Phase 8, et la vue `v_kpi_annee`. Les 27 relations sont de cardinalité **plusieurs à un**, filtrent **de la dimension vers le fait**, et doivent toutes être **actives** (voir ci-dessous : deux ne l'étaient pas, corrigées en L10 et le 04/11/2026). 26 relations relient les faits aux dimensions ; la 27e relie `dim_formation[annee_academique]` à `v_kpi_annee`, la vue des KPI financiers et d'abandon par année académique, qu'aucun visuel du rapport n'utilise.
 
 **Deux adaptations par rapport au DW, et pourquoi :**
 
@@ -31,7 +31,7 @@ Power BI importe les 15 tables du schéma `dw` (7 dimensions, 8 faits) et reprod
 >
 > **Corrections complémentaires (21/10/2026) :** l'interaction du segment région avec la matrice du recouvrement (page Finance) a été rétablie, la carte « CA encaissé » formatée en milliards, le tableau des paiements négatifs par mode de paiement corrigé.
 >
-> **Écart restant, non expliqué :** segments année et niveau vides, la matrice affiche pour Kaffrine un recouvrement de **89,29 %** (86,59 % ; 92,21 % ; 88,06 % par année académique), contre **89,68 %** dans l'entrepôt (requête K1). Les deux calculs ont la même définition (ratio des sommes : `DIVIDE([CA encaissé], [Montant dû])` d'un côté, `SUM(montant_ca) / SUM(montant_du)` de l'autre) : un écart de 0,39 point signifie qu'ils ne portent pas exactement sur la même population. Ni une moyenne de ratios, ni un filtre de segment ne l'expliquent. Prochaine vérification : comparer, pour Kaffrine, `[CA encaissé]` et `[Montant dû]` aux colonnes `ca` et `du` de K1, puis inspecter les filtres de page et de visuel de la page Finance. **La valeur qui fait foi reste celle de l'entrepôt.**
+> **Écart de 0,39 point, expliqué (04/11/2026) :** l'ancien `.pbix` affichait pour Kaffrine **89,29 %** (CA 428 936 500 ; dû 480 397 500), contre **89,68 %** dans l'entrepôt (CA 437 772 500 ; dû 488 175 834). Ces anciens montants sont ceux de l'entrepôt quand chaque étudiant est rattaché à sa région **courante** : le lot `B20261012T171453` contient 200 versions 2, datées du 12/10/2026. Les données importées venaient donc d'un autre état que l'entrepôt. Après actualisation sur ce lot, Power BI retrouve Kaffrine à 89,68 % et Dakar à 90,16 % (CA 3 896 839 000 ; dû 4 322 150 836) ; le total reste à 90,10 %. **La valeur qui fait foi reste celle de l'entrepôt.**
 >
 > **Leçon :** après la création du modèle, relire **chaque** relation dans la vue Modèle (trait plein = active), et tester au moins une mesure **filtrée** par chaque dimension, pas seulement les totaux.
 
@@ -90,7 +90,7 @@ Utiliser la seconde sur la page Finance ferait réapparaître l'année « 2022-2
 | **Pédagogie** | Les étudiants apprennent-ils ? | Histogramme des scores, carte de chaleur catégorie × niveau, nuage tentatives × score |
 | **Engagement** | Sont-ils présents ? | Carte de chaleur jour × heure, boxplot par appareil, étudiants actifs |
 | RH (facultative) | Masse salariale et absences | Courbe, barres par motif |
-| Contrôle G5b (masquée) | Les mesures sont-elles justes ? | Tableau des 8 mesures, 6 décimales |
+| Contrôle G5b (masquée) | Les mesures sont-elles justes ? | Tableau des 8 mesures et du montant dû |
 
 **Principes de mise en page :**
 - une page = une question ;
@@ -110,7 +110,13 @@ Le fichier de saisie ne contient pas les valeurs attendues : la saisie reste « 
 
 La chaîne de confiance est alors complète : **SQL (DW) = Python (clean) = DAX (Power BI)**, soit trois langages et trois couches pour les mêmes 8 chiffres.
 
+**Porte G5b, lot `B20261012T171453` : 8/8,** relue le 04/11, Power BI = vues SQL ; G5a non rejouée localement (couche clean vide après redémarrage de PostgreSQL).
+
 **Limite de G5b, révélée en L10.** G5b ne compare que des valeurs **sans filtre**. Or une relation inactive ne change pas un total : elle ne fausse que les valeurs **filtrées** par la dimension concernée. G5b était donc verte (8/8) alors que tout filtre par région faussait le CA. Une version renforcée de la porte comparerait aussi quelques valeurs filtrées par chaque dimension (par exemple le recouvrement d'une région, calculé en SQL et lu dans Power BI).
+
+**Seconde relation inactive, corrigée le 04/11/2026.** `fact_quiz_activite[quiz_key] → dim_quiz[quiz_key]` était inactive, et aucune mesure ne l'activait par `USERELATIONSHIP`. Aucun visuel n'utilisant `dim_quiz`, aucun chiffre affiché n'était faussé. Relation activée puis testée : `Événements de quiz` varie selon `dim_quiz[code_quiz]` (128, 126, 124…, 2 268 pour la ligne vide), pour un total de 46 068.
+
+**Limite du filtre région.** Le CA, le recouvrement et l'abandon suivent le filtre région. Le taux de réussite, la progression et les étudiants actifs n'ont pas changé avec Kaffrine : `fact_notes`, `fact_progression` et `fact_connexions` n'ont pas de `region_key`, et la relation `dim_etudiant → dim_region` est supprimée. Le temps médian et le nombre d'étudiants reposent sur les mêmes tables. Une mention le signale sur la Vue Direction : « valeurs nationales, non filtrées par région ».
 
 ## Références
 

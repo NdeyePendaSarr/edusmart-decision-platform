@@ -53,7 +53,7 @@ Oui, et voici pourquoi :
 | **Les erreurs de saisie sont traitées, pas ignorées** | 159 946 anomalies traitées : 55 853 corrigées, 25 932 traitées par rejet, 78 161 signalées sans être devinées |
 | **Chaque KPI est calculé trois fois** | Trois langages, trois couches (SQL sur l'entrepôt, Python sur les données nettoyées, DAX dans Power BI) : même résultat sur les totaux non filtrés |
 | **Les contrôles savent détecter une erreur** | 9 tests introduisent volontairement une erreur (ligne perdue, clé orpheline, montant faussé de 1 000 XOF) : tous détectés |
-| **Un taux aberrant du tableau de bord a été diagnostiqué** | Un taux observé dans Power BI (Kaffrine) a été recalculé dans l'entrepôt : 89,68 %, valeur normale. Un écart de 0,39 point reste non expliqué (§ 7.2) |
+| **Un taux aberrant du tableau de bord a été diagnostiqué** | Un taux observé dans Power BI (Kaffrine) a été recalculé dans l'entrepôt : 89,68 %, valeur normale. L'écart de 0,39 point qui restait est expliqué (§ 7.2) |
 
 ## 4. Les indicateurs clés
 
@@ -173,9 +173,9 @@ Un filtre sur la région de Kaffrine affichait **2 821 %** dans Power BI. L'entr
 | Recouvrement de Kaffrine, calculé dans l'entrepôt | **89,68 %** : normal (14 régions entre 88,57 % et 93,29 %) |
 | Recouvrement par filière à Kaffrine | de 79,84 % à 100 %, **aucun au-dessus de 100 %** |
 | Paiements rattachés à une autre région que leur inscription | **0** sur 38 372 |
-| Étudiants ayant déménagé (versions SCD 2) | **0** |
+| Étudiants ayant déménagé (versions SCD 2) | **0** à cette date ; 200 dans le lot actuel, datées du 12/10/2026 |
 
-**Conclusion** : l'entrepôt est juste. Les hypothèses « petit effectif » et « déménagements » ont été testées et **réfutées**. La cause était dans le tableau de bord : la relation entre les paiements et les régions était **inactive**. Un filtre de région s'appliquait au montant dû, mais pas au chiffre d'affaires : le CA de toutes les régions était divisé par le dû de Kaffrine seule. **Corrigé le 21/10/2026** : le CA se répartit désormais correctement entre les régions (Dakar 29 %, Thiès 13 %, comme dans l'entrepôt). Power BI affiche désormais **89,29 %** pour Kaffrine, contre **89,68 %** dans l'entrepôt : l'aberration a disparu, mais il reste un écart de 0,39 point, non expliqué à ce jour et documenté dans [13_powerbi.md](13_powerbi.md). **La valeur qui fait foi est celle de l'entrepôt, 89,68 %.**
+**Conclusion** : l'entrepôt est juste. Les hypothèses « petit effectif » et « déménagements » ont été testées et **réfutées** pour ce 2 821 %. La cause était dans le tableau de bord : la relation entre les paiements et les régions était **inactive**. Un filtre de région s'appliquait au montant dû, mais pas au chiffre d'affaires : le CA de toutes les régions était divisé par le dû de Kaffrine seule. **Corrigé le 21/10/2026** : le CA se répartit désormais correctement entre les régions (Dakar 29 %, Thiès 13 %, comme dans l'entrepôt). L'écart de 0,39 point qui restait (**89,29 %** contre **89,68 %**) est expliqué : l'ancien `.pbix` portait des données d'un autre état que l'entrepôt. Actualisé le 04/11/2026, il retrouve 89,68 % ([13_powerbi.md](13_powerbi.md)). **La valeur qui fait foi est celle de l'entrepôt, 89,68 %.**
 
 **Règles de lecture pour le décideur :**
 - un taux se calcule en agrégeant **séparément** le numérateur (paiements) et le dénominateur (inscriptions) ; additionner après avoir croisé les deux tables gonfle le dénominateur (une vérification intermédiaire, faite ainsi, avait donné 32 à 47 % : un autre faux résultat) ;

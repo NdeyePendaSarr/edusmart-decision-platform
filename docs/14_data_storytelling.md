@@ -211,13 +211,13 @@ ORDER BY recouvrement_pct DESC NULLS FIRST;
 | K1 : recouvrement par région | Kaffrine **89,68 %** ; les 14 régions entre 88,57 % (Matam) et 93,29 % (Kédougou) | Kaffrine est normale |
 | K2 : par filière à Kaffrine, chaque fait agrégé séparément | De 79,84 % à 100 % | Aucun taux au-dessus de 100 % |
 | K3 : paiements rattachés à une autre région que leur inscription | **0** sur 38 372 | Hypothèse « déménagements SCD 2 » réfutée |
-| K4 : versions SCD 2 dans `dim_etudiant` | **0** | Réfutée une seconde fois : aucun étudiant n'a déménagé dans le DW actuel |
+| K4 : versions SCD 2 dans `dim_etudiant` | **0** à cette date ; 200 dans le lot actuel, datées du 12/10/2026 | Réfutée pour le 2 821 % : K3 reste à 0 sur le lot actuel |
 
 **Le Data Warehouse est juste ; le 2 821 % venait du modèle Power BI.**
 
 **Cause identifiée et corrigée (21/10/2026).** La relation `fact_paiements[region_key] → dim_region[region_key]` était **inactive**. Un filtre sur Kaffrine filtrait donc le montant dû (les inscriptions de Kaffrine) mais **pas** le CA (les paiements de toutes les régions) : 13,55 Mds XOF rapportés au seul dû de Kaffrine. Le même défaut rendait égales les 14 barres du graphique « CA par région » de la page Vue Direction. La relation a été rendue active : dans l'export du 21/10/2026, le CA par région suit désormais l'entrepôt (Dakar ≈ 3,9 Mds XOF, soit 29 % ; Thiès ≈ 1,8 Md, soit 13 %). Le numérateur du taux est donc filtré comme le dénominateur.
 
-**Écart restant, non expliqué :** une fois la matrice de la page Finance rétablie et les segments année et niveau vidés, Power BI affiche **89,29 %** pour Kaffrine, contre **89,68 %** dans l'entrepôt. Le correctif a fait disparaître l'aberration (2 821 %), mais pas tout l'écart. Les deux calculs étant des ratios des sommes, ils devraient coïncider ; l'écart de 0,39 point reste à expliquer ([13_powerbi.md](13_powerbi.md)). La valeur qui fait foi est celle de l'entrepôt, **89,68 %**.
+**Écart de 0,39 point, expliqué (04/11/2026) :** l'ancien `.pbix` portait des données d'un autre état que l'entrepôt : **89,29 %** pour Kaffrine, contre **89,68 %**. Actualisé sur le lot `B20261012T171453`, il retrouve 89,68 %, et le total reste à 90,10 % ([13_powerbi.md](13_powerbi.md)). La valeur qui fait foi est celle de l'entrepôt, **89,68 %**.
 
 Pourquoi la porte G5b ne l'avait pas vu : elle compare les mesures **sans filtre**, et une relation inactive ne change aucun total ([13_powerbi.md](13_powerbi.md), § 7).
 
