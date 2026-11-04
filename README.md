@@ -30,7 +30,7 @@ contrôlées ([détail du correctif](docs/13_powerbi.md)).
 
 ### Tableau de bord Power BI
 
-Rapport de 4 pages, sur les données synthétiques du projet. Il n'existe pas de version interactive en ligne : le rapport se consulte en [PDF](powerbi/EduSmart.pdf), ou en [`.pbix`](powerbi/EduSmart.pbix) (47,6 Mo, à ouvrir dans Power BI Desktop). Voir aussi la [construction du modèle et des mesures](docs/13_powerbi.md) et le [récit des données](docs/14_data_storytelling.md).
+Rapport de 4 pages, sur les données synthétiques du projet. Il n'existe pas de version interactive en ligne : le rapport se consulte en [PDF](powerbi/EduSmart.pdf), ou en [`.pbix`](powerbi/EduSmart.pbix) (47,5 Mo, à ouvrir dans Power BI Desktop). Voir aussi la [construction du modèle et des mesures](docs/13_powerbi.md) et le [récit des données](docs/14_data_storytelling.md).
 
 **Vue Direction : les 8 KPI.** La réussite, la progression, les étudiants actifs, le temps médian et le nombre d'étudiants restent des valeurs nationales : ils ne suivent pas le filtre région.
 
@@ -113,7 +113,7 @@ edusmart-decision-platform/
 ├── docs/                         recherches et rapports des phases 1 à 18 (Markdown), figures/ (graphiques de la Phase 12, captures du rapport Power BI dans figures/powerbi/)
 ├── presentation/                 EduSmart_presentation.pptx : support de la Phase 18 (21 diapositives)
 ├── pipeline/                     ELT : extract_*.py, load.py, transform.py, run_pipeline.py, portes G2, G3, G4 et G6, load_dw.py, olap.py, kpi.py, sql/{meta,staging,quality,clean,dw,olap}
-├── powerbi/                      mesures DAX, guide de construction, EduSmart.pbix (47,6 Mo), EduSmart.pdf (export 4 pages), saisie G5b
+├── powerbi/                      mesures DAX, guide de construction, EduSmart.pbix (47,5 Mo), EduSmart.pdf (export 4 pages), saisie G5b
 ├── sources/
 │   ├── s1_postgresql/            Source 1 : SQL, génération, insertion, vérification G1
 │   ├── s2_mysql/                 Source 2 : idem pour MySQL
