@@ -116,7 +116,7 @@ La chaîne de confiance est alors complète : **SQL (DW) = Python (clean) = DAX 
 
 **Seconde relation inactive, corrigée le 04/11/2026.** `fact_quiz_activite[quiz_key] → dim_quiz[quiz_key]` était inactive, et aucune mesure ne l'activait par `USERELATIONSHIP`. Aucun visuel n'utilisant `dim_quiz`, aucun chiffre affiché n'était faussé. Relation activée puis testée : `Événements de quiz` varie selon `dim_quiz[code_quiz]` (128, 126, 124…, 2 268 pour la ligne vide), pour un total de 46 068.
 
-**Limite du filtre région.** Le CA, le recouvrement et l'abandon suivent le filtre région. Le taux de réussite, la progression et les étudiants actifs n'ont pas changé avec Kaffrine : `fact_notes`, `fact_progression` et `fact_connexions` n'ont pas de `region_key`, et la relation `dim_etudiant → dim_region` est supprimée. Le temps médian et le nombre d'étudiants reposent sur les mêmes tables.
+**Limite du filtre région.** Le CA, le recouvrement et l'abandon suivent le filtre région. Le taux de réussite, la progression et les étudiants actifs n'ont pas changé avec Kaffrine : `fact_notes`, `fact_progression` et `fact_connexions` n'ont pas de `region_key`, et la relation `dim_etudiant → dim_region` est supprimée. Le temps médian et le nombre d'étudiants reposent sur les mêmes tables. Une mention le signale sur la Vue Direction : « valeurs nationales, non filtrées par région ».
 
 ## Références
 
