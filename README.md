@@ -36,7 +36,7 @@ Rapport de 4 pages, sur les données synthétiques du projet. Il n'existe pas de
 
 ![Page Vue Direction : cartes des KPI, CA encaissé et montant dû par année académique, CA encaissé par région](docs/figures/powerbi/vue_direction.png)
 
-**Finance : CA encaissé par mois, recouvrement par filière et par année, impayés par filière, paiements négatifs exclus du CA.**
+**Finance : CA encaissé par mois, recouvrement par filière et par année, les 10 filières aux impayés les plus élevés, paiements négatifs exclus du CA.**
 
 ![Page Finance : CA par mois, taux de recouvrement par filière et année, impayés par filière, paiements négatifs par mode de paiement](docs/figures/powerbi/finance.png)
 
@@ -44,7 +44,9 @@ Rapport de 4 pages, sur les données synthétiques du projet. Il n'existe pas de
 
 ![Page Engagement : cartes d'activité, connexions par jour et par heure, durée de connexion par appareil, connexions par mois](docs/figures/powerbi/engagement.png)
 
-La quatrième page, Pédagogie, est dans le [PDF](powerbi/EduSmart.pdf).
+**Pédagogie : scores, tentatives et validation par catégorie et par niveau.**
+
+![Page Pédagogie : tentatives par score sur 20, tentatives et score moyen par étudiant, taux de validation par catégorie et niveau](docs/figures/powerbi/pedagogie.png)
 
 ---
 
