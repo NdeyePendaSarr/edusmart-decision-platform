@@ -29,7 +29,8 @@ Justification des choix : [`docs/12_visualisations.md`](../docs/12_visualisation
 4. Dans le navigateur, cochez les **15 tables** du schéma `dw` :
    - `dim_temps`, `dim_etudiant`, `dim_formation`, `dim_module`, `dim_quiz`, `dim_enseignant`, `dim_region` ;
    - `fact_paiements`, `fact_inscriptions`, `fact_notes`, `fact_quiz_activite`, `fact_connexions`, `fact_progression`, `fact_salaires`, `fact_absences` ;
-   - facultatif : `v_kpi`, pour la page de contrôle G5b (§ 7).
+   - facultatif : `v_kpi`, pour la page de contrôle G5b (§ 7) ;
+   - facultatif : `v_kpi_annee`, reliée à `dim_formation[annee_academique]` : c'est la 27e relation du fichier livré.
 
    Ne cochez pas `cube_*` : Power BI refait lui-même les agrégations.
 5. Cliquez sur **Transformer les données** (et non « Charger »).
