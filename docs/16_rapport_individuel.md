@@ -26,7 +26,7 @@ EduSmart est une plateforme de formation en ligne dont les données sont dispers
 | 6 | Construire un tableau de bord | Power BI, 4 pages, 31 mesures DAX, 27 relations, 5 hiérarchies | `powerbi/EduSmart.pbix`, porte **G5b 8/8** |
 | 7 | Rédiger un rapport d'analyse | Data Storytelling, rapport décisionnel | [14_data_storytelling.md](14_data_storytelling.md), [17_rapport_decisionnel.md](17_rapport_decisionnel.md) |
 
-Et, au-delà du PDF : une porte de **tests de bout en bout** (**G6 101/101**) et **398 tests automatisés** (§ 7).
+Et, au-delà du PDF : une porte de **tests de bout en bout** (**G6 101/101**) et **399 tests automatisés** (§ 7).
 
 ## 3. La démarche : des lots et des portes de contrôle
 
@@ -99,12 +99,12 @@ Chaque difficulté ci-dessous a réellement eu lieu ; elle est tracée dans le l
 | Niveau | Volume | Rôle |
 |---|---:|---|
 | Tests unitaires (sans base) | 328 | Règles de nettoyage, calculs des KPI, équation de conservation, cohérence des chiffres des rapports |
-| Tests d'intégration (5 sources chargées dans de vraies bases) | 70 | Pipeline complet, portes, idempotence, cas limites du SCD 2, **9 tests de mutation** |
+| Tests d'intégration (5 sources chargées dans de vraies bases) | 71 | Pipeline complet, portes, idempotence, cas limites du SCD 2, **9 tests de mutation** |
 | Portes de contrôle | G0 à G6 | 7 portes ; G0 et G5b ne sont pas rejouées en CI |
 
 Les KPI sont calculés par **trois chemins** qui doivent donner le même résultat : SQL sur le DW, Python sur la couche clean (porte G5a), DAX dans Power BI (porte G5b). La porte G6 fige ces valeurs : toute modification du pipeline qui changerait un KPI la fait échouer.
 
-Résultat constaté : 398 tests passés, 0 ignoré, 0 échec, en CI, Linux, Python 3.12, et 7 pannes réelles passées ([run](https://github.com/NdeyePendaSarr/edusmart-decision-platform/actions/runs/41694410668)). Le détail est dans [15_tests_pipeline.md](15_tests_pipeline.md).
+Résultat constaté : 399 tests passés, 0 ignoré, 0 échec, en CI, Linux, Python 3.12, et 7 pannes réelles passées ([run](https://github.com/NdeyePendaSarr/edusmart-decision-platform/actions/runs/41756811014)). Le détail est dans [15_tests_pipeline.md](15_tests_pipeline.md).
 
 ## 8. Limites du projet
 
@@ -126,7 +126,7 @@ Résultat constaté : 398 tests passés, 0 ignoré, 0 échec, en CI, Linux, Pyth
 
 **Ce que j'ai préféré.** La construction du tableau de bord Power BI, parce qu'elle transforme dix lots de travail technique en quelque chose de visuel et de compréhensible pour un décideur.
 
-**Ce que j'ai appris.** Les fondamentaux de la BI de bout en bout (ETL/ELT, Data Warehouse en constellation, OLAP, KPI, Power BI), mais aussi la rigueur nécessaire pour intégrer cinq sources hétérogènes sans perdre une seule ligne, et l'importance des tests automatisés (398 tests : 328 unitaires et 70 d'intégration) pour garantir la fiabilité.
+**Ce que j'ai appris.** Les fondamentaux de la BI de bout en bout (ETL/ELT, Data Warehouse en constellation, OLAP, KPI, Power BI), mais aussi la rigueur nécessaire pour intégrer cinq sources hétérogènes sans perdre une seule ligne, et l'importance des tests automatisés (399 tests : 328 unitaires et 71 d'intégration) pour garantir la fiabilité.
 
 **Ce que je referais autrement.** Je prendrais plus de temps sur la modélisation initiale pour anticiper les pièges comme le fan-out, et je documenterais mes décisions au fur et à mesure plutôt qu'à la fin.
 
